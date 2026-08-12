@@ -1,0 +1,253 @@
+\section{The integral envelope and the exotic cubic sheet}
+\label{sec:envelope}
+
+Let \(\Omega\) be the six conjugate \(D_5\)-subgroups of \(A_5\), equivalently
+the six Sylow-\(5\) subgroups with their normalizers.  Put
+\[
+ A(\Omega)=\ker\bigl(\Z^\Omega\xrightarrow{\sum}\Z\bigr),
+ \qquad A(\Omega)^\vee=\Hom(A(\Omega),\Z).
+\]
+The perfect evaluation pairing defines a unimodular alternating form on
+\[
+ \mathcal H_{\mathrm{ref}}(\Omega)
+   =A(\Omega)^\vee e\oplus A(\Omega)f,
+ \qquad
+ \langle xe,yf\rangle=y(x).
+\]
+This is the hyperbolic symplectic envelope of the oriented six-set.
+
+\begin{proposition}[Universal envelope]
+\label{prop:universal-envelope}
+The construction \(\Omega\mapsto\mathcal H_{\mathrm{ref}}(\Omega)\) is
+functorial for permutations of \(\Omega\).  Rationally it is the unique
+rank-ten symplectic \(A_5\)-module whose two Lagrangians are copies of the
+standard five-dimensional constituent and whose pairing restricts to the
+root--weight evaluation pairing.
+\end{proposition}
+
+\begin{proof}
+The permutation lattice and its augmentation kernel are functorial.  The
+evaluation pairing between \(A(\Omega)\) and its dual is perfect, so the
+displayed alternating form is unimodular.  Over \(\Q\), the augmentation
+module is absolutely irreducible and its invariant symmetric form is unique
+up to scale.  Schur's lemma therefore writes every symplectic module with
+two such constituents as \(A(\Omega)_\Q\otimes U\), where \(U\) is a
+symplectic plane.  Requiring the two integral Lagrangians to pair perfectly
+fixes the root--weight lattice above.
+\end{proof}
+
+The finite golden orientation enters at the prime two.  Let
+\[
+ H_2=\operatorname{Aug}(\F_2^\Omega)/\langle\mathbf1\rangle.
+\]
+Then \(H_2\) is simple and \(\End_{A_5}(H_2)=\F_4\).  A normalized conference
+operator acts integrally on \(\Z^\Omega\).  After labeling \(\Omega\), one
+switching representative is
+\[
+B=\begin{pmatrix}
+0&1&1&1&1&1\\
+1&0&1&1&-1&-1\\
+1&1&0&-1&1&-1\\
+1&1&-1&0&-1&1\\
+1&-1&1&-1&0&1\\
+1&-1&-1&1&1&0
+\end{pmatrix},
+\qquad B^2=5I.
+\]
+Passing to
+the canonical saturation
+\[
+ D_6^\vee=\Z^\Omega+\Z\frac{\mathbf1}{2},
+ \qquad \varphi=\frac{I+B}{2},
+\]
+gives \(\varphi^2-\varphi-1=0\).  Its reduction on the commutator heart is
+one of the two primitive scalars \(\omega,\omega^2\in\F_4\), and replacing
+\(B\) by \(-B\) applies Frobenius.
+
+\begin{proposition}[Golden selection of the exotic pair]
+\label{prop:golden-exotic}
+The two orientations of the conference class determine the two primitive
+scalars in \(\End_{A_5}(H_2)=\F_4\).  Under orientation reversal,
+\[
+ B\longmapsto-B,
+ \qquad \omega\longmapsto\omega^2.
+\]
+Thus the golden-orientation torsor is canonically the Frobenius torsor of
+the exotic two-primary principal gluings.
+\end{proposition}
+
+\begin{proof}
+Every column of \((I+B)/2\) has the same half-integral class modulo
+\(\Z^\Omega\), so \(D_6^\vee\) is the least stable over-lattice.  The
+commutator submodule of \(D_6^\vee/2D_6^\vee\) is the four-dimensional
+six-point heart and its quotient is a trivial \(\F_4\)-line.  The extension
+has no invariant \(\F_4\)-line, so the restriction of \(\bar\varphi\) to the
+heart is primitive.  Finally \((I-B)/2=1-\varphi\), and in characteristic
+two \(1-\omega=\omega^2\).
+\end{proof}
+
+We now recall the geometric source of the same lattice.  Let \(S\) be the
+Fano surface of a smooth member of the \(A_5\)-pencil and
+\((J,\Theta)=\Alb(S)\) its intermediate Jacobian.  Each of the six
+\(D_5\)-subgroups gives an elliptic quotient \(q_H:J\to E_H\) and its Rosati
+dual \(i_H:E_H\to J\).
+
+\begin{proposition}[Six-axis polarization]
+\label{prop:six-axis-polarization}
+After coherent identification of the elliptic factors, the Rosati Gram
+matrix of the six maps is
+\[
+ G_6=6I_6-J_6.
+\]
+Any five axes therefore give an isogeny \(E^5\to J\) whose pulled-back
+polarization has Smith type \((1,6,6,6,6)\).
+\end{proposition}
+
+\begin{proof}
+We recall the numerical passage from Roulleau's genus-two configuration to
+the six elliptic fibres.  Let \(D_g\subset S\) be the curve indexed by an
+involution \(g\in A_5\), put \(D_{\mathrm{tot}}=\sum_gD_g\), and, for a
+dihedral subgroup \(H\) of order ten, put
+\[
+ F_H=\sum_{g\in H,\;g^2=1}D_g.
+\]
+Roulleau proves that \(F_H\) is a fibre of \(S\to E_H\)
+\cite[Theorem~11(D)]{Roulleau}, so \(F_H^2=0\).  His intersection table has
+\(D_g^2=-4\), and distinct curves meet with multiplicity two or one when
+the product of their labels has order three or five, respectively.  Among
+the \(105\) unordered pairs of involutions, the product orders two, three,
+and five occur \(15,30,60\) times.  Hence
+\[
+ D_{\mathrm{tot}}^2
+ =15(-4)+2(30\cdot2+60\cdot1)=180.
+\]
+Every involution belongs to two of the six dihedral subgroups, and therefore
+\(\sum_HF_H=2D_{\mathrm{tot}}\).  Two-transitivity on the six subgroups now
+gives
+\[
+ 30(F_H\cdot F_{H'})=(2D_{\mathrm{tot}})^2=720,
+ \qquad F_H\cdot F_{H'}=24\quad(H\ne H').
+\]
+
+After coherent identification of the generic non-CM elliptic quotients,
+two-transitivity makes the Rosati matrix have diagonal \(d\) and
+off-diagonal \(m\).  Put
+\[
+ D_H=q_H^*[0]\in\NS(J),\qquad N_H=i_Hq_H\in\End(J).
+\]
+Then \(D_H|_S=F_H\), and \(N_H\) is the Rosati endomorphism attached to
+\(D_H\).  Coherent identification gives \(q_Hi_H=[d]\) and
+\(q_Hi_{H'}=[m]\) for \(H\ne H'\).  The invariant sum of the six axis maps
+vanishes because the five-dimensional constituent has no trivial summand;
+composing with \(q_H\) gives \(d+5m=0\).  The minimal-class identity
+\([S]=\Theta^3/3!\), together with the polarized Riemann--Roch trace formula
+\[
+ \frac{\alpha\beta\Theta^{g-2}}{(g-2)!}
+ =\operatorname{tr}(N_\alpha)\operatorname{tr}(N_\beta)
+  -\operatorname{tr}(N_\alpha N_\beta),
+\]
+obtained by polarizing the reduced-norm Riemann--Roch polynomial
+\cite[Theorem~4.1]{Grieve},
+gives
+\[
+ \operatorname{tr}(N_H)=d,
+ \qquad \operatorname{tr}(N_HN_{H'})=m^2,
+ \qquad F_HF_{H'}=d^2-m^2.
+\]
+Thus \(d^2-m^2=24\).  The positive solution is
+\((d,m)=(5,-1)\), hence \(G_6=6I-J\).  A five-by-five minor has Smith form
+\((1,6,6,6,6)\).
+\end{proof}
+
+\begin{proposition}[Principal gluing packet]
+\label{prop:principal-gluing-packet}
+The \(A_5\)-stable two-primary principal kernels of the six-axis source are
+parametrized by
+\[
+ \PP^1(\F_4)=\PP^1(\F_2)\sqcup\{\omega,\omega^2\}.
+\]
+The three \(\F_2\)-rational kernels are \(S_6\)-stable.  Each of the other
+two has stabilizer exactly \(A_5\), and the outer normalizer exchanges them.
+The intermediate Jacobian of the nonstandard \(A_5\)-cubic component uses
+the latter pair.  Every \(A_5\)-stable three-primary kernel is a scalar graph;
+the \(\Gamma_0(3)\) multiplicity monodromy selects one of them.
+\end{proposition}
+
+\begin{proof}
+At two the coefficient discriminant is the simple four-dimensional
+\(\F_2A_5\)-module \(H_2\), whose commutant is \(\F_4\).  The full
+discriminant is \(H_2\otimes_{\F_2}\F_2^2\).  An \(A_5\)-stable simple half
+is therefore a one-dimensional \(\F_4\)-subspace of \(\F_4^2\), and every
+such half is maximal isotropic for the tensor product of the coefficient
+form with the alternating multiplicity form.  This gives
+\(\PP^1(\F_4)\).
+
+Here is the polarization check explicitly.  Identify the coefficient heart
+with \(\F_4^2\) and put
+\[
+ b(x,y)=\operatorname{Tr}_{\F_4/\F_2}\det(x,y).
+\]
+On two multiplicity copies use
+\[
+ \Omega((x,y),(x',y'))=b(x,y')+b(y,x').
+\]
+Every scalar \(a\in\F_4\) is self-adjoint for \(b\), since
+\(b(ax,y)=b(x,ay)\).  Thus the vertical line and all four graphs
+\(\Gamma_a\) are isotropic of half dimension.  The five module-theoretic
+possibilities are exactly the five polarized gluings; no further quadratic
+condition removes the exotic pair.
+
+The simplex group acts on both multiplicity copies of the coefficient heart
+over \(\F_2\).  Hence the three lines defined over \(\F_2\) retain \(S_6\).
+The stabilizer of an exotic graph is equally intrinsic.  A permutation that
+fixes \(\Gamma_\omega\) commutes with \(\omega\), hence is \(\F_4\)-linear on
+the two-dimensional \(\F_4\)-space \(H_2\).  If its determinant is
+\(d\in\F_4^\times\), preservation of \(b\) says
+\[
+ \operatorname{Tr}_{\F_4/\F_2}(dz)
+ =\operatorname{Tr}_{\F_4/\F_2}(z)
+ \qquad(z\in\F_4).
+\]
+The trace pairing is nondegenerate, so \(d=1\).  It therefore lies in
+\(\operatorname{SL}_2(4)\), of order \(60\).  The given \(A_5\) already has
+that order and lies in the stabilizer, proving equality.  The odd coset in
+its order-\(120\) normalizer is semilinear and applies field Frobenius, so it
+exchanges \(\omega\) and \(\omega^2\).  Were the generic cubic kernel
+\(\F_2\)-rational, its principal polarization would inherit the faithful
+\(S_6\)-action.  Strong Torelli identifies
+\(\operatorname{Aut}(J,\Theta)\) with
+\(\operatorname{Aut}(X)\times\langle-1\rangle\).  Projection of this
+\(S_6\) to \(\operatorname{Aut}(X)\) remains faithful: its kernel would be a
+normal subgroup of \(S_6\) of order at most two, and no such nontrivial
+subgroup exists.  This contradicts the generic automorphism group \(A_5\) on
+the nonstandard component \cite[Section~5]{Hartlieb}.  Thus the generic
+kernel is exotic.
+The three rational kernels and the two exotic kernels are distinguished by
+their stabilizers under the fibrewise \(A_5\)-action; they are therefore
+distinct monodromy-stable subsets of the five-element gluing packet.  The
+geometric kernel is a finite sub-local-system, so generic exoticity and the
+connectedness of the smooth locus force it to remain in the exotic pair on
+every fibre.
+
+At three the coefficient heart \(H_3\) is simple and
+\(\End_{A_5}(H_3)=\F_3\).  Hence its \(A_5\)-stable halves are the four graphs
+parametrized by \(\PP^1(\F_3)\), all scalar in a suitable graph chart.
+\end{proof}
+
+Proposition~\ref{prop:golden-exotic} labels the two exotic members by the
+finite golden orientation.
+
+For the cycle-theoretic argument, the unordered pair is enough.  Both members
+act on the heart with the same squarefree minimal polynomial
+\(t^2+t+1\).  The golden orientation supplies the finer marked identification
+with one member of the pair, but Theorem~\ref{thm:exotic-minimal-class} uses
+only the conclusion that the geometric kernel is not one of the three
+\(\F_2\)-rational gluings.  At three it uses only scalarity of the possible
+\(A_5\)-stable graphs, not the finer monodromy selection.
+
+Hartlieb proves that its intermediate-Jacobian image is a one-dimensional
+special subvariety \cite[Proposition~5.7]{Hartlieb}.  Since the cubic period
+map is a locally closed embedding, the resulting smooth family is
+non-isotrivial.  Only this landing and nonconstancy are used below; no
+identification of compactified parameter curves is needed for the separation
+theorem.

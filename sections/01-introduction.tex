@@ -1,0 +1,110 @@
+\section{Introduction}
+
+A smooth projective variety is universally \(CH_0\)-trivial if the degree map
+\[
+  \deg:\CH_0(Y_L)\longrightarrow\Z
+\]
+is an isomorphism for every field extension \(L/\C\).  This condition is a
+central consequence of stable rationality, and its failure is a standard
+stable-rationality obstruction.  Its validity, however, need not provide a
+rational parametrization.  We ask how far that gap can persist after one
+explicit stabilization.
+
+Our examples are fourfolds of the form \(Y=X\times\PP^1\), where \(X\) is a
+smooth cubic threefold in the nonstandard \(A_5\)-invariant pencil.  Two
+independent mechanisms act on the same \(Y\).  The intermediate Jacobian of
+\(X\) has an algebraic primitive minimal class; this gives universal
+\(CH_0\)-triviality.  The big quantum connection of every smooth cubic
+contains a formal-monodromy atom with primitive sixth roots; weak
+factorization shows that this atom survives the product with \(\PP^1\).
+
+Here ``nonstandard'' has a precise representation-theoretic meaning.  Let
+\(W_5\) be the irreducible five-dimensional complex representation of
+\(A_5\), with character \((5,1,-1,0,0)\) on the classes
+\((1,2A,3A,5A,5B)\).  The symmetric-cube character formula gives
+\[
+ \dim \bigl(\operatorname{Sym}^3W_5^*\bigr)^{A_5}=2.
+\]
+Thus \(\PP((\operatorname{Sym}^3W_5^*)^{A_5})\cong\PP^1\) is a pencil of cubic
+hypersurfaces in \(\PP(W_5)\).  We denote its smooth locus by \(B^\circ\).
+It is the complement of the discriminant in the pencil and is connected.
+This is Hartlieb's irreducible-character component \(M_{H_1}\), as opposed
+to the component coming from the reducible permutation representation
+\(\mathbf1\oplus W_4\) \cite[Lemma~5.5]{Hartlieb}.
+
+\begin{theorem}[Separation after one stabilization]
+\label{thm:separation-family}
+Let \(\mathcal X\to B^\circ\) be the smooth family in the nonstandard
+\(A_5\)-invariant pencil of cubic threefolds.  For every
+ \(b\in B^\circ(\C)\),
+\[
+ \mathcal X_b\text{ is universally }CH_0\text{-trivial},
+ \qquad
+ \mathcal X_b\times\PP^1\text{ is universally }CH_0\text{-trivial and irrational}.
+\]
+The family is non-isotrivial in coarse moduli.
+\end{theorem}
+
+The irrationality statement does not depend on the symmetry of the pencil.
+
+\begin{theorem}[One-step irrationality]
+\label{thm:every-cubic}
+For every smooth complex cubic threefold \(X\), the fourfold
+\(X\times\PP^1\) is irrational.
+\end{theorem}
+
+We do not claim that \(X\) is stably irrational.  From the second
+stabilization onward, weak-factorization centers can themselves have cubic
+dimension, and the low-dimensional exclusion used here no longer applies.
+
+\subsection*{How the two proofs meet}
+
+The cycle-theoretic half starts from six elliptic quotients of the Fano
+surface.  Their Rosati Gram matrix is \(6I-J\), so any five axes give an
+isogeny \(E^5\to J(X)\) of polarization type \((1,6,6,6,6)\).  The
+two-primary principal kernels form \(\PP^1(\F_4)\).  Three retain the full
+simplex symmetry; the other two are exchanged by Frobenius and have
+stabilizer \(A_5\).  The cycle argument needs only this unordered exotic
+pair.  At two its graph slope has
+minimal polynomial \(t^2+t+1\); at three every \(A_5\)-stable graph is
+scalar.  Both local forms admit primitive mixed-adjugate formulas, which produce
+\(\Theta^4/4!\) as an integral product of divisor classes.
+
+The quantum half uses a different invariant.  We count primitive sixth-root
+eigenvalues of formal monodromy on the atoms of the maximal big-quantum
+\(F\)-bundle.  Cai's cubic calculation gives a nonzero count.  The
+projective-bundle formula doubles it on \(X\times\PP^1\).  If this fourfold
+were rational, weak factorization would express that count using centers of
+dimension at most two.  Surface classification and the low-dimensional atom
+formula show that every such center has count zero.
+
+\subsection*{Relation with earlier rationality results}
+
+Clemens and Griffiths proved that every smooth complex cubic threefold is
+irrational by means of its intermediate Jacobian \cite{CG}.  That obstruction
+does not by itself control a product with projective space, and stable
+rationality of smooth cubic threefolds remains open.  Cai recently recovered
+irrationality from the primitive-sixth-root formal monodromy of the cubic
+quantum connection \cite{Cai}.  Katzarkov--Kontsevich--Pantev--Yu supply the
+atom formalism, blowup and projective-bundle formulas, and the resulting
+nonrationality criterion \cite{KKPYY}.  Theorem~\ref{thm:every-cubic} combines
+these inputs at the next dimension: after one projective stabilization, the
+cubic atom still cannot be contributed by any weak-factorization center.
+
+On the cycle side, Voisin reduces universal \(CH_0\)-triviality of a cubic
+threefold to algebraicity of the primitive minimal class of its intermediate
+Jacobian \cite{Voisin}.  Beckmann--de Gaay Fortman place such minimal classes
+in a general integral-Fourier framework \cite{BdGF}.  Here the six elliptic
+quotients supplied by Roulleau and the special period locus isolated by
+Hartlieb make the class explicit: the new point is its membership in the
+ordinary integral divisor-product lattice for every smooth member of the
+nonstandard \(A_5\)-pencil.
+
+\subsection*{Proof map}
+
+Section~\ref{sec:envelope} constructs the rank-ten symplectic envelope and
+identifies the exotic cubic gluing.  Section~\ref{sec:minimal-class} proves
+the local divisor-product theorem and applies it to the primitive minimal
+class.  Section~\ref{sec:one-step} proves Theorem~\ref{thm:every-cubic} from
+formal monodromy and weak factorization.  The final section combines the two
+detectors and records the exact scope boundary.
