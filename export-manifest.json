@@ -1,5 +1,5 @@
 {
-  "excluded_path_count": 1,
+  "excluded_path_count": 11,
   "excluded_release_outputs": [],
   "excluded_symlinks": [],
   "exporter_blob": "7bc6af6a40123bfa071466d9ed3faeaafb7e8d60",
@@ -11,6 +11,15 @@
       "role": "export-support",
       "sha256": "8aec252fe1e8e2a04924eeac30581deea8368b151c9e82d6601a1d6393be8b27",
       "source_blob": null
+    },
+    {
+      "bytes": 1459,
+      "mode": "100644",
+      "path": ".zenodo.json",
+      "rewrites": [],
+      "role": "verification",
+      "sha256": "0d82e2612a143040947400b9cb79a5ee77fa6b0867f2988dc0dd2113b053b530",
+      "source_blob": "221640415692c957c7d8f818201253cb1ee5346f"
     },
     {
       "bytes": 470,
@@ -35,20 +44,26 @@
         {
           "expected_count": 1,
           "new": ".PHONY: all check manuscript warnings clean distclean",
-          "old": ".PHONY: all check lint manuscript warnings clean distclean",
-          "reason": "the monorepo-wide TeX lint helper is outside the standalone repository boundary"
+          "old": ".PHONY: all check lint formal-static manuscript warnings clean distclean",
+          "reason": "the monorepo-wide TeX lint helper and in-development Lean companion are outside this standalone export"
         },
         {
           "expected_count": 1,
           "new": "all: manuscript\n\ncheck: manuscript warnings",
-          "old": "all: lint manuscript\n\ncheck: lint manuscript warnings",
-          "reason": "the monorepo-wide TeX lint helper is outside the standalone repository boundary"
+          "old": "all: lint manuscript\n\ncheck: lint formal-static manuscript warnings",
+          "reason": "the monorepo-wide TeX lint helper and in-development Lean companion are outside this standalone export"
         },
         {
           "expected_count": 1,
           "new": "",
           "old": "lint:\n\t$(PYTHON) ../scripts/lint_tex_spacing.py $(SOURCE) sections/*.tex\n\n",
           "reason": "the monorepo-wide TeX lint helper is outside the standalone repository boundary"
+        },
+        {
+          "expected_count": 1,
+          "new": "",
+          "old": "formal-static:\n\t$(PYTHON) lean/verification/check_formal_artifact.py\n\n",
+          "reason": "the in-development Lean companion is intentionally excluded from this standalone export"
         },
         {
           "expected_count": 1,
@@ -59,24 +74,24 @@
       ],
       "role": "support",
       "sha256": "c2c3ccfddc57c4b5161b5b4538562d084408fb6faabcdc6cc5c7f85b6550d68b",
-      "source_blob": "36f77247a0b3d2016861073a8b5b193aaf805254"
+      "source_blob": "44ac0ade2288b8c6b0364124898f9d9120cff356"
     },
     {
       "bytes": 309,
       "mode": "100644",
       "path": "PROVENANCE.md",
       "role": "provenance",
-      "sha256": "dacdb16f0cd065135904693f1cd77edafc5b8f0b715626635cde3ba5b2146e23",
+      "sha256": "56e7cec361b48d358e9f69b80d9908356b9d6323d27ef8b6ac8d0abb91a09803",
       "source_blob": null
     },
     {
-      "bytes": 1011,
+      "bytes": 972,
       "mode": "100644",
       "path": "README.md",
       "rewrites": [],
       "role": "support",
-      "sha256": "080aeb3111d233fe1b29c4a449472aaa53914b826d348ff757ef1e21caa09e7e",
-      "source_blob": "ed6b1e0d70dd304a0feb82f9716bab9a60a139a0"
+      "sha256": "c03c7b3a8e3c56c1acd4c690102ca887ac6d1eec6812f682943e12f90eb9192a",
+      "source_blob": "609a58bf837835cecb58dd9d8b19ea12ff0fbb9f"
     },
     {
       "bytes": 154461,
@@ -177,10 +192,10 @@
   "paper_ids": [
     "cubic_stabilization_epilogue"
   ],
-  "paper_registry_sha256": "ed23242de831e55e8145a3bb7d308d606ab2c66a99723232ba75f71380210b2c",
+  "paper_registry_sha256": "aa3822e6161b66ab240d38769a12089ff6560680aa229fcd84e64f73c7ec8c29",
   "release_output_policy": "legacy-unspecified",
   "repository": "cubic-stabilization-epilogue",
-  "repository_map_sha256": "089e4a3c0145b474cf19d262a1f75e053efe95fa8884171c3e5e25e260493abc",
+  "repository_map_sha256": "690dc08aec21e4b915c91ce9401a255fe2a499d7660a76d82e790d05fdf3a9ee",
   "schema_version": 1,
-  "source_commit": "1590755e1e87f758dc67c0a84bf91a5524ba6b58"
+  "source_commit": "d79ac34bd8d1f309ac3c58950b2fc1657378404a"
 }
