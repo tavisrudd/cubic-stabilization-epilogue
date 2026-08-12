@@ -14,28 +14,18 @@ Our examples are fourfolds of the form \(Y=X\times\PP^1\), where \(X\) is a
 smooth cubic threefold in the nonstandard \(A_5\)-invariant pencil.  Two
 independent mechanisms act on the same \(Y\).  The intermediate Jacobian of
 \(X\) has an algebraic primitive minimal class; this gives universal
-\(CH_0\)-triviality.  The big quantum connection of every smooth cubic
-contains a formal-monodromy atom with primitive sixth roots; weak
-factorization shows that this atom survives the product with \(\PP^1\).
-
-Here ``nonstandard'' has a precise representation-theoretic meaning.  Let
-\(W_5\) be the irreducible five-dimensional complex representation of
-\(A_5\), with character \((5,1,-1,0,0)\) on the classes
-\((1,2A,3A,5A,5B)\).  The symmetric-cube character formula gives
-\[
- \dim \bigl(\operatorname{Sym}^3W_5^*\bigr)^{A_5}=2.
-\]
-Thus \(\PP((\operatorname{Sym}^3W_5^*)^{A_5})\cong\PP^1\) is a pencil of cubic
-hypersurfaces in \(\PP(W_5)\).  We denote its smooth locus by \(B^\circ\).
-It is the complement of the discriminant in the pencil and is connected.
-This is Hartlieb's irreducible-character component \(M_{H_1}\), as opposed
-to the component coming from the reducible permutation representation
-\(\mathbf1\oplus W_4\) \cite[Lemma~5.5]{Hartlieb}.
+\(CH_0\)-triviality.  The small even quantum connection of every smooth cubic
+has primitive-sixth framed formal monodromy; Iritani's quantum blowup formula
+shows that its multiplicity survives one stabilization.
 
 \begin{theorem}[Separation after one stabilization]
 \label{thm:separation-family}
-Let \(\mathcal X\to B^\circ\) be the smooth family in the nonstandard
-\(A_5\)-invariant pencil of cubic threefolds.  For every
+Let \(W_5\) be the five-dimensional irreducible \(A_5\)-module.  Inside
+\[
+ \PP\bigl((\operatorname{Sym}^3W_5^*)^{A_5}\bigr).
+\]
+let \(B^\circ\) be the smooth locus.  For the resulting family
+\(\mathcal X\to B^\circ\) and every
  \(b\in B^\circ(\C)\),
 \[
  \mathcal X_b\text{ is universally }CH_0\text{-trivial},
@@ -53,30 +43,41 @@ For every smooth complex cubic threefold \(X\), the fourfold
 \(X\times\PP^1\) is irrational.
 \end{theorem}
 
+The same invariant also gives one-step irrationality for every smooth prime
+Fano threefold of genus eight; see Corollary~\ref{cor:v14-one-step}.
+
+The invariant cubic space in Theorem~\ref{thm:separation-family} is
+two-dimensional.  Indeed, the character of \(W_5\) is
+\((5,1,-1,0,0)\) on the classes \(1,2A,3A,5A,5B\).  The symmetric-cube
+character formula gives
+\[
+ \dim \bigl(\operatorname{Sym}^3W_5^*\bigr)^{A_5}=2.
+\]
+Thus its projectivization is a pencil with connected smooth locus
+\(B^\circ\).  Hartlieb denotes it by \(M_{H_1}\); it is not the component
+associated with \(\mathbf1\oplus W_4\) \cite[Lemma~5.5]{Hartlieb}.
+
 We do not claim that \(X\) is stably irrational.  From the second
 stabilization onward, weak-factorization centers can themselves have cubic
 dimension, and the low-dimensional exclusion used here no longer applies.
 
 \subsection*{How the two proofs meet}
 
-The cycle-theoretic half starts from six elliptic quotients of the Fano
-surface.  Their Rosati Gram matrix is \(6I-J\), so any five axes give an
-isogeny \(E^5\to J(X)\) of polarization type \((1,6,6,6,6)\).  The
-two-primary principal kernels form \(\PP^1(\F_4)\).  Three retain the full
-simplex symmetry; the other two are exchanged by Frobenius and have
-stabilizer \(A_5\).  The cycle argument needs only this unordered exotic
-pair.  At two its graph slope has
-minimal polynomial \(t^2+t+1\); at three every \(A_5\)-stable graph is
-scalar.  Both local forms admit primitive mixed-adjugate formulas, which produce
-\(\Theta^4/4!\) as an integral product of divisor classes.
+The cycle argument starts from six elliptic quotients of the Fano surface.
+Their Rosati Gram matrix is \(6I-J\), and the geometric kernel lies in the
+exotic two-point complement of \(\PP^1(\F_2)\subset\PP^1(\F_4)\).  Its local
+graph slopes are finite etale at two and three.  The graph equations then
+make the descended divisor lattices rank-one generated.  Since rank-one
+coefficient divisors have square zero, \(\Theta^4/4!\) is an ordinary
+integral divisor product.
 
-The quantum half uses a different invariant.  We count primitive sixth-root
-eigenvalues of formal monodromy on the atoms of the maximal big-quantum
-\(F\)-bundle.  Cai's cubic calculation gives a nonzero count.  The
-projective-bundle formula doubles it on \(X\times\PP^1\).  If this fourfold
-were rational, weak factorization would express that count using centers of
-dimension at most two.  Surface classification and the low-dimensional atom
-formula show that every such center has count zero.
+The quantum argument counts primitive sixth-root eigenvalues of framed formal
+monodromy on the numerical small even quantum connection.  Iritani's
+operation formulas make this count additive through weak factorization;
+divisor tags repair a potentially noninjective center specialization.
+Cai's cubic calculation is nonzero, while every center of dimension at most
+two contributes zero.  The special \(A_5\)-geometry enters only in the cycle
+argument; the quantum theorem applies to every smooth cubic threefold.
 
 \subsection*{Relation with earlier rationality results}
 
@@ -85,25 +86,33 @@ irrational by means of its intermediate Jacobian \cite{CG}.  That obstruction
 does not by itself control a product with projective space, and stable
 rationality of smooth cubic threefolds remains open.  Cai recently recovered
 irrationality from the primitive-sixth-root formal monodromy of the cubic
-quantum connection \cite{Cai}.  Katzarkov--Kontsevich--Pantev--Yu supply the
-atom formalism, blowup and projective-bundle formulas, and the resulting
-nonrationality criterion \cite{KKPYY}.  Theorem~\ref{thm:every-cubic} combines
-these inputs at the next dimension: after one projective stabilization, the
-cubic atom still cannot be contributed by any weak-factorization center.
+quantum connection \cite{Cai}.  Iritani and Iritani--Koto prove the quantum
+\(D\)-module decompositions for blowups and projective bundles
+\cite{IritaniBlowup,IritaniKoto}; Katzarkov--Kontsevich--Pantev--Yu identify
+the nef-canonical normal form used for low-dimensional centers
+\cite{KKPYY}.  Theorem~\ref{thm:every-cubic} combines these inputs at the next
+dimension.
 
 On the cycle side, Voisin reduces universal \(CH_0\)-triviality of a cubic
 threefold to algebraicity of the primitive minimal class of its intermediate
 Jacobian \cite{Voisin}.  Beckmann--de Gaay Fortman place such minimal classes
-in a general integral-Fourier framework \cite{BdGF}.  Here the six elliptic
+in a general integral-Fourier framework \cite{BdGF}.  For the very general
+cubic threefold the minimal class is not algebraic: every curve class on the
+intermediate Jacobian is an even multiple of it, so a very general cubic
+threefold admits no decomposition of the diagonal
+\cite[Theorem~1.3 and Corollary~1.4]{EdGFS}.  What Voisin's criterion leaves is
+the countable union of moduli subvarieties on which the class is algebraic;
+Theorem~\ref{thm:six-axis-divided-powers} places an explicit exceptional family
+inside that union.  Here the six elliptic
 quotients supplied by Roulleau and the special period locus isolated by
-Hartlieb make the class explicit: the new point is its membership in the
+Hartlieb make the class explicit: here it belongs to the
 ordinary integral divisor-product lattice for every smooth member of the
 nonstandard \(A_5\)-pencil.
 
 \subsection*{Proof map}
 
-Section~\ref{sec:envelope} constructs the rank-ten symplectic envelope and
-identifies the exotic cubic gluing.  Section~\ref{sec:minimal-class} proves
+Section~\ref{sec:envelope} computes the six-axis polarization and identifies
+the exotic cubic gluing.  Section~\ref{sec:minimal-class} proves
 the local divisor-product theorem and applies it to the primitive minimal
 class.  Section~\ref{sec:one-step} proves Theorem~\ref{thm:every-cubic} from
 formal monodromy and weak factorization.  The final section combines the two
