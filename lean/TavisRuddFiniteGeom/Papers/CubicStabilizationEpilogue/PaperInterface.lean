@@ -1,6 +1,8 @@
 import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.RankOneGeneration
 import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.MatrixOfIdeals
 import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.DVRRankOne
+import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.AllDegreeAssembly
+import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.GraphCoefficientDepth
 import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.DividedPowers
 import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.SixAxisGram
 import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.FramedMultiplicity
@@ -170,6 +172,73 @@ theorem rankOne_finiteMatrix_generated_iff_pairwise_midpoint_of_dvr
   GraphLattices.weightedMatrixRankOneGenerated_iff_pairwise_midpoint_of_dvr
     πIrreducible diagonal cross crossSymmetric
 
+/-- Direct block-ring verification of the graph-coordinate multiplication
+identity used to read off the three descent integrality conditions.  The
+coefficient ring may be noncommutative, as it is for matrix blocks. -/
+theorem graphCoefficient_graphCoordinate_block_identity
+    {S : Type*} [Ring S]
+    (inverseDepth slope adjointSlope coefficient : S) :
+    GraphLattices.graphChangeMatrix inverseDepth slope *
+        GraphLattices.graphAlternatingMatrix coefficient *
+        GraphLattices.graphTransposePartner inverseDepth adjointSlope =
+      GraphLattices.graphDescentBlockMatrix
+        inverseDepth slope adjointSlope coefficient :=
+  GraphLattices.graphChange_mul_alternating_mul_transposePartner
+    inverseDepth slope adjointSlope coefficient
+
+/-- Arithmetic core of the graph coefficient depth formula: the maximum
+depth is exactly the intersection of the three power-divisibility conditions,
+and it always satisfies the midpoint inequality. -/
+theorem graphCoefficient_crossDepth_intersection_and_midpoint
+    {R : Type*} [CommRing R] (π value : R)
+    (firstDepth secondDepth : ℕ) (slopeDifferenceValuation : WithTop ℕ) :
+    (π ^ GraphLattices.graphCrossDepth
+          firstDepth secondDepth slopeDifferenceValuation ∣ value ↔
+        π ^ firstDepth ∣ value ∧
+        π ^ secondDepth ∣ value ∧
+        π ^ GraphLattices.truncatedDepthDifference
+          (firstDepth + secondDepth) slopeDifferenceValuation ∣ value) ∧
+      firstDepth + secondDepth ≤
+        2 * GraphLattices.graphCrossDepth
+          firstDepth secondDepth slopeDifferenceValuation :=
+  ⟨GraphLattices.pow_graphCrossDepth_dvd_iff
+      π value firstDepth secondDepth slopeDifferenceValuation,
+    GraphLattices.graphCrossDepth_midpoint
+      firstDepth secondDepth slopeDifferenceValuation⟩
+
+/-- Arithmetic lift-independence statement: the cross depth depends only on
+the slope-difference valuation truncated at the smaller diagonal depth. -/
+theorem graphCoefficient_crossDepth_eq_of_effectiveSlopeDifference_eq
+    (firstDepth secondDepth : ℕ)
+    {firstValuation secondValuation : WithTop ℕ}
+    (effectiveEqual :
+      GraphLattices.effectiveSlopeDifferenceValuation
+          firstDepth secondDepth firstValuation =
+        GraphLattices.effectiveSlopeDifferenceValuation
+          firstDepth secondDepth secondValuation) :
+    GraphLattices.graphCrossDepth firstDepth secondDepth firstValuation =
+      GraphLattices.graphCrossDepth firstDepth secondDepth secondValuation :=
+  GraphLattices.graphCrossDepth_eq_of_effectiveSlopeDifference_eq
+    firstDepth secondDepth effectiveEqual
+
+/-- DVR scalar-lift invariance in the form used by the manuscript: changing
+each lift by its prescribed diagonal-depth ideal leaves the graph cross depth
+unchanged. -/
+theorem graphCoefficient_crossDepth_eq_of_dvr_scalar_lifts
+    {R : Type*} [CommRing R] [IsDomain R] [IsDiscreteValuationRing R]
+    {π : R} (πIrreducible : Irreducible π)
+    (firstDepth secondDepth : ℕ)
+    (firstSlope secondSlope firstLift secondLift : R)
+    (firstCongruent : π ^ firstDepth ∣ firstLift - firstSlope)
+    (secondCongruent : π ^ secondDepth ∣ secondLift - secondSlope) :
+    GraphLattices.graphCrossDepth firstDepth secondDepth
+        (IsDiscreteValuationRing.addVal R (secondSlope - firstSlope)) =
+      GraphLattices.graphCrossDepth firstDepth secondDepth
+        (IsDiscreteValuationRing.addVal R (secondLift - firstLift)) :=
+  GraphLattices.graphCrossDepth_eq_of_dvr_scalar_lifts
+    πIrreducible firstDepth secondDepth
+    firstSlope secondSlope firstLift secondLift firstCongruent secondCongruent
+
 /-- Public division-free form of the square-zero divided-power expansion.  It
 models a labelled list of square-zero ring elements and does not assert that
 any particular geometric divisor classes satisfy these hypotheses. -/
@@ -180,6 +249,32 @@ theorem squareZero_sum_pow_eq_factorial_mul_squarefreeProductSum
       (k.factorial : R) * GraphLattices.squarefreeProductSum terms k :=
   GraphLattices.sum_pow_eq_factorial_mul_squarefreeProductSum
     terms squareZero k
+
+/-- Algebraic all-degree consequence of exact rank-one generation.  Given an
+additive realization whose internal rank-one images square to zero, each
+realized lattice member admits a finite internal rank-one list and the
+division-free factorial expansion in every degree.  No geometric realization
+or descent assertion is built into this theorem. -/
+theorem rankOne_allDegree_squareZeroAssembly
+    {Index R Target : Type*} [CommRing R] [CommRing Target]
+    (π : R) (diagonal : Index → ℕ) (cross : Index → Index → ℕ)
+    (generated : GraphLattices.WeightedMatrixRankOneGenerated π diagonal cross)
+    (realization : Matrix Index Index R →+ Target)
+    (rankOneSquareZero : ∀ candidate,
+      candidate ∈ GraphLattices.weightedRankOneSet π diagonal cross →
+        realization candidate * realization candidate = 0)
+    (form : Matrix Index Index R)
+    (member : form ∈ GraphLattices.weightedMatrixSubmodule π diagonal cross)
+    (degree : ℕ) :
+    ∃ forms : List (Matrix Index Index R),
+      (∀ candidate ∈ forms,
+        candidate ∈ GraphLattices.weightedRankOneSet π diagonal cross) ∧
+      forms.sum = form ∧
+      realization form ^ degree =
+        (degree.factorial : Target) *
+          GraphLattices.squarefreeProductSum (forms.map realization) degree :=
+  GraphLattices.allDegree_squareZeroAssembly_of_rankOneGenerated
+    π diagonal cross generated realization rankOneSquareZero form member degree
 
 /-- The abstract `6I-J` calculation: the constant line has eigenvalue one and
 the coordinate-sum-zero hyperplane has eigenvalue six.  No geometric Rosati

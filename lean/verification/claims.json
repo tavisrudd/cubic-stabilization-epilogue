@@ -56,12 +56,17 @@
     },
     {
       "manuscript_label": "lem:graph-coefficient-lattice",
-      "coverage": "absent",
-      "declarations": [],
-      "objects": "A marked finite-etale graph presentation over a complete unramified DVR and its descended symmetric coefficient lattice.",
-      "hypotheses": "Depth decomposition, dual-form adjointness, and finite-etale slope algebra on every positive-depth summand.",
-      "conclusion": "The exact diagonal and cross-ideal depths and the midpoint inequality.",
-      "cautions": "No etaleness is imposed on the unit block and scalar lifts must not affect the depth formula."
+      "coverage": "fragment",
+      "declarations": [
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.graphCoefficient_graphCoordinate_block_identity",
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.graphCoefficient_crossDepth_intersection_and_midpoint",
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.graphCoefficient_crossDepth_eq_of_effectiveSlopeDifference_eq",
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.graphCoefficient_crossDepth_eq_of_dvr_scalar_lifts"
+      ],
+      "objects": "Lean represents the two-by-two graph-coordinate block matrices over an arbitrary possibly noncommutative ring, and the arithmetic cross-depth obtained by intersecting three uniformizer-power divisibility conditions with an extended slope-difference valuation.",
+      "hypotheses": "The block identity is purely ring-theoretic. The depth theorem assumes only a commutative coefficient ring and takes the two diagonal depths and extended slope-difference valuation as inputs.",
+      "conclusion": "The displayed graph-coordinate product has exactly the manuscript's three nonzero blocks; the maximum cross depth is exactly equivalent to simultaneous satisfaction of the three power-divisibility conditions and obeys the midpoint inequality.",
+      "cautions": "The marked finite-etale graph presentation, splitting into slope blocks, dual-form adjointness, derivation of the three integrality conditions from geometric descent, and the unit-block calculation are not yet formalized. Scalar-lift invariance is proved for actual DVR lifts differing by the prescribed diagonal-depth ideals. Thus Lean checks the block algebra and depth arithmetic, not the full geometric coefficient-lattice lemma."
     },
     {
       "manuscript_label": "lem:dvr-rank-one",
@@ -83,12 +88,13 @@
       "manuscript_label": "thm:all-degree-graph-saturation",
       "coverage": "fragment",
       "declarations": [
-        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.squareZero_sum_pow_eq_factorial_mul_squarefreeProductSum"
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.squareZero_sum_pow_eq_factorial_mul_squarefreeProductSum",
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.rankOne_allDegree_squareZeroAssembly"
       ],
-      "objects": "Lean represents a labelled finite list of elements of an arbitrary commutative ring and a recursively defined squarefree product sum; it does not represent graph divisors or cohomology.",
-      "hypotheses": "Each listed ring element has square zero.",
-      "conclusion": "The kth power of the list sum equals k-factorial times the degree-k squarefree product sum, without division.",
-      "cautions": "Identification of rank-one graph divisors, membership in the prescribed graph lattice, comparison with the ordinary divisor-product image, localization, and faithfully flat descent are all absent; no Chow statement is made."
+      "objects": "A weighted matrix-of-ideals submodule, its internal rank-one set and span, an arbitrary commutative target ring, an additive realization of coefficient matrices, and the recursively defined squarefree product sum.",
+      "hypotheses": "The weighted lattice equals its internal rank-one span, and the realization of every internal rank-one matrix has square zero in the target ring.",
+      "conclusion": "Every realized lattice member is represented by a finite list of internal rank-one matrices and, in every degree, its power equals the factorial times the corresponding squarefree product sum, without division.",
+      "cautions": "The theorem exposes rather than proves the geometric realization and rank-two square-zero input. Identification with graph divisor classes, injectivity under the isogeny, comparison with the ordinary divisor-product image, localization, and faithfully flat descent remain absent; no Chow statement is made."
     },
     {
       "manuscript_label": "lem:six-axis-local-chart",
