@@ -75,7 +75,7 @@
       "mode": "100644",
       "path": "PROVENANCE.md",
       "role": "provenance",
-      "sha256": "3986210439c4c5a856ee5b0ad806ed160f816b9fd4bffb5504a15fc6508ccd3f",
+      "sha256": "89dec95f5759a2b3975a37ce22ce59df841bfdabbae00ebd420bd42b6e6c58dd",
       "source_blob": null
     },
     {
@@ -133,13 +133,13 @@
       "source_blob": "4080d07dfc31f2b8ff0a971431e329a34ae3674c"
     },
     {
-      "bytes": 20755,
+      "bytes": 20927,
       "mode": "100644",
       "path": "lean/README.md",
       "rewrites": [],
       "role": "support",
-      "sha256": "19b4b9a8f36436508245f4d7b1693966de36c7f8372f6762004b8ef6aab628d6",
-      "source_blob": "e05c850d867dbb544e632c6eb916713c2826fb6e"
+      "sha256": "09b6262006cec69919f36c35b22d9990626849758bf0138dbda59c50b9e10a07",
+      "source_blob": "87da71a6f0e29ba7e91f187a72b38ade85a63baa"
     },
     {
       "bytes": 7368,
@@ -457,13 +457,13 @@
       "source_blob": "a85a93801d5b22e0c44dc542bf4d36ae14798122"
     },
     {
-      "bytes": 166888,
+      "bytes": 168225,
       "mode": "100644",
       "path": "lean/TavisRuddFiniteGeom/Papers/CubicStabilizationEpilogue/PaperInterface.lean",
       "rewrites": [],
       "role": "support",
-      "sha256": "75697e9f49b6034f59995f0cb23f4e2fab55fd089b3bf8c73539af4e1c42a533",
-      "source_blob": "ab11d682d10cf226cc7cfde83143895e22758fc3"
+      "sha256": "e3c5304b2b5a8c5b2426ec13f6893164066c915ec798a0e9d3be54bfddd8eaf4",
+      "source_blob": "a26f5b2892d224895f5eee29d694255110fbb852"
     },
     {
       "bytes": 6111,
@@ -736,6 +736,15 @@
       "source_blob": "2dfd13f9fe5667121ef78c5f05392ca1c02852db"
     },
     {
+      "bytes": 4288,
+      "mode": "100644",
+      "path": "lean/TavisRuddFiniteGeom/Papers/CubicStabilizationEpilogue/Quantum/PositiveFiltrationBulkTruncation.lean",
+      "rewrites": [],
+      "role": "support",
+      "sha256": "6bdaf1ea6c40a55220f2210926b17eeaed35a122858d41e716ff5a17546f09e7",
+      "source_blob": "b1dd4220afebe1a6fa7db203b20b9587a2b0a54d"
+    },
+    {
       "bytes": 2668,
       "mode": "100644",
       "path": "lean/TavisRuddFiniteGeom/Papers/CubicStabilizationEpilogue/Quantum/ProLaurent.lean",
@@ -772,13 +781,13 @@
       "source_blob": "a5b5a7d8aadf04192e22d29ef5fc8b3a63830d13"
     },
     {
-      "bytes": 15742,
+      "bytes": 15871,
       "mode": "100644",
       "path": "lean/TavisRuddFiniteGeom/Papers/CubicStabilizationEpilogue/Verification/AxiomAudit.lean",
       "rewrites": [],
       "role": "support",
-      "sha256": "8143e7e4f3d8ba46e535ca562d019aebe1dee798ffd2893be827ee2ce6643ec7",
-      "source_blob": "0291aca1d0b1dbb589b823edfebcc730f2012ba3"
+      "sha256": "3e8e3a5d689ec4909f8bad3cb60c9447ef1a2473e8520dc2dc1dd1a5907d2fe6",
+      "source_blob": "9354a947503c4f43be99ba099c332e9b8dbc40c5"
     },
     {
       "bytes": 567,
@@ -808,13 +817,13 @@
       "source_blob": "f858a49b5f03b606397f32aee85ba300a9e5c989"
     },
     {
-      "bytes": 6848,
+      "bytes": 6948,
       "mode": "100644",
       "path": "lean/lakefile.toml",
       "rewrites": [],
       "role": "support",
-      "sha256": "ab8320693c036cc84ccd50f537aa0dfe44d74b8a493004bcd2348ff0609cea85",
-      "source_blob": "a66e8afaf5a78fbd13f0e1325b76cbd31c7ef2b8"
+      "sha256": "189c8db8e2ef15d6a6707efddfc79b4915bad2541cb760082cacf98c2e1e4208",
+      "source_blob": "24b37fc5152a38e8575a67b389c9d700f55fc848"
     },
     {
       "bytes": 29,
@@ -835,22 +844,22 @@
       "source_blob": "11232e8035c05903580caa387e6bc3685ffa497a"
     },
     {
-      "bytes": 73514,
+      "bytes": 74278,
       "mode": "100644",
       "path": "lean/verification/claims.json",
       "rewrites": [],
       "role": "verification",
-      "sha256": "d0630746ab0c1c5e0ee4e4421796f6a633f97eab2d77347c81aff004661998b8",
-      "source_blob": "dbe139c70a7ad8f93f3e550c4b942fc7d5911c51"
+      "sha256": "12e1240d355ccc3b4cc84b1077dab7f5f8e9faf24d1ef464af5620306966b0f0",
+      "source_blob": "7dbe339c5079a5fa25519281412f5cbd7ba91c2c"
     },
     {
-      "bytes": 18224,
+      "bytes": 18378,
       "mode": "100644",
       "path": "lean/verification/expected_axioms.txt",
       "rewrites": [],
       "role": "verification",
-      "sha256": "e5529f548c626afcae233bfb062d28c6803745505b5c6d24b95486d980a8da70",
-      "source_blob": "1c5ab588d3b483ef3fdb64b5c26b72af949d499c"
+      "sha256": "b83eaf9e3f98d820832dfe640fd6c237740fcfb3a288c8511018d307a0c93f10",
+      "source_blob": "3b2756dc6f4048bbfee182cc60c82ce70145cfc9"
     },
     {
       "bytes": 5895,
@@ -898,13 +907,13 @@
       "source_blob": "0f501acd6321b4ba47203d8467b5081631a475bd"
     },
     {
-      "bytes": 6883,
+      "bytes": 7017,
       "mode": "100644",
       "path": "verification/README.md",
       "rewrites": [],
       "role": "verification",
-      "sha256": "911360fea4151b2575a619da19bba468a7d664dd5014b8f511c3245c97b90b6b",
-      "source_blob": "7eab06890456d26b912e4ececc2eba46a04c9e60"
+      "sha256": "c3a686a9cb71b6d81311f5f060bd16f57c047cd4c9bd212c528a7ce04f13ce5f",
+      "source_blob": "3405a05f31f49184f36a4727227b633844ff226a"
     }
   ],
   "github": "tavisrudd/cubic-stabilization-epilogue",
@@ -920,5 +929,5 @@
   "repository": "cubic-stabilization-epilogue",
   "repository_map_sha256": "e3a1b3f3aa54600d75ab5b5b0a0b1e70bc95543f82cf709e79963d00d1688830",
   "schema_version": 1,
-  "source_commit": "3d49d524849f7f24c15f1f8fa53e74c13a64ec18"
+  "source_commit": "17733ae85a745034875358fa79a1cf4f96ad47ef"
 }
