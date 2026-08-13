@@ -75,7 +75,7 @@
       "mode": "100644",
       "path": "PROVENANCE.md",
       "role": "provenance",
-      "sha256": "f4ab11618e6132c93a1e554f0fefbf9b9ee338604dcfe104b33b8dc4f5f04d45",
+      "sha256": "3e1358eccdb925a1fc7e3d6d8ff5973a098b3e1d6918af33ab23336c2ff24da5",
       "source_blob": null
     },
     {
@@ -421,13 +421,13 @@
       "source_blob": "0f501acd6321b4ba47203d8467b5081631a475bd"
     },
     {
-      "bytes": 1678,
+      "bytes": 1671,
       "mode": "100644",
       "path": "verification/README.md",
       "rewrites": [],
       "role": "verification",
-      "sha256": "9ee581b8c1bee61040f65d1ae749d95d377bae1a7e5c999c78c054af10ce0f59",
-      "source_blob": "faf2ff8e0e707665ae34acb0ca683d4000fd0d5c"
+      "sha256": "686d874b6e7326a13de60de3896ac90862300b3394b1bf43a0873a852cf9480e",
+      "source_blob": "1309f11df2bc43b8f9485daf9e21422bfec043e2"
     }
   ],
   "github": "tavisrudd/cubic-stabilization-epilogue",
@@ -443,5 +443,5 @@
   "repository": "cubic-stabilization-epilogue",
   "repository_map_sha256": "e3a1b3f3aa54600d75ab5b5b0a0b1e70bc95543f82cf709e79963d00d1688830",
   "schema_version": 1,
-  "source_commit": "c971552bf092b3ba51b351e4fa13c80e5ba54328"
+  "source_commit": "e32d62b5a027b4f8772ce070c365c7155948b056"
 }
