@@ -75,7 +75,7 @@
       "mode": "100644",
       "path": "PROVENANCE.md",
       "role": "provenance",
-      "sha256": "7b2c8585a0d861152eef1fea78399853ecda65b7f4fb727badadc8dd95dea30b",
+      "sha256": "92c95c5943f75b2024d4963e6c426aae658ea55dbf8af7d078947ab529dc9c67",
       "source_blob": null
     },
     {
@@ -871,13 +871,13 @@
       "source_blob": "8acc4b19a0643dc74adfadba3eb534b0f461eed1"
     },
     {
-      "bytes": 19149,
+      "bytes": 19309,
       "mode": "100644",
       "path": "lean/verification/expected_axioms.txt",
       "rewrites": [],
       "role": "verification",
-      "sha256": "26cdf29868c90a8d7a75f63fe8aa73cd53571733f0fd871d6d52ada876616f7b",
-      "source_blob": "1e97f4b7765969870d1c5c5d9439d66f85adca2e"
+      "sha256": "067002aa461090c706c1fc4ff54f81ff9a0c3bb52489ffe4ad5fd146a607feab",
+      "source_blob": "71445cb64acd51644ea97e093cbe09ef0fdb7829"
     },
     {
       "bytes": 5895,
@@ -947,5 +947,5 @@
   "repository": "cubic-stabilization-epilogue",
   "repository_map_sha256": "8373b012b147a4eb375295a4554a7adf8cbe05b41832b224807448d55c3a1ae0",
   "schema_version": 1,
-  "source_commit": "9beba5c3dd2c710d8ffc7a20362896201d808945"
+  "source_commit": "38fe71cd51b38a30d33f2813e8763bd2b740a0b1"
 }
