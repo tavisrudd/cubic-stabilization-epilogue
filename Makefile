@@ -7,11 +7,18 @@ LATEXMK_FLAGS ?= -xelatex -interaction=nonstopmode -halt-on-error
 PYTHON ?= nix shell nixpkgs\#python3 -c python3
 SOURCE := cubic_stabilization_epilogue.tex
 
-.PHONY: all check manuscript warnings clean distclean
+.PHONY: all check formal-static formal-audit manuscript warnings clean distclean
 
 all: manuscript
 
-check: manuscript warnings
+check: formal-static manuscript warnings
+
+formal-static:
+	$(PYTHON) lean/verification/check_formal_artifact.py --source-only
+
+formal-audit:
+	@test -n "$(AXIOM_LOG)" || { echo "AXIOM_LOG must name captured AxiomAudit stdout" >&2; exit 2; }
+	$(PYTHON) lean/verification/check_formal_artifact.py --axiom-log "$(AXIOM_LOG)"
 
 manuscript: $(SOURCE) sections/*.tex
 	$(LATEXMK) $(LATEXMK_FLAGS) $(SOURCE)

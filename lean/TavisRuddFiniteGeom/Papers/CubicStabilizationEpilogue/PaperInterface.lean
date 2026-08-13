@@ -1,0 +1,449 @@
+import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.RankOneGeneration
+import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.MatrixOfIdeals
+import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.DividedPowers
+import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.SixAxisGram
+import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.FramedMultiplicity
+import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.WeakFactorization
+import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.NovikovAdmissibility
+import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.ProLaurent
+import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.MonodromyBaseChange
+import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.NumericalNovikov
+import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.FormalBaseShift
+import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.CubicPacket
+import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Applications.GenusEightThreefold
+
+/-!
+# Reviewer interface for the cubic-stabilization companion
+
+This is the public mathematical entry point for the Lean companion.  It
+exports the division-free rank-one identity and the abstract telescope behind
+birational invariance of packet multiplicities.  The manuscript-to-declaration
+map distinguishes these kernel-checked deductions from geometric and quantum
+comparison theorems that have not been formalized from foundations.
+-/
+
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+
+/-- Public form of the division-free identity used in the rank-one generation
+argument for symmetric matrix-of-ideals lattices. -/
+theorem rankOne_mixed_coefficient_identity
+    {R : Type*} [CommRing R] (c a b : R) :
+    GraphLattices.SymmetricPair.sub
+          (GraphLattices.SymmetricPair.sub
+            (GraphLattices.SymmetricPair.scale c
+              (GraphLattices.SymmetricPair.rankOne a b))
+            (GraphLattices.SymmetricPair.scale (c * a * a)
+              GraphLattices.SymmetricPair.firstSquare))
+          (GraphLattices.SymmetricPair.scale (c * b * b)
+            GraphLattices.SymmetricPair.secondSquare) =
+      { diagonalFirst := 0, mixed := c * a * b, diagonalSecond := 0 } :=
+  GraphLattices.SymmetricPair.scaled_rankOne_sub_diagonals c a b
+
+/-- The midpoint inequality produces the parity-compatible exponents used in
+the integral rank-one decomposition. -/
+theorem rankOne_midpoint_exponents
+    (diagonalFirst diagonalSecond cross : ℕ)
+    (midpoint : diagonalFirst + diagonalSecond ≤ 2 * cross) :
+    ∃ t r s : ℕ,
+      diagonalFirst ≤ t + 2 * r ∧
+      diagonalSecond ≤ t + 2 * s ∧
+      cross = t + r + s :=
+  GraphLattices.exists_midpoint_exponents
+    diagonalFirst diagonalSecond cross midpoint
+
+/-- Every multiple of a cross-ideal generator has the explicit division-free
+three-rank-one decomposition supplied by the midpoint inequality. -/
+theorem rankOne_cross_coefficient_decomposition
+    {R : Type*} [CommRing R]
+    (π z : R) (diagonalFirst diagonalSecond cross : ℕ)
+    (midpoint : diagonalFirst + diagonalSecond ≤ 2 * cross) :
+    ∃ t r s : ℕ,
+      diagonalFirst ≤ t + 2 * r ∧
+      diagonalSecond ≤ t + 2 * s ∧
+      GraphLattices.SymmetricPair.sub
+          (GraphLattices.SymmetricPair.sub
+            (GraphLattices.SymmetricPair.scale (z * π ^ t)
+              (GraphLattices.SymmetricPair.rankOne (π ^ r) (π ^ s)))
+            (GraphLattices.SymmetricPair.scale
+              ((z * π ^ t) * π ^ r * π ^ r)
+              GraphLattices.SymmetricPair.firstSquare))
+          (GraphLattices.SymmetricPair.scale
+            ((z * π ^ t) * π ^ s * π ^ s)
+            GraphLattices.SymmetricPair.secondSquare) =
+        { diagonalFirst := 0, mixed := z * π ^ cross, diagonalSecond := 0 } :=
+  GraphLattices.SymmetricPair.cross_coefficient_rankOne_decomposition
+    π z diagonalFirst diagonalSecond cross midpoint
+
+/-- Every member of a two-coordinate matrix-of-ideals lattice satisfying the
+midpoint inequality is assembled from five explicitly displayed rank-one forms
+that all remain in that same lattice. -/
+theorem rankOne_weightedPair_decomposition_of_midpoint
+    {R : Type*} [CommRing R]
+    (π : R) (diagonalFirst diagonalSecond cross : ℕ)
+    (midpoint : diagonalFirst + diagonalSecond ≤ 2 * cross)
+    (form : GraphLattices.SymmetricPair R)
+    (member : GraphLattices.SymmetricPair.MemWeightedPair
+      π diagonalFirst diagonalSecond cross form) :
+    ∃ firstCoefficient mixedCoefficient secondCoefficient : R,
+      ∃ t r s : ℕ,
+        diagonalFirst ≤ t + 2 * r ∧
+        diagonalSecond ≤ t + 2 * s ∧
+        GraphLattices.SymmetricPair.MemWeightedPair
+          π diagonalFirst diagonalSecond cross
+          (GraphLattices.SymmetricPair.scale
+            (π ^ diagonalFirst * firstCoefficient)
+            GraphLattices.SymmetricPair.firstSquare) ∧
+        GraphLattices.SymmetricPair.MemWeightedPair
+          π diagonalFirst diagonalSecond cross
+          (GraphLattices.SymmetricPair.scale
+            (π ^ diagonalSecond * secondCoefficient)
+            GraphLattices.SymmetricPair.secondSquare) ∧
+        GraphLattices.SymmetricPair.MemWeightedPair
+          π diagonalFirst diagonalSecond cross
+          (GraphLattices.SymmetricPair.scale (mixedCoefficient * π ^ t)
+            (GraphLattices.SymmetricPair.rankOne (π ^ r) (π ^ s))) ∧
+        GraphLattices.SymmetricPair.MemWeightedPair
+          π diagonalFirst diagonalSecond cross
+          (GraphLattices.SymmetricPair.scale
+            ((mixedCoefficient * π ^ t) * π ^ r * π ^ r)
+            GraphLattices.SymmetricPair.firstSquare) ∧
+        GraphLattices.SymmetricPair.MemWeightedPair
+          π diagonalFirst diagonalSecond cross
+          (GraphLattices.SymmetricPair.scale
+            ((mixedCoefficient * π ^ t) * π ^ s * π ^ s)
+            GraphLattices.SymmetricPair.secondSquare) ∧
+        form =
+          GraphLattices.SymmetricPair.add
+            (GraphLattices.SymmetricPair.scale
+              (π ^ diagonalFirst * firstCoefficient)
+              GraphLattices.SymmetricPair.firstSquare)
+            (GraphLattices.SymmetricPair.add
+              (GraphLattices.SymmetricPair.scale
+                (π ^ diagonalSecond * secondCoefficient)
+                GraphLattices.SymmetricPair.secondSquare)
+              (GraphLattices.SymmetricPair.sub
+                (GraphLattices.SymmetricPair.sub
+                  (GraphLattices.SymmetricPair.scale (mixedCoefficient * π ^ t)
+                    (GraphLattices.SymmetricPair.rankOne (π ^ r) (π ^ s)))
+                  (GraphLattices.SymmetricPair.scale
+                    ((mixedCoefficient * π ^ t) * π ^ r * π ^ r)
+                    GraphLattices.SymmetricPair.firstSquare))
+                (GraphLattices.SymmetricPair.scale
+                  ((mixedCoefficient * π ^ t) * π ^ s * π ^ s)
+                  GraphLattices.SymmetricPair.secondSquare))) :=
+  GraphLattices.SymmetricPair.weightedPair_decomposition_of_midpoint
+    π diagonalFirst diagonalSecond cross midpoint form member
+
+/-- Constructive sufficiency for an arbitrary finite symmetric
+matrix-of-ideals lattice: pairwise midpoint inequalities imply that every
+lattice member lies in the span of rank-one forms internal to the lattice.
+This statement is ring-theoretic and does not assert the valuation-theoretic
+necessity direction of the manuscript's DVR equivalence. -/
+theorem rankOne_finiteMatrix_generation_of_pairwise_midpoint
+    {Index R : Type*} [Fintype Index] [DecidableEq Index] [LinearOrder Index]
+    [CommRing R]
+    (π : R) (diagonal : Index → ℕ) (cross : Index → Index → ℕ)
+    (crossSymmetric : ∀ row column, cross row column = cross column row)
+    (midpoint : ∀ first second, first ≠ second →
+      diagonal first + diagonal second ≤ 2 * cross first second)
+    (form : Matrix Index Index R)
+    (member : GraphLattices.MemWeightedMatrix π diagonal cross form) :
+    form ∈ GraphLattices.weightedRankOneSpan π diagonal cross :=
+  GraphLattices.mem_weightedRankOneSpan_of_pairwise_midpoint
+    π diagonal cross crossSymmetric midpoint form member
+
+/-- Public division-free form of the square-zero divided-power expansion.  It
+models a labelled list of square-zero ring elements and does not assert that
+any particular geometric divisor classes satisfy these hypotheses. -/
+theorem squareZero_sum_pow_eq_factorial_mul_squarefreeProductSum
+    {R : Type*} [CommRing R]
+    (terms : List R) (squareZero : ∀ term ∈ terms, term * term = 0) (k : ℕ) :
+    terms.sum ^ k =
+      (k.factorial : R) * GraphLattices.squarefreeProductSum terms k :=
+  GraphLattices.sum_pow_eq_factorial_mul_squarefreeProductSum
+    terms squareZero k
+
+/-- The abstract `6I-J` calculation: the constant line has eigenvalue one and
+the coordinate-sum-zero hyperplane has eigenvalue six.  No geometric Rosati
+identification is asserted. -/
+theorem sixAxisGram_unit_and_augmentation_eigenvalues
+    {R : Type*} [CommRing R] :
+    Matrix.mulVec (GraphLattices.sixAxisGram R)
+        (fun _ : Fin 5 ↦ (1 : R)) = (fun _ ↦ 1) ∧
+      ∀ vector : Fin 5 → R, (∑ column, vector column) = 0 →
+        Matrix.mulVec (GraphLattices.sixAxisGram R) vector =
+          (fun row ↦ 6 * vector row) := by
+  constructor
+  · exact GraphLattices.sixAxisGram_mulVec_one
+  · exact GraphLattices.sixAxisGram_mulVec_of_sum_zero
+
+/-- An explicit integral Smith witness: the displayed integral row and column
+matrices are invertible over the integers and reduce `6I-J` to
+`diag(1,6,6,6,6)`. -/
+theorem sixAxisGram_integralSmithReduction :
+    GraphLattices.sixAxisSmithLeft * GraphLattices.sixAxisGram ℤ *
+        GraphLattices.sixAxisSmithRight = GraphLattices.sixAxisSmithDiagonal ∧
+      GraphLattices.sixAxisSmithLeft *
+          GraphLattices.sixAxisSmithLeftInverse = 1 ∧
+      GraphLattices.sixAxisSmithLeftInverse *
+          GraphLattices.sixAxisSmithLeft = 1 ∧
+      GraphLattices.sixAxisSmithRight *
+          GraphLattices.sixAxisSmithRightInverse = 1 ∧
+      GraphLattices.sixAxisSmithRightInverse *
+          GraphLattices.sixAxisSmithRight = 1 := by
+  exact ⟨GraphLattices.sixAxisGram_smith_reduction,
+    GraphLattices.sixAxisSmithLeft_mul_inverse,
+    GraphLattices.sixAxisSmithLeft_inverse_mul,
+    GraphLattices.sixAxisSmithRight_mul_inverse,
+    GraphLattices.sixAxisSmithRight_inverse_mul⟩
+
+/-- Arithmetic part of the local chart: after the integral Smith reduction,
+there is one unit entry and four entries of exact depth one at both two and
+three. -/
+theorem sixAxisSmith_unit_line_and_depth_one_at_two_three :
+    (GraphLattices.sixAxisSmithDiagonal 0 0 = 1 ∧
+      ∀ index : Fin 5, index ≠ 0 →
+        GraphLattices.sixAxisSmithDiagonal index index = 6) ∧
+      (((2 : ℤ) ∣ 6 ∧ ¬ (4 : ℤ) ∣ 6) ∧
+        ((3 : ℤ) ∣ 6 ∧ ¬ (9 : ℤ) ∣ 6)) :=
+  ⟨GraphLattices.sixAxisSmithDiagonal_entries,
+    GraphLattices.sixAxisSmith_depth_one_at_two_and_three⟩
+
+/-- The manuscript's primitive-sixth algebraic-multiplicity formula, applied
+to a supplied finite framed-monodromy matrix.  Construction of that operator
+from the small even quantum connection remains outside this definition. -/
+noncomputable def framedSixthMultiplicity
+    (monodromy : Quantum.FramedMonodromyMatrix) : ℕ :=
+  monodromy.sixthMultiplicity
+
+/-- Algebraic projective-bundle pattern: an `r`-fold power of a nonzero block
+characteristic polynomial has `r` times its primitive-sixth multiplicity. -/
+theorem framedSixthMultiplicity_polynomial_pow
+    (polynomial : Polynomial ℂ) (nonzero : polynomial ≠ 0) (rank : ℕ) :
+    Quantum.sixthMultiplicityPolynomial (polynomial ^ rank) =
+      rank * Quantum.sixthMultiplicityPolynomial polynomial :=
+  Quantum.sixthMultiplicityPolynomial_pow polynomial nonzero rank
+
+/-- Algebraic blowup/direct-sum pattern: the primitive-sixth multiplicity of
+a product of nonzero block characteristic polynomials is the sum of their
+multiplicities. -/
+theorem framedSixthMultiplicity_polynomial_list_prod
+    (polynomials : List (Polynomial ℂ))
+    (nonzero : ∀ polynomial ∈ polynomials, polynomial ≠ 0) :
+    Quantum.sixthMultiplicityPolynomial polynomials.prod =
+      (polynomials.map Quantum.sixthMultiplicityPolynomial).sum :=
+  Quantum.sixthMultiplicityPolynomial_list_prod polynomials nonzero
+
+/-- Arithmetic core of Cai's cubic rank-two block: the displayed indicial
+polynomial factors with exponents `-1/6` and `-5/6`, whose one-turn framed
+monodromies are the two primitive sixth roots. -/
+theorem cubicPacket_indicial_factorization_and_framed_eigenvalues :
+    Quantum.cubicIndicialPolynomial =
+        (Polynomial.X - Polynomial.C (-1 / 6)) *
+          (Polynomial.X - Polynomial.C (-5 / 6)) ∧
+      Complex.exp (2 * (Real.pi : ℂ) * Complex.I * (-1 / 6)) =
+        Quantum.primitiveSixthRootNegative ∧
+      Complex.exp (2 * (Real.pi : ℂ) * Complex.I * (-5 / 6)) =
+        Quantum.primitiveSixthRootPositive :=
+  ⟨Quantum.cubicIndicialPolynomial_factorization,
+    Quantum.cubicExponent_neg_one_sixth,
+    Quantum.cubicExponent_neg_five_sixths⟩
+
+/-- Reviewer-facing type of strict Novikov-admissibility certificates for an
+effective numerical monoid and a complete separated topological domain. -/
+def strictNovikovAdmissibleData
+    (Curve Target : Type*)
+    [AddCommMonoid Curve] [CommRing Target] [IsDomain Target]
+    [UniformSpace Target] [CompleteSpace Target] [T2Space Target]
+    [IsTopologicalRing Target] : Type _ :=
+  Quantum.StrictNovikovAdmissible (Curve := Curve) (Target := Target)
+
+/-- Reviewer-facing type of compatible invertible finite-level Laurent gauge
+systems.  Every loop exponent is integral by the `LaurentSeries` coefficient
+type, while no uniform lower bound across levels is imposed. -/
+def proLaurentGaugeSystem
+    (Index : Type*) [Fintype Index] [DecidableEq Index] : Type _ :=
+  Quantum.ProLaurentGaugeSystem Index
+
+/-- Reviewer-facing type of finite-level characteristic polynomials compatible
+under all coefficient reductions. -/
+def proLaurentCharacteristicPolynomialSystem : Type _ :=
+  Quantum.CompatibleCharacteristicPolynomialSystem
+
+/-- Finite-matrix coefficientwise base change followed by conjugacy: the
+resulting characteristic polynomial is exactly the coefficientwise image of
+the original one. -/
+theorem framedMonodromy_characteristicPolynomial_baseChange_and_gauge
+    {Index R S : Type*} [Fintype Index] [DecidableEq Index]
+    [CommRing R] [CommRing S]
+    (monodromy : Matrix Index Index R) (extension : R →+* S)
+    (gauge : (Matrix Index Index S)ˣ) :
+    (gauge.val * monodromy.map extension * gauge.val⁻¹).charpoly =
+      monodromy.charpoly.map extension :=
+  Quantum.framedCharacteristicPolynomial_map_and_conjugate
+    monodromy extension gauge
+
+/-- Bounded-degree finiteness makes the homological fiber over each numerical
+class a finite set, with no extra cutoff condition in its membership theorem.
+-/
+theorem numericalNovikov_finiteFiber_exact
+    {Homology Numerical : Type*}
+    [AddCommMonoid Homology] [AddCommMonoid Numerical]
+    (data : Quantum.NumericallyFiniteEffectiveQuotient
+      (Homology := Homology) (Numerical := Numerical))
+    (homological : Homology) (numerical : Numerical) :
+    homological ∈ data.fiber numerical ↔
+      data.quotient homological = numerical :=
+  data.mem_fiber_iff homological numerical
+
+/-- The coefficient of the numerical pushforward is the finite sum of the
+homological coefficients in the exact numerical fiber. -/
+theorem numericalNovikov_coefficientPushforward_apply
+    {Homology Numerical R : Type*}
+    [AddCommMonoid Homology] [AddCommMonoid Numerical] [AddCommMonoid R]
+    (data : Quantum.NumericallyFiniteEffectiveQuotient
+      (Homology := Homology) (Numerical := Numerical))
+    (series : Homology → R) (numerical : Numerical) :
+    data.coefficientPushforward series numerical =
+      ∑ degree ∈ data.fiber numerical, series degree :=
+  data.coefficientPushforward_apply series numerical
+
+/-- Once the finite-level string/divisor/bulk analysis supplies an explicit
+integral-frame conjugacy, the bulk monodromy characteristic polynomial is the
+small characteristic polynomial after the fixed divisor substitution. -/
+theorem formalBaseShift_characteristicPolynomial_of_matrixInput
+    {Index Coefficient : Type*} [Fintype Index] [DecidableEq Index]
+    [CommRing Coefficient]
+    (input : Quantum.FormalBaseShiftMatrixInput Index Coefficient) :
+    input.bulkMonodromy.charpoly =
+      input.smallMonodromy.charpoly.map input.divisorSubstitution :=
+  input.characteristicPolynomial_eq
+
+/-- The divisor-tag separation fragment: an injective integral tag makes the
+pair of specialized monomial and tag injective even if the specialized
+monomial map alone is not injective. -/
+theorem strictNovikov_injective_taggedMonomial
+    {Curve Target : Type*}
+    [AddCommMonoid Curve] [CommRing Target] [IsDomain Target]
+    [UniformSpace Target] [CompleteSpace Target] [T2Space Target]
+    [IsTopologicalRing Target]
+    (specialization : Quantum.StrictNovikovAdmissible
+      (Curve := Curve) (Target := Target))
+    {Tag : Type*} (divisorTag : Curve → Tag)
+    (separates : Function.Injective divisorTag) :
+    Function.Injective (fun degree ↦
+      (specialization.monomialImage degree, divisorTag degree)) :=
+  specialization.injective_taggedMonomial divisorTag separates
+
+/-- Public form of the weak-factorization telescope: composable steps that
+preserve a packet multiplicity preserve it between their endpoints. -/
+theorem packet_multiplicity_eq_of_preserving_chain
+    {Variety : Type*} (packet : Quantum.PacketData Variety)
+    {source target : Variety}
+    (chain : Quantum.PreservingChain packet source target) :
+    packet.multiplicity source = packet.multiplicity target :=
+  chain.multiplicity_eq packet
+
+/-- Reviewer-facing weak-factorization telescope with the blowup bookkeeping
+exposed: smooth endpoints and centers, codimension, dimensions, specialized
+center contributions, and the operation formula all occur in the typed input.
+The smoothness assumptions are stated explicitly even though the arithmetic
+telescope itself consumes them through each blowup step. -/
+theorem packet_multiplicity_eq_of_typed_weak_factorization
+    {Variety Center : Type*} (packet : Quantum.PacketData Variety)
+    (geometry : Quantum.BlowupGeometry packet Center)
+    {source target : Variety}
+    (sourceSmooth : geometry.smoothProjectiveComplex source)
+    (targetSmooth : geometry.smoothProjectiveComplex target)
+    (sourceDimension : packet.dimension source ≤ 4)
+    (chain : Quantum.WeakFactorizationChain packet geometry source target)
+    (vanishing :
+      Quantum.CenterContributionsVanishThroughDimensionTwo geometry) :
+    packet.multiplicity source = packet.multiplicity target := by
+  have _ := sourceSmooth
+  have _ := targetSmooth
+  exact chain.multiplicity_eq_of_center_vanishing sourceDimension vanishing
+
+/-- Reviewer-facing birational-invariance deduction.  Its typed input records
+the geometric weak-factorization and operation-formula premise explicitly. -/
+theorem packet_multiplicity_birational_in_dimension_four
+    {Variety : Type*} (packet : Quantum.PacketData Variety)
+    (input : Quantum.DimensionFourBirationalInput packet)
+    {source target : Variety} (sourceDimension : packet.dimension source ≤ 4)
+    (birational : input.birational source target) :
+    packet.multiplicity source = packet.multiplicity target :=
+  input.multiplicity_eq packet sourceDimension birational
+
+/-- Reviewer-facing transport across two birational rank-two projective
+bundles, the formal deduction used for the genus-eight Fano application. -/
+theorem rankTwoProjectiveBundle_packet_transport
+    {Variety : Type*} (packet : Quantum.PacketData Variety)
+    (input : Quantum.DimensionFourBirationalInput packet)
+    {leftBase rightBase leftBundle rightBundle : Variety}
+    (leftFormula : packet.multiplicity leftBundle =
+      2 * packet.multiplicity leftBase)
+    (rightFormula : packet.multiplicity rightBundle =
+      2 * packet.multiplicity rightBase)
+    (bundleDimension : packet.dimension leftBundle ≤ 4)
+    (bundlesBirational : input.birational leftBundle rightBundle) :
+    packet.multiplicity leftBase = packet.multiplicity rightBase :=
+  Quantum.rankTwoProjectiveBundle_transport packet input leftFormula rightFormula
+    bundleDimension bundlesBirational
+
+/-- Reviewer-facing irrationality deduction from a nonzero packet invariant. -/
+theorem irrational_of_nonzero_packet
+    {Variety : Type*} (packet : Quantum.PacketData Variety)
+    (input : Quantum.DimensionFourBirationalInput packet)
+    (Rational : Variety → Prop)
+    {object comparison : Variety}
+    (objectDimension : packet.dimension object ≤ 4)
+    (objectNonzero : packet.multiplicity object ≠ 0)
+    (comparisonZero : packet.multiplicity comparison = 0)
+    (rationalComparison : Rational object → input.birational object comparison) :
+    ¬ Rational object :=
+  Quantum.not_rational_of_nonzero_multiplicity packet input Rational objectDimension
+    objectNonzero comparisonZero rationalComparison
+
+/-- Reviewer-facing form of the cubic-threefold one-step irrationality
+deduction.  The input structure exposes every external quantum and geometric
+premise used by the proof. -/
+theorem cubicThreefold_oneStep_irrational_of_packet_inputs
+    {Variety : Type*} (packet : Quantum.PacketData Variety)
+    (birationalInput : Quantum.DimensionFourBirationalInput packet)
+    (geometry : Applications.CubicThreefoldGeometry Variety)
+    {cubic : Variety}
+    (input : Applications.CubicThreefoldOneStepInput
+      packet birationalInput geometry cubic) :
+    ¬ geometry.Rational (geometry.productWithProjectiveLine cubic) :=
+  Applications.cubicThreefold_oneStepStabilization_not_rational
+    packet birationalInput geometry input
+
+/-- Reviewer-facing packet transport from an associated cubic threefold to a
+genus-eight Fano threefold, conditional on the typed projective-bundle and flop
+premises. -/
+theorem genusEight_packet_eq_two_of_flop_inputs
+    {Variety : Type*} (packet : Quantum.PacketData Variety)
+    (birationalInput : Quantum.DimensionFourBirationalInput packet)
+    (geometry : Applications.GenusEightGeometry Variety)
+    {fano : Variety}
+    (input : Applications.GenusEightOneStepInput
+      packet birationalInput geometry fano) :
+    packet.multiplicity fano = 2 :=
+  Applications.genusEight_packet_eq_two_of_projectiveBundle_flop
+    packet birationalInput geometry input
+
+/-- Reviewer-facing one-step irrationality deduction for a genus-eight Fano
+threefold.  Its typed input keeps the cubic packet, projective-bundle flop, and
+rational comparison visible. -/
+theorem genusEight_oneStep_irrational_of_flop_inputs
+    {Variety : Type*} (packet : Quantum.PacketData Variety)
+    (birationalInput : Quantum.DimensionFourBirationalInput packet)
+    (geometry : Applications.GenusEightGeometry Variety)
+    {fano : Variety}
+    (input : Applications.GenusEightOneStepInput
+      packet birationalInput geometry fano) :
+    ¬ geometry.Rational (geometry.productWithProjectiveLine fano) :=
+  Applications.genusEight_oneStepStabilization_not_rational
+    packet birationalInput geometry input
+
+end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue

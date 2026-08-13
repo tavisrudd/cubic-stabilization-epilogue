@@ -1,0 +1,259 @@
+{
+  "schema": "cubic-stabilization-lean-claims-v2",
+  "reviewer_module": "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.PaperInterface",
+  "axiom_audit_module": "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Verification.AxiomAudit",
+  "claims": [
+    {
+      "manuscript_label": "thm:separation-family",
+      "coverage": "absent",
+      "declarations": [],
+      "objects": "The smooth nonstandard A5-invariant pencil of cubic threefolds and its projective-line stabilization.",
+      "hypotheses": "A complex point of the connected smooth locus of the pencil.",
+      "conclusion": "Universal CH0-triviality of the fibre and its stabilization, irrationality of the stabilization, and non-isotriviality of the family.",
+      "cautions": "The cycle argument is fibrewise and the irrationality argument applies more broadly than the A5-family."
+    },
+    {
+      "manuscript_label": "thm:every-cubic",
+      "coverage": "conditional_deduction",
+      "declarations": [
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.irrational_of_nonzero_packet",
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.cubicThreefold_oneStep_irrational_of_packet_inputs"
+      ],
+      "objects": "An abstract geometric signature naming smooth complex cubic threefolds, product with projective one-space, projective four-space, and rationality, together with a natural-valued packet multiplicity.",
+      "hypotheses": "The carrier satisfies the smooth-cubic predicate, its packet equals two, the named product obeys the rank-two formula and dimension bound, projective four-space has zero packet, and rationality supplies the required birational relation.",
+      "conclusion": "The named product of the specified cubic carrier with projective one-space is not rational.",
+      "cautions": "The geometric signature and every quantum, weak-factorization, and rational-comparison fact remain typed premises rather than foundational constructions."
+    },
+    {
+      "manuscript_label": "prop:six-axis-polarization",
+      "coverage": "fragment",
+      "declarations": [
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.sixAxisGram_unit_and_augmentation_eigenvalues",
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.sixAxisGram_integralSmithReduction"
+      ],
+      "objects": "Lean represents the explicit five-by-five matrix 6I-J over an arbitrary commutative ring and vectors on five labelled coordinates.",
+      "hypotheses": "For the augmentation assertion, the coordinate sum of the vector is zero; the constant-line assertion has no additional hypothesis.",
+      "conclusion": "The constant vector has eigenvalue one, every coordinate-sum-zero vector has eigenvalue six, and explicit mutually inverse integral row and column operations reduce the matrix to diag(1,6,6,6,6).",
+      "cautions": "The elliptic quotient axes, coherent identifications, Rosati pairing, proof that this explicit matrix is the geometric Gram matrix, and non-CM generic-fibre passage are absent."
+    },
+    {
+      "manuscript_label": "lem:relative-six-axis",
+      "coverage": "absent",
+      "declarations": [],
+      "objects": "The relative elliptic scheme, augmentation-lattice source, intermediate-Jacobian family, and relative isogeny.",
+      "hypotheses": "The connected smooth locus of the nonstandard A5-pencil.",
+      "conclusion": "An A5-equivariant polarized relative isogeny and its two-primary symplectic discriminant description.",
+      "cautions": "Primitivity, finite flatness, and generic-to-relative transport must be represented explicitly."
+    },
+    {
+      "manuscript_label": "prop:principal-gluing-packet",
+      "coverage": "absent",
+      "declarations": [],
+      "objects": "A5-stable maximal isotropic kernels in the two- and three-primary discriminant modules.",
+      "hypotheses": "The relative six-axis source and its polarized A5-action.",
+      "conclusion": "The P1(F4) packet, stabilizers and outer exchange at two, exotic geometric selection, and scalar graphs at three.",
+      "cautions": "The family-level exotic selection uses Torelli, connectedness, and the generic automorphism group."
+    },
+    {
+      "manuscript_label": "lem:graph-coefficient-lattice",
+      "coverage": "absent",
+      "declarations": [],
+      "objects": "A marked finite-etale graph presentation over a complete unramified DVR and its descended symmetric coefficient lattice.",
+      "hypotheses": "Depth decomposition, dual-form adjointness, and finite-etale slope algebra on every positive-depth summand.",
+      "conclusion": "The exact diagonal and cross-ideal depths and the midpoint inequality.",
+      "cautions": "No etaleness is imposed on the unit block and scalar lifts must not affect the depth formula."
+    },
+    {
+      "manuscript_label": "lem:dvr-rank-one",
+      "coverage": "fragment",
+      "declarations": [
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.rankOne_mixed_coefficient_identity",
+    "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.rankOne_midpoint_exponents",
+    "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.rankOne_cross_coefficient_decomposition",
+    "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.rankOne_weightedPair_decomposition_of_midpoint",
+    "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.rankOne_finiteMatrix_generation_of_pairwise_midpoint"
+  ],
+  "objects": "Lean represents a symmetric matrix on an arbitrary finite linearly ordered index type over a commutative ring, with entrywise diagonal and cross divisibility depths and the span of rank-one matrices internal to that weighted lattice.",
+  "hypotheses": "The cross-depth function is symmetric and every distinct pair satisfies the midpoint inequality; no DVR or valuation structure is assumed for the constructive direction.",
+  "conclusion": "Every member of the finite weighted symmetric lattice lies in its internal rank-one span; the proof assembles diagonal atoms and division-free pairwise cross decompositions.",
+  "cautions": "Only sufficiency is proved. The valuation-theoretic necessity direction and hence the manuscript's full DVR equivalence remain absent; this declaration also does not construct the depth data from a geometric graph lattice."
+    },
+    {
+      "manuscript_label": "thm:all-degree-graph-saturation",
+      "coverage": "fragment",
+      "declarations": [
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.squareZero_sum_pow_eq_factorial_mul_squarefreeProductSum"
+      ],
+      "objects": "Lean represents a labelled finite list of elements of an arbitrary commutative ring and a recursively defined squarefree product sum; it does not represent graph divisors or cohomology.",
+      "hypotheses": "Each listed ring element has square zero.",
+      "conclusion": "The kth power of the list sum equals k-factorial times the degree-k squarefree product sum, without division.",
+      "cautions": "Identification of rank-one graph divisors, membership in the prescribed graph lattice, comparison with the ordinary divisor-product image, localization, and faithfully flat descent are all absent; no Chow statement is made."
+    },
+    {
+      "manuscript_label": "lem:six-axis-local-chart",
+      "coverage": "fragment",
+      "declarations": [
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.sixAxisSmith_unit_line_and_depth_one_at_two_three"
+      ],
+      "objects": "The explicit integral Smith diagonal diag(1,6,6,6,6) obtained from the abstract matrix 6I-J.",
+      "hypotheses": "No geometric hypotheses are represented; the calculation is purely integral arithmetic.",
+      "conclusion": "There is one unit diagonal entry and four entries equal to six, each divisible by two but not four and by three but not nine, hence of exact depth one at both primes.",
+      "cautions": "The actual six-axis geometric kernels, principal quotient graph, quadratic finite-etale slope at two, scalar slope at three, and persistence through the connected smooth component are absent."
+    },
+    {
+      "manuscript_label": "thm:six-axis-divided-powers",
+      "coverage": "absent",
+      "declarations": [],
+      "objects": "The six-axis graph divisor lattice on the intermediate Jacobian of each smooth A5-pencil member.",
+      "hypotheses": "The local charts at two and three, trivial integral comparison elsewhere, and finite generation of the cokernels.",
+      "conclusion": "All integral divided powers lie in the ordinary product image, in particular Theta^4/4!.",
+      "cautions": "Extra Neron-Severi classes at special fibres only enlarge the target product image."
+    },
+    {
+      "manuscript_label": "cor:universal-ch0",
+      "coverage": "absent",
+      "declarations": [],
+      "objects": "A smooth cubic threefold in the nonstandard A5-pencil and its intermediate Jacobian.",
+      "hypotheses": "Algebraicity of the primitive minimal class and the exact Voisin criterion.",
+      "conclusion": "Universal CH0-triviality of the cubic threefold.",
+      "cautions": "The proof is fibrewise and constructs neither a horizontal cycle nor a relative decomposition of the diagonal."
+    },
+    {
+      "manuscript_label": "def:framed-sixth-multiplicity",
+      "coverage": "fragment",
+      "declarations": [
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.framedSixthMultiplicity"
+      ],
+      "objects": "Lean represents a supplied finite complex matrix declared to be the framed formal-monodromy operator; it does not construct the small even quantum connection or its Levelt--Turrittin monodromy.",
+      "hypotheses": "The matrix is already the operator for one turn of the original unramified z-disc, on a labelled finite-dimensional complex vector space.",
+      "conclusion": "The invariant is the sum of the characteristic-polynomial root multiplicities at exp(pi*i/3) and exp(-pi*i/3).",
+      "cautions": "The type records the framed operator only after construction; it neither permits nor models adjoining roots of z, and it does not prove independence of the algebraic closure."
+    },
+    {
+      "manuscript_label": "def:pro-laurent-monodromy",
+      "coverage": "fragment",
+      "declarations": [
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.proLaurentGaugeSystem",
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.proLaurentCharacteristicPolynomialSystem"
+      ],
+      "objects": "Lean represents coefficient rings at every natural-number level, invertible matrices over ordinary integer-exponent Laurent series, entrywise reduction homomorphisms, and characteristic polynomials over the level coefficient rings.",
+      "hypotheses": "Both displayed matrix inverses hold at every level, gauges and inverses agree entrywise under reduction, and characteristic polynomials map to the preceding level under coefficient reduction.",
+      "conclusion": "Typed pro-Laurent gauge and compatible characteristic-polynomial inverse systems; each finite level uses only integral powers of z and no uniform Laurent lower bound is assumed across levels.",
+      "cautions": "The filtered algebra quotients and compatible differential modules are not constructed, nor is the characteristic polynomial proved to arise from framed monodromy or to be invariant under the represented gauges."
+    },
+    {
+      "manuscript_label": "lem:pv-base-change",
+      "coverage": "fragment",
+      "declarations": [
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.framedMonodromy_characteristicPolynomial_baseChange_and_gauge"
+      ],
+      "objects": "A finite square monodromy matrix over a commutative ring, a coefficient ring homomorphism, and an invertible matrix over the target ring.",
+      "hypotheses": "The framed-monodromy operator has already been constructed and the supplied target matrix acts by conjugacy after coefficient extension.",
+      "conclusion": "The conjugated coefficient-extended matrix has characteristic polynomial equal to the coefficientwise image of the original characteristic polynomial.",
+      "cautions": "The formal differential module, Levelt--Turrittin solution algebra, differential-constant calculation, adic inverse limit, and proof that an integral-z gauge induces the stated conjugacy are absent; no ramified loop coordinate is represented."
+    },
+    {
+      "manuscript_label": "lem:formal-base-shift",
+      "coverage": "fragment",
+      "declarations": [
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.formalBaseShift_characteristicPolynomial_of_matrixInput"
+      ],
+      "objects": "Finite small and bulk monodromy matrices over one commutative coefficient ring, a fixed-divisor coefficient endomorphism, and an invertible comparison matrix.",
+      "hypotheses": "The bulk monodromy matrix is explicitly equal to the conjugate of the coefficient-substituted small monodromy matrix by the supplied integral-frame gauge.",
+      "conclusion": "The bulk characteristic polynomial equals the coefficientwise divisor substitution in the small characteristic polynomial.",
+      "cautions": "The filtered coefficient ring, unit and divisor decomposition, filtration-positive remainder, string and divisor equations, compatible finite-quotient bulk gauges, and their inverse limit are absent; the matrix comparison is supplied rather than constructed, and no analytic specialization is represented."
+    },
+    {
+      "manuscript_label": "lem:numerical-base-change",
+      "coverage": "fragment",
+      "declarations": [
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.numericalNovikov_finiteFiber_exact",
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.numericalNovikov_coefficientPushforward_apply"
+      ],
+      "objects": "Effective homological and numerical additive monoids, their quotient homomorphism, compatible natural-valued degree functions, finite bounded homological pieces, and coefficient functions into an additive commutative monoid.",
+      "hypotheses": "Numerical degree after quotient equals homological degree, and every bounded homological degree set is finite.",
+      "conclusion": "Every numerical fiber is represented by an exact finite set and numerical coefficients are well-defined finite sums over those fibers, forming an additive coefficient pushforward.",
+      "cautions": "Completed monoid-ring multiplication, continuity and inverse-limit compatibility, Gromov--Witten coefficient descent, quantum derivations, and base change of the quantum comparison isomorphisms are absent."
+    },
+    {
+      "manuscript_label": "prop:framed-operations",
+      "coverage": "fragment",
+      "declarations": [
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.framedSixthMultiplicity_polynomial_pow",
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.framedSixthMultiplicity_polynomial_list_prod"
+      ],
+      "objects": "Nonzero complex characteristic polynomials representing framed-monodromy blocks and their finite products or repeated powers.",
+      "hypotheses": "Every block characteristic polynomial is nonzero; no geometric comparison is assumed inside these algebraic identities.",
+      "conclusion": "Primitive-sixth multiplicity scales by rank for a repeated block and is additive across a finite product of block characteristic polynomials.",
+      "cautions": "Projective bundles, blowups, endpoint and specialized-center quantum connections, Iritani comparison coordinates, parity restriction, numerical specializations, and proof that their monodromy characteristic polynomials have the stated block products are absent; no loop-coordinate root is represented."
+    },
+    {
+      "manuscript_label": "def:strict-novikov-admissible",
+      "coverage": "fragment",
+      "declarations": [
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.strictNovikovAdmissibleData"
+      ],
+      "objects": "Lean represents an effective additive monoid, a complete separated topological commutative domain, a multiplicative monomial-image function, a natural-valued length, and a natural-valued valuation.",
+      "hypotheses": "The monomial image preserves zero and addition, every monomial image is nonzero, valuation equals length on monomials, length is positive off zero and proper on bounded sets, and valuation is additive on products of nonzero target elements.",
+      "conclusion": "A typed certificate for the algebraic and topological core of strict Novikov admissibility.",
+      "cautions": "Lean does not construct the numerical Novikov completion or the associated graded ring; global valuation multiplicativity records the no-product-cancellation input but is not yet proved equivalent to the manuscript's domain associated-graded condition."
+    },
+    {
+      "manuscript_label": "lem:divisor-tagging",
+      "coverage": "fragment",
+      "declarations": [
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.strictNovikov_injective_taggedMonomial"
+      ],
+      "objects": "A strict-Novikov certificate together with a tag function on effective numerical classes and the paired specialized-monomial/tag map.",
+      "hypotheses": "The tag function separates numerical curve classes.",
+      "conclusion": "The paired specialized monomial and divisor tag is injective even when the specialized monomial component alone collides.",
+      "cautions": "The exponential-character/Vandermonde argument for completed series, the formal bulk gauge, scalar extension of quantum connections, and preservation of primitive-sixth vanishing are absent."
+    },
+    {
+      "manuscript_label": "prop:low-dimensional-vanishing",
+      "coverage": "absent",
+      "declarations": [],
+      "objects": "Points, smooth projective curves, and smooth projective surfaces with specialized framed multiplicity.",
+      "hypotheses": "Every strictly Novikov-admissible specialization.",
+      "conclusion": "Vanishing of the primitive-sixth multiplicity.",
+      "cautions": "The proof separates nef-canonical minimal models, projective and ruled cases, and point blowups."
+    },
+    {
+      "manuscript_label": "thm:nu6-birational-invariance",
+      "coverage": "conditional_deduction",
+      "declarations": [
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.packet_multiplicity_eq_of_preserving_chain",
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.packet_multiplicity_eq_of_typed_weak_factorization",
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.packet_multiplicity_birational_in_dimension_four"
+      ],
+      "objects": "An arbitrary carrier type with natural-valued multiplicity and dimension, explicit smooth-projective-complex and smooth-center predicates, typed blowup steps in either orientation, and specialized center contributions.",
+      "hypotheses": "Smooth endpoints; source dimension at most four; every blowup step has codimension at least two, the center-plus-codimension dimension identity, preserved ambient dimension, and the displayed additive operation formula; every specialized contribution of a smooth center of dimension at most two vanishes; and a composable typed weak-factorization chain is supplied.",
+      "conclusion": "Equality of multiplicities at the endpoints, obtained by proving each typed blowup or blowdown link preserves multiplicity and telescoping the chain.",
+      "cautions": "Lean does not construct varieties, quantum connections, comparison specializations, operation formulas, low-dimensional vanishing, or the AKMW factorization chain; those remain typed data.  The older abstract preserving-chain terminal is retained and is strictly weaker than the typed telescope."
+    },
+    {
+      "manuscript_label": "prop:cubic-packet",
+      "coverage": "fragment",
+      "declarations": [
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.cubicPacket_indicial_factorization_and_framed_eigenvalues"
+      ],
+      "objects": "Cai's displayed rational indicial polynomial rho^2+rho+5/36 and complex exponentials for one turn of the original loop coordinate.",
+      "hypotheses": "No geometric or quantum hypothesis occurs in the checked arithmetic statement; the displayed polynomial is taken as the rank-two block polynomial to be analyzed.",
+      "conclusion": "The polynomial factors with roots -1/6 and -5/6, and their one-turn exponentials are respectively the negative and positive primitive sixth roots.",
+      "cautions": "The smooth cubic threefold, its numerical small even quantum connection, Cai's integral-z block diagonalization, proof that this polynomial is its rank-two zero-exponential block, and proof that the remaining two rank-one blocks contribute only eigenvalue one are absent; therefore multiplicity exactly two is not yet proved."
+    },
+    {
+      "manuscript_label": "cor:v14-one-step",
+      "coverage": "conditional_deduction",
+      "declarations": [
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.rankTwoProjectiveBundle_packet_transport",
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.genusEight_packet_eq_two_of_flop_inputs",
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.genusEight_oneStep_irrational_of_flop_inputs"
+      ],
+      "objects": "An abstract geometric signature naming smooth prime genus-eight Fano threefolds, their associated Pfaffian cubics, both rank-two projective-bundle total spaces, product with projective one-space, projective four-space, and rationality.",
+      "hypotheses": "The specified carrier satisfies the genus-eight predicate, its associated cubic satisfies the smooth-cubic predicate, both named total spaces obey the rank-two formulas and are birational, the cubic packet is two, and the named stabilization and rational comparison have the stated properties.",
+      "conclusion": "The specified Fano carrier has packet multiplicity two and its named product with projective one-space is irrational.",
+      "cautions": "The geometric signature and the Kuznetsov, quantum, weak-factorization, and rational-comparison facts remain typed premises rather than foundational constructions."
+    }
+  ]
+}
