@@ -75,7 +75,7 @@
       "mode": "100644",
       "path": "PROVENANCE.md",
       "role": "provenance",
-      "sha256": "7906e3611e246eaa777dd98e159113f9484389ba6ac17f4291f017c6deb26b5e",
+      "sha256": "6887a4fef5e8c0ff684f445c2a20cfab92659b970c7acc6843ec4ee4a03bb822",
       "source_blob": null
     },
     {
@@ -533,5 +533,5 @@
   "repository": "cubic-stabilization-epilogue",
   "repository_map_sha256": "e3a1b3f3aa54600d75ab5b5b0a0b1e70bc95543f82cf709e79963d00d1688830",
   "schema_version": 1,
-  "source_commit": "0c6cf3f1b02c301060eb0f89d5264e1b39369473"
+  "source_commit": "576529009ad561a1b30a980a7f0404b1d2ea74e6"
 }
