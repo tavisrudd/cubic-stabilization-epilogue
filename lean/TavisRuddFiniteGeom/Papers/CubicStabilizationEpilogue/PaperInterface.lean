@@ -3,6 +3,7 @@ import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.Matri
 import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.DVRRankOne
 import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.AllDegreeAssembly
 import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.GraphCoefficientDepth
+import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.LocalGlobalMembership
 import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.DividedPowers
 import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.SixAxisGram
 import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.FramedMultiplicity
@@ -186,6 +187,24 @@ theorem graphCoefficient_graphCoordinate_block_identity
   GraphLattices.graphChange_mul_alternating_mul_transposePartner
     inverseDepth slope adjointSlope coefficient
 
+/-- Expansion isolating the scalar slope-difference term from the two
+depth-divisible error terms in a pair of positive-depth slope blocks. -/
+theorem graphCoefficient_slopeCommutator_expansion
+    {S : Type*} [Ring S]
+    (coefficient firstScalar secondScalar firstPower secondPower
+      firstError secondError : S)
+    (firstScalarCentral : firstScalar * coefficient = coefficient * firstScalar)
+    (secondScalarCentral : coefficient * secondScalar = secondScalar * coefficient)
+    (secondPowerCentral : coefficient * secondPower = secondPower * coefficient) :
+    coefficient * (secondScalar + secondPower * secondError) -
+        (firstScalar + firstPower * firstError) * coefficient =
+      (secondScalar - firstScalar) * coefficient +
+        secondPower * (coefficient * secondError) -
+        firstPower * (firstError * coefficient) :=
+  GraphLattices.slopeCommutator_expansion
+    coefficient firstScalar secondScalar firstPower secondPower
+    firstError secondError firstScalarCentral secondScalarCentral secondPowerCentral
+
 /-- Arithmetic core of the graph coefficient depth formula: the maximum
 depth is exactly the intersection of the three power-divisibility conditions,
 and it always satisfies the midpoint inequality. -/
@@ -239,6 +258,15 @@ theorem graphCoefficient_crossDepth_eq_of_dvr_scalar_lifts
     πIrreducible firstDepth secondDepth
     firstSlope secondSlope firstLift secondLift firstCongruent secondCongruent
 
+/-- Arithmetic unit-block clause: depth zero paired with a positive-depth
+block has exactly that positive cross depth, for every slope valuation. -/
+theorem graphCoefficient_unitCrossDepth
+    (positiveDepth : ℕ) (slopeDifferenceValuation : ℕ∞) :
+    GraphLattices.graphCrossDepth 0 positiveDepth slopeDifferenceValuation =
+      positiveDepth :=
+  GraphLattices.graphCrossDepth_unit_positive
+    positiveDepth slopeDifferenceValuation
+
 /-- Public division-free form of the square-zero divided-power expansion.  It
 models a labelled list of square-zero ring elements and does not assert that
 any particular geometric divisor classes satisfy these hypotheses. -/
@@ -275,6 +303,55 @@ theorem rankOne_allDegree_squareZeroAssembly
           GraphLattices.squarefreeProductSum (forms.map realization) degree :=
   GraphLattices.allDegree_squareZeroAssembly_of_rankOneGenerated
     π diagonal cross generated realization rankOneSquareZero form member degree
+
+/-- Elementwise local-to-global membership in denominator-witness form.  If,
+at every prime, a natural-number multiple prime to that prime carries `x`
+into the subgroup, then `x` already belongs to the subgroup.  Unlike the
+paper's sufficient finite-generation argument, this sharper algebraic lemma
+needs no finiteness assumption. -/
+theorem primeDenominatorMember_all_implies_mem
+    {A : Type*} [AddCommGroup A]
+    (P : AddSubgroup A) (x : A)
+    (localMember : ∀ p : ℕ, p.Prime →
+      GraphLattices.PrimeDenominatorMember P x p) :
+    x ∈ P :=
+  GraphLattices.mem_of_primeDenominatorMember_all P x localMember
+
+/-- Abstract all-degree saturation conclusion after local inputs are supplied.
+Exact rank-one generation and square-zero realization produce a finite
+squarefree representative; prime-to-prime denominator witnesses place that
+representative in the chosen integral product subgroup globally. -/
+theorem rankOne_allDegree_integralProductMember_of_primeDenominators
+    {Index R Target : Type*} [CommRing R] [CommRing Target]
+    (π : R) (diagonal : Index → ℕ) (cross : Index → Index → ℕ)
+    (generated : GraphLattices.WeightedMatrixRankOneGenerated π diagonal cross)
+    (realization : Matrix Index Index R →+ Target)
+    (rankOneSquareZero : ∀ candidate,
+      candidate ∈ GraphLattices.weightedRankOneSet π diagonal cross →
+        realization candidate * realization candidate = 0)
+    (integralProducts : AddSubgroup Target)
+    (form : Matrix Index Index R)
+    (member : form ∈ GraphLattices.weightedMatrixSubmodule π diagonal cross)
+    (degree : ℕ)
+    (localProducts : ∀ forms : List (Matrix Index Index R),
+      (∀ candidate ∈ forms,
+        candidate ∈ GraphLattices.weightedRankOneSet π diagonal cross) →
+      forms.sum = form →
+      ∀ p : ℕ, p.Prime →
+        GraphLattices.PrimeDenominatorMember integralProducts
+          (GraphLattices.squarefreeProductSum (forms.map realization) degree) p) :
+    ∃ forms : List (Matrix Index Index R),
+      (∀ candidate ∈ forms,
+        candidate ∈ GraphLattices.weightedRankOneSet π diagonal cross) ∧
+      forms.sum = form ∧
+      GraphLattices.squarefreeProductSum
+          (forms.map realization) degree ∈ integralProducts ∧
+      realization form ^ degree =
+        (degree.factorial : Target) *
+          GraphLattices.squarefreeProductSum (forms.map realization) degree :=
+  GraphLattices.allDegree_integralProductMember_of_primeDenominators
+    π diagonal cross generated realization rankOneSquareZero integralProducts
+    form member degree localProducts
 
 /-- The abstract `6I-J` calculation: the constant line has eigenvalue one and
 the coordinate-sum-zero hyperplane has eigenvalue six.  No geometric Rosati
