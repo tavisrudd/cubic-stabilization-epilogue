@@ -75,7 +75,7 @@
       "mode": "100644",
       "path": "PROVENANCE.md",
       "role": "provenance",
-      "sha256": "2ac83df58763fc0961a1395b3687e751ace5e6b12b477685cf51341d6b6ef660",
+      "sha256": "03a9be5244ad9e9301ffc5b9852195d110513661d019aff2528990b7c4a2a109",
       "source_blob": null
     },
     {
@@ -88,22 +88,22 @@
       "source_blob": "2d08017f8e5e7f08c84800f1f2756cbf28fc5021"
     },
     {
-      "bytes": 156811,
+      "bytes": 156898,
       "mode": "100644",
       "path": "cubic_stabilization_epilogue.pdf",
       "rewrites": [],
       "role": "release-output",
-      "sha256": "2c7da9be2ba50640797a54e30453728b28e02ab6826252f0454394c97ab42d06",
-      "source_blob": "648a1a3603f64fdfc5c69ee89e6631219a76f093"
+      "sha256": "cc3d3f03ff7120247ac965851a9ea8496bdeccc0bf106d53a6dcb3353c0a51e9",
+      "source_blob": "2e6460c081e4d3f9dfb66990263ea9520357e729"
     },
     {
-      "bytes": 5543,
+      "bytes": 5556,
       "mode": "100644",
       "path": "cubic_stabilization_epilogue.tex",
       "rewrites": [],
       "role": "manuscript-source",
-      "sha256": "7d55ecae04fae864bc3e52c4d325bc491a7f21024e683c3db2fb2e8eaf233475",
-      "source_blob": "98c4d380e817c0fd173fe9b585eecb3d8463bb67"
+      "sha256": "c55c62a3e89f7fd69d24ca2f052bb6e51d5893f07c5f3494f3e76573ab922e06",
+      "source_blob": "d97786ef82f985c3e3101511c7f19b5249427d5f"
     },
     {
       "bytes": 567,
@@ -1051,13 +1051,13 @@
       "source_blob": "5615bb073d2f1b6fa7c642d6f965459e340dda97"
     },
     {
-      "bytes": 13264,
+      "bytes": 13293,
       "mode": "100644",
       "path": "sections/02-envelope.tex",
       "rewrites": [],
       "role": "manuscript-source",
-      "sha256": "b210c1ed7c98d0e0582337f712c264f88e233f788e0a6ee16b9e1575e1b4cef1",
-      "source_blob": "3f2d3c6bd6be52952b06dcf2715ef693fc1b047d"
+      "sha256": "051f1d8ba07432e2057242ef921907a72e3021185d6b991d575ea99f50d4aa67",
+      "source_blob": "6d463a7c125f29b9339e5f38791ed3b52735a112"
     },
     {
       "bytes": 10748,
@@ -1109,5 +1109,5 @@
   "repository": "cubic-stabilization-epilogue",
   "repository_map_sha256": "ffe6996b346936490e513d141ba56d42d0a9a86dd067571eae3cb6e0dd9400f3",
   "schema_version": 1,
-  "source_commit": "cb89062b05e53ba71013d7505ad658cd2eedda99"
+  "source_commit": "caf5efd130b5f137fe32ab1575f3e2a802d5d90a"
 }
