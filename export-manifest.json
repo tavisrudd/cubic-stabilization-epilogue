@@ -75,7 +75,7 @@
       "mode": "100644",
       "path": "PROVENANCE.md",
       "role": "provenance",
-      "sha256": "884a3f83fcf13bb56addd578fbeed39434fa608854dcb9fd5558816b51435ed5",
+      "sha256": "0d994ad3fad4b6eef133549e9bf6bf873c1645a9a1e70b14c126ac2876889ae6",
       "source_blob": null
     },
     {
@@ -88,13 +88,13 @@
       "source_blob": "2d08017f8e5e7f08c84800f1f2756cbf28fc5021"
     },
     {
-      "bytes": 159845,
+      "bytes": 160070,
       "mode": "100644",
       "path": "cubic_stabilization_epilogue.pdf",
       "rewrites": [],
       "role": "release-output",
-      "sha256": "6b52cd49202d2b537937afb220f4288ab81d32e08b1373235bc5dc475519e9e4",
-      "source_blob": "1bb93a258496c4d92322d2b5c157f35a13463dd1"
+      "sha256": "e00e3920e73cfecb29bc77fdcc6a50af4cbb5243fd001c9b849b440acabd0243",
+      "source_blob": "5c67408e47e0b98335bf27348eede44414c7056e"
     },
     {
       "bytes": 5556,
@@ -1051,13 +1051,13 @@
       "source_blob": "5615bb073d2f1b6fa7c642d6f965459e340dda97"
     },
     {
-      "bytes": 13810,
+      "bytes": 13959,
       "mode": "100644",
       "path": "sections/02-envelope.tex",
       "rewrites": [],
       "role": "manuscript-source",
-      "sha256": "dbff5db0bc673b0aaf900dcde8351b65cc99a1ea76ca06874a852f386defc4d7",
-      "source_blob": "c1dc2d9c7ae59a38323d6c4c222603edf9c555fc"
+      "sha256": "430c48fd066a9f3856071cd50d936d1fc666fcde0ad443eb8b3b7ccd81a96793",
+      "source_blob": "082fb35cbf9c7ad68234f25040c3e6ab1f19d41d"
     },
     {
       "bytes": 11696,
@@ -1109,5 +1109,5 @@
   "repository": "cubic-stabilization-epilogue",
   "repository_map_sha256": "ffe6996b346936490e513d141ba56d42d0a9a86dd067571eae3cb6e0dd9400f3",
   "schema_version": 1,
-  "source_commit": "87ec117bd9bf0e8756773c3465333e725e7584d7"
+  "source_commit": "449de8185f0f471ac8bc36918d7e73cc84e617a2"
 }
