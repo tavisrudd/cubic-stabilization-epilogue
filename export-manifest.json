@@ -75,7 +75,7 @@
       "mode": "100644",
       "path": "PROVENANCE.md",
       "role": "provenance",
-      "sha256": "7e0e6794529229ee660fa18fe72f69506bb6a06926074fef999ae7a7240738b9",
+      "sha256": "3cbfe466e9907cc99ff2d1df65ffbcb01cc4cb21dab87a736f6ffef286de12cd",
       "source_blob": null
     },
     {
@@ -88,13 +88,13 @@
       "source_blob": "2d08017f8e5e7f08c84800f1f2756cbf28fc5021"
     },
     {
-      "bytes": 162667,
+      "bytes": 163569,
       "mode": "100644",
       "path": "cubic_stabilization_epilogue.pdf",
       "rewrites": [],
       "role": "release-output",
-      "sha256": "b3504effbe0253b3f28bf20e9219cbf084c5834b2ed6b87194c1068fa350eb82",
-      "source_blob": "c32697b4bf4e223249bd5dda491c1aaad078ba5e"
+      "sha256": "a2d3c99d22cb8a9207d8c4aac3a5331b1b0f003cd1719cd140607902c2d3e56b",
+      "source_blob": "ba721aa010bcff49932a11d09e48cc3c01d54a58"
     },
     {
       "bytes": 5556,
@@ -1042,13 +1042,13 @@
       "source_blob": "0fee10c5e0fe70ba5e0395f082427efec409998d"
     },
     {
-      "bytes": 5895,
+      "bytes": 5886,
       "mode": "100644",
       "path": "sections/01-introduction.tex",
       "rewrites": [],
       "role": "manuscript-source",
-      "sha256": "cd90ca771fbc28adcc60545587466c6f5d1c57e68f4bf795bb97c7aa5fe8c9de",
-      "source_blob": "5615bb073d2f1b6fa7c642d6f965459e340dda97"
+      "sha256": "60e22082f0a33283d7308130ed23a481bd7688cb3fd692473c24ebfc6ba6e515",
+      "source_blob": "a12025b81bd4fb476eda1d0a3dce7e020c759db6"
     },
     {
       "bytes": 15155,
@@ -1069,13 +1069,13 @@
       "source_blob": "572d5376739d8b6a429b5cd8872a71f0d2a01486"
     },
     {
-      "bytes": 23184,
+      "bytes": 23656,
       "mode": "100644",
       "path": "sections/04-one-step.tex",
       "rewrites": [],
       "role": "manuscript-source",
-      "sha256": "04a6dea5842a27d8239726c8bf06c50ae56e91ca7e60358d3faeb56b5382965e",
-      "source_blob": "1a60193ad5007ed3aa5290326f4f0b37ab04284d"
+      "sha256": "cb8f76e0c3d0b388973e811f209f37e0ea51e02c5bb48df2f69a5db1477b9d29",
+      "source_blob": "1b37d9b7dee3adc4b87225b68f5de9d1a73ddb2d"
     },
     {
       "bytes": 2076,
@@ -1109,5 +1109,5 @@
   "repository": "cubic-stabilization-epilogue",
   "repository_map_sha256": "ffe6996b346936490e513d141ba56d42d0a9a86dd067571eae3cb6e0dd9400f3",
   "schema_version": 1,
-  "source_commit": "8f66f109b29ee3846e4bb26c2d511bcbf86bf5a0"
+  "source_commit": "dd65965ae9dfb3d1cb8604b70e24ec90796ff74e"
 }
