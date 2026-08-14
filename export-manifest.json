@@ -75,7 +75,7 @@
       "mode": "100644",
       "path": "PROVENANCE.md",
       "role": "provenance",
-      "sha256": "310910e0585e285f667b3d9ae2d696e24b82fa2cac58cf058fb524ae87ae8506",
+      "sha256": "5a5a1ebb72fc10af428b5b397b4441ece4648a030765fe45375f5d3b4b1b31d8",
       "source_blob": null
     },
     {
@@ -133,13 +133,13 @@
       "source_blob": "4080d07dfc31f2b8ff0a971431e329a34ae3674c"
     },
     {
-      "bytes": 25476,
+      "bytes": 25572,
       "mode": "100644",
       "path": "lean/README.md",
       "rewrites": [],
       "role": "support",
-      "sha256": "64725e1236b645da3e71ca0d65badd0b7e0e6b8ade41c3e21022cdcf3951b02c",
-      "source_blob": "3393c453e28286e701f7807674340a743720a5e3"
+      "sha256": "314864fd7ceed8cc04e792186a0a278515aa5ffdc9e48552c20befb98394bb88",
+      "source_blob": "2d07ddf0909264d6d87445c1563571f18bb451a4"
     },
     {
       "bytes": 7368,
@@ -466,13 +466,13 @@
       "source_blob": "de1aa02e60e027ba7c98c0d3d4e73566cdd49104"
     },
     {
-      "bytes": 19339,
+      "bytes": 23437,
       "mode": "100644",
       "path": "lean/TavisRuddFiniteGeom/Papers/CubicStabilizationEpilogue/GraphLattices/SixPointProjectiveSpecialLinearAction.lean",
       "rewrites": [],
       "role": "support",
-      "sha256": "d57d852443863725e4d4790fcf96523a44f49e82db9e3a375412ee6a3ccd023a",
-      "source_blob": "d7b14ac1b0ce4f264cc5aa4bcb8666a3d4092c4b"
+      "sha256": "1c0974491fbfefbce9f74407ef5ab567a65a76f2fedf37ee5528a188a9bedeed",
+      "source_blob": "e5c30d26e13fff1b2a0203ec6309b7f31306d2f6"
     },
     {
       "bytes": 25923,
@@ -511,13 +511,13 @@
       "source_blob": "a85a93801d5b22e0c44dc542bf4d36ae14798122"
     },
     {
-      "bytes": 213225,
+      "bytes": 213989,
       "mode": "100644",
       "path": "lean/TavisRuddFiniteGeom/Papers/CubicStabilizationEpilogue/PaperInterface.lean",
       "rewrites": [],
       "role": "support",
-      "sha256": "459589a496f9e9ae19ebb0420aec178287beb8404d0208efd483d2a2b712ae61",
-      "source_blob": "138fd935864925d08c78f154cf288b332bed1781"
+      "sha256": "293e7cad24791911ad2f8c15dffaac88b034ee0c3ac3b38343be4ad12b193928",
+      "source_blob": "e458d470ecb01ee6d308bc760a67eee9196d9640"
     },
     {
       "bytes": 6111,
@@ -916,13 +916,13 @@
       "source_blob": "11232e8035c05903580caa387e6bc3685ffa497a"
     },
     {
-      "bytes": 86656,
+      "bytes": 86798,
       "mode": "100644",
       "path": "lean/verification/claims.json",
       "rewrites": [],
       "role": "verification",
-      "sha256": "215694480cbd36f504efd41ae57830cc2b9d3c42eaf0f83c753a9752e43d45cb",
-      "source_blob": "d79567eb0689eb470f4b13ad553811696768d233"
+      "sha256": "12f7848e5f4124603674a8dbc33bf82b5bfe93ecea916ae6903fafb9fee3f916",
+      "source_blob": "cc2f5e7283a24596af0abd93c2733d2d55efdae1"
     },
     {
       "bytes": 20238,
@@ -979,13 +979,13 @@
       "source_blob": "0f501acd6321b4ba47203d8467b5081631a475bd"
     },
     {
-      "bytes": 10991,
+      "bytes": 11086,
       "mode": "100644",
       "path": "verification/README.md",
       "rewrites": [],
       "role": "verification",
-      "sha256": "4d7edc11195c2ee247ad33f520c6ce88120da6ff0102c57752396c85223c20cd",
-      "source_blob": "a22866b1b9222cfe873610ea87edc744dad57797"
+      "sha256": "44ed224c0d39d03fdabd9f3a87cc02946142599b24e039910bdcf174e6f06606",
+      "source_blob": "709cc643482b7b7e6fa2d78569c951449b52d5cd"
     }
   ],
   "github": "tavisrudd/cubic-stabilization-epilogue",
@@ -1001,5 +1001,5 @@
   "repository": "cubic-stabilization-epilogue",
   "repository_map_sha256": "8373b012b147a4eb375295a4554a7adf8cbe05b41832b224807448d55c3a1ae0",
   "schema_version": 1,
-  "source_commit": "0c30655c24d5a1f227b75f848f8961be31b8f67b"
+  "source_commit": "b3cf23abf24e4fbf1e1fc3860da312f21565a57d"
 }
