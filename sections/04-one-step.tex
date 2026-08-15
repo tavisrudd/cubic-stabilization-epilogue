@@ -713,9 +713,27 @@ Choose integral divisors \(D_1,\ldots,D_\rho\) whose pairings separate
  \label{eq:divisor-tagging-map}
 \]
 This map from \(\Lambda_T\) to \(A[[\boldsymbol t]]\) is injective.  To prove
-this, take a nonzero series.  Properness in
-\eqref{eq:strict-novikov-valuation} makes its lowest-valuation
-support finite.  Its initial image is a finite combination of distinct
+this, take \(f=\sum_d c_dQ^d\ne0\) and put
+\[
+ \mu=\min\{v(\chi(Q^d)):c_d\ne0\}
+     =\min\{\ell(d):c_d\ne0\},
+ \qquad
+ S_\mu=\{d:c_d\ne0,\ \ell(d)=\mu\}.
+ \label{eq:divisor-tagging-initial-support}
+\]
+Properness in \eqref{eq:strict-novikov-valuation} makes \(S_\mu\) finite
+and nonempty.  Write \(\operatorname{in}_v\) for the initial class in the
+associated graded.  The degree-\(\mu\) initial form is
+\[
+ \operatorname{in}_\mu\!\left(\chi_{\boldsymbol t}(f)\right)
+ =\sum_{d\in S_\mu}c_d\operatorname{in}_v\!\left(\chi(Q^d)\right)
+ \exp\!\left(\sum_i t_i(D_i\cdot d)\right)
+ \ \in\ \operatorname{gr}_v(A)[[\boldsymbol t]],
+ \label{eq:divisor-tagging-initial-form}
+\]
+and every displayed summand coefficient is nonzero.  Every term outside \(S_\mu\) has valuation
+strictly greater than \(\mu\), so a nonzero initial form proves
+\(\chi_{\boldsymbol t}(f)\ne0\).  This is a finite combination of distinct
 exponential characters.  The finitely many exponent vectors are distinct
 integral vectors.  Choose \(a=(a_i)\in\Z^\rho\) outside the finitely many
 integral hyperplanes on which two dot products agree, and substitute
@@ -836,23 +854,238 @@ For every smooth cubic threefold \(X\),
 \end{proposition}
 
 \begin{proof}
-In the basis \(1,P,P^2,P^3\), Cai explicitly block-diagonalizes the small even
-quantum connection.  The rank-two zero-exponential block has indicial
-polynomial
+Fix the positive generator \(\ell\) of the numerical curve lattice of \(X\),
+normalized by \(P\cdot\ell=1\), and write \(q=Q^\ell\).  Thus the
+coefficient ring is \(\C[[q]]\), with the calculation taking place after
+extension to \(\mathcal K_X=\overline{\operatorname{Frac}\C[[q]]}\) as in
+the convention at the start of this section.  Cai's small even horizontal
+system, written in the ordered classical basis \(1,P,P^2,P^3\), is
 \[
- \rho^2+\rho+\frac5{36},
+ \begin{aligned}
+ z^2\partial_zS&=(K_X+zG_X)S,\\
+ K_X&=2\begin{pmatrix}
+ 0&6q&0&36q^2\\
+ 1&0&15q&0\\
+ 0&1&0&6q\\
+ 0&0&1&0
+ \end{pmatrix},\\
+ G_X&=\frac12\begin{pmatrix}
+ 3&0&0&0\\
+ 0&1&0&0\\
+ 0&0&-1&0\\
+ 0&0&0&-3
+ \end{pmatrix}.
+ \end{aligned}
+ \tag{4.9a}
+ \label{eq:cubic-small-even-connection}
 \]
-with roots \(-1/6\) and \(-5/6\) \cite[Section~3, pp.~5--6]{Cai}.  His gauge uses only
-integral powers of \(z\).  The two corresponding framed-monodromy eigenvalues
-are \(e^{-\pi i/3}\) and \(e^{\pi i/3}\).  The two remaining rank-one even
-blocks are displayed as exponentials in \(z^{-1}\) times series in nonnegative
-integral powers of \(z\) \cite[pp.~5--7]{Cai}; their framed-monodromy factor is
-therefore \(1\), so they contribute no primitive sixth root.
-Thus the multiplicity is exactly two.  By definition, \(\nu_6\) uses the small
-even connection, so no odd-cohomology block enters this count.  The numerical
-curve lattice of a cubic
-threefold has rank one, so the numerical-Novikov convention does not change
-the calculation.
+Here \(S\) is the column of coordinates in that basis.  This is the
+original-\(z\)-disc frame: any later occurrence of \(q^{1/2}\) is an
+algebraic Novikov-coefficient extension inside \(\mathcal K_X\), not a
+ramification of \(z\).  Equation~\eqref{eq:cubic-small-even-connection} is
+the displayed system in Cai, Section~3, p.~4~\cite{Cai}.
+
+Put \(r=(3q)^{1/2}\in\mathcal K_X\).  The constant change of basis
+\[
+ C=\begin{pmatrix}
+ 6r^3&-6r^3&0&-7r^2\\
+ 7r^2&7r^2&-2r^2&0\\
+ 3r&-3r&0&1\\
+ 1&1&1&0
+ \end{pmatrix},
+ \qquad \det C=-486r^5,
+ \qquad S=C\widehat S
+ \tag{4.9b}
+ \label{eq:cubic-constant-block-basis}
+\]
+puts the constant term into the form
+\[
+ K_0=C^{-1}K_XC=
+ \begin{pmatrix}
+ 6r&0&0&0\\
+ 0&-6r&0&0\\
+ 0&0&0&2\\
+ 0&0&0&0
+ \end{pmatrix},
+ \qquad G_0=C^{-1}G_XC.
+ \tag{4.9c}
+ \label{eq:cubic-constant-block-form}
+\]
+Partition the coordinates as \(1\mathbin{|}1\mathbin{|}2\).  There is a
+unique formal gauge
+\[
+ A(z)=I+\sum_{n\ge1}A_nz^n,
+ \qquad A_n\in\operatorname{Mat}_4\bigl(\C[r,r^{-1}]\bigr),
+ \tag{4.9d}
+ \label{eq:cubic-integral-block-gauge}
+\]
+with zero block-diagonal part for every \(A_n\), such that
+\(\widehat S=A(z)\widetilde S\) makes every coefficient block diagonal.
+Indeed, at order \(n\), the block-off-diagonal coefficient is removed by a
+Sylvester equation \([K_0,A_n]=B_n\) determined by the preceding orders.
+The three diagonal blocks of \(K_0\) have pairwise disjoint spectra, so this
+equation has a unique solution on the block-off-diagonal matrices.  In
+particular, the gauge uses only integral powers of the original loop variable
+\(z\).
+
+Direct multiplication gives the first reduced coefficients:
+\[
+ \begin{aligned}
+ J_0&=\begin{pmatrix}0&2\\0&0\end{pmatrix},\\
+ D_0&=\begin{pmatrix}-19/18&0\\0&19/18\end{pmatrix},\\
+ E_0&=\begin{pmatrix}0&-14/(81r^2)\\-8/81&0\end{pmatrix},\\
+ z^2\partial_z\widetilde S_+&=(6r+O(z^2))\widetilde S_+,\\
+ z^2\partial_z\widetilde S_-&=(-6r+O(z^2))\widetilde S_-,\\
+ z^2\partial_z
+ \begin{pmatrix}\widetilde S_3\\\widetilde S_4\end{pmatrix}
+ &=\bigl[J_0+zD_0+z^2E_0+O(z^3)\bigr]
+ \begin{pmatrix}\widetilde S_3\\\widetilde S_4\end{pmatrix}.
+ \end{aligned}
+ \tag{4.9e}
+ \label{eq:cubic-integral-block-reduction}
+\]
+This is the integral-\(z\) block reduction used by Cai in Section~3,
+pp.~4--5~\cite{Cai}; the displayed change of basis and recurrence make the
+reduction \eqref{eq:cubic-integral-block-reduction} internal to the present
+calculation.
+
+For the rank-two block, seek a formal solution in the form
+\[
+ \widetilde S_3=z^\rho(1+O(z)),
+ \qquad
+ \widetilde S_4=cz^{\rho+1}(1+O(z)).
+ \tag{4.9f}
+ \label{eq:cubic-indicial-ansatz}
+\]
+The coefficient of \(z^{\rho+1}\) in the first coordinate of
+\eqref{eq:cubic-integral-block-reduction}, and that of \(z^{\rho+2}\) in
+the second, give respectively
+\[
+ \rho=2c-\frac{19}{18},
+ \qquad
+ c(\rho+1)=\frac{19}{18}c-\frac8{81}.
+ \tag{4.9g}
+ \label{eq:cubic-indicial-coefficients}
+\]
+Eliminating \(c\) gives
+\[
+ \frac12\left(\rho+\frac{19}{18}\right)
+ \left(\rho-\frac1{18}\right)=-\frac8{81},
+ \qquad\text{hence}\qquad
+ \rho^2+\rho+\frac5{36}=0.
+ \tag{4.9h}
+ \label{eq:cubic-indicial-polynomial}
+\]
+This is the coefficient comparison in Cai's displayed rank-two
+ansatz~\cite[p.~6]{Cai}.
+
+The quadratic formula applied to \eqref{eq:cubic-indicial-polynomial} gives
+\[
+ \rho=-\frac16,\ -\frac56.
+ \tag{4.9i}
+ \label{eq:cubic-indicial-roots}
+\]
+The constant matrix \(C\) adjoins only the algebraic Novikov coefficient
+\(r\), and \eqref{eq:cubic-integral-block-gauge} and its inverse use only
+integral powers of \(z\).  Hence they preserve each exponent class in
+\(\Q/\Z\): multiplication sends \(z^\rho\mathcal K_X[[z]]\) to itself, and the same
+holds for the inverse.  Thus the two classes in
+\eqref{eq:cubic-indicial-roots} remain the classes in the original-\(z\)-disc
+frame.  By \eqref{eq:universal-exponential}, the repaired framed convention
+assigns to a rational exponent \(\rho\) the eigenvalue
+\(\operatorname{Exp}_V(\rho)=e^{2\pi i\rho}\).  Therefore these two classes
+give
+\[
+ \operatorname{Exp}_V\left(-\frac16\right)=e^{-\pi i/3},
+ \qquad
+ \operatorname{Exp}_V\left(-\frac56\right)
+ =e^{-5\pi i/3}=e^{\pi i/3}.
+ \tag{4.9j}
+ \label{eq:cubic-framed-eigenvalues}
+\]
+This agrees with Cai's rank-two calculation~\cite[p.~6]{Cai}.
+
+Put \(R=\C[r,r^{-1}]\).  The two scalar equations in
+\eqref{eq:cubic-integral-block-reduction} have the form
+\[
+ z^2\partial_z\widetilde S_\pm
+ =\bigl(\pm6r+h_\pm(z)\bigr)\widetilde S_\pm,
+ \qquad h_\pm(z)\in z^2R[[z]].
+ \tag{4.9k}
+ \label{eq:cubic-rank-one-scalar-equations}
+\]
+Their normalized formal solutions are
+\[
+ \begin{aligned}
+ \widetilde S_+&=e^{-6r/z}u_+(z),
+ &u_+(z)&\in1+zR[[z]],\\
+ \widetilde S_-&=e^{6r/z}u_-(z),
+ &u_-(z)&\in1+zR[[z]].
+ \end{aligned}
+ \tag{4.9l}
+ \label{eq:cubic-rank-one-solutions}
+\]
+Indeed, after the displayed exponential is removed,
+\(\partial_zu_\pm=z^{-2}h_\pm(z)u_\pm\).  The coefficient
+\(z^{-2}h_\pm(z)\) lies in \(R[[z]]\), so integration with initial value
+one gives the asserted units.  The exponentials and these units use only
+integral powers of the original \(z\); neither adjoins a root of \(z\) nor
+produces a deck factor.  Thus each block is unramified and has framed
+regular-monodromy eigenvalue \(1\), so neither contributes a primitive sixth
+root.  This agrees
+with Cai's scalar solutions~\cite[pp.~5--6]{Cai}.
+
+It remains to count the rank-two solutions.  Write its ansatz as
+\(\widetilde S_3=z^\rho\sum_{n\ge0}a_nz^n\) and
+\(\widetilde S_4=z^{\rho+1}\sum_{n\ge0}b_nz^n\), with \(a_0=1\).
+At coefficient \(n\), the two equations have the form
+\[
+ L_{\rho+n}\begin{pmatrix}a_n\\b_n\end{pmatrix}
+ =\begin{pmatrix}\alpha_n\\\beta_n\end{pmatrix},
+ \qquad
+ L_s=
+ \begin{pmatrix}
+ s+19/18&-2\\
+ 8/81&s-1/18
+ \end{pmatrix},
+ \qquad
+ \det L_s=\left(s+\frac16\right)\left(s+\frac56\right).
+ \tag{4.9m}
+ \label{eq:cubic-frobenius-recursion}
+\]
+Here \((\alpha_n,\beta_n)\) depends only on coefficients of lower index;
+for \(n=0\) it is zero, and \eqref{eq:cubic-indicial-polynomial} is exactly
+the condition that \(L_\rho\) have a kernel.  The roots in
+\eqref{eq:cubic-indicial-roots} are distinct modulo \(\Z\), so
+\(L_{\rho+n}\) is invertible for every \(n\ge1\).  For either root,
+\(\ker L_\rho\) is one-dimensional and its first coordinate is nonzero;
+the normalization \(a_0=1\) fixes \(b_0\).  The recursion therefore gives
+one formal solution for each root and no further solution in its exponent
+class.  The two resulting solutions are independent, and exhaust the
+rank-two block.
+
+Consequently each eigenvalue in \eqref{eq:cubic-framed-eigenvalues} has
+algebraic multiplicity one, while
+\eqref{eq:cubic-rank-one-solutions} contributes neither primitive sixth root.
+Hence
+\[
+ \nu_6(X)=2.
+ \tag{4.9n}
+ \label{eq:cubic-packet-internal-count}
+\]
+This is a calculation in the small even connection, so no odd-cohomology block
+enters the count.  Moreover, \(N_1(X)=\Z\ell\), and the numerical Novikov
+ring is exactly \(\C[[Q^\ell]]=\C[[q]]\); thus the numerical-Novikov
+convention does not alter the calculation.
+
+Cai's Section~3 supplies the original small-even matrix on p.~4 and serves as
+a line-by-line comparison for the remaining calculation: the constant and
+integral-\(z\) reductions appear on pp.~4--5, the rank-two ansatz on p.~6,
+and the scalar solutions on pp.~5--6.  Starting from
+\eqref{eq:cubic-small-even-connection}, the change of basis, gauge
+construction, recursion, and framed count are proved through
+\eqref{eq:cubic-packet-internal-count}; no assertion about Cai's gauge is used
+as an input.
 \end{proof}
 
 \begin{proof}[Proof of Theorem~\ref{thm:every-cubic}]
