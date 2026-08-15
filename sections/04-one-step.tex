@@ -215,6 +215,23 @@ ring.  Finally, the deck action fixes every integral power of \(z\) at each
 finite level, so the compatible gauge is single-valued for the framed turn.
 \end{proof}
 
+\begin{remark}[What the inverse limit requires]
+\label{rem:pro-laurent-concrete}
+Concretely, an element of \(\mathscr L_{B,F}\) is a series
+\(\sum_{k\in\Z}c_kz^k\) with \(c_k\in B\) such that, for every \(N\), all but
+finitely many \(k<0\) have \(c_k\in F^NB\); products converge coefficientwise
+because the filtration is multiplicative.  Since \(V\) is finite-dimensional,
+the inverse limit commutes with the matrix construction, so
+\[
+ \mathcal G^{\rm pro}_{B,F}(V)
+ =\operatorname{GL}\bigl(V\otimes\mathscr L_{B,F}\bigr),
+\]
+and a compatible family has its inverse in the same group.  No uniform Laurent
+bound is needed at any point: the lower bound at level \(N\) may decrease
+without limit in \(N\) while the family itself is one invertible matrix over
+one ring.  This is the only role the inverse limit plays below.
+\end{remark}
+
 \begin{lemma}[Formal base shift]
 \label{lem:formal-base-shift}
 Let \(A\) be a \(\C\)-domain and let \(B\) be a complete separated
@@ -286,8 +303,10 @@ After substituting \(\eta\), a
 term of total bulk degree \(m\) lies in \(F^mB\); modulo \(F^NB\), only the
 finitely many degrees \(m<N\) survive.  The resulting finite sum is congruent
 to the identity modulo \(F^1B\), hence is invertible, and has a Laurent lower
-bound at least \(-(N-1)\).  Uniqueness makes these
-solutions compatible in \(N\).  Their inverse limit belongs to
+bound at least \(-(N-1)\).  That bound decreases with \(N\), which costs
+nothing by Remark~\ref{rem:pro-laurent-concrete}: the transported operator is
+formed over \(\mathscr L_{B,F}\) and never over \(B((z))\).  Uniqueness makes
+these solutions compatible in \(N\).  Their inverse limit belongs to
 \[
  \mathcal G^{\rm pro}_{B,F}(H^{\rm ev}(T)).
  \tag{4.1b}
@@ -389,8 +408,9 @@ over a Laurent extension in the exceptional Novikov variable
 \cite[Theorem~5.18]{IritaniBlowup}.  The isomorphism and its inverse use only
 integral powers of \(z\), and the mirror coordinates are independent of \(z\).
 The comparison field adjoins \(q^{-1/s_c}\), where
-\(s_c=c-1\) for even \(c\) and \(s_c=2(c-1)\) for odd \(c\); this is only a
-coefficient extension.  The reconstruction coordinate below is
+\(s_c=c-1\) for even \(c\) and \(s_c=2(c-1)\) for odd \(c\); this is a
+coefficient extension in the Novikov direction, not a ramification of \(z\),
+so the original loop is untouched.  The reconstruction coordinate below is
 \(u=q^{-1/(c-1)}\).
 The center base shift is controlled before passage to the final Laurent
 chart.  Put \(u=q^{-1/(c-1)}\) and use the reconstruction coordinates of
@@ -437,8 +457,8 @@ Consequently
 then into \(\mathscr L_{B_j,F}\) are injective.
 The center connection is defined over this image ring by
 \cite[Remark~5.6]{IritaniBlowup}.
-Formula \eqref{eq:blowup-reconstruction-coordinate},
-together with (5.45), (5.47), and the initial asymptotics (5.27)--(5.30),
+Formula \eqref{eq:blowup-reconstruction-coordinate}, together with
+\cite[(5.45), (5.47), and the initial asymptotics (5.27)--(5.30)]{IritaniBlowup},
 shows that after the unit term \(-(c-1)\lambda_j\) and fixed divisor
 \(h_{C,j}\) are removed, its target bulk coordinate lies in
 \(J_jH^*(C)\).  The noninjective center monomial map merely replaces the
@@ -463,12 +483,13 @@ include
  \tag{4.4a}
  \label{eq:blowup-scaled-completion-variables}
 \]
-with the analogous scaled components on the ambient summand.  The filtration
-\(F_N\) in the proof of
-\cite[Proposition~5.4, especially (5.13)--(5.14)]{IritaniBlowup}
-orders these monomials first by ample Novikov degree and then by bulk weight;
-homogeneity controls the possible negative \(v\)-power.  It has finite-below
-support and is multiplicative.  This is precisely the graded meaning of
+with the analogous scaled components on the ambient summand.  Order these
+monomials by ample Novikov degree first and bulk weight second, as above;
+homogeneity controls the possible negative \(v\)-power, and the resulting
+weight is multiplicative with finite-below support.  The comparison maps
+respect the filtration \(F_N\) of
+\cite[Proposition~5.4, especially (5.13)--(5.14)]{IritaniBlowup}.  Our order
+is precisely the graded meaning of
 \(\C[z]((v))[[Q,\theta]]\) stipulated in
 \cite[Remarks~1.3--1.5]{IritaniBlowup}, rather than an ordinary \(J_j\)-adic
 completion after \(v\) has been inverted.
@@ -552,7 +573,8 @@ extension preserves the intrinsic endpoint characteristic polynomials.
 The projective-bundle proof is parallel, again in reconstruction coordinates.
 Its comparison field adjoins \(q^{-1/r'}\), with \(r'=r\) when \(r-1\) is
 even and \(r'=2r\) when \(r-1\) is odd; the reconstruction coordinate remains
-\(u=q^{-1/r}\).  The extra root is again a coefficient extension.
+\(u=q^{-1/r}\).  The extra root is again a coefficient extension in the
+Novikov direction, not a ramification of \(z\).
 Put \(u=q^{-1/r}\).  For its \(j\)-th target summand let \(R_j\) be the image
 of \(Q_T^d\mapsto Q^d u^{c_1(V)\cdot d}\), together with \(u\) and \(s_j\),
 and set
@@ -581,37 +603,44 @@ respects all relations in the image monoid.  Thus \(J_j^N\) has weight at
 least \(N\), while every nonzero Novikov series in \(R_j\) has a finite
 lowest weight.  It follows that \(\bigcap_NJ_j^N=0\), hence there are
 injective maps
-\(R_j\to B_j\to\mathscr L_{B_j,F}\).  Formula (5.11)
-places the normalized target coordinate in \(J_jH^{\rm ev}(T)\), and the
+\(R_j\to B_j\to\mathscr L_{B_j,F}\).
+Proposition~5.6 of \cite{IritaniKoto} puts the normalized target coordinate in
+the maximal ideal, hence in \(J_jH^{\rm ev}(T)\), and the
 displayed exponent shows that the fixed-divisor substitution factors through
 the image monoid.
-Theorem~5.1, Proposition~5.6, and Section~5.8 of Iritani--Koto give
+Theorem~5.1(4) and Proposition~5.6 of \cite{IritaniKoto} give
 \[
  \varsigma_j=\varsigma_j^\circ+s_j,
  \qquad
  \varsigma_j^\circ=r\lambda_j-\frac{2\pi\mathrm{i}j}{r}c_1(V)+O(u).
 \]
-This is Theorem~5.1, Proposition~5.6, and Section~5.8, especially (5.11),
-of~\cite{IritaniKoto}.
+Here \(s_j\) collects the bulk directions and \(\varsigma_j^\circ\) is the
+value at the origin.
 Separate the Laurent unit as a single-valued rank-one exponential twist and
 apply the fixed divisor shift first.  The normalized connection descends to
 \(B_j\); apply Lemma~\ref{lem:formal-base-shift} with \(A=R_j\).  It produces
 the compatible pro-Laurent gauge and compares framed operators only after the
 inverse limit, coefficient localization, and universal-exponential extension.
 For completeness, put \(v=q^{-1/r'}\), so \(v^e=u\) for
-\(e=r'/r\in\{1,2\}\).  The nonlocalized coefficient ring (5.3) uses the
-homogeneous generators
+\(e=r'/r\in\{1,2\}\).  The nonlocalized coefficient ring of
+\cite[(5.3)]{IritaniKoto}, with the scaled bulk variables of
+\cite[Proposition~5.6]{IritaniKoto}, is a power series ring in the homogeneous
+generators
 \[
  v,\qquad q^{-c_1(V)\cdot d/r}Q^d,\qquad
  q^{k/r}\widehat\tau_{i,k}=u^{-k}\widehat\tau_{i,k}.
  \tag{4.4d}
  \label{eq:projective-scaled-completion-variables}
 \]
-The graded-completion convention of
-\cite[Section~5.1, especially (5.1)--(5.3)]{IritaniKoto}
-gives finite-below support when these positive generators are ordered first
-by ample Novikov degree and bulk weight; the grading controls the negative
-\(v\)-power.  The map
+The bulk generators are finitely many, since \(0\le k\le r-1\); the Novikov
+generators run over the effective monoid of the base, where ampleness leaves
+only finitely many below a given degree.  Order the exponents by ample Novikov
+degree first and bulk weight second.  The order is positive on every
+generator, so every element has well-ordered support: this is the
+finite-below property used below, and it is
+the graded-completion convention of
+\cite[Section~5.1, especially (5.1)--(5.3)]{IritaniKoto}.  The grading
+controls the negative \(v\)-power.  The map
 \[
  \widehat\tau\longmapsto
  \bigl(\varsigma_0(\widehat\tau),\ldots,
@@ -619,13 +648,25 @@ by ample Novikov degree and bulk weight; the grading controls the negative
  \tag{4.4e}
  \label{eq:projective-full-coordinate-map}
 \]
-has invertible Jacobian by Theorem~5.1(5), and hence is a graded formal
-coordinate isomorphism; its derivative gives the ring isomorphism in
-\cite[Corollary~1.8]{IritaniKoto}.  Pull the target completions, connections,
-and gauges through this full map.  The map and its inverse are continuous for
-the homogeneous finite-below topology: at each degree substitution is a
-finite sum, and the inverse is constructed recursively from the invertible
-linear term.
+has invertible Jacobian by Theorem~5.1(5) of \cite{IritaniKoto}, an item
+corrected in the fourth version of that preprint, dated 31 January 2026, and
+hence is a graded formal coordinate isomorphism; its derivative gives the ring
+isomorphism in \cite[Corollary~1.8]{IritaniKoto}.  Pull the target completions, connections,
+and gauges through this full map.  Continuity is a degreewise statement.
+Write \(\varsigma=L+h\), with \(L\) the linear term, invertible by
+Theorem~5.1(5), and \(h\) the higher-order part, whose support lies strictly
+above that of its argument in the order just fixed.  Substitution into a
+series is then a finite sum in each degree, so the map is continuous.  For the
+inverse, iterate
+\[
+ \widehat\tau_0=L^{-1}\varsigma,
+ \qquad
+ \widehat\tau_{n+1}=L^{-1}\bigl(\varsigma-h(\widehat\tau_n)\bigr).
+\]
+Because \(h\) raises the order, \(\widehat\tau_{n+1}\) agrees with
+\(\widehat\tau_n\) in one more degree than its predecessor, so the sequence
+stabilizes degreewise; its limit is the unique preimage, and the same bound
+makes the inverse continuous.
 
 Form the coefficient exponent lattice \(\Gamma_j^{\rm coeff}\) from the
 source homogeneous generators in
@@ -739,22 +780,81 @@ integral vectors.  Choose \(a=(a_i)\in\Z^\rho\) outside the finitely many
 integral hyperplanes on which two dot products agree, and substitute
 \(t_i=a_i s\).  The resulting exponents are distinct integers.  Their
 derivatives at \(s=0\) form a Vandermonde matrix with nonzero integer
-determinant, which remains invertible in the characteristic-zero fraction
-field.  The characters are therefore linearly independent.  The domain
-hypothesis on the associated graded prevents cancellation of the initial
-terms.
+determinant, which stays invertible over
+\(\operatorname{Frac}(\operatorname{gr}_v A)\) because that field has
+characteristic zero.  The characters are therefore linearly independent, and
+the initial form displayed above is nonzero.
 
-Let \(k_\chi=\overline{\operatorname{Frac}A}\).  After embedding the two
-fraction fields in a common algebraic closure, injectivity makes the
-\(\chi_{\boldsymbol t}\)-module a scalar extension of the intrinsic module.
-On the other hand, the divisor equation
-identifies \eqref{eq:divisor-tagging-map} with the degree-two formal bulk
-pullback of the \(\chi\)-module
-over \(B=k_\chi[[\boldsymbol t]]\).  Apply the finite-quotient argument in
-Lemma~\ref{lem:formal-base-shift} with
-\(\eta=\sum_i t_iD_i\): its integral-\(z\) bulk gauge removes the positive
-divisor component.  Hence vanishing over the intrinsic field implies
-vanishing after \(\chi\).
+The domain hypothesis on \(\operatorname{gr}_v(A)\) is used twice, and only
+twice.  It provides the field \(\operatorname{Frac}(\operatorname{gr}_v A)\)
+of the Vandermonde step just made, and it makes \(v\) multiplicative on
+\(A\), since initial forms of nonzero elements then have nonzero product.  The
+valuation of a monomial image is \(\ell(d)\) by hypothesis
+\eqref{eq:strict-novikov-valuation}; multiplicativity is what preserves that
+value after multiplication by the tag, a unit of valuation zero.  Terms with
+\(\ell(d)>\mu\) therefore contribute nothing in degree \(\mu\), and each
+\(d\in S_\mu\) contributes its initial form with \(c_d\) intact.  Were the
+associated graded to have zero divisors, \(v\) would be a filtration rather
+than a valuation, and the displayed degree-\(\mu\) identity could fail.
+
+Put \(k_\chi=\overline{\operatorname{Frac}A}\) and name the three framed
+characteristic polynomials in play: \(p^{\rm int}\) for the intrinsic small
+even connection of \(T\), \(p^{\rm tag}\) for the
+\(\chi_{\boldsymbol t}\)-module, and \(p^{\rm spec}\) for the module
+specialized along \(\chi\).
+
+Injectivity of \eqref{eq:divisor-tagging-map} embeds the intrinsic Novikov
+fraction field in \(\operatorname{Frac}(A[[\boldsymbol t]])\), and that
+embedding fixes \(\C\).  Embedding both fraction fields in one algebraic
+closure makes the \(\chi_{\boldsymbol t}\)-module the scalar extension of the
+intrinsic module, so
+\[
+ p^{\rm tag}=p^{\rm int}
+ \tag{4.6a}
+ \label{eq:tagged-equals-intrinsic}
+\]
+over that closure.  The divisor equation identifies
+\eqref{eq:divisor-tagging-map} with the degree-two formal bulk pullback of the
+\(\chi\)-module over \(B=k_\chi[[\boldsymbol t]]\).  Apply
+Lemma~\ref{lem:formal-base-shift} with \(\eta=\sum_i t_iD_i\).  The whole
+tagging direction sits in the positive filtration, so the lemma is applied
+with \(a_0=0\) and \(a_2^\circ=0\); its substitution
+\eqref{eq:formal-base-shift-divisor} is the identity here, and its
+integral-\(z\) bulk gauge removes the tagging direction and transports the
+framed operator.  Hence
+\[
+ p^{\rm tag}=p^{\rm spec}.
+ \tag{4.6b}
+ \label{eq:tagged-equals-specialized}
+\]
+
+Every primitive sixth root of unity \(\zeta\) lies in \(\C\), and the
+embedding behind \eqref{eq:tagged-equals-intrinsic} fixes \(\C\).  Evaluating
+\eqref{eq:tagged-equals-intrinsic} and
+\eqref{eq:tagged-equals-specialized} at such a \(\zeta\) gives
+\[
+ p^{\rm int}(\zeta)=0
+ \iff
+ p^{\rm tag}(\zeta)=0
+ \iff
+ p^{\rm spec}(\zeta)=0
+\]
+with equal multiplicities.  The stated implication follows; the equality of
+multiplicities is not needed here.
+
+Substituting on divisors and gauging away a bulk direction are not in
+competition, because the divisor equation sends a bulk divisor direction to
+one or the other according to where it sits.  A component constant in the
+positive filtration becomes the coefficient substitution
+\eqref{eq:formal-base-shift-divisor}, which no characteristic polynomial can
+see because it is an automorphism fixing \(\C\).  A component in positive
+filtration is instead removed by the normalized gauge of
+Lemma~\ref{lem:formal-base-shift}.  Divisor tagging uses only the second
+mechanism: the tags \(\boldsymbol t\) are positive-filtration variables, so
+the first component is zero and \eqref{eq:tagged-equals-specialized} carries
+no substitution.  The first mechanism is what the blowup and
+projective-bundle comparisons use, where the shift is a fixed divisor class
+rather than a deformation parameter.
 \end{proof}
 
 \begin{proposition}[Low-dimensional vanishing]
@@ -798,9 +898,12 @@ root cannot occur.
 
 This treats curves of positive genus and minimal surfaces with nef canonical
 class.  A point is immediate.  The remaining minimal varieties are
-\(\PP^1\), \(\PP^2\), and ruled surfaces;
-\eqref{eq:projective-bundle-nu} reduces them to a point or a
-curve.  Every nonminimal surface is obtained from a minimal surface by point
+\(\PP^1\), \(\PP^2\), and ruled surfaces, and
+\eqref{eq:projective-bundle-nu} reduces each to a point or a curve
+explicitly: \(\PP^1=\PP_{\rm pt}(\C^2)\) and \(\PP^2=\PP_{\rm pt}(\C^3)\)
+give \(\nu_6=2\nu_6({\rm pt})=0\) and \(3\nu_6({\rm pt})=0\), while a ruled
+surface is \(\PP_C(V)\) for a rank-two bundle on a curve \(C\), giving
+\(2\nu_6(C)=0\).  Every nonminimal surface is obtained from a minimal surface by point
 blowups, and \eqref{eq:blowup-nu} adds only point summands.  Hence the
 intrinsic generic invariant vanishes in every case.
 Lemma~\ref{lem:divisor-tagging} gives
@@ -1124,8 +1227,10 @@ For every smooth prime Fano threefold \(V\) of genus eight,
 \end{corollary}
 
 \begin{proof}
-The flop gives a birational map between the smooth projective fourfolds
-\(\PP_V(U)\) and \(\PP_X(E^*)\).  By
+The flop of \cite[Theorems~2.17--2.18]{KuznetsovV14} gives a birational map
+between \(\PP_V(U)\) and \(\PP_X(E^*)\).  Both are rank-two projective bundles
+over smooth projective threefolds, hence smooth projective fourfolds, which is
+what Theorem~\ref{thm:nu6-birational-invariance} requires.  By
 Theorem~\ref{thm:nu6-birational-invariance}, Proposition
 \ref{prop:framed-operations}, and Proposition~\ref{prop:cubic-packet},
 \[
