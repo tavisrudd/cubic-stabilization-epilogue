@@ -10,15 +10,80 @@ stable-rationality obstruction.  Its validity, however, need not provide a
 rational parametrization.  We ask how far that gap can persist after one
 explicit stabilization.
 
-Our examples are fourfolds of the form \(Y=X\times\PP^1\), where \(X\) is a
-smooth cubic threefold in the nonstandard \(A_5\)-invariant pencil.  Two
-independent mechanisms act on the same \(Y\).  The intermediate Jacobian of
-\(X\) has an algebraic primitive minimal class; this gives universal
-\(CH_0\)-triviality.  The small even quantum connection of every smooth cubic
-has primitive-sixth framed formal monodromy; Iritani's quantum blowup formula
-shows that its multiplicity survives one stabilization.
+The irrationality half of that question has a uniform answer.  The small even
+quantum connection of every smooth cubic threefold has primitive-sixth framed
+formal monodromy, and Iritani's quantum blowup formula shows that its
+multiplicity survives one stabilization.
 
-\begin{theorem}[Separation after one stabilization]
+\begin{theorem}[One-step irrationality]
+\label{thm:every-cubic}
+For every smooth complex cubic threefold \(X\), the fourfold
+\(X\times\PP^1\) is irrational.
+\end{theorem}
+
+The conclusion depends only on the birational class: if \(Y\) is birational to
+a smooth cubic threefold then \(Y\times\PP^1\) is birational to
+\(X\times\PP^1\), so Theorem~\ref{thm:every-cubic} applies to \(Y\) as well.
+This covers the Fano threefolds of degree fourteen and Picard number one, and
+the blow-ups of \(X\) in a line or in a plane cubic curve, listed in
+\cite[Remark~3.7]{YYZ}.  For genus eight the invariant itself is computed:
+Corollary~\ref{cor:v14-one-step} gives \(\nu_6=2\) there, without using the
+classical birationality with a cubic.
+
+Universally \(CH_0\)-trivial cubic threefolds are known in abundance, and
+Theorem~\ref{thm:every-cubic} turns every such locus into a locus where the
+two properties separate.  Voisin proves that the moduli space of smooth cubic
+threefolds, which has dimension ten, contains a nonempty countable union of
+subvarieties of codimension at most three parametrizing threefolds with
+universally trivial \(CH_0\) \cite[Theorem~4.5]{Voisin}.
+
+\begin{corollary}[Separation in codimension three]
+\label{cor:voisin-separation}
+There is a nonempty countable union of subvarieties of codimension at most
+three in the moduli space of smooth cubic threefolds such that, for every
+member \(X\), both \(X\) and \(X\times\PP^1\) are universally
+\(CH_0\)-trivial while \(X\times\PP^1\) is irrational.
+\end{corollary}
+
+One member is completely explicit.  Colliot-Th\'el\`ene proves that a smooth
+cubic hypersurface whose equation is a sum of forms in separated groups of at
+most three variables is universally \(CH_0\)-trivial \cite{CT}, which applies
+to the Fermat equation directly.
+
+\begin{corollary}[Fermat]
+\label{cor:fermat-separation}
+The fourfold \(\{x_1^3+x_2^3+x_3^3+x_4^3+x_5^3=0\}\times\PP^1\) is
+universally \(CH_0\)-trivial and irrational.
+\end{corollary}
+
+Yang--Yu--Zhu construct a two-dimensional family of smooth cubic threefolds
+admitting unirational parametrizations of degrees two and three
+\cite[Theorems~1.1 and 3.3]{YYZ}.  Unirational parametrizations of coprime
+degrees give a decomposition of the diagonal, so every member of that family
+is universally \(CH_0\)-trivial, and the same parametrizations persist on
+\(X\times\PP^m\) for every \(m\) \cite[Corollary~3.5]{YYZ}.
+
+\begin{corollary}[Coprime-degree cubics]
+\label{cor:coprime-separation}
+Let \(X\) be one of the cubic threefolds of \cite[Theorem~3.3]{YYZ}.  Then
+\(X\times\PP^1\) admits unirational parametrizations of coprime degrees and is
+universally \(CH_0\)-trivial, and it is irrational.
+\end{corollary}
+
+Yang--Yu--Zhu ask whether a variety with unirational parametrizations of
+coprime degrees can fail to be stably rational \cite[Question~1.4]{YYZ}.
+Corollary~\ref{cor:coprime-separation} verifies the first nontrivial
+stabilization of that question for their examples.  It does not settle it:
+rationality of \(X\times\PP^m\) for some \(m\ge2\) is not excluded, for the
+reason recorded after Theorem~\ref{thm:separation-family}.
+
+Our second result concerns a family whose universal \(CH_0\)-triviality is
+proved by neither route.  Here \(X\) is a smooth cubic threefold in the
+nonstandard \(A_5\)-invariant pencil, and the primitive minimal class of its
+intermediate Jacobian is algebraic by an integral saturation theorem for the
+six-axis lattice.
+
+\begin{theorem}[Separation on the \(A_5\)-pencil]
 \label{thm:separation-family}
 Let \(W_5\) be the five-dimensional irreducible \(A_5\)-module, and let
 \(B^\circ\) be the smooth locus inside
@@ -35,17 +100,6 @@ For the resulting family \(\mathcal X\to B^\circ\) and every
 The family is non-isotrivial in coarse moduli.
 \end{theorem}
 
-The irrationality statement does not depend on the symmetry of the pencil.
-
-\begin{theorem}[One-step irrationality]
-\label{thm:every-cubic}
-For every smooth complex cubic threefold \(X\), the fourfold
-\(X\times\PP^1\) is irrational.
-\end{theorem}
-
-The same invariant also gives one-step irrationality for every smooth prime
-Fano threefold of genus eight; see Corollary~\ref{cor:v14-one-step}.
-
 The invariant cubic space in Theorem~\ref{thm:separation-family} is
 two-dimensional.  Indeed, the character of \(W_5\) is
 \((5,1,-1,0,0)\) on the classes \(1,2A,3A,5A,5B\).  The symmetric-cube
@@ -55,7 +109,30 @@ character formula gives
 \]
 Thus its projectivization is a pencil with connected smooth locus
 \(B^\circ\).  Hartlieb denotes it by \(M_{H_1}\); it is not the component
-associated with \(\mathbf1\oplus W_4\) \cite[Lemma~5.5]{Hartlieb}.
+associated with \(\mathbf1\oplus W_4\) \cite[Lemma~5.5]{Hartlieb}.  Since the
+family is non-isotrivial, its image in coarse moduli is a curve, one
+dimension below the locus of \cite{YYZ}.
+
+\begin{remark}
+\label{rem:fermat-in-pencil}
+The pencil contains the Fermat cubic threefold; it is one of the two members
+that also admit the permutation action of \(A_5\)
+\cite[Lemma~5.5]{Hartlieb}.  The mechanism is that \(W_5\) is induced from a
+nontrivial cubic character \(\chi\) of a point stabilizer \(A_4\subset A_5\):
+Frobenius reciprocity gives
+\[
+ \bigl\langle\operatorname{Ind}_{A_4}^{A_5}\chi,\;W_5\bigr\rangle
+ =\bigl\langle\chi,\;\operatorname{Res}_{A_4}W_5\bigr\rangle=1,
+\]
+and both sides have dimension five, so
+\(\operatorname{Ind}_{A_4}^{A_5}\chi\cong W_5\).  Induction from a character
+realizes \(W_5\) by monomial matrices whose nonzero entries are cube roots of
+unity, and such a matrix fixes \(x_1^3+\cdots+x_5^3\).  Corollary
+\ref{cor:fermat-separation} is therefore the member of
+Theorem~\ref{thm:separation-family} at which universal \(CH_0\)-triviality is
+also classical, and Yang--Yu--Zhu give that member an explicit degree-three
+unirational parametrization \cite[Remark~3.6]{YYZ}.
+\end{remark}
 
 We do not claim that \(X\) is stably irrational.  From the second
 stabilization onward, weak-factorization centers can themselves have cubic
@@ -102,9 +179,14 @@ cubic threefold the minimal class is not algebraic: every curve class on the
 intermediate Jacobian is an even multiple of it, so a very general cubic
 threefold admits no decomposition of the diagonal
 \cite[Theorem~1.3 and Corollary~1.4]{EdGFS}.  What Voisin's criterion leaves is
-the countable union of moduli subvarieties on which the class is algebraic;
-Theorem~\ref{thm:six-axis-divided-powers} places an explicit exceptional family
-inside that union.  The six elliptic
+the countable union of moduli subvarieties on which the class is algebraic:
+the codimension-three components used in Corollary~\ref{cor:voisin-separation}
+\cite[Theorem~4.5 and Lemma~4.6]{Voisin}, together with the almost-diagonal
+cubics of \cite{CT} and the coprime-degree family of \cite{YYZ}.
+Theorem~\ref{thm:six-axis-divided-powers} does not enlarge that union.  It
+proves algebraicity uniformly along one explicit pencil, from the six-axis
+lattice rather than from an isogeny to a curve Jacobian, from separated
+variables, or from a unirational parametrization.  The six elliptic
 quotients supplied by Roulleau and the special period locus isolated by
 Hartlieb make the class explicit: it belongs to the
 ordinary integral divisor-product lattice for every smooth member of the
