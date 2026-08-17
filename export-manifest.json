@@ -75,26 +75,26 @@
       "mode": "100644",
       "path": "PROVENANCE.md",
       "role": "provenance",
-      "sha256": "5c69b8980447a6b77a294efafc42c20e678460256ee9ab0de9433dac20e2e4ad",
+      "sha256": "dc091cfa9b6ff282707ec8f8da2fabbf795af27143313f536c684a90a94fe0e8",
       "source_blob": null
     },
     {
-      "bytes": 4576,
+      "bytes": 4554,
       "mode": "100644",
       "path": "README.md",
       "rewrites": [],
       "role": "support",
-      "sha256": "a23666aa147c48b8579b4e3b0ae5f2f9c6600a6e7d4ecb874e75c6bff9d5a222",
-      "source_blob": "2dd42d4c5ec810d300b705dbf9f49ee03f71cc6c"
+      "sha256": "9d23ccf86916e8be644ed5af2cfc0a8d3b2f0d11b78864300270cf8b89380038",
+      "source_blob": "f453912366650f0a433e47fb6b9d5dac3eb439aa"
     },
     {
-      "bytes": 9942,
+      "bytes": 9113,
       "mode": "100644",
       "path": "cubic_stabilization_epilogue.tex",
       "rewrites": [],
       "role": "manuscript-source",
-      "sha256": "16071c1c3e508c7b2070bbdfa7297a88e1c83b0cfae5f68b524c7d17f1fe7866",
-      "source_blob": "a856a6d24fde97d73c2507e59eb7cf433f709bb1"
+      "sha256": "0b1a84009b0e420671a0cc3cd8529332a9cf723922895b82013befb2def2f21d",
+      "source_blob": "0d073cf5723773c925671f68b3322aee75fc0714"
     },
     {
       "bytes": 567,
@@ -115,13 +115,13 @@
       "source_blob": "045677549aeb1e8870d99a26c2f990346416dd44"
     },
     {
-      "bytes": 327334,
+      "bytes": 327286,
       "mode": "100644",
       "path": "irrationality_after_one_stabilization.pdf",
       "rewrites": [],
       "role": "release-output",
-      "sha256": "0fcff2cdf09060129393f096953db81583befed49120438365a1d8094566e29e",
-      "source_blob": "16e94d085a8af72793688f20007ba558eb82beeb"
+      "sha256": "3b2beffba43279a931999eb29cb3c0f418358d3c41a0ef1cf81e76c6d0af872b",
+      "source_blob": "48c70e0cf9384e79ecdd620615df0141c1f5d960"
     },
     {
       "bytes": 8,
@@ -1127,5 +1127,5 @@
   "repository": "cubic-stabilization-epilogue",
   "repository_map_sha256": "b1287d69c4398954d5ac0d89e29bbd2425c5da957d3e7a6380f638513346803a",
   "schema_version": 1,
-  "source_commit": "4ef6c743c61904e6e529da07b068124ed395042e"
+  "source_commit": "5f761c8852630d06ef28944c38522c5e5bf31829"
 }
