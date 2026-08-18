@@ -25,6 +25,7 @@ import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.Trace
 import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.ExoticStabilizerCore
 import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.AlternatingFiveIdentification
 import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.FrobeniusNormalizer
+import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.SixPointHeartEndomorphisms
 import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.FramedMultiplicity
 import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.LowDimensionalVanishingCore
 import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.WeakFactorization
@@ -72,6 +73,10 @@ import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Applications.LowDim
 import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Applications.FramedOperationFormulas
 import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Applications.CubicPacketFormula
 import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Applications.DivisorTaggingVanishing
+import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Applications.CubicAtomOneStep
+import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Applications.CubicPacketFromBlockReduction
+import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Applications.ProjectiveProductMultiplicity
+import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Applications.CubicFramedOneStep
 
 /-!
 # Reviewer interface for the cubic-stabilization companion
@@ -4749,5 +4754,319 @@ theorem genusEight_oneStep_irrational_of_flop_inputs
     ¬ geometry.Rational (geometry.productWithProjectiveLine fano) :=
   Applications.genusEight_oneStepStabilization_not_rational
     packet birationalInput geometry input
+
+/-- Reviewer-facing value of the residue discriminant of the small even zero
+packet of a smooth cubic threefold.  The matrix is the residue of the canonical
+elementary modification in the adapted frame, and the invariant is the
+discriminant of its characteristic polynomial. -/
+theorem cubicZeroPacket_residueDiscriminant_eq :
+    Quantum.residueDiscriminant Quantum.cubicZeroPacketResidue = 4 / 9 :=
+  Quantum.residueDiscriminant_cubicZeroPacketResidue
+
+/-- Reviewer-facing vanishing of the residue discriminant of the even
+connection of a smooth projective curve of genus at least two, for every value
+of the Euler-characteristic parameter.  The modified residue has a repeated
+eigenvalue. -/
+theorem curve_residueDiscriminant_eq_zero (eulerCharacteristic : ℚ) :
+    Quantum.residueDiscriminant (Quantum.curveResidue eulerCharacteristic) = 0 :=
+  Quantum.residueDiscriminant_curveResidue eulerCharacteristic
+
+/-- Reviewer-facing exclusion of low-dimensional representatives of the cubic
+zero-packet atom.  Its residue discriminant is `4 / 9` while a curve
+representative would force `0`, and its even rank is two while a nef-canonical
+surface representative would force even rank at least three. -/
+theorem cubicAtom_not_represented_in_dimension_le_two
+    {Variety Atom : Type*}
+    {ledger : Quantum.OrdinaryAtomLedger Variety Atom}
+    {stabilization : Quantum.ProjectiveLineStabilizationInput ledger}
+    {exclusion : Quantum.LowDimensionalExclusionInput ledger}
+    {cubic : Variety} {atom : Atom}
+    (input : Applications.CubicAtomOneStepInput ledger stabilization exclusion cubic atom)
+    (witness : Variety) (witnessDimension : ledger.dimension witness ≤ 2) :
+    ledger.multiplicity witness atom = 0 :=
+  Applications.cubicAtom_multiplicity_eq_zero_of_dimension_le_two input witness witnessDimension
+
+/-- Reviewer-facing form of the atomic one-step irrationality deduction for a
+cubic threefold.  The input structure exposes the ordinary Hodge-atom premises:
+the projective-bundle formula for atomic compositions, the ordinary
+non-rationality criterion, the surface and curve analysis, and the parity ranks
+and residue discriminant of the cubic zero-packet atom. -/
+theorem cubicThreefold_oneStep_irrational_of_atom_inputs
+    {Variety Atom : Type*}
+    {ledger : Quantum.OrdinaryAtomLedger Variety Atom}
+    (stabilization : Quantum.ProjectiveLineStabilizationInput ledger)
+    {exclusion : Quantum.LowDimensionalExclusionInput ledger}
+    {cubic : Variety} {atom : Atom}
+    (input : Applications.CubicAtomOneStepInput ledger stabilization exclusion cubic atom) :
+    ¬ ledger.Rational (ledger.productWithProjectiveLine cubic) :=
+  Applications.cubicAtom_oneStepStabilization_not_rational stabilization input
+
+/-- Reviewer-facing small even block reduction of a smooth cubic threefold.
+Over a field of characteristic zero and for a nonzero square root `r` of three
+times the line-class Novikov variable, the displayed constant change of basis
+has determinant `-486 r ^ 5`, conjugates the doubled Euler multiplication
+matrix to `diag (6 r, -6 r, J)` with `J` a single rank-two Jordan block at the
+eigenvalue zero, and conjugates the grading matrix to the displayed separated
+form; the two supplied block-off-diagonal gauge coefficients then make the
+first and second coefficients of the transformed system block diagonal, with
+rank-two blocks `diag (-19 / 18, 19 / 18)` and
+`!![0, -14 / (81 r ^ 2); -8 / 81, 0]`.  Uniqueness of the normalized gauge and
+the orders beyond the second are not formalized. -/
+theorem cubicSmallEven_blockReduction {K : Type*} [Field K] [CharZero K]
+    (r : K) (hr : r ≠ 0) :
+    (Quantum.cubicBlockBasis r).det = -486 * r ^ 5 ∧
+      Quantum.cubicEulerMatrix r * Quantum.cubicBlockBasis r =
+        Quantum.cubicBlockBasis r * Quantum.cubicEulerBlockForm r ∧
+      Quantum.cubicGradingMatrix * Quantum.cubicBlockBasis r =
+        Quantum.cubicBlockBasis r * Quantum.cubicGradingBlockForm r ∧
+      Quantum.cubicEulerBlockForm r * Quantum.cubicGaugeFirst r -
+          Quantum.cubicGaugeFirst r * Quantum.cubicEulerBlockForm r +
+          Quantum.cubicGradingBlockForm r = Quantum.cubicReducedFirst ∧
+      Quantum.cubicEulerBlockForm r * Quantum.cubicGaugeSecond r -
+          Quantum.cubicGaugeSecond r * Quantum.cubicEulerBlockForm r +
+          (Quantum.cubicGradingBlockForm r * Quantum.cubicGaugeFirst r -
+            Quantum.cubicGaugeFirst r * Quantum.cubicReducedFirst -
+            Quantum.cubicGaugeFirst r) = Quantum.cubicReducedSecond r ∧
+      (Quantum.cubicZeroBlockLeading (K := K) * Quantum.cubicZeroBlockLeading = 0 ∧
+        Quantum.cubicZeroBlockLeading (K := K) ≠ 0) :=
+  ⟨Quantum.cubicBlockBasis_det r, Quantum.cubicEulerMatrix_mul_blockBasis r,
+    Quantum.cubicGradingMatrix_mul_blockBasis r hr,
+    Quantum.cubicReduction_first_order r hr, Quantum.cubicReduction_second_order r hr,
+    Quantum.cubicZeroBlockLeading_sq_eq_zero_and_ne_zero⟩
+
+/-- Reviewer-facing residue of the canonical elementary modification of the
+reduced rank-two zero block, computed from the block reduction rather than
+assumed: the residue is `!![-19 / 18, 2; -8 / 81, 1 / 18]`, its trace is `-1`,
+its determinant is `5 / 36`, and its characteristic polynomial is the rank-two
+indicial polynomial whose roots are the exponents `-1 / 6` and `-5 / 6`. -/
+theorem cubicZeroBlock_modifiedResidue_indicialPolynomial (r : ℚ) :
+    Quantum.modifiedBlockResidue (Quantum.cubicZeroBlockLeading (K := ℚ))
+          Quantum.cubicZeroBlockRegular (Quantum.cubicZeroBlockSecond r) =
+        !![-19 / 18, 2; -8 / 81, 1 / 18] ∧
+      Quantum.cubicZeroPacketResidue =
+        Quantum.modifiedBlockResidue (Quantum.cubicZeroBlockLeading (K := ℚ))
+          Quantum.cubicZeroBlockRegular (Quantum.cubicZeroBlockSecond r) ∧
+      Quantum.cubicIndicialPolynomial =
+        ((Polynomial.X ^ 2 -
+          Polynomial.C
+            (Quantum.modifiedBlockResidue (Quantum.cubicZeroBlockLeading (K := ℚ))
+              (Quantum.cubicZeroBlockRegular (K := ℚ))
+              (Quantum.cubicZeroBlockSecond r)).trace * Polynomial.X +
+          Polynomial.C
+            (Quantum.modifiedBlockResidue (Quantum.cubicZeroBlockLeading (K := ℚ))
+              (Quantum.cubicZeroBlockRegular (K := ℚ))
+              (Quantum.cubicZeroBlockSecond r)).det : Polynomial ℚ)) :=
+  ⟨Quantum.cubicModifiedBlockResidue r,
+    Quantum.cubicZeroPacketResidue_eq_modifiedBlockResidue r,
+    Quantum.cubicModifiedBlockResidue_indicialPolynomial r⟩
+
+/-- Reviewer-facing cubic packet theorem from the block reduction.  The premise
+supplies only that framed formal monodromy exponentiates the exponents of the
+reduced system, with two unit factors from the rank-one blocks; which exponents
+occur is proved from the reduction rather than assumed. -/
+theorem cubicPacket_sixthMultiplicity_eq_two_of_block_exponents
+    {Cubic : Type*} (geometry : Applications.CubicPacketGeometry Cubic)
+    (exponentMonodromy : ∀ cubic, geometry.isSmoothCubicThreefold cubic →
+      ∀ firstExponent secondExponent : ℚ,
+        Quantum.cubicIndicialPolynomial =
+            (Polynomial.X - Polynomial.C firstExponent) *
+              (Polynomial.X - Polynomial.C secondExponent) →
+          (geometry.framedMonodromy cubic).operator.charpoly =
+            (Polynomial.X -
+                Polynomial.C
+                  (Complex.exp (2 * (Real.pi : ℂ) * Complex.I * (firstExponent : ℂ)))) *
+              (Polynomial.X -
+                Polynomial.C
+                  (Complex.exp (2 * (Real.pi : ℂ) * Complex.I * (secondExponent : ℂ)))) *
+                (Polynomial.X - Polynomial.C 1) ^ 2) :
+    ∀ cubic, geometry.isSmoothCubicThreefold cubic →
+      (geometry.framedMonodromy cubic).sixthMultiplicity = 2 :=
+  Applications.cubicPacket_sixthMultiplicity_eq_two_of_block_exponents geometry
+    exponentMonodromy
+
+/-- Reviewer-facing simplicity and endomorphism algebras of the two six-point
+hearts.  The six labels carry the six order-five subgroups of the alternating
+group on five letters, and the two generators permute them by conjugation
+exactly as they permute the labels; the generator words realize the whole
+alternating group.  For each of the characteristics two and three, the heart is
+the quotient of the augmentation hyperplane of the six-label permutation module
+by its constant line, presented in four explicit coordinates, and the two label
+permutations induce the displayed generator matrices.
+
+Every subspace stable under the generated action is zero or everything, so both
+hearts are simple.  In characteristic two the commutant of the generated action
+is `{0, 1, W, W + 1}` with `W ^ 2 + W + 1 = 0`, `W (W + 1) = 1`, and the four
+elements pairwise distinct, so it is the field with four elements; in
+characteristic three the commutant consists of the scalar matrices alone, which
+is the field with three elements.  The identification of the six labels with
+dihedral subgroups arising from a geometric object is not part of this
+statement. -/
+theorem sixPointHearts_simple_with_endomorphism_algebras :
+    (∀ heart : Fin 4 → GraphLattices.F2,
+        GraphLattices.sixPointHeartCoordinates
+          (GraphLattices.sixPointHeartRepresentative heart) = heart) ∧
+      (∀ vector : Fin 6 → GraphLattices.F2, ∑ point, vector point = 0 →
+        (GraphLattices.sixPointHeartCoordinates vector = 0 ↔
+          ∀ point, vector point = vector 5)) ∧
+      (∀ heart : Fin 4 → GraphLattices.F2,
+        GraphLattices.sixPointHeartCoordinates
+            (GraphLattices.sixPointHeartRepresentative heart ∘
+              GraphLattices.sixPointTranslationPreimage) =
+          Matrix.mulVec GraphLattices.sixPointHeartTranslation heart ∧
+        GraphLattices.sixPointHeartCoordinates
+            (GraphLattices.sixPointHeartRepresentative heart ∘
+              GraphLattices.sixPointInversionPreimage) =
+          Matrix.mulVec GraphLattices.sixPointHeartInversion heart) ∧
+      (∀ subspace : Submodule GraphLattices.F2 (Fin 4 → GraphLattices.F2),
+        (∀ (word : List Bool) (vector : Fin 4 → GraphLattices.F2),
+          vector ∈ subspace →
+            Matrix.mulVec (GraphLattices.sixPointHeartWordMatrix word) vector ∈
+              subspace) →
+          subspace = ⊥ ∨ subspace = ⊤) ∧
+      (∀ matrix : Matrix (Fin 4) (Fin 4) GraphLattices.F2,
+        (∀ word : List Bool,
+          matrix * GraphLattices.sixPointHeartWordMatrix word =
+            GraphLattices.sixPointHeartWordMatrix word * matrix) ↔
+          matrix = 0 ∨ matrix = 1 ∨
+            matrix = GraphLattices.sixPointHeartCommutantRoot ∨
+            matrix = GraphLattices.sixPointHeartCommutantRoot + 1) ∧
+      (GraphLattices.sixPointHeartCommutantRoot ^ 2 +
+            GraphLattices.sixPointHeartCommutantRoot + 1 = 0 ∧
+        GraphLattices.sixPointHeartCommutantRoot *
+            (GraphLattices.sixPointHeartCommutantRoot + 1) = 1 ∧
+        GraphLattices.sixPointHeartCommutantRoot ≠ 0 ∧
+        GraphLattices.sixPointHeartCommutantRoot ≠ 1 ∧
+        (0 : Matrix (Fin 4) (Fin 4) GraphLattices.F2) ≠ 1) ∧
+      (∀ vector : GraphLattices.SixPointThreeAugmentation,
+        GraphLattices.sixPointThreeAugmentationQuotientEquivHeart
+            (Submodule.Quotient.mk vector) =
+          GraphLattices.sixPointThreeHeartCoordinates vector.1) ∧
+      (∀ heart : GraphLattices.SixPointThreeAugmentationQuotient,
+        GraphLattices.sixPointThreeAugmentationQuotientEquivHeart
+              (GraphLattices.sixPointThreeAugmentationQuotientTranslation heart) =
+            Matrix.mulVec GraphLattices.sixPointThreeHeartTranslation
+              (GraphLattices.sixPointThreeAugmentationQuotientEquivHeart heart) ∧
+          GraphLattices.sixPointThreeAugmentationQuotientEquivHeart
+              (GraphLattices.sixPointThreeAugmentationQuotientInversion heart) =
+            Matrix.mulVec GraphLattices.sixPointThreeHeartInversion
+              (GraphLattices.sixPointThreeAugmentationQuotientEquivHeart heart)) ∧
+      (∀ subspace :
+          Submodule GraphLattices.F3 GraphLattices.SixPointThreeHeart,
+        (∀ (word : List Bool) (vector : GraphLattices.SixPointThreeHeart),
+          vector ∈ subspace →
+            Matrix.mulVec (GraphLattices.sixPointThreeHeartWordMatrix word)
+              vector ∈ subspace) →
+          subspace = ⊥ ∨ subspace = ⊤) ∧
+      (∀ matrix : Matrix (Fin 4) (Fin 4) GraphLattices.F3,
+        (∀ word : List Bool,
+          matrix * GraphLattices.sixPointThreeHeartWordMatrix word =
+            GraphLattices.sixPointThreeHeartWordMatrix word * matrix) ↔
+          ∃ value : GraphLattices.F3,
+            matrix = Matrix.scalar (Fin 4) value) :=
+  GraphLattices.sixPointHearts_simple_with_endomorphism_algebras
+
+/-- Reviewer-facing vanishing of the primitive-sixth multiplicity of every
+projective space.  The premises are the manuscript's product formula for a
+product with a projective space, the identification of a projective space with
+the product of a point with it, and involutivity of the framed monodromy of a
+point.  Lean deduces that the point and every projective space have vanishing
+multiplicity; dimension three is the value used in the universal triviality
+comparison, and dimension four is the value used by the framed-monodromy proof
+of one-step irrationality. -/
+theorem projectiveSpace_sixthMultiplicity_eq_zero_of_product_inputs
+    {Variety : Type*}
+    (geometry : Applications.ProjectiveProductGeometry Variety)
+    (input : Applications.ProjectiveProductInput geometry) :
+    (geometry.framedMonodromy geometry.point).sixthMultiplicity = 0 ∧
+      ∀ dimension : ℕ,
+        (geometry.framedMonodromy
+          (geometry.projectiveSpace dimension)).sixthMultiplicity = 0 :=
+  ⟨Applications.point_sixthMultiplicity_eq_zero geometry input,
+    Applications.projectiveSpace_sixthMultiplicity_eq_zero geometry input⟩
+
+/-- Reviewer-facing framed count after one product stabilization, from the
+packet value.  Under the manuscript's product formula, a variety of
+primitive-sixth multiplicity two has multiplicity four after multiplication by
+a projective line. -/
+theorem productProjectiveLine_sixthMultiplicity_eq_four
+    {Variety : Type*}
+    (geometry : Applications.ProjectiveProductGeometry Variety)
+    (input : Applications.ProjectiveProductInput geometry) {base : Variety}
+    (packet : (geometry.framedMonodromy base).sixthMultiplicity = 2) :
+    (geometry.framedMonodromy
+        (geometry.productWithProjectiveSpace base 1)).sixthMultiplicity = 4 :=
+  Applications.productProjectiveLine_sixthMultiplicity_eq_four geometry input packet
+
+/-- Reviewer-facing framed count after one product stabilization for a smooth
+cubic threefold.  The packet value two is not assumed: it is derived from the
+small even block reduction, so the premises are the manuscript's product
+formula, involutivity of the framed monodromy of a point, and the passage from
+the exponents of the reduced rank-two block to framed formal monodromy. -/
+theorem cubicProductProjectiveLine_sixthMultiplicity_eq_four_of_block_exponents
+    {Variety : Type*}
+    (geometry : Applications.ProjectiveProductGeometry Variety)
+    (input : Applications.ProjectiveProductInput geometry)
+    (exponentMonodromy : ∀ cubic, geometry.isSmoothCubicThreefold cubic →
+      ∀ firstExponent secondExponent : ℚ,
+        Quantum.cubicIndicialPolynomial =
+            (Polynomial.X - Polynomial.C firstExponent) *
+              (Polynomial.X - Polynomial.C secondExponent) →
+          (geometry.framedMonodromy cubic).operator.charpoly =
+            (Polynomial.X -
+                Polynomial.C
+                  (Complex.exp (2 * (Real.pi : ℂ) * Complex.I * (firstExponent : ℂ)))) *
+              (Polynomial.X -
+                Polynomial.C
+                  (Complex.exp (2 * (Real.pi : ℂ) * Complex.I * (secondExponent : ℂ)))) *
+                (Polynomial.X - Polynomial.C 1) ^ 2) :
+    ∀ cubic, geometry.isSmoothCubicThreefold cubic →
+      (geometry.framedMonodromy
+          (geometry.productWithProjectiveSpace cubic 1)).sixthMultiplicity = 4 :=
+  Applications.cubicProductProjectiveLine_sixthMultiplicity_eq_four geometry input
+    exponentMonodromy
+
+/-- Reviewer-facing framed-monodromy route to one-step irrationality of a smooth
+cubic threefold.  Three numerical inputs of the earlier assembly of this route
+are now proved rather than assumed: the framed count two for the cubic
+threefold, which follows from the small even block reduction; its doubling under
+multiplication by a projective line; and the vanishing of the count on
+projective four-space.  The premises that remain are the manuscript's product
+formula for a product with a projective space, involutivity of the framed
+monodromy of a point, the passage from the exponents of the reduced rank-two
+block to framed formal monodromy, the birational input carrying weak
+factorization with vanishing center contributions, the dimension bound on the
+stabilized fourfold, and the birational comparison with projective four-space
+supplied by rationality. -/
+theorem cubicThreefold_oneStep_not_rational_of_framed_product_inputs
+    {Variety : Type*}
+    (geometry : Applications.ProjectiveProductGeometry Variety)
+    (input : Applications.ProjectiveProductInput geometry)
+    (dimension : Variety → ℕ)
+    (birationalInput : Quantum.DimensionFourBirationalInput
+      (Applications.framedProductPacketData geometry dimension))
+    (Rational : Variety → Prop)
+    (exponentMonodromy : ∀ cubic, geometry.isSmoothCubicThreefold cubic →
+      ∀ firstExponent secondExponent : ℚ,
+        Quantum.cubicIndicialPolynomial =
+            (Polynomial.X - Polynomial.C firstExponent) *
+              (Polynomial.X - Polynomial.C secondExponent) →
+          (geometry.framedMonodromy cubic).operator.charpoly =
+            (Polynomial.X -
+                Polynomial.C
+                  (Complex.exp (2 * (Real.pi : ℂ) * Complex.I * (firstExponent : ℂ)))) *
+              (Polynomial.X -
+                Polynomial.C
+                  (Complex.exp (2 * (Real.pi : ℂ) * Complex.I * (secondExponent : ℂ)))) *
+                (Polynomial.X - Polynomial.C 1) ^ 2)
+    {cubic : Variety} (smooth : geometry.isSmoothCubicThreefold cubic)
+    (stabilizedDimension :
+      dimension (geometry.productWithProjectiveSpace cubic 1) ≤ 4)
+    (rationalComparison : Rational (geometry.productWithProjectiveSpace cubic 1) →
+      birationalInput.birational (geometry.productWithProjectiveSpace cubic 1)
+        (geometry.projectiveSpace 4)) :
+    ¬ Rational (geometry.productWithProjectiveSpace cubic 1) :=
+  Applications.cubicThreefold_oneStep_not_rational_of_framed_product_inputs geometry
+    input dimension birationalInput Rational exponentMonodromy smooth
+    stabilizedDimension rationalComparison
 
 end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue

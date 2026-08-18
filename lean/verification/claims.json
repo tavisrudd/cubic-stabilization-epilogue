@@ -7,13 +7,28 @@
       "manuscript_label": "thm:every-cubic",
       "coverage": "conditional_deduction",
       "declarations": [
-        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.irrational_of_nonzero_packet",
-        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.cubicThreefold_oneStep_irrational_of_packet_inputs"
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.cubicZeroPacket_residueDiscriminant_eq",
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.curve_residueDiscriminant_eq_zero",
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.cubicAtom_not_represented_in_dimension_le_two",
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.cubicThreefold_oneStep_irrational_of_atom_inputs"
       ],
-      "objects": "An abstract geometric signature naming smooth complex cubic threefolds, product with projective one-space, projective four-space, and rationality, together with a natural-valued packet multiplicity.",
-      "hypotheses": "The carrier satisfies the smooth-cubic predicate, its packet equals two, the named product obeys the rank-two formula and dimension bound, projective four-space has zero packet, and rationality supplies the required birational relation.",
+      "objects": "An abstract ordinary Hodge-atom ledger: a type of varieties with a dimension, a rationality predicate, the product with a projective line, and the multiplicity with which an atom occurs in the atomic composition of a variety; together with the residue discriminant and the parity ranks of an atom, and the explicit rational residue matrices of the cubic zero packet and of a curve of genus at least two.",
+      "hypotheses": "The projective-bundle formula doubles every atomic multiplicity on the product with a projective line; the ordinary non-rationality criterion excludes rationality of a variety carrying an atom that occurs on no variety of dimension at most two below it; on a variety of dimension at most two every occurring atom either already occurs in dimension at most one or has even rank at least three; an atom of even rank two and odd rank at least four occurring in dimension at most one has vanishing residue discriminant; and the cubic carrier has dimension three and carries an atom of even rank two, odd rank ten, and residue discriminant equal to that of the displayed cubic residue matrix.",
+      "conclusion": "Lean evaluates the residue discriminant of the cubic zero-packet residue as four ninths and of every curve residue as zero, derives from that separation and the parity ranks that the cubic atom occurs on no variety of dimension at most two, and concludes that the product of the cubic threefold with a projective line is not rational.",
+      "cautions": "The geometric signature and every ordinary Hodge-atom input remain typed premises rather than foundational constructions: Lean does not construct varieties, the A-model F-bundle, the spectral cover, atoms or atomic compositions, the elementary modification, or the residue of a geometric connection, and does not prove that either displayed matrix is that residue. The surface and curve analysis of the manuscript, which uses the point-blowup and projective-bundle formulas, the nef-canonical lemma, and the classification of minimal smooth projective surfaces, enters as the two exclusion premises."
+    },
+    {
+      "manuscript_label": "thm:every-cubic-conditional",
+      "coverage": "conditional_deduction",
+      "declarations": [
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.irrational_of_nonzero_packet",
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.cubicThreefold_oneStep_irrational_of_packet_inputs",
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.cubicThreefold_oneStep_not_rational_of_framed_product_inputs"
+      ],
+      "objects": "An abstract geometric signature naming smooth complex cubic threefolds, product with projective one-space, projective four-space, and rationality, together with a natural-valued framed primitive-sixth multiplicity; and, for the third terminal, the product-formula signature carrying a distinguished point, the projective spaces, and the product of a variety with a projective space.",
+      "hypotheses": "For the first two terminals: the carrier satisfies the smooth-cubic predicate, its framed multiplicity equals two, the named product obeys the rank-two formula and dimension bound, projective four-space has zero multiplicity, and rationality supplies the required birational relation. The third terminal assumes instead the product formula for a product with a projective space, involutivity of the framed monodromy of a point, and the passage from the exponents of the reduced rank-two block to framed formal monodromy, and derives from them the multiplicity two of the cubic, its doubling under multiplication by a projective line, and the vanishing on projective four-space. Birational invariance of the multiplicity through dimension four, which the manuscript proves under its two residual hypotheses, is part of the supplied birational input in every case.",
       "conclusion": "The named product of the specified cubic carrier with projective one-space is not rational.",
-      "cautions": "The geometric signature and every quantum, weak-factorization, and rational-comparison fact remain typed premises rather than foundational constructions."
+      "cautions": "This is the framed-monodromy route, conditional in the manuscript on the reconstruction-tail and divisor-tagging hypotheses and, in Lean, on every quantum, weak-factorization, and rational-comparison fact as a typed premise. It is independent of the unconditional atomic route recorded under thm:every-cubic and is not a formalization of that route. The third terminal removes three numerical assumptions in favour of the product formula and the exponent-to-monodromy passage; neither of those is formalized."
     },
     {
       "manuscript_label": "cor:voisin-separation",
@@ -51,16 +66,18 @@
       "objects": "A parameter type; one typed family of variety objects used simultaneously by cycle and rationality signatures; a separate intermediate-Jacobian type; a named projective-line product operation; predicates for smooth cubic status, universal CH0-triviality, rationality, and family non-isotriviality; and a natural-valued packet multiplicity.",
       "hypotheses": "For every parameter, the fibre is a smooth complex cubic threefold with algebraic primitive minimal class, and the complete one-step packet/birational input holds. Voisin's primitive-minimal-class equivalence, preservation of universal CH0-triviality under the named projective-line product, and non-isotriviality of the supplied family are explicit premises.",
       "conclusion": "Every fibre is universally CH0-trivial; every named projective-line stabilization is universally CH0-trivial and irrational; and the family satisfies the supplied non-isotriviality predicate.",
-      "cautions": "Lean checks only the final composition. It does not construct the nonstandard A5-invariant pencil, its connected smooth locus, the invariant cubic space, its fibres, intermediate Jacobians, Chow groups, projective-bundle formula, primitive minimal classes or their algebraicity, Voisin's criterion, the framed quantum packet and operation formulas, weak-factorization comparison, coarse moduli, or the nonconstant period map. The cycle conclusion is fibrewise, and no relative universal cycle is asserted. The typed irrationality input is the broader every-cubic input and does not use the A5 symmetry."
+      "cautions": "Lean checks only the final composition. It does not construct the nonstandard A5-invariant pencil, its connected smooth locus, the invariant cubic space, its fibres, intermediate Jacobians, Chow groups, projective-bundle formula, primitive minimal classes or their algebraicity, Voisin's criterion, the framed quantum packet and operation formulas, weak-factorization comparison, coarse moduli, or the nonconstant period map. The cycle conclusion is fibrewise, and no relative universal cycle is asserted. The typed irrationality input is the broader framed one-step input recorded under thm:every-cubic-conditional and does not use the A5 symmetry; the manuscript now takes its irrationality from the unconditional atomic route instead."
     },
     {
       "manuscript_label": "lem:six-point-hearts",
-      "coverage": "absent",
-      "declarations": [],
-      "objects": "The six-point permutation module of the alternating group on five letters over the prime fields of characteristic two and three, its augmentation quotient by the all-ones vector, and the endomorphism algebra of that quotient.",
-      "hypotheses": "Only the six-point action of the alternating group; no geometric input.",
-      "conclusion": "Each quotient is a simple module, with endomorphism algebra the field of four elements in characteristic two and the field of three elements in characteristic three.",
-      "cautions": "Not formalized. The nearest formalized material is the coefficient-heart classification registered under the principal gluing packet, which takes the heart structures as given rather than proving simplicity."
+      "coverage": "fragment",
+      "declarations": [
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.sixPointHearts_simple_with_endomorphism_algebras"
+      ],
+      "objects": "The six-point permutation module of the alternating group on five letters over the prime fields of characteristic two and three, its augmentation quotient by the all-ones vector presented in four explicit coordinates, and the matrix commutant of the generated action on that quotient.",
+      "hypotheses": "Only the six-point action of the two generators induced by the label permutations `z + 1` and `-1 / z` of the projective line over the field with five elements; no geometric input.",
+      "conclusion": "In each characteristic the four-coordinate chart identifies the heart with the augmentation quotient and carries the two label permutations to the displayed generator matrices; every subspace stable under the generated action is zero or the whole heart, so the heart is simple; the commutant of the generated action is `{0, 1, W, W + 1}` in characteristic two, with `W ^ 2 + W + 1 = 0`, `W (W + 1) = 1` and the four elements pairwise distinct, hence the field with four elements, and consists of the scalar matrices alone in characteristic three, hence the field with three elements.",
+      "cautions": "The statement is about the concrete six-label model, whose labels are the six order-five subgroups of the concrete alternating group on five letters and whose generated action is that whole group; both facts are proved in this package but are not part of this terminal's type. The endomorphism algebras are exhibited by explicit generators and relations rather than by an isomorphism with named field objects, and the six labels are not identified with dihedral subgroups arising from a geometric object."
     },
     {
       "manuscript_label": "prop:six-axis-polarization",
@@ -259,12 +276,15 @@
     },
     {
       "manuscript_label": "prop:cubic-block-data",
-      "coverage": "absent",
-      "declarations": [],
-      "objects": "Small even Euler multiplication of a smooth cubic threefold after adjoining the square root of three times the line Novikov variable, its characteristic polynomial, the zero generalized eigenspace, and the normalized gauge that splits the horizontal system.",
-      "hypotheses": "Smoothness of the cubic threefold, the hyperplane and line class conventions, and adjunction of the square root to the Novikov coefficient field.",
-      "conclusion": "The characteristic polynomial is the square of the coordinate times the difference of its square and one hundred eight times the line variable, the zero generalized eigenspace is a single rank-two Jordan block, and a constant change of basis followed by a unique normalized gauge in integral powers of the original loop coordinate splits the horizontal system into blocks.",
-      "cautions": "Not formalized here. The conditional Lean treatment of the resulting indicial factorization and framed eigenvalues is registered under the cubic packet claim, which starts from a supplied characteristic polynomial instead of constructing this block reduction."
+      "coverage": "fragment",
+      "declarations": [
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.cubicSmallEven_blockReduction",
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.cubicZeroBlock_modifiedResidue_indicialPolynomial"
+      ],
+      "objects": "The doubled Euler multiplication matrix and the grading matrix of the small even quantum connection of a smooth cubic threefold in the ordered classical basis, written over a characteristic-zero field in a nonzero square root r of three times the line-class Novikov variable; the constant separating change of basis; two explicit block-off-diagonal gauge coefficients; and the rank-two zero block with its canonical elementary modification.",
+      "hypotheses": "The field has characteristic zero and r is nonzero. No property of the two displayed connection matrices is assumed; they are the matrices exhibited in the source.",
+      "conclusion": "Lean proves that the separating change of basis has determinant -486 r^5, conjugates the Euler matrix to the diagonal pair 6r, -6r together with a single rank-two Jordan block at zero, and conjugates the grading matrix to the displayed separated form; that the two supplied gauge coefficients make the first and second coefficients of the transformed system block diagonal, with rank-two blocks diag(-19/18, 19/18) and the displayed second block; and that the residue of the canonical elementary modification is the displayed matrix, of trace -1 and determinant 5/36, whose characteristic polynomial is the rank-two indicial polynomial.",
+      "cautions": "This is a strictly weaker fragment of the manuscript statement. Lean verifies the supplied gauge coefficients rather than proving existence and uniqueness of the normalized gauge by the Sylvester recursion, and it stops at the second order, which is the order the residue needs. It does not construct the quantum connection and does not prove that the displayed matrices are the small even connection of a cubic threefold; that identification is the imported datum."
     },
     {
       "manuscript_label": "lem:disc",
@@ -532,28 +552,31 @@
       "objects": "The framed sixth-root count of a product of a smooth projective variety with a projective space.",
       "hypotheses": "Smoothness and projectivity of the factor; the product formula for Gromov-Witten theory and the multiplicity-one Euler block lemma.",
       "conclusion": "The count of the product is the count of the factor multiplied by one more than the dimension of the projective space, unconditionally.",
-      "cautions": "Not formalized as stated. The companion's projective-bundle formula is registered under the conditional framed operation claim and is proved under the reconstruction-tail hypothesis, whereas this product statement is unconditional."
+      "cautions": "Not formalized as stated. The formula enters the two product-formula corollaries as an explicit typed premise, and the companion's projective-bundle formula is registered under the conditional framed operation claim and is proved under the reconstruction-tail hypothesis, whereas this product statement is unconditional."
     },
     {
       "manuscript_label": "cor:p3-nu6",
-      "coverage": "absent",
-      "declarations": [],
-      "objects": "The framed sixth-root count of projective three-space.",
-      "hypotheses": "The multiplicity-one Euler block lemma applied to the small even quantum connection of projective three-space.",
-      "conclusion": "The count vanishes.",
-      "cautions": "Not formalized."
+      "coverage": "conditional_deduction",
+      "declarations": [
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.projectiveSpace_sixthMultiplicity_eq_zero_of_product_inputs"
+      ],
+      "objects": "A supplied type of varieties with a distinguished point, the projective spaces, the product of a variety with a projective space, and the framed sixth-root count of each of them.",
+      "hypotheses": "The product formula multiplies the count of a variety by one more than the dimension of the projective factor; a projective space is the product of the point with that projective space; and the framed monodromy of the point is involutive.",
+      "conclusion": "Lean deduces that the point has vanishing count and hence that every projective space has vanishing count, including three-space and four-space.",
+      "cautions": "The product formula is a typed premise: Lean does not construct varieties, products, quantum connections, or framed monodromy, and does not prove the Gromov-Witten product formula or the compatibility of the formal decomposition with tensor products used in the manuscript's proof of that formula. Involutivity of the framed monodromy of the point stands for the manuscript's rank-one trivial connection at a point."
     },
     {
       "manuscript_label": "prop:cubic-packet",
       "coverage": "conditional_deduction",
       "declarations": [
         "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.cubicPacket_sixthMultiplicity_eq_two_of_charpoly",
-        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.cubicPacket_indicial_factorization_and_framed_eigenvalues"
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.cubicPacket_indicial_factorization_and_framed_eigenvalues",
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.cubicPacket_sixthMultiplicity_eq_two_of_block_exponents"
       ],
       "objects": "A supplied type of cubic objects with a smooth-complex-cubic-threefold predicate and a finite-dimensional complex framed-monodromy matrix; Cai's rank-two indicial polynomial and the displayed characteristic polynomial with one factor for each primitive sixth root and two unit factors.",
       "hypotheses": "For every supplied smooth cubic threefold, the framed-monodromy characteristic polynomial is supplied to equal the displayed four-factor polynomial arising from Cai's integral-loop-power block description.",
-      "conclusion": "Lean proves the indicial roots -1/6 and -5/6 give the negative and positive primitive sixth roots, proves those roots are distinct and each has algebraic multiplicity one while the two unit factors contribute nothing, and concludes that every supplied smooth cubic threefold has primitive-sixth multiplicity exactly two.",
-      "cautions": "The result is conditional on the characteristic-polynomial comparison. Lean does not construct a smooth cubic threefold, its numerical small even quantum connection, Cai's integral-loop-power block diagonalization, the rank-two zero-exponential block, the two remaining rank-one unit blocks, or the identification of their direct-sum characteristic polynomial with the supplied framed monodromy. Lean also does not prove that the cubic threefold's numerical curve lattice has rank one or that the manuscript's numerical-Novikov convention leaves Cai's calculation unchanged."
+      "conclusion": "Lean proves the indicial roots -1/6 and -5/6 give the negative and positive primitive sixth roots, proves those roots are distinct and each has algebraic multiplicity one while the two unit factors contribute nothing, and concludes that every supplied smooth cubic threefold has primitive-sixth multiplicity exactly two. A second terminal reaches the same value from a weaker premise: it assumes only that framed monodromy exponentiates the exponents of the reduced system, with two unit factors from the rank-one blocks, and proves which exponents occur from the block reduction.",
+      "cautions": "The result is conditional on the characteristic-polynomial comparison. Lean does not construct a smooth cubic threefold, its numerical small even quantum connection, Cai's integral-loop-power block diagonalization, the rank-two zero-exponential block, the two remaining rank-one unit blocks, or the identification of their direct-sum characteristic polynomial with the supplied framed monodromy. Lean also does not prove that the cubic threefold's numerical curve lattice has rank one or that the manuscript's numerical-Novikov convention leaves Cai's calculation unchanged. The second terminal removes the characteristic-polynomial assumption in favour of the exponent-to-monodromy passage, which remains external; the exponents themselves are now derived from the displayed connection matrices."
     },
     {
       "manuscript_label": "cor:cubic-formal-germ",
@@ -566,12 +589,15 @@
     },
     {
       "manuscript_label": "cor:cubic-product-nu",
-      "coverage": "absent",
-      "declarations": [],
-      "objects": "The framed sixth-root count of the product of a smooth cubic threefold with the projective line.",
-      "hypotheses": "The cubic packet value and the unconditional product formula with projective space.",
-      "conclusion": "The count equals four, unconditionally.",
-      "cautions": "Not formalized as stated. The companion proves the projective-bundle formula only under the reconstruction-tail hypothesis, registered under the conditional framed operation claim."
+      "coverage": "conditional_deduction",
+      "declarations": [
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.productProjectiveLine_sixthMultiplicity_eq_four",
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.cubicProductProjectiveLine_sixthMultiplicity_eq_four_of_block_exponents"
+      ],
+      "objects": "A supplied type of varieties with a smooth-cubic-threefold predicate, framed monodromy, and the product of a variety with a projective space; the rank-two indicial polynomial of the reduced small even system.",
+      "hypotheses": "The product formula multiplies the count by one more than the dimension of the projective factor. The first terminal assumes the count of the base variety is two; the second assumes instead that framed monodromy exponentiates the exponents of the reduced system with two unit factors, and derives the value two from the block reduction.",
+      "conclusion": "The count of the product with a projective line is four; for the second terminal this holds for every supplied smooth cubic threefold.",
+      "cautions": "The product formula remains a typed premise, as does the passage from residue exponents to framed formal monodromy. Lean constructs neither the varieties and their products nor the quantum connections, and the companion's separate projective-bundle formula is proved only under the reconstruction-tail hypothesis registered with the conditional framed operation claim."
     },
     {
       "manuscript_label": "cor:v14-one-step",
@@ -584,7 +610,7 @@
       "objects": "An abstract geometric signature naming smooth prime genus-eight Fano threefolds, their associated Pfaffian cubics, both rank-two projective-bundle total spaces, product with projective one-space, projective four-space, and rationality.",
       "hypotheses": "The specified carrier satisfies the genus-eight predicate, its associated cubic satisfies the smooth-cubic predicate, both named total spaces obey the rank-two formulas and are birational, the cubic packet is two, and the named stabilization and rational comparison have the stated properties.",
       "conclusion": "The specified Fano carrier has packet multiplicity two and its named product with projective one-space is irrational.",
-      "cautions": "The geometric signature and the Kuznetsov, quantum, weak-factorization, and rational-comparison facts remain typed premises rather than foundational constructions."
+      "cautions": "The geometric signature and the Kuznetsov, quantum, weak-factorization, and rational-comparison facts remain typed premises rather than foundational constructions. Lean follows the framed route, which the manuscript states conditionally; the manuscript's unconditional half, obtained by comparing the two projective bundles birationally and applying the atomic one-step theorem, has no Lean terminal."
     }
   ],
   "machinery": [
