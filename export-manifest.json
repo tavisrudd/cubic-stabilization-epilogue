@@ -75,7 +75,7 @@
       "mode": "100644",
       "path": "PROVENANCE.md",
       "role": "provenance",
-      "sha256": "364f04df50bdb8869a0a0f715454b02a0d53f0df9d44e4d7f1166bdabdfe26d0",
+      "sha256": "f11c7649b4521071c47db5ea33045ac0866dc9835fe93afe73f9a3fca5d07d38",
       "source_blob": null
     },
     {
@@ -115,13 +115,13 @@
       "source_blob": "045677549aeb1e8870d99a26c2f990346416dd44"
     },
     {
-      "bytes": 2563,
+      "bytes": 2681,
       "mode": "100644",
       "path": "formal-annotations.tex",
       "rewrites": [],
       "role": "manuscript-source",
-      "sha256": "9cb0d2cdf4ed90f3c8bfdca2b9f008e46ecdbff4433741f26ecee3d4da35947c",
-      "source_blob": "698f65c222822dca804f3c9d6c99161a60602078"
+      "sha256": "24f9de1fc0ff9c2d269f7e593b8be51d27d8192ddc2dbef12fdb22f834744a80",
+      "source_blob": "3c8aa8adc3cccffdcfeb0b729396448c49bc7863"
     },
     {
       "bytes": 330263,
@@ -1231,13 +1231,13 @@
       "source_blob": "2694eb767c1d5dc7ed415291f32eb95968bd1340"
     },
     {
-      "bytes": 17827,
+      "bytes": 20795,
       "mode": "100644",
       "path": "lean/verification/check_formal_artifact.py",
       "rewrites": [],
       "role": "verification",
-      "sha256": "a7ad4ee9df348f50f1dfba64f1b98f792114586a28f6aeea8b596df6d2d50958",
-      "source_blob": "9fff167c97c95aee286e35cfae0b1ae3452c6d3d"
+      "sha256": "3be7c6afb97d83ca68c17b938daa2c0f3ad0ee364f5d9831e8382e1042f3d7e7",
+      "source_blob": "a83d200af85c6fdec3f768ded204b0eec0bffc70"
     },
     {
       "bytes": 151281,
@@ -1285,13 +1285,13 @@
       "source_blob": "a8716869979a5c43f97972574aea2c61a8980f94"
     },
     {
-      "bytes": 49229,
+      "bytes": 49875,
       "mode": "100644",
       "path": "sections/04-atomic-one-step.tex",
       "rewrites": [],
       "role": "manuscript-source",
-      "sha256": "c98c07cfe875409c922e464be3c661d80fc08a4bac73ae56bc5d37ae05592b31",
-      "source_blob": "d073f76212123d74640b88127c4202c60d4f43e2"
+      "sha256": "51ec0ad5e1c8946be5ad5d5d12a1e4290a380ca607ef8fdb105dc74dc6bdebbd",
+      "source_blob": "0b5d6c6edfc9379758c7236391b0d2ce1174c766"
     },
     {
       "bytes": 58651,
@@ -1312,13 +1312,31 @@
       "source_blob": "f38cbc7c338d38d7eb6feb82b013c00df533f586"
     },
     {
-      "bytes": 21605,
+      "bytes": 23102,
       "mode": "100644",
       "path": "verification/README.md",
       "rewrites": [],
       "role": "verification",
-      "sha256": "5a849a39829fd5437b6a4a0c71617864cc1cfde3b44d4eef3aa3d485f681bb69",
-      "source_blob": "db95a4e9ab38a0ecaf71894eaccf6f8db86adea5"
+      "sha256": "5378dc4b069171a0d0677bf68993db3604cfef843b9e9796f471b9b08fab50e3",
+      "source_blob": "c34f1fc93b1f5e2b47d2d5cd2b2cc9c1dba8b0df"
+    },
+    {
+      "bytes": 7270,
+      "mode": "100644",
+      "path": "verification/dependency-graph.dot",
+      "rewrites": [],
+      "role": "verification",
+      "sha256": "b7add3d80273b6568d062a9caf6951718b561b498b1c3e6a106a76c56a2bee2f",
+      "source_blob": "e00d5f0e3157d95e5778d79e404182d81dd15013"
+    },
+    {
+      "bytes": 4394,
+      "mode": "100644",
+      "path": "verification/dependency_graph.py",
+      "rewrites": [],
+      "role": "verification",
+      "sha256": "f130be98ef6625808b32a9b8f40cc482db2e9c90ad80450d8786d97ff48375e8",
+      "source_blob": "205ab2db1f9d1254a253361de7cf45d32e8afd2c"
     },
     {
       "bytes": 466,
@@ -1370,5 +1388,5 @@
   "repository": "cubic-stabilization-epilogue",
   "repository_map_sha256": "b1287d69c4398954d5ac0d89e29bbd2425c5da957d3e7a6380f638513346803a",
   "schema_version": 1,
-  "source_commit": "b90f9433a6de8f0a33864975e4be2725a5475fc8"
+  "source_commit": "d871175a220cf0f8b5bf6c9a5b0f72d2e52470f1"
 }
