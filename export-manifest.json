@@ -75,7 +75,7 @@
       "mode": "100644",
       "path": "PROVENANCE.md",
       "role": "provenance",
-      "sha256": "8fb9eea4bcf59d3ead985e283ef7fa1b6d0b5ef486aeac57401ddaa62082b796",
+      "sha256": "bad09e5b74dc095def6f20c9eb328911936bcfc83be500ea0ab28a9458422bd0",
       "source_blob": null
     },
     {
@@ -223,13 +223,13 @@
       "source_blob": "486cc82c29050873436c8111b3e43e9eb753fcbc"
     },
     {
-      "bytes": 12125,
+      "bytes": 12392,
       "mode": "100644",
       "path": "lean/TavisRuddFiniteGeom/Papers/CubicStabilizationEpilogue/Applications/GenusEightThreefold.lean",
       "rewrites": [],
       "role": "support",
-      "sha256": "0294dd37546122e4862b07a5d9995807e2eb1119d84929c18868f8ed90bdb217",
-      "source_blob": "7a476922d2d50f6d799a17025b9b43a0edb80803"
+      "sha256": "7d692dab01db9ea2430e29f3633ff017660fe0cae94ad1fe3e1a1bf3d0302b4f",
+      "source_blob": "0ca9ead274ffa5195fdcae01045e4595742067cf"
     },
     {
       "bytes": 9125,
@@ -1397,5 +1397,5 @@
   "repository": "cubic-stabilization-epilogue",
   "repository_map_sha256": "b1287d69c4398954d5ac0d89e29bbd2425c5da957d3e7a6380f638513346803a",
   "schema_version": 1,
-  "source_commit": "0cd650926e07f5cc1c2329bd6d294f0b2f3670aa"
+  "source_commit": "e9d5eee4143eca7dd51cb135bd7d6eec202abd44"
 }
