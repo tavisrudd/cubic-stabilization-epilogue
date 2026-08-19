@@ -9,6 +9,7 @@ import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.Divid
 import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.SixAxisGram
 import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.SixAxisLocalChart
 import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.SixAxisDiscriminantSupport
+import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.SixAxisMarkedPresentation
 import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.DepthOneSelfAdjointLift
 import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.SixAxisSlopeModels
 import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.ConnectedPacketPersistence
@@ -148,20 +149,69 @@ transports it to the stabilization; the typed packet input gives irrationality;
 and a supplied period-map conclusion gives non-isotriviality.  Every
 geometric, Chow-theoretic, quantum, and moduli premise remains visible. -/
 theorem separationFamily_of_sixAxis_packet_and_period_inputs
-    {Base Variety Jacobian : Type*}
+    {Base Variety Jacobian Moduli : Type*}
     (packet : Quantum.PacketData Variety)
     (birationalInput : Quantum.DimensionFourBirationalInput packet)
     (cycleGeometry : Applications.CubicCycleTrivialityGeometry
       Variety Jacobian)
     (rationalGeometry : Applications.CubicThreefoldGeometry Variety)
     (isNonIsotrivial : (Base → Variety) → Prop)
-    (fibre : Base → Variety)
+    (fibre : Base → Variety) (moduliPoint : Base → Moduli)
+    (hasEckardtPoint separatedVariableType : Variety → Prop)
+    (projectivelyEquivalent : Variety → Variety → Prop)
+    (distinguishedPoint : Moduli)
     (input : Applications.SeparationFamilyInput packet birationalInput
-      cycleGeometry rationalGeometry isNonIsotrivial fibre) :
+      cycleGeometry rationalGeometry isNonIsotrivial fibre moduliPoint
+      hasEckardtPoint separatedVariableType projectivelyEquivalent
+      distinguishedPoint) :
     Applications.SeparationFamilyConclusion cycleGeometry rationalGeometry
-      isNonIsotrivial fibre :=
+      isNonIsotrivial fibre moduliPoint separatedVariableType
+      projectivelyEquivalent distinguishedPoint :=
   Applications.separationFamily_of_cycle_packet_and_period_inputs packet
-    birationalInput cycleGeometry rationalGeometry isNonIsotrivial fibre input
+    birationalInput cycleGeometry rationalGeometry isNonIsotrivial fibre
+    moduliPoint hasEckardtPoint separatedVariableType projectivelyEquivalent
+    distinguishedPoint input
+
+/-- Exact conditional form of the separated-variable exclusion along the
+family.  A cubic threefold whose defining form is a sum of cubic forms in
+pairwise disjoint groups of at most three variables carries an Eckardt point,
+carrying one is invariant under projective equivalence, and the Eckardt locus of
+the family lies over a single moduli point; Lean concludes that a member
+projectively equivalent to such a cubic has that moduli point, and, with the
+supplied witness at that point, that the separated-variable locus of the family
+is exactly it.  Every geometric statement — the Eckardt criterion, its
+projective invariance, the Eckardt locus of the pencil, and the witness — is an
+explicit premise, and no cubic form, Eckardt point, pencil, or coarse moduli
+space is constructed. -/
+theorem separatedVariableLocus_of_eckardtLocus_inputs
+    {Base Variety Moduli : Type*}
+    (fibre : Base → Variety) (moduliPoint : Base → Moduli)
+    (hasEckardtPoint separatedVariableType : Variety → Prop)
+    (projectivelyEquivalent : Variety → Variety → Prop)
+    (distinguishedPoint : Moduli)
+    (input : Applications.SeparatedVariableModuliInput fibre moduliPoint
+      hasEckardtPoint separatedVariableType projectivelyEquivalent
+      distinguishedPoint) :
+    (∀ parameter,
+        Applications.RepresentedBySeparatedVariable separatedVariableType
+            projectivelyEquivalent (fibre parameter) →
+          moduliPoint parameter = distinguishedPoint) ∧
+      (∃ parameter, moduliPoint parameter = distinguishedPoint ∧
+        Applications.RepresentedBySeparatedVariable separatedVariableType
+          projectivelyEquivalent (fibre parameter)) ∧
+      ∀ parameter, moduliPoint parameter ≠ distinguishedPoint →
+        ¬ Applications.RepresentedBySeparatedVariable separatedVariableType
+          projectivelyEquivalent (fibre parameter) :=
+  ⟨(Applications.separatedVariableModuli_eq_distinguishedPoint fibre moduliPoint
+      hasEckardtPoint separatedVariableType projectivelyEquivalent
+      distinguishedPoint input).1,
+    (Applications.separatedVariableModuli_eq_distinguishedPoint fibre moduliPoint
+      hasEckardtPoint separatedVariableType projectivelyEquivalent
+      distinguishedPoint input).2,
+    fun parameter distinct ↦
+      Applications.not_representedBySeparatedVariable_of_ne_distinguishedPoint
+        fibre moduliPoint hasEckardtPoint separatedVariableType
+        projectivelyEquivalent distinguishedPoint input parameter distinct⟩
 
 /-- Organizational interface for the relative six-axis source, accepting supplied
 types, functions, and proposition fields with opaque scheme-theoretic semantics for the
@@ -6193,6 +6243,269 @@ theorem sixAxisLocalChart_orthogonalDecomposition_and_unitLine
     GraphLattices.sixAxisChartBasis_congruence inverseFive inverse,
     GraphLattices.sixAxisChart_unitLine_mem_image inverseFive inverse,
     GraphLattices.sixAxisChart_discriminant_supported_off_unitLine inverseFive inverse⟩
+
+/-- The depth decomposition carried by the local chart, and unimodularity of its
+depth-one summand.  Over a coefficient ring in which five is invertible and in
+which `6/5` is the uniformizer times an invertible scalar — at `p = 2` with unit
+multiple `3/5`, at `p = 3` with unit multiple `2/5` — the chart Gram matrix has
+value five on the first coordinate line, vanishes between that line and the
+other four coordinates, and equals the uniformizer times the unit multiple of
+the block `5I₄-J₄` on those four coordinates.  That block is symmetric and has
+the two-sided inverse `(1/5)(I₄+J₄)`, so the depth-one summand is unimodular
+after division by the uniformizer.  This is the depth prescription `(Z_p⁵,G) ≃
+U₀ ⊥ pU₁` of the local chart, at the level of coefficient matrices; no lattice,
+polarization, or isogeny kernel is constructed. -/
+theorem sixAxisLocalChart_depthOneBlock_unimodular
+    {R : Type*} [CommRing R] (inverseFive uniformizer unitPart inverseUnitPart : R)
+    (inverse : 5 * inverseFive = 1) (unitInverse : unitPart * inverseUnitPart = 1)
+    (scale : 6 * inverseFive = uniformizer * unitPart) :
+    GraphLattices.sixAxisChartGram inverseFive 0 0 = 5 ∧
+      (∀ column : Fin 4, GraphLattices.sixAxisChartGram inverseFive 0 column.succ = 0) ∧
+      (∀ row : Fin 4, GraphLattices.sixAxisChartGram inverseFive row.succ 0 = 0) ∧
+      (∀ row column : Fin 4,
+        GraphLattices.sixAxisChartGram inverseFive row.succ column.succ =
+          uniformizer * (unitPart * GraphLattices.sixAxisComplementBlock R row column)) ∧
+      Matrix.transpose (unitPart • GraphLattices.sixAxisComplementBlock R) =
+          unitPart • GraphLattices.sixAxisComplementBlock R ∧
+        (unitPart • GraphLattices.sixAxisComplementBlock R) *
+            (inverseUnitPart • GraphLattices.sixAxisComplementBlockInverse inverseFive) = 1 ∧
+          (inverseUnitPart • GraphLattices.sixAxisComplementBlockInverse inverseFive) *
+              (unitPart • GraphLattices.sixAxisComplementBlock R) = 1 :=
+  ⟨(GraphLattices.sixAxisChartGram_depthDecomposition inverseFive uniformizer unitPart
+      scale).1,
+    (GraphLattices.sixAxisChartGram_depthDecomposition inverseFive uniformizer unitPart
+      scale).2.1,
+    (GraphLattices.sixAxisChartGram_depthDecomposition inverseFive uniformizer unitPart
+      scale).2.2.1,
+    (GraphLattices.sixAxisChartGram_depthDecomposition inverseFive uniformizer unitPart
+      scale).2.2.2,
+    (GraphLattices.sixAxisDepthOneBlock_symmetric_and_invertible inverseFive unitPart
+      inverseUnitPart inverse unitInverse).1,
+    (GraphLattices.sixAxisDepthOneBlock_symmetric_and_invertible inverseFive unitPart
+      inverseUnitPart inverse unitInverse).2.1,
+    (GraphLattices.sixAxisDepthOneBlock_symmetric_and_invertible inverseFive unitPart
+      inverseUnitPart inverse unitInverse).2.2⟩
+
+/-- The depth-one lifting construction at the actual depth-one summand of the
+local chart.  Over a domain in which the uniformizer and two are nonzero and
+five and the unit multiple of the block `5I₄-J₄` are invertible, every
+endomorphism of the reduction of that summand modulo the uniformizer which is
+self-adjoint for its reduced dual form is the reduction of an endomorphism
+self-adjoint for the dual form itself.  Nothing is divided.  Unlike the general
+lifting terminal, no invertible Gram matrix is supplied here: the one the
+manuscript uses is exhibited.  The residue endomorphism is still an arbitrary
+matrix and is not identified with the slope of a geometric principal kernel. -/
+theorem sixAxisLocalChart_depthOneBlock_selfAdjointLift
+    {R : Type*} [CommRing R] [IsDomain R] {uniformizer : R}
+    (uniformizerNonzero : uniformizer ≠ 0) (twoNonzero : (2 : R) ≠ 0)
+    (inverseFive unitPart inverseUnitPart : R)
+    (inverse : 5 * inverseFive = 1) (unitInverse : unitPart * inverseUnitPart = 1)
+    (residue : Matrix (Fin 4) (Fin 4) (R ⧸ Ideal.span ({uniformizer} : Set R)))
+    (residueSelfAdjoint :
+      Matrix.transpose residue *
+          (inverseUnitPart • GraphLattices.sixAxisComplementBlockInverse inverseFive).map
+            (Ideal.Quotient.mk (Ideal.span ({uniformizer} : Set R))) =
+        (inverseUnitPart • GraphLattices.sixAxisComplementBlockInverse inverseFive).map
+            (Ideal.Quotient.mk (Ideal.span ({uniformizer} : Set R))) * residue) :
+    ∃ lift : Matrix (Fin 4) (Fin 4) R,
+      lift.map (Ideal.Quotient.mk (Ideal.span ({uniformizer} : Set R))) = residue ∧
+        Matrix.transpose lift *
+            (inverseUnitPart • GraphLattices.sixAxisComplementBlockInverse inverseFive) =
+          (inverseUnitPart • GraphLattices.sixAxisComplementBlockInverse inverseFive) * lift :=
+  GraphLattices.exists_selfAdjoint_lift_sixAxisDepthOneBlock uniformizerNonzero
+    twoNonzero inverseFive unitPart inverseUnitPart inverse unitInverse residue
+    residueSelfAdjoint
+
+/-- The six-axis coefficient form in the split coordinates of the local chart,
+and orthogonality of the eigenblocks of the depth-one slope.  The split
+coordinates are the chart coordinates followed by a supplied change of basis of
+the depth-one summand.  In them the form is again the unit line of value five
+orthogonal to the depth-one part, whose block is the multiple `6/5` of the
+transported block `5I₄-J₄`.  Two depth-one coordinates that are eigenvectors of
+a slope self-adjoint for `5I₄-J₄`, with eigenvalues whose difference is
+cancellable, pair to zero, which is the step making the eigenblocks orthogonal
+summands.  The slope, its eigenvectors, and the change of basis are supplied
+matrices; no geometric principal kernel is constructed. -/
+theorem sixAxisLocalChart_splitCoordinates_orthogonalBlocks
+    {S : Type*} [CommRing S] (inverseFive : S) (inverse : 5 * inverseFive = 1)
+    (slope block : Matrix (Fin 4) (Fin 4) S)
+    (selfAdjoint : Matrix.transpose slope * GraphLattices.sixAxisComplementBlock S =
+      GraphLattices.sixAxisComplementBlock S * slope)
+    (first second : Fin 4) (firstValue secondValue : S)
+    (firstEigen : Matrix.mulVec slope (fun index ↦ block index first) =
+      firstValue • fun index ↦ block index first)
+    (secondEigen : Matrix.mulVec slope (fun index ↦ block index second) =
+      secondValue • fun index ↦ block index second)
+    (cancellable : ∀ scalar : S, (firstValue - secondValue) * scalar = 0 → scalar = 0) :
+    Matrix.transpose (GraphLattices.sixAxisSplitBasisMatrix inverseFive block) *
+            GraphLattices.sixAxisGram S *
+            GraphLattices.sixAxisSplitBasisMatrix inverseFive block =
+          GraphLattices.sixAxisBlockDiagonal 5
+            ((6 * inverseFive) •
+              (Matrix.transpose block * GraphLattices.sixAxisComplementBlock S * block)) ∧
+      (Matrix.transpose (GraphLattices.sixAxisSplitBasisMatrix inverseFive block) *
+          GraphLattices.sixAxisGram S *
+          GraphLattices.sixAxisSplitBasisMatrix inverseFive block)
+        first.succ second.succ = 0 :=
+  ⟨GraphLattices.sixAxisSplitBasisMatrix_congruence inverseFive inverse block,
+    GraphLattices.sixAxisSplitBasisMatrix_congruence_eq_zero inverseFive inverse slope
+      block selfAdjoint first second firstValue secondValue firstEigen secondEigen
+      cancellable⟩
+
+/-- The split form of a depth-one slope whose residue is scalar, which is the
+case of the local chart at three.  Over any coefficient ring, a matrix whose
+reduction modulo the uniformizer is the scalar matrix of a residue class is that
+scalar plus the uniformizer times an integral error term; nothing is divided,
+since the error term is assembled from the divisibility witnesses of the
+entries.  For a slope in that form the split-slope commutator of the
+graph-coordinate descent conditions is the commutator of the coefficient block
+with the actual slope, so the depth-one blocks impose exactly the manuscript's
+descent condition on the slope itself.  At three the depth-one summand is a
+single block, so this determines the split presentation data from the slope; no
+geometric principal kernel or its residue is constructed. -/
+theorem sixAxisLocalChart_scalarResidueSlope_splitForm
+    {S Index : Type*} [CommRing S] [Fintype Index] [DecidableEq Index]
+    (uniformizer scalar : S) (slope : Matrix Index Index S)
+    (residue : slope.map (Ideal.Quotient.mk (Ideal.span ({uniformizer} : Set S))) =
+      (Ideal.Quotient.mk (Ideal.span ({uniformizer} : Set S)) scalar) •
+        (1 : Matrix Index Index (S ⧸ Ideal.span ({uniformizer} : Set S))))
+    (coefficient : Matrix Index Index S) :
+    ∃ error : Matrix Index Index S,
+      slope = scalar • (1 : Matrix Index Index S) + uniformizer • error ∧
+        GraphLattices.rectangularSplitSlopeCommutator uniformizer 1 1 coefficient
+            scalar scalar error error =
+          coefficient * Matrix.transpose slope - slope * coefficient := by
+  obtain ⟨error, splitForm⟩ :=
+    GraphLattices.exists_slopeError_of_residue_scalar uniformizer scalar slope residue
+  exact ⟨error, splitForm,
+    GraphLattices.rectangularSplitSlopeCommutator_eq_slopeCommutator uniformizer
+      scalar slope error coefficient splitForm⟩
+
+/-- The exotic depth-one slope of the local chart at two has no model over an
+ordered coefficient ring.  The depth-one block `5I₄-J₄` pairs a vector to the sum
+of the squares of its coordinates and of their pairwise differences, and the dual
+form `(1/5)(I₄+J₄)` pairs it to the inverse of five times the sum of the squares
+of the coordinates and the square of their sum; both are therefore positive
+semidefinite over a linearly ordered commutative ring and positive on the first
+coordinate vector.  No matrix satisfying the relation of a primitive cube root of
+unity is self-adjoint for either form, by the discriminant inequality on the
+three pairings of a vector and its image.  A slope of the manuscript's exotic
+type therefore exists only over a coefficient ring carrying no compatible order,
+which is where the manuscript places it. -/
+theorem sixAxisLocalChart_exoticSlope_not_selfAdjoint_over_orderedRing
+    {R : Type*} [CommRing R] [LinearOrder R] [IsStrictOrderedRing R]
+    (slope : Matrix (Fin 4) (Fin 4) R)
+    (cubeRootRelation : slope * slope + slope + 1 = 0) :
+    (∀ vector : Fin 4 → R,
+        0 ≤ dotProduct vector
+          (Matrix.mulVec (GraphLattices.sixAxisComplementBlock R) vector)) ∧
+      Matrix.transpose slope * GraphLattices.sixAxisComplementBlock R ≠
+          GraphLattices.sixAxisComplementBlock R * slope ∧
+        ∀ inverseFive : R, 0 < inverseFive →
+          (∀ vector : Fin 4 → R,
+              0 ≤ dotProduct vector
+                (Matrix.mulVec
+                  (GraphLattices.sixAxisComplementBlockInverse inverseFive) vector)) ∧
+            Matrix.transpose slope *
+                GraphLattices.sixAxisComplementBlockInverse inverseFive ≠
+              GraphLattices.sixAxisComplementBlockInverse inverseFive * slope :=
+  ⟨GraphLattices.sixAxisComplementBlock_semidefinite,
+    (GraphLattices.no_cubeRootRelation_selfAdjoint_slope slope cubeRootRelation).1,
+    fun inverseFive positive ↦
+      ⟨GraphLattices.sixAxisComplementBlockInverse_semidefinite positive.le,
+        (GraphLattices.no_cubeRootRelation_selfAdjoint_slope slope
+          cubeRootRelation).2 inverseFive positive⟩⟩
+
+/-- Divided-power saturation of the six-axis graph divisor lattice, with the
+split presentation supplied by the local chart rather than as an abstract
+premise.  The coordinates are the five chart coordinates followed by a supplied
+change of basis of the depth-one summand, distributed over the unimodular line
+and the blocks of the depth-one slope; the depth is zero on that line and one on
+every depth-one block; and the slope scalars and error terms are those of the
+split slope.  Under the three graph-coordinate descent conditions for exactly
+these data, every divided power of a class in the lattice is an ordinary
+integral divisor product.  What remains supplied is geometric: the cohomological
+realization of coefficient matrices, the injective pullback to the
+elliptic-power source, the divisor submodule, and the compatibility of the class
+and its divided power with that realization. -/
+theorem sixAxisChart_allDegree_dividedPower_of_markedGraphDescent
+    {R S Target DepthIndex : Type} {DepthBlock : DepthIndex → Type}
+    [CommRing R] [CommRing S] [Algebra R S] [Module.FaithfullyFlat R S]
+    [IsDomain S] [IsDiscreteValuationRing S] [CommRing Target] [Algebra R Target]
+    [∀ index, Fintype (DepthBlock index)] [∀ index, DecidableEq (DepthBlock index)]
+    [Fintype (GraphLattices.SplitGraphAxis (GraphLattices.sixAxisSplitBlock DepthBlock))]
+    [DecidableEq (GraphLattices.SplitGraphAxis (GraphLattices.sixAxisSplitBlock DepthBlock))]
+    [LinearOrder (GraphLattices.SplitGraphAxis (GraphLattices.sixAxisSplitBlock DepthBlock))]
+    (depthEquiv : (Σ index, DepthBlock index) ≃ Fin 4)
+    (inverseFive : S) (block blockInverse : Matrix (Fin 4) (Fin 4) S)
+    (blockRightInverse : block * blockInverse = 1)
+    (blockLeftInverse : blockInverse * block = 1)
+    (uniformizer : R)
+    (extendedUniformizerIrreducible : Irreducible (algebraMap R S uniformizer))
+    (scalar : DepthIndex → S)
+    (slopeError : ∀ index, Matrix (DepthBlock index) (DepthBlock index) S)
+    (extendedRealization :
+      Matrix (GraphLattices.SplitGraphAxis (GraphLattices.sixAxisSplitBlock DepthBlock))
+          (GraphLattices.SplitGraphAxis (GraphLattices.sixAxisSplitBlock DepthBlock)) S →+
+        TensorProduct R S Target)
+    (pullback : TensorProduct R S Target →+*
+      ExteriorAlgebra S (GraphLattices.EllipticSourceHOne S
+        (GraphLattices.SplitGraphAxis (GraphLattices.sixAxisSplitBlock DepthBlock))))
+    (pullbackInjective : Function.Injective pullback)
+    (sourceCompatible : ∀ candidate,
+      pullback (extendedRealization candidate) =
+        GraphLattices.ellipticSourceCoefficientRealization candidate)
+    (divisors : Submodule R Target)
+    (extendedRealizationMember : ∀ candidate,
+      candidate ∈ GraphLattices.weightedMatrixSubmodule (algebraMap R S uniformizer)
+          (fun axis ↦ GraphLattices.sixAxisSplitDepth axis.1)
+          (GraphLattices.splitGraphCrossDepth (GraphLattices.sixAxisSplitBlock DepthBlock)
+            (IsDiscreteValuationRing.addVal S) GraphLattices.sixAxisSplitDepth
+            (GraphLattices.sixAxisSplitScalar scalar)) →
+        extendedRealization candidate ∈
+          GraphLattices.scalarExtendedSubmodule S
+            (Algebra.TensorProduct.includeRight (R := R) (A := S) (B := Target))
+            divisors)
+    (form : Matrix (Fin 5) (Fin 5) R) (formSymmetric : form.IsSymm)
+    (graphDescent : GraphLattices.GraphBlockDescentCondition
+      (GraphLattices.sixAxisSplitBlock DepthBlock) (algebraMap R S uniformizer)
+      GraphLattices.sixAxisSplitDepth (GraphLattices.sixAxisSplitScalar scalar)
+      (GraphLattices.sixAxisSplitSlopeError slopeError)
+      (GraphLattices.blockCoefficientOfMatrix (GraphLattices.sixAxisSplitBlock DepthBlock)
+        (GraphLattices.splitCoordinateCoefficientExtension
+          (GraphLattices.sixAxisSplitBasis depthEquiv inverseFive block blockInverse
+            blockRightInverse blockLeftInverse).toSplit form)))
+    (baseClass dividedPower : Target)
+    (baseClassCompatible :
+      extendedRealization
+          (GraphLattices.splitCoordinateCoefficientExtension
+            (GraphLattices.sixAxisSplitBasis depthEquiv inverseFive block blockInverse
+              blockRightInverse blockLeftInverse).toSplit form) =
+        Algebra.TensorProduct.includeRight baseClass)
+    (degree : ℕ)
+    (dividedPowerCompatible :
+      ∀ forms : List (Matrix
+          (GraphLattices.SplitGraphAxis (GraphLattices.sixAxisSplitBlock DepthBlock))
+          (GraphLattices.SplitGraphAxis (GraphLattices.sixAxisSplitBlock DepthBlock)) S),
+      (∀ candidate ∈ forms,
+        candidate ∈ GraphLattices.weightedRankOneSet (algebraMap R S uniformizer)
+          (fun axis ↦ GraphLattices.sixAxisSplitDepth axis.1)
+          (GraphLattices.splitGraphCrossDepth (GraphLattices.sixAxisSplitBlock DepthBlock)
+            (IsDiscreteValuationRing.addVal S) GraphLattices.sixAxisSplitDepth
+            (GraphLattices.sixAxisSplitScalar scalar))) →
+      forms.sum = GraphLattices.splitCoordinateCoefficientExtension
+          (GraphLattices.sixAxisSplitBasis depthEquiv inverseFive block blockInverse
+            blockRightInverse blockLeftInverse).toSplit form →
+      Algebra.TensorProduct.includeRight dividedPower =
+        GraphLattices.squarefreeProductSum (forms.map extendedRealization) degree) :
+    dividedPower ∈ ordinaryDivisorProductSubmodule divisors degree ∧
+      baseClass ^ degree = (degree.factorial : Target) * dividedPower :=
+  GraphLattices.sixAxisChart_allDegree_dividedPowerMember depthEquiv inverseFive block
+    blockInverse blockRightInverse blockLeftInverse uniformizer
+    extendedUniformizerIrreducible scalar slopeError extendedRealization pullback
+    pullbackInjective sourceCompatible divisors extendedRealizationMember form
+    formSymmetric graphDescent baseClass dividedPower baseClassCompatible degree
+    dividedPowerCompatible
 
 /-- Formal-germ rigidity of an isolated rank-two Euler cluster, in the matrix
 model of a formal bulk germ.  The leading operator of the cluster is
