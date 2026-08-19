@@ -1,0 +1,189 @@
+#!/usr/bin/env python3
+"""Generator for the elimination that determines the Eckardt locus and the
+singular locus of the nonstandard A_5-cubic pencil.
+
+It emits Singular input which, over Q, computes both loci as subschemes of the
+pencil parameter line.  The Eckardt locus comes out as b(b^2 + 3b + 9), whose
+factor b is the Segre cubic and is singular, so on the smooth locus of the
+pencil the Eckardt members are the conjugate pair b = 3 omega, the roots of
+b^2 + 3b + 9.  The singular locus comes out as
+b(b + 6)(b^2 - 3b - 9)(7b^2 + 3b + 9).
+
+Model.  A_5 = PSL(2,5) on the six points of P^1(F_5); on the sum-zero subspace
+of Q^6 that permutation module is W_5.  With T_1 the sum over the A_5-orbit of
+squarefree monomials x_i x_j x_k containing x_1 x_2 x_3, and p_3 = sum x_i^3,
+
+    F_b = p_3 + b T_1     on   x_1 + ... + x_6 = 0,
+
+coordinatized by y_1..y_5 with x_i = y_i for i <= 5 and x_6 = -(y_1+...+y_5).
+The member (a,b) = (0,1) is omitted; it is T_1 = 0, treated separately below.
+
+Two eliminations.
+
+  Singular locus.  I_sing = <dF/dy_1, ..., dF/dy_5>, saturated by the
+  irrelevant ideal <y_1..y_5> and eliminated down to b.  Its zero set is the
+  set of b for which X_b is singular.  By Euler F lies in I_sing, so F need not
+  be listed.
+
+  Eckardt locus.  I_eck = <F> + <all three-by-three minors of the Hessian of F
+  in y>, saturated by the irrelevant ideal and eliminated down to b.  By the
+  manuscript's lem:eckardt-rank a point of a smooth cubic threefold is an
+  Eckardt point exactly when the Hessian there has rank at most two, so the
+  zero set is the set of b whose member carries an Eckardt point, together
+  with possible contributions from the singular members, which the first
+  elimination identifies.
+
+Saturation by <y_1..y_5> and not by the full maximal ideal is what makes these
+projective statements; the origin satisfies every generator and must be removed.
+
+Replay, from the paper directory:
+
+    python3 verification/a5_pencil_eckardt_locus.py \
+        > verification/a5-pencil-eckardt-locus.sing
+    nix shell nixpkgs#singular --command \
+        Singular -q verification/a5-pencil-eckardt-locus.sing \
+        > verification/a5-pencil-eckardt-locus.txt
+
+Pass --field <p> to emit the same computation over F_p instead of Q.  The
+tracked run is over Q; the run over F_32003 is a cross-check and returns the
+same Eckardt polynomial and the same factor shape for the discriminant.
+
+Independent cross-check.  Both loci were also computed over F_11, F_19, F_29,
+F_31 and F_41 by direct enumeration of P^4(F_q) in a separate implementation
+sharing no code with this one, which agrees on both and additionally finds
+thirty Eckardt points on each Eckardt member, matching the Fermat cubic
+threefold's own count computed by the same detector.  That agreement is
+recorded here as a statement about the mathematics, not as a dependency: this
+script and its tracked output stand alone.
+"""
+
+from __future__ import annotations
+
+import sys
+from itertools import combinations
+
+
+def a5_on_six_points():
+    pts = [0, 1, 2, 3, 4, 'inf']
+    idx = {p: i for i, p in enumerate(pts)}
+
+    def shift(z):
+        return 'inf' if z == 'inf' else (z + 1) % 5
+
+    def invert(z):
+        if z == 'inf':
+            return 0
+        if z == 0:
+            return 'inf'
+        return (-pow(z, 3, 5)) % 5
+
+    gens = [tuple(idx[shift(p)] for p in pts), tuple(idx[invert(p)] for p in pts)]
+    ident = tuple(range(6))
+    seen, frontier = {ident}, [ident]
+    while frontier:
+        new = []
+        for s in frontier:
+            for g in gens:
+                t = tuple(g[s[i]] for i in range(6))
+                if t not in seen:
+                    seen.add(t)
+                    new.append(t)
+        frontier = new
+    return sorted(seen)
+
+
+def triple_orbit(group):
+    seed = frozenset([0, 1, 2])
+    orb, stack = set(), [seed]
+    while stack:
+        t = stack.pop()
+        if t in orb:
+            continue
+        orb.add(t)
+        for g in group:
+            stack.append(frozenset(g[i] for i in t))
+    assert len(orb) == 10
+    return sorted(sorted(t) for t in orb)
+
+
+def coord(i):
+    """x_{i+1} in terms of y, as a Singular expression."""
+    if i < 5:
+        return f"y({i + 1})"
+    return "(-(y(1)+y(2)+y(3)+y(4)+y(5)))"
+
+
+def main():
+    field = "0"
+    if "--field" in sys.argv:
+        field = sys.argv[sys.argv.index("--field") + 1]
+
+    group = a5_on_six_points()
+    orbit = triple_orbit(group)
+
+    p3 = "+".join(f"{coord(i)}^3" for i in range(6))
+    t1 = "+".join(f"{coord(i)}*{coord(j)}*{coord(k)}" for (i, j, k) in orbit)
+
+    out = []
+    w = out.append
+    w("// Eckardt locus and singular locus of the nonstandard A_5-cubic pencil,")
+    w("// by elimination.  Generated file; do not edit.  Its generator is")
+    w("// verification/a5_pencil_eckardt_locus.py, which documents the model,")
+    w("// the two ideals, and the replay commands.")
+    w('LIB "elim.lib";')
+    w('LIB "primdec.lib";')
+    w(f"ring R = {field}, (y(1..5), b), dp;")
+    w(f"poly p3 = {p3};")
+    w(f"poly T1 = {t1};")
+    w("poly F = p3 + b*T1;")
+    w('"orbit used for T_1:";')
+    w(f'"{[".".join(str(i + 1) for i in t) for t in orbit]}";')
+    w("ideal irrel = y(1),y(2),y(3),y(4),y(5);")
+    w("")
+    w('"=== singular locus of the pencil ===";')
+    w("ideal Ising = " + ",".join(f"diff(F,y({i}))" for i in range(1, 6)) + ";")
+    w('"number of generators:"; size(Ising);')
+    w("list Lsing = sat(Ising, irrel);")
+    w("ideal Jsing = Lsing[1];")
+    w("ideal Esing = eliminate(Jsing, y(1)*y(2)*y(3)*y(4)*y(5));")
+    w('"eliminated ideal:"; Esing;')
+    w("if (size(Esing) > 0) {")
+    w('  "factorization:"; factorize(Esing[1]);')
+    w("}")
+    w("")
+    w('"=== Eckardt locus of the pencil ===";')
+    w("matrix H[5][5] = " + ",".join(
+        f"diff(diff(F,y({i})),y({j}))" for i in range(1, 6) for j in range(1, 6))
+      + ";")
+    w("ideal Ieck = F, minor(H, 3);")
+    w('"number of generators:"; size(Ieck);')
+    w("list Leck = sat(Ieck, irrel);")
+    w("ideal Jeck = Leck[1];")
+    w("ideal Eeck = eliminate(Jeck, y(1)*y(2)*y(3)*y(4)*y(5));")
+    w('"eliminated ideal:"; Eeck;')
+    w("if (size(Eeck) > 0) {")
+    w('  "factorization:"; factorize(Eeck[1]);')
+    w("}")
+    w("")
+    w('"=== the omitted member (a:b) = (0:1), the cubic T_1 = 0 ===";')
+    w("// the two eliminations above run in the chart a = 1, so the single")
+    w("// pencil point (a:b) = (0:1) is not covered by them and is settled here.")
+    w("ideal IT = " + ",".join(f"diff(T1,y({i}))" for i in range(1, 6)) + ";")
+    w("list LT = sat(IT, irrel);")
+    w("ideal JT = LT[1];")
+    w('"dimension of its singular locus (-1 empty, so smooth):";')
+    w("dim(std(JT)) - 1;")
+    w("matrix HT[5][5] = " + ",".join(
+        f"diff(diff(T1,y({i})),y({j}))" for i in range(1, 6) for j in range(1, 6))
+      + ";")
+    w("ideal IET = T1, minor(HT, 3);")
+    w("list LET = sat(IET, irrel);")
+    w("ideal JET = LET[1];")
+    w('"dimension of its Eckardt scheme (-1 empty, so no Eckardt point):";')
+    w("dim(std(JET)) - 1;")
+    w("quit;")
+    print("\n".join(out))
+
+
+if __name__ == "__main__":
+    main()
