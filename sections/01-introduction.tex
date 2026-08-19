@@ -83,7 +83,11 @@ codimension at most three parametrizing threefolds with universally trivial
 
 \begin{corollary}[Separation in codimension three]
 \label{cor:voisin-separation}
-\coverage{absent}%
+\coverage{conditional_deduction}%
+\lean{primitiveMinimalClassFamily_universalCH0_and_irrational_stabilization,%
+ exists_universalCH0_cubic_with_irrational_stabilization}%
+\uses{thm:every-cubic}%
+\imports{Voisin:minimal-class-locus}%
 There is a nonempty countable union of subvarieties of codimension at most
 three in the moduli space of smooth cubic threefolds such that, for every
 member \(X\), both \(X\) and \(X\times\PP^1\) are universally
@@ -97,7 +101,10 @@ Fermat equation directly.
 
 \begin{corollary}[Fermat]
 \label{cor:fermat-separation}
-\coverage{absent}%
+\coverage{conditional_deduction}%
+\lean{fermatCubic_universalCH0_and_irrational_stabilization}%
+\uses{thm:every-cubic}%
+\imports{CT:separated-variable-criterion}%
 The fourfold
 \[
   \{x_1^3+x_2^3+x_3^3+x_4^3+x_5^3=0\}\times\PP^1
@@ -114,7 +121,10 @@ universally \(CH_0\)-trivial; the same degrees persist on
 
 \begin{corollary}[Coprime-degree cubics]
 \label{cor:coprime-separation}
-\coverage{absent}%
+\coverage{conditional_deduction}%
+\lean{coprimeUnirationalDegrees_universalCH0_and_irrational_stabilization}%
+\uses{thm:every-cubic}%
+\imports{YYZ:coprime-degree-family, YYZ:coprime-degrees-persist}%
 Let \(X\) be one of the cubic threefolds of \cite[Theorem~3.3]{YYZ}.  Then
 \(X\times\PP^1\) admits unirational parametrizations of coprime degrees, is
 universally \(CH_0\)-trivial, and is irrational.
@@ -216,17 +226,21 @@ Section~\ref{sec:framed-monodromy}: Hypothesis~5.7R concerns only the
 residual reconstruction tail, while Hypothesis~5.7T is
 the separate specialization step in the divisor-tagging argument.  The latter
 is already unnecessary for nef-canonical targets, for \(\PP^1\) and
-\(\PP^2\), and---assuming 5.7R---for ruled surfaces over positive-genus
-curves; in the present low-dimensional proof it remains only for rational
-ruled and nonminimal surfaces.  A rank-two formal-germ theorem proves the
+\(\PP^2\), for every rational geometrically ruled surface---for the Hirzebruch
+surface \(F_1\), on specializations satisfying a mild condition that every
+blowup center satisfies---and, assuming 5.7R, for ruled surfaces over
+positive-genus curves; in the present low-dimensional proof it remains only for
+surface centers that are neither minimal nor geometrically ruled.  A
+rank-two formal-germ theorem proves the
 local mechanism needed for the cubic packet, but we do not identify the
 reconstruction value with a point of that formal germ.
 
 Conditional on Hypothesis~5.7R, \(\nu_6\) satisfies the displayed
-projective-bundle and blowup formulas.  Conditional on both
-Hypotheses~5.7R and~5.7T, it is birationally invariant through dimension
-four.  That invariance reproves the one-step conclusion from the finer
-invariant.
+projective-bundle and blowup formulas.  Conditional on Hypothesis~5.7R and on
+Hypothesis~5.7T for surface centers that are neither minimal nor geometrically
+ruled, it is birationally invariant through dimension four.  That invariance reproves
+the one-step conclusion from
+the finer invariant.
 
 \begin{theorem}[One-step irrationality from the framed invariant]
 \label{thm:every-cubic-conditional}
@@ -234,7 +248,9 @@ invariant.
 \lean{irrational_of_nonzero_packet,%
   cubicThreefold_oneStep_irrational_of_packet_inputs,%
   cubicThreefold_oneStep_not_rational_of_framed_product_inputs}%
-Assume Hypotheses~5.7R and~5.7T of Section~\ref{sec:framed-monodromy}.  Let
+Assume Hypothesis~5.7R of Section~\ref{sec:framed-monodromy}, and
+Hypothesis~5.7T there only for surface centers that are neither minimal nor
+geometrically ruled.  Let
 \(X\) be a smooth complex cubic threefold.  Then
 \(\nu_6(X\times\PP^1)=4\), every rational smooth projective fourfold has
 \(\nu_6=0\), and consequently \(X\times\PP^1\) is irrational.
@@ -315,17 +331,30 @@ Proposition~\ref{prop:A5-nonseparated} shows that all but finitely many
 moduli points on that pencil lie outside the separated-variable locus
 covered by \cite{CT}.  Thus for a general member the six-axis construction
 accounts for universal \(CH_0\)-triviality in a case not covered by that
-criterion.  We do not claim that the \(A_5\)-curve is generically disjoint
-from the coprime-degree locus of \cite{YYZ} or from every other previously
-known part of Voisin's algebraic-minimal-class locus.
+criterion.  Proposition~\ref{prop:A5-not-coprime} places all but finitely many
+moduli points of that pencil outside the explicit family of
+\cite[Theorem~3.3]{YYZ} as well: every member of their normal form carries an
+Eckardt point, and the general member of the pencil carries none.  On Voisin's
+side, Proposition~\ref{prop:no-elliptic-product} shows that the intermediate
+Jacobian of the geometric generic member receives no odd-degree isogeny from a
+product of elliptic curves, although it is isogenous to the fifth power of an
+elliptic curve; her construction of components therefore does not reach this
+pencil through a product of factors of dimension at most three.  We do not
+claim that the \(A_5\)-curve is disjoint from her locus.  That would need both
+of the routes left open there to fail: the four-dimensional factor of
+Proposition~\ref{prop:no-elliptic-product} must not be the Jacobian of an
+irreducible curve of genus four, and the intermediate Jacobian must not be
+odd-degree isogenous to the Jacobian of an irreducible curve of genus five.
 
 \subsection*{Proof map}
 
-Section~\ref{sec:envelope} computes the six-axis polarization and identifies
-the exotic cubic gluing.  Section~\ref{sec:minimal-class} proves the local
-divisor-product theorem, applies it to the primitive minimal class, and
-shows that the resulting \(A_5\)-curve is generically outside the
-separated-variable locus.
+Section~\ref{sec:envelope} computes the six-axis polarization, identifies the
+exotic cubic gluing, and draws from it the restriction on product
+factorizations of the intermediate Jacobian.
+Section~\ref{sec:minimal-class} proves the local divisor-product theorem,
+applies it to the primitive minimal class, and shows that the resulting
+\(A_5\)-curve is generically outside both the separated-variable locus and
+the explicit coprime-degree family.
 Section~\ref{sec:atomic-one-step} proves Theorem~\ref{thm:every-cubic}
 unconditionally from ordinary Hodge atoms and a rank-two residue
 discriminant, with the small cubic block reduction isolated for later reuse.

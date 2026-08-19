@@ -98,6 +98,15 @@ import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Applications.CubicF
 import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.SpectralSignReversal
 import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.HodgeFixedSubalgebra
 import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Applications.CubicZeroAtomRanks
+import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.HirzebruchEulerSpectrum
+import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.MonomialSpecializationSeparation
+import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Applications.HirzebruchSpecializedVanishing
+import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.AtomicRankTwoFlatRigidity
+import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.CubicSeparatedBlockGauge
+import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Applications.UniversalCH0Separation
+import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.BulkShiftFramedInvariance
+import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Applications.EckardtHessianRank
+import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.HeartOrthogonalLines
 
 /-!
 # Reviewer interface for the cubic-stabilization companion
@@ -5235,6 +5244,104 @@ theorem atomicRankTwo_residueDiscriminant_constant_along_base
     derivation (Quantum.residueDiscriminant R) = 0 :=
   Quantum.lax_residueDiscriminant_map_eq_zero additive leibniz R G lax
 
+/-- Reviewer-facing regularity of the base direction after the elementary
+modification, derived from flatness of the connection rather than from a
+supplied coefficient equation.  The connection of a centered rank-two factor is
+presented by the two power series `loop = u * A(u)` and `base = u * B(u)`
+obtained from its loop and base connection matrices by clearing their simple
+poles, and flatness is the single series identity `IsFlatPair`.  In an adapted
+frame, where the leading coefficient of the loop direction is the square-zero
+matrix with a unit in its upper-right entry and the regular coefficient
+preserves the nilpotent line, flatness forces the leading coefficient of the
+modified base direction to vanish: the modified connection has no pole in the
+base direction.  Lean constructs no `F`-bundle, spectral cover, or atomic
+factor; that such a factor supplies a connection of this shape in an adapted
+frame is the geometric input. -/
+theorem atomicRankTwo_modifiedBase_regular_of_flat_connection
+    {B : Type*} [CommRing B] {derivation : B → B}
+    (additive : ∀ x y, derivation (x + y) = derivation x + derivation y)
+    (leibniz : ∀ x y, derivation (x * y) = derivation x * y + x * derivation y)
+    {loop base : PowerSeries (Matrix (Fin 2) (Fin 2) B)} {unitValue : B}
+    (unitProperty : IsUnit unitValue) (twoUnit : IsUnit (2 : B))
+    (adapted : PowerSeries.coeff 0 loop = Quantum.adaptedLeadingOperator unitValue)
+    (nilpotentLine : (PowerSeries.coeff 1 loop) 1 0 = 0)
+    (flat : Quantum.IsFlatPair derivation loop base) :
+    PowerSeries.coeff 0 (Quantum.modifiedBase base) = 0 :=
+  Quantum.modifiedBase_leadingCoefficient_eq_zero_of_isFlatPair additive leibniz
+    unitProperty twoUnit adapted nilpotentLine flat
+
+/-- Reviewer-facing Lax equation for the residue of the modified lattice,
+derived from flatness.  With no pole left in the base direction, the next order
+of flatness in the modified lattice says that the derivation of the coefficient
+ring carries the modified residue to its commutator with the regular
+coefficient of the modified base direction, which is the manuscript's Lax
+equation.  The regular coefficient is not supplied: it is the first coefficient
+of the modified base direction. -/
+theorem atomicRankTwo_modifiedResidue_lax_of_flat_connection
+    {B : Type*} [CommRing B] {derivation : B → B}
+    (additive : ∀ x y, derivation (x + y) = derivation x + derivation y)
+    (leibniz : ∀ x y, derivation (x * y) = derivation x * y + x * derivation y)
+    {loop base : PowerSeries (Matrix (Fin 2) (Fin 2) B)} {unitValue : B}
+    (unitProperty : IsUnit unitValue) (twoUnit : IsUnit (2 : B))
+    (adapted : PowerSeries.coeff 0 loop = Quantum.adaptedLeadingOperator unitValue)
+    (nilpotentLine : (PowerSeries.coeff 1 loop) 1 0 = 0)
+    (flat : Quantum.IsFlatPair derivation loop base) :
+    (Quantum.modifiedResidue loop).map derivation
+      = PowerSeries.coeff 1 (Quantum.modifiedBase base) * Quantum.modifiedResidue loop
+        - Quantum.modifiedResidue loop * PowerSeries.coeff 1 (Quantum.modifiedBase base) :=
+  Quantum.modifiedResidue_lax_of_isFlatPair additive leibniz unitProperty twoUnit
+    adapted nilpotentLine flat
+
+/-- Reviewer-facing rank-two rigidity chain in one statement.  For a centered
+rank-two factor in an adapted frame, with a pairing that is horizontal for the
+loop direction and whose leading coefficient has invertible determinant, and
+with a flat pair of connection matrices, every derivation of the coefficient
+ring annihilates the residue discriminant of the canonical elementary
+modification.  Horizontality supplies the property of the regular coefficient
+that makes the modification regular, and flatness supplies both the vanishing of
+the residual base pole and the Lax equation; neither is assumed. -/
+theorem atomicRankTwo_residueDiscriminant_frozen_by_horizontality_and_flatness
+    {B : Type*} [CommRing B] {derivation : B → B}
+    (additive : ∀ x y, derivation (x + y) = derivation x + derivation y)
+    (leibniz : ∀ x y, derivation (x * y) = derivation x * y + x * derivation y)
+    {loop base pairing : PowerSeries (Matrix (Fin 2) (Fin 2) B)} {unitValue : B}
+    (unitProperty : IsUnit unitValue) (twoUnit : IsUnit (2 : B))
+    (adapted : PowerSeries.coeff 0 loop = Quantum.adaptedLeadingOperator unitValue)
+    (nondegenerate : IsUnit ((PowerSeries.coeff 0 pairing).det))
+    (horizontal : Quantum.IsHorizontalPairing loop pairing)
+    (flat : Quantum.IsFlatPair derivation loop base) :
+    derivation (Quantum.residueDiscriminant (Quantum.modifiedResidue loop)) = 0 :=
+  Quantum.residueDiscriminant_modifiedResidue_map_eq_zero_of_horizontal_flat additive
+    leibniz unitProperty twoUnit adapted nondegenerate horizontal flat
+
+/-- Reviewer-facing constancy of the residue discriminant over a formal germ of
+the base.  The germ is modelled by the ring of multivariate formal power series
+in its coordinates over a field of characteristic zero.  For a centered rank-two
+factor in an adapted frame whose leading operator has an invertible upper-right
+entry, with a horizontal pairing whose leading coefficient has invertible
+determinant and a connection flat in every coordinate direction, the residue
+discriminant of the canonical elementary modification is a constant series.  No
+property of the regular coefficient is assumed: it is supplied by horizontality,
+and two is invertible in the germ ring because it is the image of an invertible
+scalar.  Lean does not identify this formal model with a rigid-analytic germ,
+and constructs neither the connection nor the pairing. -/
+theorem atomicRankTwo_residueDiscriminant_constant_over_formal_germ
+    {σ : Type*} [DecidableEq σ] {K : Type*} [Field K] [CharZero K]
+    {loop pairing : PowerSeries (Matrix (Fin 2) (Fin 2) (MvPowerSeries σ K))}
+    {baseDirection : σ → PowerSeries (Matrix (Fin 2) (Fin 2) (MvPowerSeries σ K))}
+    {unitValue : MvPowerSeries σ K} (unitProperty : IsUnit unitValue)
+    (adapted : PowerSeries.coeff 0 loop = Quantum.adaptedLeadingOperator unitValue)
+    (nondegenerate : IsUnit ((PowerSeries.coeff 0 pairing).det))
+    (horizontal : Quantum.IsHorizontalPairing loop pairing)
+    (flat : ∀ direction, Quantum.IsFlatPair (Quantum.formalPartialDerivative direction)
+      loop (baseDirection direction)) :
+    Quantum.residueDiscriminant (Quantum.modifiedResidue loop)
+      = MvPowerSeries.C
+          (MvPowerSeries.constantCoeff
+            (Quantum.residueDiscriminant (Quantum.modifiedResidue loop))) :=
+  Quantum.residueDiscriminant_modifiedResidue_eq_constant_of_horizontal_flat unitProperty
+    adapted nondegenerate horizontal flat
+
 /-- Reviewer-facing exponent interpretation of the residue discriminant.  Over
 a coefficient ring in which the residue of the canonical modified lattice has
 eigenvalues `r₁` and `r₂`, counted with algebraic multiplicity, the residue
@@ -6384,5 +6491,683 @@ theorem specializedLowDimensional_ruledSurface_sixthMultiplicity_eq_zero
   Applications.ruledSurface_specialized_sixthMultiplicity_eq_zero_of_nefCanonical_base
     base total specialized weight parity residue residueRaisesWeight parityInvolution
     parityCommutes baseFactorization projectiveBundleFormula specializationComparison
+
+
+/-- Discriminant of the quartic that the manuscript derives as the
+characteristic polynomial of Euler multiplication on the rank-four even
+cohomology of a Hirzebruch surface of even index, after a Novikov specialization
+sending the fibre class to `u` and the section class shifted by half the index in
+fibres to `w`: the discriminant is `2 ^ 24 u ^ 2 w ^ 2 (u - w) ^ 2`.  Lean
+constructs no quantum cohomology; the quartic is the displayed polynomial. -/
+theorem hirzebruchEven_eulerSpectrum_discriminant (fibreValue sectionValue : ℂ) :
+    Quantum.quarticDiscriminant (16 * (fibreValue - sectionValue) ^ 2) 0
+        (-(8 * (fibreValue + sectionValue))) 0
+      = 16777216 * (fibreValue ^ 2 * sectionValue ^ 2 * (fibreValue - sectionValue) ^ 2) :=
+  Quantum.hirzebruchEvenEuler_discriminant fibreValue sectionValue
+
+/-- Discriminant of the corresponding quartic for a Hirzebruch surface of odd
+index, with `u` the specialized value of the fibre class and `w` that of the
+section class shifted by the integer part of half the index in fibres:
+`- u ^ 2 w ^ 2 (256 u + 27 w ^ 2) ^ 3`.  Lean constructs no quantum cohomology;
+the quartic is the displayed polynomial. -/
+theorem hirzebruchOdd_eulerSpectrum_discriminant (fibreValue sectionValue : ℂ) :
+    Quantum.quarticDiscriminant (16 * fibreValue ^ 2 - 27 * fibreValue * sectionValue ^ 2)
+        (-(36 * fibreValue * sectionValue)) (-(8 * fibreValue)) sectionValue
+      = -(fibreValue ^ 2 * sectionValue ^ 2 * (256 * fibreValue + 27 * sectionValue ^ 2) ^ 3) :=
+  Quantum.hirzebruchOddEuler_discriminant fibreValue sectionValue
+
+/-- At `u = fibreRoot ^ 2` and `w = sectionRoot ^ 2` the even quartic is the
+product of the four linear factors with roots `2 (± fibreRoot ± sectionRoot)`;
+these are the eigenvalues of Euler multiplication in the even case, and they need
+not be distinct.  The letter `a` is reserved for the index of the surface. -/
+theorem hirzebruchEven_eulerSpectrum_splitting (fibreRoot sectionRoot : ℂ) :
+    Quantum.hirzebruchEvenEulerCharpoly (fibreRoot ^ 2) (sectionRoot ^ 2)
+      = (Polynomial.X - Polynomial.C (2 * (fibreRoot + sectionRoot)))
+        * (Polynomial.X - Polynomial.C (2 * (fibreRoot - sectionRoot)))
+        * (Polynomial.X - Polynomial.C (-(2 * (fibreRoot - sectionRoot))))
+        * (Polynomial.X - Polynomial.C (-(2 * (fibreRoot + sectionRoot)))) :=
+  Quantum.hirzebruchEvenEuler_splitting fibreRoot sectionRoot
+
+/-- Degeneracy criterion in the even case: for a specialization with both values
+nonzero the Euler quartic has a repeated root exactly when the two values
+agree. -/
+theorem hirzebruchEven_degenerate_iff (fibreValue sectionValue : ℂ)
+    (fibreNonzero : fibreValue ≠ 0) (sectionNonzero : sectionValue ≠ 0) :
+    Quantum.quarticDiscriminant (16 * (fibreValue - sectionValue) ^ 2) 0
+        (-(8 * (fibreValue + sectionValue))) 0 = 0 ↔ fibreValue = sectionValue :=
+  Quantum.hirzebruchEvenEuler_discriminant_eq_zero_iff fibreValue sectionValue fibreNonzero
+    sectionNonzero
+
+/-- Degeneracy criterion in the odd case: for a specialization with both values
+nonzero the Euler quartic has a repeated root exactly on the quadratic locus
+`256 u + 27 w ^ 2 = 0`. -/
+theorem hirzebruchOdd_degenerate_iff (fibreValue sectionValue : ℂ)
+    (fibreNonzero : fibreValue ≠ 0) (sectionNonzero : sectionValue ≠ 0) :
+    Quantum.quarticDiscriminant (16 * fibreValue ^ 2 - 27 * fibreValue * sectionValue ^ 2)
+        (-(36 * fibreValue * sectionValue)) (-(8 * fibreValue)) sectionValue = 0
+      ↔ 256 * fibreValue + 27 * sectionValue ^ 2 = 0 :=
+  Quantum.hirzebruchOddEuler_discriminant_eq_zero_iff fibreValue sectionValue fibreNonzero
+    sectionNonzero
+
+/-- On the even degeneracy locus the quartic is a squared linear factor times a
+quadratic: the repeated root is `0` and the two remaining roots are
+`± 4 fibreRoot`, where `fibreRoot` is a square root of the common specialized
+value. -/
+theorem hirzebruchEven_degenerate_splitting (fibreRoot : ℂ) :
+    Quantum.hirzebruchEvenEulerCharpoly (fibreRoot ^ 2) (fibreRoot ^ 2)
+      = (Polynomial.X - Polynomial.C 0) ^ 2
+        * ((Polynomial.X - Polynomial.C (4 * fibreRoot))
+          * (Polynomial.X - Polynomial.C (-(4 * fibreRoot)))) :=
+  Quantum.hirzebruchEvenEuler_degenerate_splitting fibreRoot
+
+/-- On the odd degeneracy locus, parametrized by writing the section value as
+`16 s` so that the fibre value is `-27 s ^ 2`, the quartic is a squared linear
+factor times a quadratic: the repeated root is `-18 s` and the two remaining
+roots are `10 s ± 16 e` for a square root `e` of `-2 s ^ 2`. -/
+theorem hirzebruchOdd_degenerate_splitting (sectionScale squareRoot : ℂ)
+    (root : squareRoot ^ 2 = -(2 * sectionScale ^ 2)) :
+    Quantum.hirzebruchOddEulerCharpoly (-(27 * sectionScale ^ 2)) (16 * sectionScale)
+      = (Polynomial.X - Polynomial.C (-(18 * sectionScale))) ^ 2
+        * ((Polynomial.X - Polynomial.C (10 * sectionScale + 16 * squareRoot))
+          * (Polynomial.X - Polynomial.C (10 * sectionScale - 16 * squareRoot))) :=
+  Quantum.hirzebruchOddEuler_degenerate_splitting sectionScale squareRoot root
+
+/-- The parametrization of the odd degeneracy locus is surjective: a pair of
+specialized values on that locus is `(-(27 s ^ 2), 16 s)` for `s` a sixteenth of
+the section value. -/
+theorem hirzebruchOdd_degeneracyLocus_parametrized (fibreValue sectionValue : ℂ)
+    (locus : 256 * fibreValue + 27 * sectionValue ^ 2 = 0) :
+    fibreValue = -(27 * (sectionValue / 16) ^ 2) ∧ sectionValue = 16 * (sectionValue / 16) :=
+  Quantum.hirzebruchOddEuler_degeneracyLocus_parametrized fibreValue sectionValue locus
+
+/-- A quartic of the form `(X - r) ^ 2 (X - c) (X - d)` with `c ≠ r` and `d ≠ r`
+has every root multiplicity at most two.  No relation between `c` and `d` is
+assumed, and no matrix occurs: the statement is about the polynomial. -/
+theorem hirzebruch_degenerate_rootMultiplicity_le_two {repeated first second : ℂ}
+    (firstNe : first ≠ repeated) (secondNe : second ≠ repeated) (value : ℂ) :
+    (((Polynomial.X - Polynomial.C repeated) ^ 2)
+        * ((Polynomial.X - Polynomial.C first)
+          * (Polynomial.X - Polynomial.C second))).rootMultiplicity value ≤ 2 :=
+  Quantum.rootMultiplicity_le_two_of_squared_linear_mul_quadratic firstNe secondNe value
+
+/-- The repeated factor of such a quartic contributes root multiplicity exactly
+two.  Nothing about eigenspace dimensions is asserted here, and the two remaining
+factors are not assumed distinct from each other. -/
+theorem hirzebruch_degenerate_rootMultiplicity_eq_two {repeated first second : ℂ}
+    (firstNe : first ≠ repeated) (secondNe : second ≠ repeated) :
+    (((Polynomial.X - Polynomial.C repeated) ^ 2)
+        * ((Polynomial.X - Polynomial.C first)
+          * (Polynomial.X - Polynomial.C second))).rootMultiplicity repeated = 2 :=
+  Quantum.rootMultiplicity_eq_two_of_squared_linear_mul_quadratic firstNe secondNe
+
+/-- A root of `(X - r) ^ 2 (X - c) (X - d)` that differs from `r` and from the
+other unrepeated root is simple: the multiplicity at `c` is one when `r ≠ c` and
+`d ≠ c`.  No matrix occurs; the statement is about the polynomial.  Applying it
+to both remaining roots of a degenerate Euler quartic is done in
+`TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.HirzebruchEulerSpectrum`. -/
+theorem hirzebruch_degenerate_rootMultiplicity_eq_one {repeated first second : ℂ}
+    (repeatedNe : repeated ≠ first) (secondNe : second ≠ first) :
+    (((Polynomial.X - Polynomial.C repeated) ^ 2)
+        * ((Polynomial.X - Polynomial.C first)
+          * (Polynomial.X - Polynomial.C second))).rootMultiplicity first = 1 :=
+  Quantum.rootMultiplicity_eq_one_of_squared_linear_mul_quadratic repeatedNe secondNe
+
+/-- Block shape of Euler multiplication on the even degeneracy locus, with the
+distinctness hypotheses discharged: if the specialized value is nonzero, no
+maximal generalized eigenspace has dimension more than two, the one at the
+repeated root `0` has dimension exactly two, and the ones at the two remaining
+roots have dimension exactly one.  The degenerate spectrum is one block of rank
+two and two blocks of rank one: the three eigenvalues account for all four
+dimensions, so these are all the blocks, by the completeness of the generalized
+eigenspace decomposition of a complex endomorphism, which is standard and is not
+restated here. -/
+theorem hirzebruchEven_degenerate_blockShape (euler : Matrix (Fin 4) (Fin 4) ℂ)
+    (fibreRoot : ℂ) (nonzero : fibreRoot ≠ 0)
+    (quantumRelation : euler.charpoly
+      = Quantum.hirzebruchEvenEulerCharpoly (fibreRoot ^ 2) (fibreRoot ^ 2)) :
+    (∀ value : ℂ,
+        Module.finrank ℂ (Module.End.maxGenEigenspace (Matrix.toLin' euler) value) ≤ 2) ∧
+      Module.finrank ℂ (Module.End.maxGenEigenspace (Matrix.toLin' euler) 0) = 2 ∧
+      Module.finrank ℂ
+        (Module.End.maxGenEigenspace (Matrix.toLin' euler) (4 * fibreRoot)) = 1 ∧
+      Module.finrank ℂ
+        (Module.End.maxGenEigenspace (Matrix.toLin' euler) (-(4 * fibreRoot))) = 1 :=
+  Quantum.hirzebruchEvenEuler_degenerate_finrank_maxGenEigenspace euler fibreRoot nonzero
+    quantumRelation
+
+/-- Block shape of Euler multiplication on the odd degeneracy locus, with the
+distinctness hypotheses discharged: if the scale parameter is nonzero, no maximal
+generalized eigenspace has dimension more than two, the one at the repeated root
+`-18 s` has dimension exactly two, and the ones at the two remaining roots have
+dimension exactly one.  The degenerate spectrum is one block of rank two and two
+blocks of rank one: the three eigenvalues account for all four dimensions, so
+these are all the blocks, by the completeness of the generalized eigenspace
+decomposition of a complex endomorphism, which is standard and is not restated
+here. -/
+theorem hirzebruchOdd_degenerate_blockShape (euler : Matrix (Fin 4) (Fin 4) ℂ)
+    (sectionScale squareRoot : ℂ) (root : squareRoot ^ 2 = -(2 * sectionScale ^ 2))
+    (nonzero : sectionScale ≠ 0)
+    (quantumRelation : euler.charpoly
+      = Quantum.hirzebruchOddEulerCharpoly (-(27 * sectionScale ^ 2)) (16 * sectionScale)) :
+    (∀ value : ℂ,
+        Module.finrank ℂ (Module.End.maxGenEigenspace (Matrix.toLin' euler) value) ≤ 2) ∧
+      Module.finrank ℂ
+        (Module.End.maxGenEigenspace (Matrix.toLin' euler) (-(18 * sectionScale))) = 2 ∧
+      Module.finrank ℂ (Module.End.maxGenEigenspace (Matrix.toLin' euler)
+        (10 * sectionScale + 16 * squareRoot)) = 1 ∧
+      Module.finrank ℂ (Module.End.maxGenEigenspace (Matrix.toLin' euler)
+        (10 * sectionScale - 16 * squareRoot)) = 1 :=
+  Quantum.hirzebruchOddEuler_degenerate_finrank_maxGenEigenspace euler sectionScale squareRoot
+    root nonzero quantumRelation
+
+/-- The nilpotent part of a rank-two block is square-zero: Cayley--Hamilton in
+rank two for a matrix whose trace is twice and whose determinant is the square of
+its single eigenvalue.  Semisimplicity of such a block is not asserted. -/
+theorem hirzebruch_rankTwoBlock_nilpotent_sq_eq_zero (block : Matrix (Fin 2) (Fin 2) ℂ)
+    (eigenvalue : ℂ) (traceValue : Matrix.trace block = 2 * eigenvalue)
+    (determinantValue : block.det = eigenvalue ^ 2) :
+    (block - eigenvalue • (1 : Matrix (Fin 2) (Fin 2) ℂ))
+        * (block - eigenvalue • (1 : Matrix (Fin 2) (Fin 2) ℂ)) = 0 :=
+  Quantum.rankTwo_centered_sq_eq_zero block eigenvalue traceValue determinantValue
+
+/-- Off the degeneracy locus every maximal generalized eigenspace of Euler
+multiplication of a Hirzebruch surface of even index is at most one-dimensional:
+every spectral block has rank one. -/
+theorem hirzebruchEven_eulerBlocks_simple (euler : Matrix (Fin 4) (Fin 4) ℂ)
+    (fibreValue sectionValue : ℂ)
+    (quantumRelation : euler.charpoly
+      = Quantum.hirzebruchEvenEulerCharpoly fibreValue sectionValue)
+    (fibreNonzero : fibreValue ≠ 0) (sectionNonzero : sectionValue ≠ 0)
+    (separated : fibreValue ≠ sectionValue) (value : ℂ) :
+    Module.finrank ℂ (Module.End.maxGenEigenspace (Matrix.toLin' euler) value) ≤ 1 :=
+  Quantum.hirzebruchEvenEuler_finrank_maxGenEigenspace_le_one euler fibreValue sectionValue
+    quantumRelation fibreNonzero sectionNonzero separated value
+
+/-- Off the degeneracy locus every maximal generalized eigenspace of Euler
+multiplication of a Hirzebruch surface of odd index is at most one-dimensional:
+every spectral block has rank one. -/
+theorem hirzebruchOdd_eulerBlocks_simple (euler : Matrix (Fin 4) (Fin 4) ℂ)
+    (fibreValue sectionValue : ℂ)
+    (quantumRelation : euler.charpoly
+      = Quantum.hirzebruchOddEulerCharpoly fibreValue sectionValue)
+    (fibreNonzero : fibreValue ≠ 0) (sectionNonzero : sectionValue ≠ 0)
+    (separated : 256 * fibreValue + 27 * sectionValue ^ 2 ≠ 0) (value : ℂ) :
+    Module.finrank ℂ (Module.End.maxGenEigenspace (Matrix.toLin' euler) value) ≤ 1 :=
+  Quantum.hirzebruchOddEuler_finrank_maxGenEigenspace_le_one euler fibreValue sectionValue
+    quantumRelation fibreNonzero sectionNonzero separated value
+
+/-- Direct vanishing of the specialized primitive-sixth count for the quadric
+surface, the product of two projective lines.  Lean proves that both factors have
+simple Euler spectrum; the conclusion drawn from the Gromov--Witten product
+formula and the multiplicity-one Euler block lemma, that the framed monodromy of
+the specialized product is then unipotent, with characteristic polynomial the
+`rank`-th power of `X - 1`, is a hypothesis.  No relation between the two
+specialized values is assumed. -/
+theorem hirzebruch_quadricSurface_sixthMultiplicity_eq_zero
+    (firstEuler secondEuler : Matrix (Fin 2) (Fin 2) ℂ) (firstValue secondValue : ℂ)
+    (firstNonzero : firstValue ≠ 0) (secondNonzero : secondValue ≠ 0)
+    (firstRelation : firstEuler.charpoly = Polynomial.X ^ 2 - Polynomial.C firstValue)
+    (secondRelation : secondEuler.charpoly = Polynomial.X ^ 2 - Polynomial.C secondValue)
+    (product : Quantum.FramedMonodromyMatrix)
+    (tensorTriviality :
+      (∀ value : ℂ,
+          Module.finrank ℂ (Module.End.maxGenEigenspace (Matrix.toLin' firstEuler) value) ≤ 1) →
+        (∀ value : ℂ,
+          Module.finrank ℂ (Module.End.maxGenEigenspace (Matrix.toLin' secondEuler) value) ≤ 1) →
+          product.operator.charpoly = (Polynomial.X - Polynomial.C (1 : ℂ)) ^ product.rank) :
+    product.sixthMultiplicity = 0 :=
+  Applications.quadricSurface_specialized_sixthMultiplicity_eq_zero firstEuler secondEuler
+    firstValue secondValue firstNonzero secondNonzero firstRelation secondRelation product
+    tensorTriviality
+
+/-- Direct vanishing of the specialized primitive-sixth count for a Hirzebruch
+surface of even index at a specialization off the degeneracy locus. -/
+theorem hirzebruchEven_sixthMultiplicity_eq_zero (euler : Matrix (Fin 4) (Fin 4) ℂ)
+    (fibreValue sectionValue : ℂ) (fibreNonzero : fibreValue ≠ 0)
+    (sectionNonzero : sectionValue ≠ 0) (separated : fibreValue ≠ sectionValue)
+    (quantumRelation : euler.charpoly
+      = Quantum.hirzebruchEvenEulerCharpoly fibreValue sectionValue)
+    (monodromy : Quantum.FramedMonodromyMatrix)
+    (simpleBlockMonodromy :
+      (∀ value : ℂ,
+          Module.finrank ℂ (Module.End.maxGenEigenspace (Matrix.toLin' euler) value) ≤ 1) →
+        monodromy.operator.charpoly
+          = (Polynomial.X - Polynomial.C (1 : ℂ)) ^ monodromy.rank) :
+    monodromy.sixthMultiplicity = 0 :=
+  Applications.hirzebruchEven_specialized_sixthMultiplicity_eq_zero euler fibreValue
+    sectionValue fibreNonzero sectionNonzero separated quantumRelation monodromy
+    simpleBlockMonodromy
+
+/-- Direct vanishing of the specialized primitive-sixth count for a Hirzebruch
+surface of odd index at a specialization off the degeneracy locus. -/
+theorem hirzebruchOdd_sixthMultiplicity_eq_zero (euler : Matrix (Fin 4) (Fin 4) ℂ)
+    (fibreValue sectionValue : ℂ) (fibreNonzero : fibreValue ≠ 0)
+    (sectionNonzero : sectionValue ≠ 0)
+    (separated : 256 * fibreValue + 27 * sectionValue ^ 2 ≠ 0)
+    (quantumRelation : euler.charpoly
+      = Quantum.hirzebruchOddEulerCharpoly fibreValue sectionValue)
+    (monodromy : Quantum.FramedMonodromyMatrix)
+    (simpleBlockMonodromy :
+      (∀ value : ℂ,
+          Module.finrank ℂ (Module.End.maxGenEigenspace (Matrix.toLin' euler) value) ≤ 1) →
+        monodromy.operator.charpoly
+          = (Polynomial.X - Polynomial.C (1 : ℂ)) ^ monodromy.rank) :
+    monodromy.sixthMultiplicity = 0 :=
+  Applications.hirzebruchOdd_specialized_sixthMultiplicity_eq_zero euler fibreValue
+    sectionValue fibreNonzero sectionNonzero separated quantumRelation monodromy
+    simpleBlockMonodromy
+
+/-- For a specialization attached to a blowup center, the even degeneracy locus
+is not met once the section class is shifted by at least one fibre: the lengths
+of the fibre class and of the shifted section class differ, so the two specialized
+values have different valuations.  The statement holds for any strictly
+Novikov-admissible specialization with that shift. -/
+theorem centerSpecialization_fibre_ne_shiftedSection {Curve Target : Type*}
+    [AddCommMonoid Curve] [CommRing Target] [IsDomain Target] [UniformSpace Target]
+    [CompleteSpace Target] [T2Space Target] [IsTopologicalRing Target]
+    (specialization : Quantum.StrictNovikovAdmissible (Curve := Curve) (Target := Target))
+    {fibre sectionClass : Curve} (fibreNonzero : fibre ≠ 0) (sectionNonzero : sectionClass ≠ 0)
+    {shift : ℕ} (positiveShift : 0 < shift) :
+    specialization.monomialImage fibre
+      ≠ specialization.monomialImage (sectionClass + shift • fibre) :=
+  specialization.fibre_ne_shiftedSection fibreNonzero sectionNonzero positiveShift
+
+/-- For a specialization attached to a blowup center, the odd degeneracy locus is
+not met once the section class is shifted by at least one fibre: the fibre value
+and the square of the shifted-section value have different valuations, so no
+combination of them with unit coefficients vanishes.  The statement holds for any
+strictly Novikov-admissible specialization with that shift. -/
+theorem centerSpecialization_oddCombination_ne_zero {Curve Target : Type*}
+    [AddCommMonoid Curve] [CommRing Target] [IsDomain Target] [UniformSpace Target]
+    [CompleteSpace Target] [T2Space Target] [IsTopologicalRing Target]
+    (specialization : Quantum.StrictNovikovAdmissible (Curve := Curve) (Target := Target))
+    {fibre sectionClass : Curve} (fibreNonzero : fibre ≠ 0) (sectionNonzero : sectionClass ≠ 0)
+    {shift : ℕ} (positiveShift : 0 < shift)
+    {coefficientFibre coefficientSection : Target}
+    (fibreUnit : IsUnit coefficientFibre) (sectionUnit : IsUnit coefficientSection) :
+    coefficientFibre * specialization.monomialImage fibre
+        + coefficientSection * specialization.monomialImage (sectionClass + shift • fibre) ^ 2
+      ≠ 0 :=
+  specialization.oddCombination_ne_zero fibreNonzero sectionNonzero positiveShift fibreUnit
+    sectionUnit
+
+/-- Reviewer-facing name for the bundle of leading-term data a graded-monomial
+specialization must supply: a leading-term map, a linearly independent family of
+monomials of the graded target, and a leading term in that family for every
+effective class.  Nothing here is verified by Lean; the bundle is a
+hypothesis. -/
+def monomialSpecializationData {Curve Target Index Graded : Type*}
+    [AddCommMonoid Curve] [CommRing Target] [AddCommGroup Graded] [Module ℂ Graded]
+    (leadingTerm : Target → Graded) (monomialImage : Curve → Target)
+    (monomial : Index → Graded) : Type _ :=
+  Quantum.MonomialSpecializationData leadingTerm monomialImage monomial
+
+/-- The odd degeneracy locus is not met by a graded-monomial specialization.  The
+premise is that the leading term of the combination is the corresponding
+combination of two members of a linearly independent family of monomials of the
+associated graded ring; the coefficients `256` and `27` are positive, so their
+sum does not vanish and the combination cannot.  The argument is independent of
+any shift, since no curve class enters the statement. -/
+theorem monomialSpecialization_oddCombination_ne_zero {Index Graded Target : Type*}
+    [AddCommGroup Graded] [Module ℂ Graded] [CommRing Target]
+    (leadingTerm : Target → Graded) (leadingTerm_zero : leadingTerm 0 = 0)
+    {monomial : Index → Graded} (independent : LinearIndependent ℂ monomial)
+    {first second : Index} {fibreValue sectionValue : Target}
+    (leading : leadingTerm (256 * fibreValue + 27 * sectionValue ^ 2)
+      = (256 : ℂ) • monomial first + (27 : ℂ) • monomial second) :
+    256 * fibreValue + 27 * sectionValue ^ 2 ≠ 0 :=
+  Quantum.oddCombination_ne_zero_of_monomialLeadingTerms leadingTerm leadingTerm_zero
+    independent leading
+
+/-- Reviewer-facing invertibility of the Sylvester operator of two leading
+operators with separated spectra.  Over a commutative ring, if two square
+matrices are each a scalar multiple of the identity plus a nilpotent matrix, and
+the two scalars differ by a unit, then the equation `U * X - X * V = Y` between
+rectangular matrices has exactly one solution for every right-hand side.  This is
+the step the manuscript invokes at each order of a normalizing gauge and at each
+order of the pairing between two spectral factors. -/
+theorem sylvesterEquation_unique_solution_of_separated_spectra
+    {R : Type*} [CommRing R] {rowIndex columnIndex : Type*} [Fintype rowIndex]
+    [DecidableEq rowIndex] [Fintype columnIndex] [DecidableEq columnIndex]
+    {leftOperator : Matrix rowIndex rowIndex R} {rightOperator : Matrix columnIndex columnIndex R}
+    {leftScalar rightScalar : R} (separated : IsUnit (leftScalar - rightScalar))
+    (leftNilpotent : IsNilpotent (leftOperator - leftScalar • 1))
+    (rightNilpotent : IsNilpotent (rightOperator - rightScalar • 1))
+    (target : Matrix rowIndex columnIndex R) :
+    ∃! solution : Matrix rowIndex columnIndex R,
+      leftOperator * solution - solution * rightOperator = target :=
+  Quantum.existsUnique_sylvester_solution separated leftNilpotent rightNilpotent target
+
+/-- Reviewer-facing unique solvability of the block Sylvester equation.  A
+splitting of the coordinates into blocks is a labelling; a matrix is block
+diagonal when it vanishes on entries whose row and column carry different labels,
+and block off-diagonal when it vanishes on entries whose row and column carry the
+same label.  For a block-diagonal leading operator whose blocks have separated
+spectra — the scalars attached to two distinct labels differ by a unit, and the
+operator differs from the diagonal matrix of those scalars by a nilpotent matrix
+— every block off-diagonal matrix is the commutator of the leading operator with
+exactly one block off-diagonal matrix. -/
+theorem blockSylvesterEquation_unique_blockOffDiagonal_solution
+    {R : Type*} [CommRing R] {coordinate : Type*} [Fintype coordinate] [DecidableEq coordinate]
+    {factorIndex : Type*} [DecidableEq factorIndex] {label : coordinate → factorIndex}
+    {scalar : factorIndex → R} {leadingOperator : Matrix coordinate coordinate R}
+    (separated : ∀ first second, first ≠ second → IsUnit (scalar first - scalar second))
+    (blockDiagonal : Quantum.IsBlockDiagonal label leadingOperator)
+    (nilpotent : IsNilpotent
+      (leadingOperator - Matrix.diagonal fun index => scalar (label index)))
+    {target : Matrix coordinate coordinate R}
+    (targetOffDiagonal : Quantum.IsBlockOffDiagonal label target) :
+    ∃! solution : Matrix coordinate coordinate R,
+      Quantum.IsBlockOffDiagonal label solution ∧
+        leadingOperator * solution - solution * leadingOperator = target :=
+  Quantum.existsUnique_blockOffDiagonal_sylvester_solution separated blockDiagonal nilpotent
+    targetOffDiagonal
+
+/-- Reviewer-facing existence of the normalized gauge of a block-separated
+system.  A system with a second-order pole in the loop coordinate is given by the
+family of coefficients of the matrix `M(z)` of `z ^ 2 * ∂_z S = M(z) * S`; a gauge
+`A(z)` acts by `S = A(z) * S̃`, and the transformed system's matrix `M̃(z)`
+satisfies the inverse-free identity `A(z) * M̃(z) + z ^ 2 * A'(z) = M(z) * A(z)`,
+recorded coefficient by coefficient.  The gauge is normalized when it starts at
+the identity and every positive coefficient is block off-diagonal, and the
+transformed system is reduced when every coefficient is block diagonal.  If the
+leading coefficient of the system is block diagonal with separated blocks, such a
+gauge exists.  Lean constructs no connection, `F`-bundle, or analytic gauge: the
+system is a family of matrices and the identity is the displayed family of
+coefficient identities. -/
+theorem exists_normalizedBlockGauge_of_separated_blocks
+    {R : Type*} [CommRing R] {coordinate : Type*} [Fintype coordinate] [DecidableEq coordinate]
+    {factorIndex : Type*} [DecidableEq factorIndex] {label : coordinate → factorIndex}
+    {scalar : factorIndex → R} {system : ℕ → Matrix coordinate coordinate R}
+    (separated : ∀ first second, first ≠ second → IsUnit (scalar first - scalar second))
+    (blockDiagonal : Quantum.IsBlockDiagonal label (system 0))
+    (nilpotent : IsNilpotent (system 0 - Matrix.diagonal fun index => scalar (label index))) :
+    ∃ gauge reduced : ℕ → Matrix coordinate coordinate R,
+      Quantum.IsNormalizedGauge label system gauge reduced :=
+  Quantum.exists_normalizedGauge separated blockDiagonal nilpotent
+
+/-- Reviewer-facing uniqueness of the normalized gauge of a block-separated
+system.  Two normalized gauges reducing the same system to block-diagonal form
+agree at every order, and so do the two reduced systems.  This is the
+normalization the manuscript imposes to make the splitting of a connection into
+spectral factors unique. -/
+theorem normalizedBlockGauge_unique_of_separated_blocks
+    {R : Type*} [CommRing R] {coordinate : Type*} [Fintype coordinate] [DecidableEq coordinate]
+    {factorIndex : Type*} [DecidableEq factorIndex] {label : coordinate → factorIndex}
+    {scalar : factorIndex → R} {system gauge reduced gaugeOther reducedOther :
+      ℕ → Matrix coordinate coordinate R}
+    (separated : ∀ first second, first ≠ second → IsUnit (scalar first - scalar second))
+    (blockDiagonal : Quantum.IsBlockDiagonal label (system 0))
+    (nilpotent : IsNilpotent (system 0 - Matrix.diagonal fun index => scalar (label index)))
+    (first : Quantum.IsNormalizedGauge label system gauge reduced)
+    (second : Quantum.IsNormalizedGauge label system gaugeOther reducedOther) :
+    ∀ order, gauge order = gaugeOther order ∧ reduced order = reducedOther order :=
+  Quantum.normalizedGauge_unique separated blockDiagonal nilpotent first second
+
+/-- Reviewer-facing existence and uniqueness of the normalized gauge of the
+separated small even system of a smooth cubic threefold.  The system is the
+separated Euler matrix at order zero and the separated grading matrix at order
+one, over a field of characteristic zero in a nonzero square root of three times
+the line-class variable; the coordinates are partitioned into the two simple
+Euler eigenvalues and the rank-two zero block.  Lean proves that the separated
+Euler matrix is block diagonal for that partition, that its three eigenvalues
+have unit pairwise differences and that it differs from their diagonal matrix by
+a square-zero matrix, so the general theorem applies.  The identification of
+these two matrices with the small even quantum connection of a cubic threefold
+is the imported datum. -/
+theorem cubicSmallEven_normalizedGauge_exists_and_unique {K : Type*} [Field K] [CharZero K]
+    {r : K} (nonzero : r ≠ 0) :
+    (∃ gauge reduced : ℕ → Matrix (Fin 4) (Fin 4) K,
+        Quantum.IsNormalizedGauge Quantum.cubicBlockLabel (Quantum.cubicSeparatedSystem r)
+          gauge reduced) ∧
+      ∀ gauge reduced gaugeOther reducedOther : ℕ → Matrix (Fin 4) (Fin 4) K,
+        Quantum.IsNormalizedGauge Quantum.cubicBlockLabel (Quantum.cubicSeparatedSystem r)
+            gauge reduced →
+          Quantum.IsNormalizedGauge Quantum.cubicBlockLabel (Quantum.cubicSeparatedSystem r)
+              gaugeOther reducedOther →
+            ∀ order, gauge order = gaugeOther order ∧ reduced order = reducedOther order :=
+  ⟨Quantum.exists_normalizedGauge_cubicSeparatedSystem nonzero,
+    fun _ _ _ _ first second =>
+      Quantum.normalizedGauge_cubicSeparatedSystem_unique nonzero first second⟩
+
+/-- Reviewer-facing identification of the exhibited coefficients of the small
+even block reduction with the coefficients of the unique normalized gauge.  For
+every normalized gauge of the separated small even system, the first two gauge
+coefficients are the two matrices exhibited by the block reduction and the first
+two coefficients of the reduced system are the exhibited block-diagonal ones,
+whose rank-two blocks are the displayed `D₀` and `E₀`.  The exhibited matrices
+are therefore not one admissible choice among many: they are the coefficients of
+the normalized gauge. -/
+theorem cubicSmallEven_normalizedGauge_coefficients {K : Type*} [Field K] [CharZero K]
+    {r : K} (nonzero : r ≠ 0) {gauge reduced : ℕ → Matrix (Fin 4) (Fin 4) K}
+    (normalized : Quantum.IsNormalizedGauge Quantum.cubicBlockLabel
+      (Quantum.cubicSeparatedSystem r) gauge reduced) :
+    gauge 1 = Quantum.cubicGaugeFirst r ∧ reduced 1 = Quantum.cubicReducedFirst
+      ∧ gauge 2 = Quantum.cubicGaugeSecond r ∧ reduced 2 = Quantum.cubicReducedSecond r :=
+  Quantum.normalizedGauge_cubicSeparatedSystem_coefficients nonzero normalized
+
+/-- Reviewer-facing separation statement along a family of cubic threefolds
+whose intermediate Jacobians carry an algebraic primitive minimal class.  Each
+member is universally `CH₀`-trivial through Voisin's criterion, its
+projective-line stabilization is universally `CH₀`-trivial through the supplied
+projective-bundle formula, and that stabilization is irrational because the
+cubic zero-packet atom occurs on it and on no smooth projective variety of
+dimension at most two.  Neither the family nor any cited geometric input is
+constructed: the countable union of subvarieties of codimension at most three
+in the moduli space of smooth cubic threefolds is the imported input,
+represented here by the parameter type alone. -/
+theorem primitiveMinimalClassFamily_universalCH0_and_irrational_stabilization
+    {Base Variety Jacobian Atom : Type*}
+    {ledger : Quantum.OrdinaryAtomLedger Variety Atom}
+    (stabilization : Quantum.ProjectiveLineStabilizationInput ledger)
+    {exclusion : Quantum.LowDimensionalExclusionInput ledger}
+    (geometry : Applications.CubicCycleTrivialityGeometry Variety Jacobian)
+    (voisinCriterion : Applications.VoisinPrimitiveMinimalClassCriterion geometry)
+    (projectiveBundleCH0 : ∀ variety, geometry.universallyCH0Trivial variety →
+      geometry.universallyCH0Trivial (ledger.productWithProjectiveLine variety))
+    (fibre : Base → Variety)
+    (familyInput : Applications.SixAxisMinimalClassFamilyInput geometry fibre)
+    {atom : Atom}
+    (atomInput : ∀ parameter, Applications.CubicAtomOneStepInput ledger stabilization
+      exclusion (fibre parameter) atom) :
+    ∀ parameter, geometry.universallyCH0Trivial (fibre parameter) ∧
+      geometry.universallyCH0Trivial (ledger.productWithProjectiveLine (fibre parameter)) ∧
+        ¬ ledger.Rational (ledger.productWithProjectiveLine (fibre parameter)) := by
+  intro parameter
+  obtain ⟨fibreCH0, separation⟩ :=
+    Applications.primitiveMinimalClassFamily_separation stabilization geometry
+      voisinCriterion projectiveBundleCH0 fibre familyInput atomInput parameter
+  exact ⟨fibreCH0, separation.stabilizationUniversallyCH0Trivial,
+    separation.stabilizationNotRational⟩
+
+/-- Reviewer-facing existential form of the preceding statement: when the
+parameter space of the family is nonempty, some smooth cubic threefold is
+universally `CH₀`-trivial and has a universally `CH₀`-trivial irrational
+projective-line stabilization.  Nonemptiness of that parameter space is the
+imported input and is a hypothesis here. -/
+theorem exists_universalCH0_cubic_with_irrational_stabilization
+    {Base Variety Jacobian Atom : Type*} [Nonempty Base]
+    {ledger : Quantum.OrdinaryAtomLedger Variety Atom}
+    (stabilization : Quantum.ProjectiveLineStabilizationInput ledger)
+    {exclusion : Quantum.LowDimensionalExclusionInput ledger}
+    (geometry : Applications.CubicCycleTrivialityGeometry Variety Jacobian)
+    (voisinCriterion : Applications.VoisinPrimitiveMinimalClassCriterion geometry)
+    (projectiveBundleCH0 : ∀ variety, geometry.universallyCH0Trivial variety →
+      geometry.universallyCH0Trivial (ledger.productWithProjectiveLine variety))
+    (fibre : Base → Variety)
+    (familyInput : Applications.SixAxisMinimalClassFamilyInput geometry fibre)
+    {atom : Atom}
+    (atomInput : ∀ parameter, Applications.CubicAtomOneStepInput ledger stabilization
+      exclusion (fibre parameter) atom) :
+    ∃ cubic, geometry.universallyCH0Trivial cubic ∧
+      geometry.universallyCH0Trivial (ledger.productWithProjectiveLine cubic) ∧
+        ¬ ledger.Rational (ledger.productWithProjectiveLine cubic) := by
+  obtain ⟨cubic, cubicCH0, separation⟩ :=
+    Applications.exists_universalCH0_with_irrational_stabilization stabilization geometry
+      voisinCriterion projectiveBundleCH0 fibre familyInput atomInput
+  exact ⟨cubic, cubicCH0, separation.stabilizationUniversallyCH0Trivial,
+    separation.stabilizationNotRational⟩
+
+/-- Reviewer-facing separation statement for a cubic threefold defined by the
+Fermat equation.  The hypothesis of the almost-diagonal universal zero-cycle
+triviality criterion is proved rather than assumed: the sum of the cubes of the
+five variables is a sum of forms in pairwise disjoint groups of at most three
+variables.  Universal `CH₀`-triviality then passes to the projective-line
+stabilization, which the cubic zero-packet atom shows to be irrational. -/
+theorem fermatCubic_universalCH0_and_irrational_stabilization
+    {Variety Atom Coefficient : Type*} [CommRing Coefficient] [Nontrivial Coefficient]
+    {ledger : Quantum.OrdinaryAtomLedger Variety Atom}
+    (stabilization : Quantum.ProjectiveLineStabilizationInput ledger)
+    {exclusion : Quantum.LowDimensionalExclusionInput ledger}
+    {fermat : Variety} {atom : Atom}
+    (universallyCH0Trivial : Variety → Prop)
+    (definingForm : Variety → MvPolynomial (Fin 5) Coefficient)
+    (separatedVariableCriterion : ∀ variety,
+      Applications.HasSeparatedVariableDecomposition 3 (definingForm variety) →
+        universallyCH0Trivial variety)
+    (projectiveBundleCH0 : ∀ variety, universallyCH0Trivial variety →
+      universallyCH0Trivial (ledger.productWithProjectiveLine variety))
+    (fermatEquation : definingForm fermat = Applications.fermatCubicForm Coefficient 5)
+    (input : Applications.CubicAtomOneStepInput ledger stabilization exclusion fermat atom) :
+    universallyCH0Trivial (ledger.productWithProjectiveLine fermat) ∧
+      ¬ ledger.Rational (ledger.productWithProjectiveLine fermat) := by
+  have separation := Applications.fermatCubic_separation stabilization universallyCH0Trivial
+    definingForm separatedVariableCriterion projectiveBundleCH0 fermatEquation input
+  exact ⟨separation.stabilizationUniversallyCH0Trivial, separation.stabilizationNotRational⟩
+
+/-- Reviewer-facing separation statement for a cubic threefold with unirational
+parametrizations of degrees two and three.  Both degrees persist on the
+projective-line stabilization, and two and three are coprime, so the
+stabilization is universally `CH₀`-trivial by the supplied coprime-degree
+criterion; the cubic zero-packet atom makes it irrational.  Coprimality is
+proved here; the parametrizations, their persistence, and the passage from
+coprime degrees to a decomposition of the diagonal are premises. -/
+theorem coprimeUnirationalDegrees_universalCH0_and_irrational_stabilization
+    {Variety Atom : Type*}
+    {ledger : Quantum.OrdinaryAtomLedger Variety Atom}
+    (stabilization : Quantum.ProjectiveLineStabilizationInput ledger)
+    {exclusion : Quantum.LowDimensionalExclusionInput ledger}
+    {cubic : Variety} {atom : Atom}
+    (universallyCH0Trivial : Variety → Prop)
+    (admitsUnirationalParametrization : Variety → ℕ → Prop)
+    (coprimeDegreeCriterion : ∀ variety degree otherDegree,
+      admitsUnirationalParametrization variety degree →
+        admitsUnirationalParametrization variety otherDegree →
+          Nat.Coprime degree otherDegree → universallyCH0Trivial variety)
+    (degreesPersist : ∀ variety degree,
+      admitsUnirationalParametrization variety degree →
+        admitsUnirationalParametrization (ledger.productWithProjectiveLine variety) degree)
+    (quadraticParametrization : admitsUnirationalParametrization cubic 2)
+    (cubicParametrization : admitsUnirationalParametrization cubic 3)
+    (input : Applications.CubicAtomOneStepInput ledger stabilization exclusion cubic atom) :
+    admitsUnirationalParametrization (ledger.productWithProjectiveLine cubic) 2 ∧
+      admitsUnirationalParametrization (ledger.productWithProjectiveLine cubic) 3 ∧
+        universallyCH0Trivial (ledger.productWithProjectiveLine cubic) ∧
+          ¬ ledger.Rational (ledger.productWithProjectiveLine cubic) := by
+  obtain ⟨stabilizedQuadratic, stabilizedCubic, separation⟩ :=
+    Applications.coprimeUnirationalDegrees_separation stabilization universallyCH0Trivial
+      admitsUnirationalParametrization coprimeDegreeCriterion degreesPersist
+      quadraticParametrization cubicParametrization input
+  exact ⟨stabilizedQuadratic, stabilizedCubic, separation.stabilizationUniversallyCH0Trivial,
+    separation.stabilizationNotRational⟩
+
+/-- Reviewer-facing invariance of a framed monodromy matrix under a scalar
+twist of the solution frame that one turn of the loop coordinate fixes.  This
+is the algebraic step behind the bulk shift by a multiple of the identity
+class, where the string equation makes the shifted connection differ by the
+scalar irregular twist and that twist is single-valued on the original loop
+disc.  Lean constructs no quantum connection, no exponential, and no solution
+of a differential equation: the solution algebra is an abstract commutative
+ring, the turn is a ring automorphism of it, single-valuedness is the
+hypothesis that the turn fixes the scalar, and the frame relation defining the
+monodromy of a frame is a hypothesis. -/
+theorem invariantScalarTwist_framedMonodromy_eq
+    {SolutionAlgebra Constant Index : Type*}
+    [CommRing SolutionAlgebra] [CommRing Constant] [Algebra Constant SolutionAlgebra]
+    [Fintype Index] [DecidableEq Index]
+    (turn : SolutionAlgebra ≃+* SolutionAlgebra)
+    (frame : (Matrix Index Index SolutionAlgebra)ˣ)
+    (twist : SolutionAlgebraˣ) (invariant : turn twist.val = twist.val)
+    (monodromy twistedMonodromy : Matrix Index Index Constant)
+    (constantsInjective : Function.Injective (algebraMap Constant SolutionAlgebra))
+    (frameTurn : frame.val.map turn =
+      frame.val * monodromy.map (algebraMap Constant SolutionAlgebra))
+    (twistedTurn : (twist.val • frame.val).map turn =
+      (twist.val • frame.val) * twistedMonodromy.map (algebraMap Constant SolutionAlgebra)) :
+    twistedMonodromy = monodromy :=
+  Quantum.framedMonodromy_eq_of_invariant_scalarTwist turn frame twist invariant monodromy
+    twistedMonodromy constantsInjective frameTurn twistedTurn
+
+/-- Reviewer-facing invariance of primitive-sixth multiplicity under the bulk
+shift by a divisor class.  The divisor equation makes the shifted connection
+the image of the original one under the coefficient substitution that
+multiplies the Novikov monomial of a curve class by the character value there,
+so the shifted framed characteristic polynomial is the image of the original.
+An injective substitution preserves the algebraic multiplicity of every root it
+fixes, and a substitution fixing the complex numbers fixes both primitive sixth
+roots of unity, so the primitive-sixth multiplicity is unchanged.  The
+comparison of the two monodromy matrices up to an invertible frame gauge is a
+supplied datum; no quantum connection or divisor equation is constructed. -/
+theorem divisorSubstitution_sixthMultiplicity_eq
+    {Index : Type*} [Fintype Index] [DecidableEq Index]
+    (input : Quantum.FormalBaseShiftMatrixInput Index ℂ)
+    (injective : Function.Injective input.divisorSubstitution)
+    (fixesPositive : input.divisorSubstitution Quantum.primitiveSixthRootPositive =
+      Quantum.primitiveSixthRootPositive)
+    (fixesNegative : input.divisorSubstitution Quantum.primitiveSixthRootNegative =
+      Quantum.primitiveSixthRootNegative) :
+    Quantum.sixthMultiplicityPolynomial input.bulkMonodromy.charpoly =
+      Quantum.sixthMultiplicityPolynomial input.smallMonodromy.charpoly :=
+  Quantum.sixthMultiplicity_eq_of_divisorShift input injective fixesPositive fixesNegative
+
+/-- Reviewer-facing rank criterion behind the Eckardt condition.  In
+coordinates adapted to a point of a cubic hypersurface, the defining form reads
+`x₀²L + x₀Q + C` and the Hessian at that point is the bordered symmetric matrix
+whose distinguished entry is zero, whose border is the coefficient vector of the
+linear part `L`, and whose remaining block is the matrix of the quadratic part
+`Q`.  Over a field in which two is invertible, and for a nonzero border and a
+symmetric block, that matrix has rank at most two exactly when the block is the
+symmetrized outer product of the border with a single vector, which is the
+matrix form of `Q` being a multiple of `L`.  Lean constructs no cubic form,
+hypersurface, tangent hyperplane section, cone, or Eckardt point, and does not
+carry out the passage from a point of a smooth cubic threefold to this normal
+form. -/
+theorem borderedHessian_rank_le_two_iff_borderDivides
+    {K Index : Type*} [Field K] [Fintype Index] [DecidableEq Index]
+    {v : Index → K} {block : Matrix Index Index K} (nonzeroBorder : v ≠ 0)
+    (symmetric : block.IsSymm) (twoNeZero : (2 : K) ≠ 0) :
+    (Applications.borderedMatrix v block).rank ≤ 2 ↔
+      ∃ w, block = Applications.symmetrizedOuterProduct v w :=
+  Applications.borderedMatrix_rank_le_two_iff nonzeroBorder symmetric twoNeZero
+
+/-- Reviewer-facing exclusion of two orthogonal lines in the two-primary
+coefficient heart.  The heart is modelled as a two-dimensional space over the
+four-element field with the trace-determinant pairing to the two-element field.
+A line over the four-element field is totally isotropic for that pairing, and
+two such lines orthogonal to one another coincide: the second spanning vector is
+a multiple of the first.  So an orthogonal decomposition of the heart into
+subspaces over the four-element field cannot have two one-dimensional summands,
+and one summand carries the whole heart.  Lean constructs no abelian variety,
+isogeny, polarization, or integral homology lattice, and does not identify this
+model with the discriminant heart of the six-axis lattice. -/
+theorem twoPrimaryHeart_orthogonal_lines_coincide
+    {left right : GraphLattices.F4 × GraphLattices.F4} (nonzero : left ≠ 0)
+    (orthogonal : ∀ first second : GraphLattices.F4,
+      GraphLattices.f4TraceDeterminantPairing (first • left) (second • right) = 0) :
+    ∃ scalar : GraphLattices.F4, right = scalar • left :=
+  GraphLattices.orthogonal_lines_coincide nonzero orthogonal
+
+/-- Reviewer-facing vanishing of a small stable subspace of the two-primary
+coefficient heart.  A subspace over the four-element field with at most two
+elements is trivial, since a nonzero one contains the four multiples of any of
+its nonzero elements.  This is the parity step excluding an odd-degree isogeny
+from a product of five elliptic curves: each of the five summands of the heart
+would be cyclic of exponent two, hence trivial, and the heart would vanish.
+Lean constructs no elliptic curve, isogeny, or summand decomposition of the
+heart. -/
+theorem twoPrimaryHeart_smallStableSubspace_eq_bot
+    {subspace : Submodule GraphLattices.F4 (GraphLattices.F4 × GraphLattices.F4)}
+    (small : Nat.card subspace ≤ 2) : subspace = ⊥ :=
+  GraphLattices.eq_bot_of_natCard_le_two small
 
 end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue

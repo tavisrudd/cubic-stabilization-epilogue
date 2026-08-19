@@ -31,39 +31,49 @@
       "objects": "An abstract geometric signature naming smooth complex cubic threefolds, product with projective one-space, projective four-space, and rationality, together with a natural-valued framed primitive-sixth multiplicity; and, for the third terminal, the product-formula signature carrying a distinguished point, the projective spaces, and the product of a variety with a projective space.",
       "hypotheses": "For the first two terminals: the carrier satisfies the smooth-cubic predicate, its framed multiplicity equals two, the named product obeys the rank-two formula and dimension bound, projective four-space has zero multiplicity, and rationality supplies the required birational relation. The third terminal assumes instead the product formula for a product with a projective space, involutivity of the framed monodromy of a point, and the passage from the exponents of the reduced rank-two block to framed formal monodromy, and derives from them the multiplicity two of the cubic, its doubling under multiplication by a projective line, and the vanishing on projective four-space. Birational invariance of the multiplicity through dimension four, which the manuscript proves under its two residual hypotheses, is part of the supplied birational input in every case.",
       "conclusion": "The named product of the specified cubic carrier with projective one-space is not rational.",
-      "cautions": "This is the framed-monodromy route, conditional in the manuscript on the reconstruction-tail and divisor-tagging hypotheses and, in Lean, on every quantum, weak-factorization, and rational-comparison fact as a typed premise. It is independent of the unconditional atomic route recorded under thm:every-cubic and is not a formalization of that route. The third terminal removes three numerical assumptions in favour of the product formula and the exponent-to-monodromy passage; neither of those is formalized.",
-      "statement_digest": "44b24bfe5779d40e92b6f5cc16c15ef1edcf576fbac77a13abe691bbe1e5b150",
+      "cautions": "This is the framed-monodromy route, conditional in the manuscript on the reconstruction-tail hypothesis and on the divisor-tagging hypothesis only for surface centers that are neither minimal nor geometrically ruled and, in Lean, on every quantum, weak-factorization, and rational-comparison fact as a typed premise. It is independent of the unconditional atomic route recorded under thm:every-cubic and is not a formalization of that route. The third terminal removes three numerical assumptions in favour of the product formula and the exponent-to-monodromy passage; neither of those is formalized.",
+      "statement_digest": "a7216fd631de449d08be8f4158a70ab0c1760a55acabe8c2126c431d4a38b633",
       "terminal_digest": "79aca35ea9e3f1b088f7defd419f2755cffef8a3e580c75c5485152849583eb0"
     },
     {
       "manuscript_label": "cor:voisin-separation",
-      "coverage": "absent",
-      "declarations": [],
-      "objects": "The moduli space of smooth complex cubic threefolds, the countable union of subvarieties of codimension at most three along which the primitive minimal class is algebraic, the product with projective one-space, universal CH0-triviality, and rationality.",
-      "hypotheses": "Voisin's construction of the codimension-at-most-three components, the projective bundle formula for Chow groups, and the one-step irrationality theorem of this paper.",
-      "conclusion": "Along that countable union both the threefold and its product with projective one-space are universally CH0-trivial while the product is irrational.",
-      "cautions": "Not formalized. The cited Voisin construction is an imported classical input and is not reproved here.",
-      "statement_digest": "639c4ac95c72a642c2ec64c48d3fe1957c7127e1ae0cb77bf2f69ad49a3b08de"
+      "coverage": "conditional_deduction",
+      "declarations": [
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.primitiveMinimalClassFamily_universalCH0_and_irrational_stabilization",
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.exists_universalCH0_cubic_with_irrational_stabilization"
+      ],
+      "objects": "A parameter type indexing the family; one typed family of variety objects carrying a named projective-line product operation, a rationality predicate, a natural-valued atom multiplicity and a dimension; a separate type of intermediate-Jacobian objects with predicates for smooth complex cubic status, algebraicity of the primitive minimal class, and universal CH0-triviality; and the cubic zero-packet atom, recorded by its parity ranks and the value of its residue discriminant.",
+      "hypotheses": "Every indexed fibre is a smooth complex cubic threefold whose intermediate Jacobian has algebraic primitive minimal class; Voisin's equivalence between that algebraicity and universal CH0-triviality, for every smooth cubic under consideration; preservation of universal CH0-triviality under the named projective-line product; and, for every fibre, the atom input of the unconditional atomic route together with the ledger's projective-line stabilization and low-dimensional exclusion premises.  The existential form additionally assumes the parameter type nonempty.",
+      "conclusion": "Every fibre is universally CH0-trivial, its projective-line stabilization is universally CH0-trivial, and that stabilization is not rational; and, when the parameter type is nonempty, some cubic threefold with all three properties exists.",
+      "cautions": "Lean checks only the composition.  It constructs no moduli space, no countable union of subvarieties, no Chow group, no projective-bundle formula, no intermediate Jacobian, no primitive minimal class, and no quantum connection.  Voisin's criterion, the existence of the locus, and its codimension bound are imported; codimension is not represented at all, since the parameter type carries no dimension, and the existential statement rests on a supplied nonemptiness assumption.  Irrationality enters through the typed premises of the atomic route, so this row is no stronger than the row of thm:every-cubic.",
+      "statement_digest": "639c4ac95c72a642c2ec64c48d3fe1957c7127e1ae0cb77bf2f69ad49a3b08de",
+      "terminal_digest": "93be2ca7a8b1f6854b1e5764f7ec352cb989d9abb6e5c02e789f0eadc7630385"
     },
     {
       "manuscript_label": "cor:fermat-separation",
-      "coverage": "absent",
-      "declarations": [],
-      "objects": "The Fermat cubic threefold, its product with projective one-space, universal CH0-triviality, and rationality.",
-      "hypotheses": "Colliot-Thelene's almost-diagonal theorem applied to the Fermat equation, the projective bundle formula for Chow groups, and the one-step irrationality theorem of this paper.",
-      "conclusion": "The named fourfold is universally CH0-trivial and irrational.",
-      "cautions": "Not formalized. Universal CH0-triviality of the threefold is an imported classical input.",
-      "statement_digest": "5181875068f9603708f42592697e31e2853ae3f942b17c5bf6f2df14dbfdbcb2"
+      "coverage": "conditional_deduction",
+      "declarations": [
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.fermatCubic_universalCH0_and_irrational_stabilization"
+      ],
+      "objects": "A typed variety object with a named projective-line product operation and a rationality predicate; a supplied universal CH0-triviality predicate; an assignment of a defining polynomial in five variables over a nontrivial commutative coefficient ring; the notion of a decomposition of such a polynomial as a sum of polynomials in pairwise disjoint groups of at most three variables; the Fermat form, the sum of the cubes of the five variables; and the cubic zero-packet atom with its ledger.",
+      "hypotheses": "The almost-diagonal criterion, in the form that a variety whose defining polynomial admits such a decomposition is universally CH0-trivial; preservation of universal CH0-triviality under the named projective-line product; the identification of the defining polynomial of the given variety with the Fermat form; and the atom input of the atomic route with the ledger's stabilization and low-dimensional exclusion premises.",
+      "conclusion": "The projective-line stabilization of that variety is universally CH0-trivial and is not rational.",
+      "cautions": "Lean constructs no hypersurface, no Chow group, and no projective-bundle formula, and proves nothing about smoothness: the criterion enters as a premise about the supplied predicate, and the ground field of the geometric statement is not represented.  What is proved rather than assumed is the combinatorial hypothesis of that criterion, that the sum of the cubes of five variables is a sum of forms in pairwise disjoint singleton groups of variables, hence in groups of at most three.  The coefficient ring is an arbitrary nontrivial commutative ring.  Irrationality enters through the typed premises of the atomic route.",
+      "statement_digest": "5181875068f9603708f42592697e31e2853ae3f942b17c5bf6f2df14dbfdbcb2",
+      "terminal_digest": "00ba7985fc8a6d68e97b71096df8be7475023521ae184353a893d846ae5f0423"
     },
     {
       "manuscript_label": "cor:coprime-separation",
-      "coverage": "absent",
-      "declarations": [],
-      "objects": "The Yang-Yu-Zhu cubic threefolds with unirational parametrizations of degrees two and three, their products with projective spaces, universal CH0-triviality, and rationality.",
-      "hypotheses": "The Yang-Yu-Zhu parametrization theorem and its persistence under multiplication by projective space, the diagonal-decomposition consequence of coprime degrees, and the one-step irrationality theorem of this paper.",
-      "conclusion": "For those threefolds the product with projective one-space carries unirational parametrizations of coprime degrees, is universally CH0-trivial, and is irrational.",
-      "cautions": "Not formalized. The parametrizations and their coprime-degree consequence are imported inputs; the statement does not address stable rationality.",
-      "statement_digest": "05bb980d4dbd39b643610c3717227049567ab08cefea8ede9d8deddf802ec684"
+      "coverage": "conditional_deduction",
+      "declarations": [
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.coprimeUnirationalDegrees_universalCH0_and_irrational_stabilization"
+      ],
+      "objects": "A typed variety object with a named projective-line product operation and a rationality predicate; supplied predicates for universal CH0-triviality and for admitting a unirational parametrization of a given natural-number degree; and the cubic zero-packet atom with its ledger.",
+      "hypotheses": "The passage from two unirational parametrizations of coprime degrees to universal CH0-triviality; persistence of each parametrization degree under the named projective-line product; unirational parametrizations of degrees two and three on the given cubic threefold; and the atom input of the atomic route with the ledger's stabilization and low-dimensional exclusion premises.",
+      "conclusion": "The projective-line stabilization admits unirational parametrizations of degrees two and three, is universally CH0-trivial, and is not rational.",
+      "cautions": "Lean constructs no unirational parametrization, no decomposition of the diagonal, and no Chow group; the degree predicate is opaque and the criterion is a premise.  Coprimality of two and three is the only arithmetic proved.  The statement is about one supplied cubic threefold, asserts nothing about other members of the cited family, and addresses stable rationality nowhere.  Irrationality enters through the typed premises of the atomic route.",
+      "statement_digest": "05bb980d4dbd39b643610c3717227049567ab08cefea8ede9d8deddf802ec684",
+      "terminal_digest": "a5f212d93180288b2778adbfd5fa9121174ef93282c857d37b3e209d333fed20"
     },
     {
       "manuscript_label": "thm:separation-family",
@@ -283,14 +293,51 @@
       "terminal_digest": "70a9dccb5a112dbb5eff5c412e96b1d02bd7f6682478fd6f7c52b149ef3b6515"
     },
     {
+      "manuscript_label": "lem:eckardt-rank",
+      "coverage": "fragment",
+      "declarations": [
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.borderedHessian_rank_le_two_iff_borderDivides"
+      ],
+      "objects": "A field in which two is invertible, a finite index type for the coordinates other than the distinguished one, a nonzero border vector in the role of the coefficient vector of the linear part of the defining form in adapted coordinates, a symmetric block in the role of the matrix of its quadratic part, the bordered symmetric matrix built from them in the role of the Hessian at the point, its matrix rank, and the symmetrized outer product of two vectors in the role of a quadratic form divisible by a given linear one.",
+      "hypotheses": "The border vector is nonzero, which is the smoothness of the hypersurface at the point in the adapted coordinates; the block is symmetric; and two is invertible in the coefficient field.",
+      "conclusion": "The bordered matrix has rank at most two exactly when the block is the symmetrized outer product of the border vector with some vector.",
+      "cautions": "A fragment.  Lean constructs no projective space, cubic form, hypersurface, smooth point, tangent hyperplane section, cone, or Eckardt point, and does not carry out the passage from a point of a smooth cubic threefold to the adapted normal form or the identification of the bordered matrix with the Hessian of the form.  The equivalence proved is the linear algebra behind the criterion, between matrix rank and divisibility of the quadratic part by the linear part, in the matrix form of both conditions.  The second assertion of the manuscript's lemma, that every smooth cubic threefold in the separated-variable class and in the coprime-degree family carries such a point, is not formalized: it needs the geometry the companion does not construct.",
+      "statement_digest": "c33eb644e9fae5b20244edaaffca9683ce83bb5e21af4071900be18a8d00cdf0",
+      "terminal_digest": "f59e25dbc38285f2dce54fc54ae3d318881c0e0fd07ee0abbbe46d180cbfb2d5"
+    },
+    {
+      "manuscript_label": "prop:A5-not-coprime",
+      "coverage": "absent",
+      "declarations": [],
+      "objects": "The coarse-moduli image of the nonstandard invariant cubic pencil of the alternating group on five letters, the Eckardt points of its members, and the coprime-degree family of Yang, Yu and Zhu.",
+      "hypotheses": "Smoothness of the members, the Eckardt criterion of the preceding lemma, and the computed emptiness of the Eckardt scheme of the members listed in the registered evidence bundle.",
+      "conclusion": "Only finitely many moduli points of the pencil are represented by cubic threefolds carrying an Eckardt point, and in particular only finitely many by cubics projectively equivalent to a member of that family.",
+      "cautions": "Not formalized.  It rests on the registered evidence bundle, which exhibits Eckardt-free members but does not compute the finite exceptional set.",
+      "statement_digest": "a93bee56ced626f32904bf6581ee57eded87db639c75bb5383a95a6c18782293"
+    },
+    {
+      "manuscript_label": "prop:no-elliptic-product",
+      "coverage": "fragment",
+      "declarations": [
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.twoPrimaryHeart_orthogonal_lines_coincide",
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.twoPrimaryHeart_smallStableSubspace_eq_bot"
+      ],
+      "objects": "The concrete two-dimensional model of the two-primary coefficient heart over the four-element field, the trace-determinant pairing on it with values in the two-element field, the lines spanned by its vectors, and its subspaces over the four-element field.",
+      "hypotheses": "For the first statement: a nonzero vector, and vanishing of the pairing between every multiple of it and every multiple of a second vector, which is orthogonality of the two lines they span.  For the second: a subspace over the four-element field with at most two elements, which is the size a cyclic subgroup killed by two can have.",
+      "conclusion": "The second vector is a multiple of the first, so two orthogonal lines coincide and are never complementary; and a subspace with at most two elements is trivial.",
+      "cautions": "A fragment covering two algebraic steps of the proof, not the proposition.  Lean constructs no intermediate Jacobian, elliptic curve, abelian variety, isogeny, polarization, Hodge structure, or integral homology lattice, and does not identify the concrete model used here with the discriminant heart of the six-axis lattice.  The classification of the isogeny shape is not formalized: neither the passage from an odd-degree isogeny to an orthogonal decomposition of the heart into subspaces stable under the four-element field, nor the generator count bounding the dimension of the summand carrying the heart, nor the realization of the two-factor case by an axis, nor the final contradiction with the order of the heart.  What is checked is that the one-and-one pattern of that decomposition is impossible, and that a summand small enough to be cyclic of exponent two vanishes.  Nothing here asserts a polarization on any factor of the intermediate Jacobian or any lattice invariant of it.",
+      "statement_digest": "4f1a8a7440ed3ba2e3b3e6ed844e4f3c96fc118e72ca8fbdcdb52b109ccba99b",
+      "terminal_digest": "2ae89d21de20017134800388518030d210e6762584330f454ab601e0be35fb68"
+    },
+    {
       "manuscript_label": "prop:A5-nonseparated",
       "coverage": "absent",
       "declarations": [],
       "objects": "The coarse-moduli image of the nonstandard invariant cubic pencil of the alternating group on five letters, and cubic forms that split as sums of forms in pairwise disjoint nonempty groups of at most three variables.",
-      "hypotheses": "Smoothness of the pencil members, and the separated-variable criterion for universal CH0-triviality of Colliot-Thelene.",
+      "hypotheses": "Smoothness of the pencil members, the separated-variable criterion for universal CH0-triviality of Colliot-Thelene, and the Eckardt criterion together with the registered Eckardt computation inherited through the preceding proposition; the order-three signature route printed after the proof gives the same finiteness without any computation.",
       "conclusion": "Only finitely many moduli points of the pencil are represented by cubics projectively equivalent to a separated-variable form, so all but finitely many are universally CH0-trivial for a reason the separated-variable criterion does not supply.",
-      "cautions": "Not formalized. The projective-equivalence and dimension arguments over the coarse moduli image are outside the companion's scope.",
-      "statement_digest": "a05521d81d7ce8b050d58c63dff9bc731ed3001104ba22b1d9ac3710f1df25ca"
+      "cautions": "Not formalized.  The projective-equivalence argument over the coarse moduli image is outside the companion's scope.  Its printed proof runs through the Eckardt criterion and therefore through the registered evidence bundle; the computation-free route is recorded after it.",
+      "statement_digest": "0fafc5c5cfe654c78bbf43a92d87e5183228a4190d9e47ecf2bbaad826505905"
     },
     {
       "manuscript_label": "lem:euler-sign",
@@ -331,14 +378,16 @@
       "coverage": "fragment",
       "declarations": [
         "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.cubicSmallEven_blockReduction",
-        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.cubicZeroBlock_modifiedResidue_indicialPolynomial"
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.cubicZeroBlock_modifiedResidue_indicialPolynomial",
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.cubicSmallEven_normalizedGauge_exists_and_unique",
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.cubicSmallEven_normalizedGauge_coefficients"
       ],
-      "objects": "The doubled Euler multiplication matrix and the grading matrix of the small even quantum connection of a smooth cubic threefold in the ordered classical basis, written over a characteristic-zero field in a nonzero square root r of three times the line-class Novikov variable; the constant separating change of basis; two explicit block-off-diagonal gauge coefficients; and the rank-two zero block with its canonical elementary modification.",
+      "objects": "The doubled Euler multiplication matrix and the grading matrix of the small even quantum connection of a smooth cubic threefold in the ordered classical basis, written over a characteristic-zero field in a nonzero square root r of three times the line-class Novikov variable; the constant separating change of basis; two explicit block-off-diagonal gauge coefficients; the rank-two zero block with its canonical elementary modification; and, for the gauge statements, the partition of the four coordinates into the two simple Euler eigenvalues and the rank-two zero block, the separated system whose coefficients are the separated Euler matrix and the separated grading matrix, and the notion of a normalized gauge: one starting at the identity whose positive coefficients are block off-diagonal, carrying the system to one whose every coefficient is block diagonal, through the inverse-free coefficientwise identity relating the two systems.",
       "hypotheses": "The field has characteristic zero and r is nonzero. No property of the two displayed connection matrices is assumed; they are the matrices exhibited in the source.",
-      "conclusion": "Lean proves that the separating change of basis has determinant -486 r^5, conjugates the Euler matrix to the diagonal pair 6r, -6r together with a single rank-two Jordan block at zero, and conjugates the grading matrix to the displayed separated form; that the two supplied gauge coefficients make the first and second coefficients of the transformed system block diagonal, with rank-two blocks diag(-19/18, 19/18) and the displayed second block; and that the residue of the canonical elementary modification is the displayed matrix, of trace -1 and determinant 5/36, whose characteristic polynomial is the rank-two indicial polynomial.",
-      "cautions": "This is a strictly weaker fragment of the manuscript statement. Lean verifies the supplied gauge coefficients rather than proving existence and uniqueness of the normalized gauge by the Sylvester recursion, and it stops at the second order, which is the order the residue needs. It does not construct the quantum connection and does not prove that the displayed matrices are the small even connection of a cubic threefold; that identification is the imported datum.",
+      "conclusion": "Lean proves that the separating change of basis has determinant -486 r^5, conjugates the Euler matrix to the diagonal pair 6r, -6r together with a single rank-two Jordan block at zero, and conjugates the grading matrix to the displayed separated form; that the two supplied gauge coefficients make the first and second coefficients of the transformed system block diagonal, with rank-two blocks diag(-19/18, 19/18) and the displayed second block; and that the residue of the canonical elementary modification is the displayed matrix, of trace -1 and determinant 5/36, whose characteristic polynomial is the rank-two indicial polynomial. Lean also proves that the separated system has a normalized gauge and that any two normalized gauges of it agree at every order, the separated Euler matrix being block diagonal for the partition with unit differences of its three eigenvalues and a square-zero difference from their diagonal matrix; and that for every normalized gauge the first two gauge coefficients are the two exhibited matrices and the first two coefficients of the reduced system are the exhibited block-diagonal ones.",
+      "cautions": "This is a strictly weaker fragment of the manuscript statement. The normalized gauge is now proved to exist and to be unique, and the exhibited coefficients are identified as its first two, but the reduction is carried out only to the second order, which is the order the residue needs; no third or higher coefficient is computed. Lean does not construct the quantum connection and does not prove that the displayed matrices are the small even connection of a cubic threefold; that identification is the imported datum.",
       "statement_digest": "c8635322df91f89651a62ccb7133d84148bc7bf563a031432d8dd2036751ee50",
-      "terminal_digest": "2b8ddd59675ddfc99f4fdcd53166f6893f96289bb3302a41f44575fae8190402"
+      "terminal_digest": "cab42cab0b334ab7d8a1b957224eec5147c916d8377df49cd3db37bcde6c5993"
     },
     {
       "manuscript_label": "lem:disc",
@@ -434,17 +483,21 @@
     },
     {
       "manuscript_label": "prop:rank2-rigidity",
-      "coverage": "fragment",
+      "coverage": "conditional_deduction",
       "declarations": [
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.atomicRankTwo_modifiedBase_regular_of_flat_connection",
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.atomicRankTwo_modifiedResidue_lax_of_flat_connection",
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.atomicRankTwo_residueDiscriminant_frozen_by_horizontality_and_flatness",
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.atomicRankTwo_residueDiscriminant_constant_over_formal_germ",
         "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.atomicRankTwo_modifiedBase_pole_eq_zero",
         "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.atomicRankTwo_residueDiscriminant_constant_along_base"
       ],
-      "objects": "The residual pole of the base connection in the modified lattice, written as a multiple of the lower-left matrix unit in the adapted frame; the residue of the modified lattice; and an additive Leibniz map of the coefficient ring applied entrywise, modelling a base derivation.",
-      "hypotheses": "For the first terminal, the upper-right entry of the residue is invertible, which it is, being the unit coming from the square-zero leading operator, and the order minus-one coefficient of flatness in the modified lattice vanishes. For the second, the entrywise derivation carries the residue to its commutator with a supplied regular matrix.",
-      "conclusion": "The residual pole vanishes, so the base connection is regular after the modification; and the derivation annihilates the residue discriminant, so that invariant is constant along the base.",
-      "cautions": "Lean formalizes the two algebraic steps and the conclusion, not the surrounding geometry: it does not construct the modified lattice, derive the displayed flatness coefficients from a connection, prove that the commutator equation follows from flatness, or run the completed-local-ring argument that upgrades a vanishing derivative to local constancy on a chart. The commutant computation identifying the leading base coefficient as a multiple of the leading operator part is also not formalized.",
+      "objects": "The connection of a centered rank-two factor as a formal object: the loop and base connection matrices, each with a simple pole, are represented by the power series obtained from them by clearing that pole, so that flatness and horizontality of the sesquilinear pairing are single identities of formal power series with matrix coefficients; the canonical elementary modification, constructed as the gauge diag(1, u) and applied to both directions without inverses or Laurent series; the residue of the modified lattice and its discriminant, the square of the trace minus four times the determinant; a map of the coefficient ring that is additive and satisfies the Leibniz rule, applied entrywise, modelling a base vector field; and, for the germ statement, the ring of multivariate formal power series in the coordinates of the germ over a field of characteristic zero, with its formal partial derivatives as the coordinate directions.",
+      "hypotheses": "The frame is adapted: the leading coefficient of the loop direction is the square-zero matrix whose only nonzero entry is an invertible upper-right entry, the unit coming from the leading Euler operator. Two is invertible in the coefficient ring, which over the germ ring is automatic. The pairing is horizontal for the loop direction and its leading coefficient has invertible determinant, which is nondegeneracy in the form the germ ring supports; and the pair of connection matrices is flat, in every coordinate direction for the germ statement. The two final terminals instead assume the coefficient equations directly: for the first, that the upper-right entry of the residue is invertible and that the order minus-one coefficient of flatness in the modified lattice vanishes; for the second, that the entrywise derivation carries the residue to its commutator with a supplied regular matrix.",
+      "conclusion": "Flatness forces the leading coefficient of the modified base direction to vanish, so the modified connection is regular in that direction; the next order of flatness is then the Lax equation, with the regular coefficient of the modified base direction itself as the conjugating matrix rather than a supplied one; consequently every derivation of the coefficient ring annihilates the residue discriminant, and over the germ that discriminant equals the constant series with its own constant coefficient, so it does not vary over the germ. Horizontality of the pairing, not an assumption on the connection, supplies the property of the regular coefficient that the modification needs. The two final terminals record the same vanishing of the residual pole and the same annihilation of the discriminant from the supplied coefficient equations alone.",
+      "cautions": "The geometry is not constructed and remains the input, exposed as typed premises: that an atomic factor of the A-model F-bundle supplies a connection of this shape in an adapted frame, that the Poincare pairing of that factor is the horizontal pairing of the connection, and that the formal power-series model computes the germ of the spectral component. Lean builds no F-bundle, spectral cover, connected component of one, or geometric lattice, and the centering of the scalar irregular part is part of the presentation rather than a formalized step. Constancy is proved over the formal germ, not analytic local constancy on a rigid chart.",
       "statement_digest": "a497c71ff6e340ebb2ee55c2c57967bd4c4e68497bb2155464ce16758772ce27",
-      "terminal_digest": "2176beb2627f7e4c5720dd799448597fc5a715d9cc9f92b81e894e3454e259fe"
+      "terminal_digest": "b00cc1f9bab60ae27069c500c8fbeab2130c6537b9b1a87fc3b13f22fe1a1259"
     },
     {
       "manuscript_label": "prop:residue-discriminant-exponents",
@@ -463,14 +516,18 @@
       "manuscript_label": "lem:factor-glue",
       "coverage": "fragment",
       "declarations": [
-        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.atomicFactor_residueDiscriminant_invariant_under_blockDiagonal_frame_change"
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.atomicFactor_residueDiscriminant_invariant_under_blockDiagonal_frame_change",
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.sylvesterEquation_unique_solution_of_separated_spectra",
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.blockSylvesterEquation_unique_blockOffDiagonal_solution",
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.exists_normalizedBlockGauge_of_separated_blocks",
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.normalizedBlockGauge_unique_of_separated_blocks"
       ],
-      "objects": "Square matrices over a field on a finite type of coordinates carrying a factor label, a pair of mutually inverse matrices that are block diagonal for that label, the block of a matrix on the coordinates of one label, and a frame presenting an even rank-two factor as a two-by-two matrix.",
-      "hypotheses": "The two matrices of the change of frame are mutually inverse, and both vanish on entries whose row and column carry different labels.",
-      "conclusion": "The block of a conjugated matrix on one factor is the conjugate of that factor's block by the corresponding diagonal blocks, which are themselves mutually inverse; consequently the residue discriminant of an even rank-two factor, read through any frame, is unchanged by the change of frame.",
-      "cautions": "Lean constructs no F-bundle, spectral cover, connected component of one, or local factor, and proves no gluing: the transition data enter as a supplied block-diagonal pair of mutually inverse matrices, and the conclusion is the invariance of one conjugation-invariant expression rather than the existence of a glued factor or the meromorphy of an expression formed from it.",
+      "objects": "Square matrices over a field on a finite type of coordinates carrying a factor label, a pair of mutually inverse matrices that are block diagonal for that label, the block of a matrix on the coordinates of one label, and a frame presenting an even rank-two factor as a two-by-two matrix; and, for the normalization statements, matrices over a commutative ring split into blocks by a labelling of the coordinates, the Sylvester operator of two leading operators, a system with a second-order pole given by the family of its coefficients, and a gauge acting on it through the inverse-free coefficientwise identity, normalized by starting at the identity with block off-diagonal positive coefficients.",
+      "hypotheses": "The two matrices of the change of frame are mutually inverse, and both vanish on entries whose row and column carry different labels. For the Sylvester statement, each of the two leading operators is a scalar multiple of the identity plus a nilpotent matrix and the two scalars differ by a unit; for the block and gauge statements, the leading operator is block diagonal, the scalars attached to distinct labels differ by units, and the operator differs from the diagonal matrix of those scalars by a nilpotent matrix.",
+      "conclusion": "The block of a conjugated matrix on one factor is the conjugate of that factor's block by the corresponding diagonal blocks, which are themselves mutually inverse; consequently the residue discriminant of an even rank-two factor, read through any frame, is unchanged by the change of frame. Separately, the Sylvester equation of two operators with separated spectra has exactly one solution for every right-hand side; every block off-diagonal matrix is the commutator of the leading operator with exactly one block off-diagonal matrix; and a system whose leading coefficient is block diagonal with separated blocks admits a normalized gauge reducing it to block-diagonal form, unique in the sense that two normalized gauges agree at every order and so do the two reduced systems.",
+      "cautions": "Lean constructs no F-bundle, spectral cover, connected component of one, or local factor, and proves no gluing: the transition data enter as a supplied block-diagonal pair of mutually inverse matrices, and the invariance conclusion is that of one conjugation-invariant expression rather than the existence of a glued factor or the meromorphy of an expression formed from it. The normalization statements are the algebra of the manuscript's uniqueness argument, at the level of formal coefficient families: no connection, analytic gauge, or local analytic splitting is constructed, the existence of the analytic splittings being the imported datum, and nothing is proved about convergence or about the overlaps on which the imported splittings are compared.",
       "statement_digest": "576cdf3883cc85a5dbe5d37f54664e4fe6cd109d5ba2b092b810df2c0859af8a",
-      "terminal_digest": "3bf37d0af1c14f0285bdb1e0a1e22a952659bc1f05027634c6af96fc98beaee6"
+      "terminal_digest": "479b164bd6526ceaff087b4cc14b278ad6a5705541dc96a060f90229dd17894a"
     },
     {
       "manuscript_label": "lem:crossing",
@@ -539,13 +596,17 @@
     },
     {
       "manuscript_label": "lem:exact-low-degree-shifts",
-      "coverage": "absent",
-      "declarations": [],
-      "objects": "Bulk shifts of the even quantum connection by a multiple of the identity and by a divisor class, and the framed formal-monodromy eigenvalues on the original loop disc.",
-      "hypotheses": "The coefficient field contains the Novikov coefficients of the connection, and the divisor shift defines a multiplicative character on the numerical Novikov image.",
-      "conclusion": "The identity shift changes the connection only by a scalar irregular twist and leaves the framed eigenvalues unchanged; the divisor shift acts by a coefficient substitution fixing the complex numbers, so it preserves the algebraic multiplicity of every root of unity.",
-      "cautions": "Not formalized as stated. The manuscript no longer routes this through the pro-Laurent gauge machinery that the companion formalizes.",
-      "statement_digest": "ce13e179c833917dae23bb114b97878f7470cc5d4c9a0f6f8de3d2a9b3bbf5f3"
+      "coverage": "fragment",
+      "declarations": [
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.invariantScalarTwist_framedMonodromy_eq",
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.divisorSubstitution_sixthMultiplicity_eq"
+      ],
+      "objects": "For the identity shift: a commutative solution algebra with a ring automorphism in the role of one turn of the original loop coordinate, an invertible square matrix over it in the role of a fundamental solution frame, an invertible scalar of that algebra in the role of the irregular twist, and a constant matrix in the role of the framed monodromy of a frame.  For the divisor shift: two square complex matrices in the roles of the framed monodromy before and after the shift, a ring endomorphism of the complex numbers in the role of the coefficient substitution, an invertible frame gauge, and the sum of the algebraic multiplicities of the two primitive sixth roots of unity in a characteristic polynomial.",
+      "hypotheses": "For the identity shift: the turn fixes the scalar, which is the single-valuedness of the twist on the original loop disc; the frame and the scalar are invertible; the constants embed injectively in the solution algebra; and both the frame and its twist satisfy the frame relation defining their monodromy.  For the divisor shift: the shifted monodromy is the substituted original one conjugated by an invertible frame gauge; the substitution is injective and fixes both primitive sixth roots of unity, as one fixing the complex numbers does.",
+      "conclusion": "The twisted frame has the same framed monodromy matrix as the original frame, hence the same characteristic polynomial and the same eigenvalues; and the shifted framed characteristic polynomial has the same primitive-sixth multiplicity as the original.",
+      "cautions": "A fragment, on both clauses.  Lean constructs no quantum connection, no bulk point, no Euler field, no string or divisor equation, no exponential twist, and no Novikov coefficient ring, so neither clause is about the shifted connection of the manuscript.  The identity-shift clause replaces the irregular twist by an arbitrary invertible scalar that the turn fixes, and the solution algebra by an arbitrary commutative ring with a ring automorphism; single-valuedness is a hypothesis, not a property of an exponential.  The divisor-shift clause takes the comparison of the two monodromy matrices as a supplied datum rather than deriving it from the divisor equation, and takes the substitution's fixing of the two primitive sixth roots as a hypothesis rather than deriving it from an embedding of coefficient fields over the complex numbers.  The manuscript's statement is about all roots of unity; the formal statement covers an arbitrary fixed root for a single polynomial and the primitive sixth roots for the framed multiplicity.",
+      "statement_digest": "ce13e179c833917dae23bb114b97878f7470cc5d4c9a0f6f8de3d2a9b3bbf5f3",
+      "terminal_digest": "21c6dbdea3e5a1afbd67c465423a2e9c5031ed3bb12e9af0187ca67a4efd1545"
     },
     {
       "manuscript_label": "lem:numerical-base-change",
@@ -670,8 +731,8 @@
       "objects": "A supplied type of geometric objects with a predicate for points, smooth projective curves, and smooth projective surfaces; a nef-seed predicate; a named point and projective-bundle and point-blowup relations; dependent strictly Novikov-admissible specializations; and intrinsic and specialized finite-dimensional complex framed-monodromy matrices.",
       "hypotheses": "Every selected object has a supplied inductive classification witness built from a nef seed, the point, a positive-rank projective bundle, or a point blowup. Nef-seed characteristic roots are supplied to have square one; the point multiplicity is zero; the projective-bundle formula multiplies the base multiplicity by the rank; point blowup preserves multiplicity; and divisor tagging transfers intrinsic vanishing to each strictly Novikov-admissible specialization.",
       "conclusion": "For every supplied point, smooth projective curve, or smooth projective surface and every strictly Novikov-admissible specialization, the specialized framed monodromy has primitive-sixth multiplicity zero. Lean proves the classification induction, including the exact root-square-one spectral endpoint, and the final specialization transfer. A separate corollary proves that matrix involutivity is a stronger sufficient condition for the spectral restriction.",
-      "cautions": "The result is conditional on every geometric and comparison input used by the human proof. Lean does not construct the varieties, quantum connections, framed monodromy, numerical Novikov rings, grading operator or parity correction; prove regular singularity and nilpotence of the residue; derive the plus-or-minus-one spectrum from nefness; prove the low-dimensional minimal-model classification; construct the projective bundles or blowups; establish their monodromy formulas; or prove divisor tagging and specialization comparison. The human proof restricts eigenvalues to {1,-1}; it does not assert involutivity of the full monodromy matrix, which is strictly stronger in the presence of possible Jordan parts and appears only in the separately marked sufficient corollary.",
-      "statement_digest": "0f073805c84d35111f0b15fd504106978577d16bbda67fc7d28a801fe66e6619",
+      "cautions": "The result is conditional on every geometric and comparison input used by the human proof. Lean does not construct the varieties, quantum connections, framed monodromy, numerical Novikov rings, grading operator or parity correction; prove regular singularity and nilpotence of the residue; derive the plus-or-minus-one spectrum from nefness; prove the low-dimensional minimal-model classification; construct the projective bundles or blowups; establish their monodromy formulas; or prove divisor tagging and specialization comparison. The human proof restricts eigenvalues to {1,-1}; it does not assert involutivity of the full monodromy matrix, which is strictly stronger in the presence of possible Jordan parts and appears only in the separately marked sufficient corollary. The manuscript now uses divisor tagging only for surface centers that are neither minimal nor geometrically ruled; Hirzebruch surface targets are covered by the direct specialized argument, whose formal content is recorded under prop:hirzebruch-specialized-vanishing. The Lean statement retains divisor tagging as one typed premise of the classification witness and does not distinguish the two cases.",
+      "statement_digest": "66145e1df69032670d252e0519dd51395b46aa6b83548972b6c1012d002835ba",
       "terminal_digest": "13b28c87fae9641c855287f0b0ba7453f8311ec788c5a6e5e7238d2b5ab77c98"
     },
     {
@@ -685,8 +746,8 @@
       "objects": "An arbitrary carrier type with natural-valued multiplicity and dimension, explicit smooth-projective-complex and smooth-center predicates, typed blowup steps in either orientation, and specialized center contributions.",
       "hypotheses": "Smooth endpoints; source dimension at most four; every blowup step has codimension at least two, the center-plus-codimension dimension identity, preserved ambient dimension, and the displayed additive operation formula; every specialized contribution of a smooth center of dimension at most two vanishes; and a composable typed weak-factorization chain is supplied.",
       "conclusion": "Equality of multiplicities at the endpoints, obtained by proving each typed blowup or blowdown link preserves multiplicity and telescoping the chain.",
-      "cautions": "Lean does not construct varieties, quantum connections, comparison specializations, operation formulas, low-dimensional vanishing, or the AKMW factorization chain; those remain typed data.  The older abstract preserving-chain terminal is retained and is strictly weaker than the typed telescope.",
-      "statement_digest": "bf30db6c06b6b9bcd27bc26f1f4d7248993ebbdb9e596aaab37d8f166b7318f1",
+      "cautions": "Lean does not construct varieties, quantum connections, comparison specializations, operation formulas, low-dimensional vanishing, or the AKMW factorization chain; those remain typed data.  The older abstract preserving-chain terminal is retained and is strictly weaker than the typed telescope. The manuscript states the theorem under the reconstruction-tail hypothesis and the divisor-tagging hypothesis only for surface centers that are neither minimal nor geometrically ruled; the vanishing of the center contributions is a typed premise here either way.",
+      "statement_digest": "f06d4c4134c117aa3dad0eb06c8fbb0b8091d4d757911468a8bd774ba005888b",
       "terminal_digest": "615127bbdba6a64b972231b0d65604119a655642226263440332222b99cff8a2"
     },
     {
@@ -785,9 +846,102 @@
       "objects": "An abstract geometric signature naming smooth prime genus-eight Fano threefolds, their associated Pfaffian cubics, both rank-two projective-bundle total spaces, product with projective one-space, projective four-space, and rationality; for the unconditional route, additionally a birational relation on varieties and the ordinary Hodge-atom ledger of the atomic argument.",
       "hypotheses": "For the framed route: the specified carrier satisfies the genus-eight predicate, its associated cubic satisfies the smooth-cubic predicate, both named total spaces obey the rank-two formulas and are birational, the cubic packet is two, and the named stabilization and rational comparison have the stated properties. For the unconditional route: each rank-two projectivization is birational to the product of its base with a projective line, the two projectivizations are birational through the flop, birational equivalence is symmetric and transitive and carries rationality forward, and the associated cubic satisfies the atom, ledger, and exclusion premises of the atomic one-step theorem.",
       "conclusion": "The specified Fano carrier has packet multiplicity two and its named product with projective one-space is irrational. Independently of the framed route, that product is birational to the corresponding product of the associated cubic and is not rational, with irrationality supplied by the ordinary Hodge-atom argument for the cubic zero-packet atom.",
-      "cautions": "The geometric signature and the Kuznetsov, quantum, weak-factorization, and rational-comparison facts remain typed premises rather than foundational constructions. Lean constructs neither the Fano threefold, the Pfaffian cubic, the rank-two bundles, their projectivizations, nor the flop, and does not prove that a rank-two projectivization is birational to the product of its base with a projective line. The unconditional route consumes only symmetry and transitivity of the supplied birational relation and invariance of rationality under it; the framed route, which the manuscript states conditionally, carries the multiplicity statement.",
-      "statement_digest": "1a4a209e8882dbf0d56ab42b63e62bad8ee4775a6a318a05b234925ec6a082c5",
+      "cautions": "The geometric signature and the Kuznetsov, quantum, weak-factorization, and rational-comparison facts remain typed premises rather than foundational constructions. Lean constructs neither the Fano threefold, the Pfaffian cubic, the rank-two bundles, their projectivizations, nor the flop, and does not prove that a rank-two projectivization is birational to the product of its base with a projective line. The unconditional route consumes only symmetry and transitivity of the supplied birational relation and invariance of rationality under it; the framed route, which the manuscript states conditionally on the reconstruction-tail hypothesis and on the divisor-tagging hypothesis only for surface centers that are neither minimal nor geometrically ruled, carries the multiplicity statement.",
+      "statement_digest": "9ad0544bebdcd1b23f3174f89154262432476f4a21e080d05c493f5b399afa18",
       "terminal_digest": "8e6e03b979bbad5b113482cf4d007615f02025feeecc8ae51e7def9b2335ab0f"
+    },
+    {
+      "manuscript_label": "def:monomial-specialization",
+      "coverage": "fragment",
+      "declarations": [
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.monomialSpecializationData"
+      ],
+      "objects": "A leading-term map from a coefficient ring to a complex vector space of graded pieces, a family of monomials of that space indexed by an abstract type, and a map assigning to every effective class the index of its leading monomial.",
+      "hypotheses": "The family of monomials is linearly independent over the complex numbers, the leading term of zero vanishes, and the leading term of the image of every effective class is the monomial of its assigned index.",
+      "conclusion": "The reviewer-facing type of certificates that a specialization is monomial, in the form its consumers use.",
+      "cautions": "Lean constructs no completed monoid ring, no associated graded ring, and no Novikov specialization, and does not prove that the associated graded of the coefficient ring of a center specialization is a monoid algebra whose monomials form such a family. The type records the properties of the leading-term data that the arithmetic below consumes, not their geometric origin.",
+      "statement_digest": "f02ae45b3ecc490b54b64f8894488d53c2dbe6f2f2418b74340ec0f374a434e9",
+      "terminal_digest": "b1adb3bce29a897278d37ebd2f8cfc1f6fbe5fc46bd1f9421f385c8e26a0bf96"
+    },
+    {
+      "manuscript_label": "lem:hirzebruch-euler-spectrum",
+      "coverage": "fragment",
+      "declarations": [
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.hirzebruchEven_eulerSpectrum_discriminant",
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.hirzebruchOdd_eulerSpectrum_discriminant",
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.hirzebruchEven_eulerSpectrum_splitting"
+      ],
+      "objects": "The two monic quartics displayed in the statement, in two complex parameters standing for the specialized values of the fibre class and of the section class shifted by the integer part of half the index in fibres, and the universal discriminant of a monic quartic in its coefficients.",
+      "hypotheses": "None beyond the displayed coefficients; the even splitting takes square roots of the two parameters.",
+      "conclusion": "Lean evaluates the universal quartic discriminant on the coefficients of each displayed quartic, obtaining two to the twenty-fourth times the square of the product of the two parameters and their difference in the even case, and minus the square of that product times the cube of the displayed quadratic in the odd case, and exhibits the even quartic as the product of the four linear factors with roots twice the four sums and differences of the square roots.",
+      "cautions": "The manuscript's conclusion is that these quartics are the characteristic polynomial of Euler multiplication on the even cohomology of a Hirzebruch surface. Lean constructs no variety, no quantum cohomology, no Novikov specialization and no Euler multiplication, and proves nothing about the deformation reduction to index at most one or about the toric presentation there; the quartics enter as displayed polynomials. The symbolic derivation of the quartics from the presented ring, together with its cross-checks, is the registered evidence bundle hirzebruch-euler-spectrum, generated by verification/hirzebruch_euler_spectrum.py and recorded in verification/hirzebruch-euler-spectrum.json.",
+      "statement_digest": "d4605cea4d4bb58a9516ff1f0339392ceb600accd02d2ba2bbf4266a9dbc4ee4",
+      "terminal_digest": "94725f7d82efbbeab74533a604f881f18e51364327f6e5fbf7eb4a655e387b3f"
+    },
+    {
+      "manuscript_label": "lem:ruled-degeneracy-dichotomy",
+      "coverage": "conditional_deduction",
+      "declarations": [
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.hirzebruchEven_degenerate_iff",
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.hirzebruchOdd_degenerate_iff",
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.hirzebruchEven_eulerBlocks_simple",
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.hirzebruchOdd_eulerBlocks_simple",
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.hirzebruchEven_degenerate_splitting",
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.hirzebruchOdd_degenerate_splitting",
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.hirzebruchOdd_degeneracyLocus_parametrized",
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.hirzebruch_degenerate_rootMultiplicity_le_two",
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.hirzebruch_degenerate_rootMultiplicity_eq_two",
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.hirzebruch_degenerate_rootMultiplicity_eq_one",
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.hirzebruchEven_degenerate_blockShape",
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.hirzebruchOdd_degenerate_blockShape",
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.hirzebruch_rankTwoBlock_nilpotent_sq_eq_zero"
+      ],
+      "objects": "A four-by-four complex matrix standing for Euler multiplication, its characteristic polynomial, the maximal generalized eigenspaces of the associated endomorphism, and a two-by-two complex matrix standing for a rank-two spectral block.",
+      "hypotheses": "The characteristic polynomial of the matrix is the displayed even or odd quartic; both specialized values are nonzero; off the degeneracy locus the corresponding separation hypothesis holds, that is the two values differ, respectively the quadratic in them is nonzero; on the locus the values are supplied in parametrized form, the common value as a square in the even case and as minus twenty-seven times the square of a scale parameter against sixteen times that parameter in the odd case; and for the rank-two statement the block has trace twice and determinant the square of a single eigenvalue.",
+      "conclusion": "Lean proves that the discriminant vanishes exactly when the two values agree in the even case and exactly on the displayed quadratic locus in the odd case; that off those loci every maximal generalized eigenspace has dimension at most one; that the odd parametrization covers its whole locus; that on each locus the quartic is a squared linear factor times a quadratic whose two roots differ from the repeated one; and hence that no maximal generalized eigenspace has dimension more than two, the one at the repeated root has dimension exactly two, and the two others have dimension exactly one. It also proves that the centered matrix of a rank-two block squares to zero.",
+      "cautions": "The identification of the algebraic multiplicity of an eigenvalue with the dimension of the maximal generalized eigenspace is proved for the supplied matrix; that the supplied matrix is Euler multiplication of a Hirzebruch surface is not. The odd degeneracy locus is parametrized by writing the section value as sixteen times a scale parameter, which is no restriction over the complex numbers and is recorded as a separate statement. Lean proves the nilpotent part of a rank-two block to be square-zero and does not prove such a block semisimple; the evidence bundle records the stronger computed fact that the block is semisimple at the degeneracy locus, which the manuscript does not use. The manuscript's closing sentence, that case (b) does not arise for a center specialization when the index is at least one while it can for the quadric surface, is a statement about the specializations of the blowup comparison and is recorded under lem:center-maps-monomial, lem:center-specialization-nondegenerate and prop:hirzebruch-specialized-vanishing, not here. The first of those three is absent from Lean, so at index one the graded-monomiality the closing sentence needs is argued in the manuscript only.",
+      "statement_digest": "d61a671482769722ae63042cf8112cd10667ff86577ff5629bc33fd3e595ee09",
+      "terminal_digest": "699a74be68e899050d0ffaa5bf0475bc21b857235b479aa69c97c924258debc4"
+    },
+    {
+      "manuscript_label": "lem:center-specialization-nondegenerate",
+      "coverage": "conditional_deduction",
+      "declarations": [
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.centerSpecialization_fibre_ne_shiftedSection",
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.centerSpecialization_oddCombination_ne_zero",
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.monomialSpecialization_oddCombination_ne_zero"
+      ],
+      "objects": "The algebraic core of a strictly Novikov-admissible specialization: an effective numerical monoid, a complete separated topological domain, the monomial image map, its length and valuation functions; and, for the third statement, a leading-term map together with a linearly independent family of monomials.",
+      "hypotheses": "The fibre class and the section class are nonzero, the shift is positive, and the two coefficients are units of the coefficient ring; for the third statement the leading term of the combination is the corresponding combination of two members of the family.",
+      "conclusion": "Lean derives from the valuation law that lengths are additive and multiples of a class have multiples of its length, that units and negatives leave a valuation unchanged, and hence that the specialized fibre value differs from the specialized shifted-section value and that no unit combination of the fibre value with the square of the shifted-section value vanishes. Independently of any shift, it proves that a combination of two members of a linearly independent family with coefficients two hundred fifty-six and twenty-seven cannot vanish, since for distinct members independence forces the first coefficient to vanish and for a common member the nonzero coefficient sum does.",
+      "cautions": "That the center specializations of the blowup comparison have this algebraic core, and that their associated graded is a monoid algebra whose monomials form a linearly independent family containing the leading term of every effective monomial, are manuscript statements about the geometry and are not formalized. The additivity of the leading-term map on two summands of equal valuation enters as a hypothesis.",
+      "statement_digest": "a0b8b1a6122f0269fa5a7d43b0289fbff0981c2e2133bbc78ee55ecbc7c3df01",
+      "terminal_digest": "a5dbcf5274c559e01d536472312820b7cd4067946d2aa88e21a9ff062f8ac522"
+    },
+    {
+      "manuscript_label": "prop:hirzebruch-specialized-vanishing",
+      "coverage": "conditional_deduction",
+      "declarations": [
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.hirzebruch_quadricSurface_sixthMultiplicity_eq_zero",
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.hirzebruchEven_sixthMultiplicity_eq_zero",
+        "TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.hirzebruchOdd_sixthMultiplicity_eq_zero"
+      ],
+      "objects": "Framed monodromy matrices with their primitive-sixth multiplicity, a four-by-four complex matrix standing for Euler multiplication on the even cohomology of the surface, and two two-by-two matrices standing for Euler multiplication on the two projective-line factors of the quadric surface.",
+      "hypotheses": "The characteristic polynomial of Euler multiplication is the displayed quartic, or, for the quadric surface, is the specialized quantum relation of a projective line on each factor; both specialized values are nonzero; the even or odd separation hypothesis holds, that is the two values differ, respectively the quadratic in them is nonzero; and the conclusion of the multiplicity-one Euler block lemma is supplied, in the tensor form for the quadric surface and in the direct form otherwise.",
+      "conclusion": "Lean proves that the Euler spectra are simple, applies the supplied implication to obtain a framed characteristic polynomial that is a power of the linear polynomial with root one, and concludes that the primitive-sixth multiplicity vanishes.",
+      "cautions": "No variety, product, quantum connection, Novikov specialization or Levelt--Turrittin decomposition is constructed. The Gromov--Witten product formula, the compatibility of the formal decomposition with tensor products, and the multiplicity-one Euler block lemma enter as hypotheses; the quadric statement assumes no relation between the two specialized values, which is what makes it cover the specializations identifying the two rulings.",
+      "statement_digest": "84f7301ad88f7b85e473a141629077b39b5527e8f9481e26635dafd7b0b11de2",
+      "terminal_digest": "13dd6033e73540be7836aac7a4ad5e8896e042c58d23d49a980c800694d5125e"
+    },
+    {
+      "manuscript_label": "lem:center-maps-monomial",
+      "coverage": "absent",
+      "declarations": [],
+      "objects": "The numerical Novikov specializations of the center summands of the blowup comparison, and the associated graded of their coefficient ring.",
+      "hypotheses": "None beyond the displayed form of those specializations.",
+      "conclusion": "Each of them is monomial: the associated graded is a Laurent monoid ring whose monomials form a complex basis, and the image of every effective monomial is one of them with coefficient one.",
+      "cautions": "No terminal. Lean constructs no completed monoid ring, no associated graded ring, and no blowup comparison, so the statement that the center specializations have monomial associated graded image has no formal counterpart; the type of monomial-specialization certificates recorded under def:monomial-specialization records only the properties such data must have.",
+      "statement_digest": "4ae731e5a7d406edcfa0bb8ff47a70a3975e967801b1d1f76194bfef9b74d47f"
     }
   ],
   "machinery": [
