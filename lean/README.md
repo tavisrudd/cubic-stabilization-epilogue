@@ -53,11 +53,11 @@ truncated Chern class arithmetic, the Betti numbers, the degree count placing th
 whole odd cohomology in that packet, and the constancy of rank on a connected
 component.
 
-Checked coverage snapshot: 62 claims; 5 absent; 27 fragmentary; 29 conditional;
-1 complete; 290 reviewer terminals, of which 47 are machinery serving no current
+Checked coverage snapshot: 53 claims; 6 absent; 21 fragmentary; 25 conditional;
+1 complete; 311 reviewer terminals, of which 83 are machinery serving no current
 manuscript claim.
 
-Those 46 are kernel-checked and reusable, and the claim map records for each one
+Those machinery terminals are kernel-checked and reusable, and the claim map records for each one
 why no current claim rests on it.  They formalize the pro-Laurent gauge tower,
 coefficientwise and flat base change of horizontal monodromy, ideal-filtration
 and adic quotient towers, existence and uniqueness of normalized flat gauges
@@ -105,6 +105,17 @@ The reviewer-facing terminals currently verify:
   through a supplied invertible splitting-ring basis, with weighted membership
   derived from supplied formal blockwise graph-descent conditions; and automatic
   rank-one generation of that graph lattice over a DVR;
+- the polarized six-axis source lattice on integral first homology: the
+  Kronecker product of `6I-J` with the standard alternating rank-two elliptic
+  homology pairing, its alternation and determinant `6^8`; the consequence that
+  a comparison matrix pulling a unimodular alternating form back to it has
+  determinant of absolute value `6^4` and is injective; the identification of
+  the kernels of its two- and three-torsion reductions with four copies of the
+  rank-two module over the respective prime field; and the six-coordinate form
+  on augmentation lifts, which
+  is six times the dot product and so has half reducing modulo two to the dot
+  product and third reducing modulo three to its negative, independently of the
+  chosen lift;
 - the `6I-J` eigenspaces, an explicit integral Smith reduction to
   `diag(1,6,6,6,6)`, uniqueness of the polarization parameters, the explicit
   orthogonal local block, its exact depth-one arithmetic at two and three, and
@@ -501,20 +512,20 @@ The reviewer-facing terminals currently verify:
   parities through the discriminant route, with the Gromov--Witten product
   formula, the tensor compatibility of the formal decomposition, and the
   conclusion of the multiplicity-one Euler block lemma as typed premises;
-- typed blowup/blowdown telescoping in dimension four and the conditional cubic
-  and genus-eight irrationality deductions;
-- the two low-dimensional exclusions of the atomic route in their refined form,
+- typed blowup/blowdown telescoping for the common natural-valued marker ledger,
+  together with the conditional framed cubic and genus-eight deductions;
+- the two low-dimensional exclusions used by the direct rank-two residue fold,
   where the point-blowup formula, the passage to a minimal model, the
   nef-canonical lemma, the classification of minimal surfaces, and the parity
   ranks of a curve atom are separate premises: a variety of dimension at most
-  one carrying the cubic zero-packet atom would have genus five, no such variety
+  one carrying the selected cubic block would have genus five, no such variety
   carries it, and no variety of dimension at most two does either;
-- the unconditional genus-eight route, which uses no multiplicity at all: since
+- the unconditional genus-eight route, which uses no framed multiplicity: since
   each rank-two projectivization is birational to the product of its base with a
   projective line, the flop makes one projective-line stabilization of the Fano
   threefold birational to one projective-line stabilization of its associated
   Pfaffian cubic, and irrationality transports back from the cubic, where the
-  ordinary Hodge-atom argument supplies it;
+  direct categorical QDM marker supplies it;
 - the exact fibrewise deduction from supplied primitive-minimal-class
   algebraicity and Voisin's supplied equivalence to universal `CH₀`-triviality;
 - the final conditional separation-family composition, including fibre and
@@ -559,9 +570,11 @@ The reviewer-facing terminals currently verify:
   `ℤ⁵`, the symmetric `6I₆-J₆` form descends through the constant line,
   its matrix in this quotient chart is exactly `6I₅-J₅`, and the induced
   full permutation action preserves the descended form;
-- the conditional cubic packet formula: from Cai's supplied four-block
-  characteristic polynomial, the two primitive-sixth roots have multiplicity
-  one each and the unit blocks contribute zero, giving multiplicity two;
+- the conditional cubic packet formula: from the shared four-block reduction
+  derived in the manuscript from Beauville's quantum products, the two
+  primitive-sixth roots have multiplicity one each and the unit blocks
+  contribute zero, giving multiplicity two; Lean checks the matrix reduction
+  but does not derive its QDM input;
 - simplicity of both six-point hearts under the generated label action,
   together with the exact matrix commutant of that action: the four-element
   algebra generated by a root of `W ^ 2 + W + 1` in characteristic two, in
@@ -580,7 +593,7 @@ The reviewer-facing terminals currently verify:
   formula, the point comparison, the exponent-to-monodromy passage, the
   birational input, the dimension bound, and the birational comparison supplied
   by rationality as its premises;
-- the rank-two algebra of the atomic route: from self-adjointness of the
+- the rank-two algebra of the direct residue marker: from self-adjointness of the
   square-zero leading operator for an invertible pairing coefficient and the
   constant coefficient of horizontality, the regular coefficient preserves the
   nilpotent line; the residual pole of the base connection in the modified
@@ -639,7 +652,13 @@ The reviewer-facing terminals currently verify:
 
 The authoritative per-claim account is
 [`verification/claims.json`](verification/claims.json).  In particular, the
-companion does not yet formalize the relative six-axis geometry, identification
+companion formalizes the relative six-axis source only through its integral
+first homology: the degree and injectivity of a comparison matrix satisfying the
+polarization pullback identity, and the two-primary discriminant identification
+in supplied two-torsion coordinates, are proved, while the elliptic scheme, the
+relative morphism inducing those matrices, the Weil and commutator pairings, and
+maximal isotropy of the actual isogeny kernel are supplied.  It does not
+formalize the identification
 of the explicitly constructed quadratic finite-etale splitting field and
 eigenbasis with the manuscript's marked geometric splitting extension, or the
 construction of its geometric coefficient lattice, or the geometric
