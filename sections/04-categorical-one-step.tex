@@ -228,7 +228,7 @@ Assume \(\rk E=2\), \(N\ne0\), and \(N^2=0\).  Then
 \coverage{conditional_deduction}%
 \lean{atomicRankTwo_regularCoefficient_preserves_nilpotentLine,%
   atomicRankTwo_pairingEquations_of_loopHorizontality}%
-The Poincar\'e pairing implies \(A_0L\subset L\).
+Horizontality of the Poincar\'e pairing implies \(A_0L\subset L\).
 \end{lemma}
 
 \begin{proof}
@@ -448,8 +448,7 @@ Its characteristic polynomial is
 \begin{proposition}[Low-dimensional nullity]
 \label{prop:atomic-lowdim}
 \coverage{conditional_deduction}%
-\lean{cubicAtom_not_represented_by_curve,%
-  cubicAtom_not_represented_by_surface}%
+\lean{rankTwoResidueMarker_lowDimensionalOccurrenceNullity}%
 \uses{prop:rank2-rigidity}%
 \imports{BeauvilleSurfaces:minimal-surface-classification}%
 For every smooth projective \(Z\) of dimension at most two and every actual
@@ -488,7 +487,7 @@ surface \(\PP_C(V)\) \cite[Chapter~VI]{BeauvilleSurfaces}.  The relation
 \(H^{\star3}=Q\) makes \(\PP^2\) generically semisimple.  Formula
 \eqref{eq:marker-pbundle} and the curve case give zero for ruled surfaces.
 Every nonminimal surface is obtained from a minimal one by point blowups;
-Formula~\eqref{eq:marker-blowup} adds only zero point terms.  This proves
+formula~\eqref{eq:marker-blowup} adds only zero point terms.  This proves
 intrinsic nullity.  The faithful character adapter identifies every actual
 center term with a faithful scalar extension of the corresponding intrinsic
 generic block, and the marker is unchanged by that extension.

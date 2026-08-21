@@ -84,7 +84,7 @@ import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.QuarticDisc
 import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.PowerSeriesLogarithmicVanishing
 import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.ResidueDiscriminantInvariance
 import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.ModuleSpectrumTransfer
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Applications.GenusEightThreefold
+import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Applications.GenusEightCategorical
 import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Applications.UniversalCH0
 import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Applications.SeparationFamily
 import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Applications.RelativeSixAxis
@@ -92,11 +92,12 @@ import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Applications.LowDim
 import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Applications.FramedOperationFormulas
 import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Applications.CubicPacketFormula
 import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Applications.DivisorTaggingVanishing
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Applications.CubicAtomOneStep
 import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Applications.CubicPacketFromBlockReduction
 import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Applications.ProjectiveProductMultiplicity
 import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Applications.CubicResidueMarkerOneStep
+import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Applications.RankTwoResidueLowDimensionalNullity
 import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Applications.CubicFramedMarkerOneStep
+import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Applications.FramedSixthLowDimensionalNullity
 import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.SpectralSignReversal
 import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.HodgeFixedSubalgebra
 import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Applications.CubicZeroAtomRanks
@@ -149,13 +150,15 @@ theorem universalCH0_of_sixAxisMinimalClass_and_Voisin
 /-- Exact conditional assembly of the manuscript's separation theorem for one
 typed family.  Primitive-minimal-class algebraicity and Voisin's criterion
 give fibrewise universal `CH₀`-triviality; a supplied projective-bundle formula
-transports it to the stabilization; the typed packet input gives irrationality;
-and a supplied period-map conclusion gives non-isotriviality.  Every
+transports it to the stabilization; the direct residue-marker input gives
+irrationality; and nonconstancy of a typed period map gives non-isotriviality
+through the supplied comparison implication.  Every
 geometric, Chow-theoretic, quantum, and moduli premise remains visible. -/
-theorem separationFamily_of_sixAxis_packet_and_period_inputs
-    {Base Variety Jacobian Moduli : Type*}
-    (packet : Quantum.PacketData Variety)
-    (birationalInput : Quantum.DimensionFourBirationalInput packet)
+theorem separationFamily_of_sixAxis_residue_and_period_inputs
+    {K Base Variety Center Occurrence Jacobian Moduli Period : Type*}
+    [CommRing K]
+    (context : Quantum.RankTwoResidueMarkerContext K Variety Center Occurrence)
+    (projectiveFourSpace : Variety)
     (cycleGeometry : Applications.CubicCycleTrivialityGeometry
       Variety Jacobian)
     (rationalGeometry : Applications.CubicThreefoldGeometry Variety)
@@ -164,58 +167,40 @@ theorem separationFamily_of_sixAxis_packet_and_period_inputs
     (hasEckardtPoint separatedVariableType : Variety → Prop)
     (projectivelyEquivalent : Variety → Variety → Prop)
     (distinguishedPoint : Moduli)
-    (input : Applications.SeparationFamilyInput packet birationalInput
+    (input : Applications.SeparationFamilyInput (Period := Period)
+      context projectiveFourSpace
       cycleGeometry rationalGeometry isNonIsotrivial fibre moduliPoint
       hasEckardtPoint separatedVariableType projectivelyEquivalent
       distinguishedPoint) :
     Applications.SeparationFamilyConclusion cycleGeometry rationalGeometry
       isNonIsotrivial fibre moduliPoint separatedVariableType
       projectivelyEquivalent distinguishedPoint :=
-  Applications.separationFamily_of_cycle_packet_and_period_inputs packet
-    birationalInput cycleGeometry rationalGeometry isNonIsotrivial fibre
+  Applications.separationFamily_of_cycle_residue_and_period_inputs context
+    projectiveFourSpace cycleGeometry rationalGeometry isNonIsotrivial fibre
     moduliPoint hasEckardtPoint separatedVariableType projectivelyEquivalent
     distinguishedPoint input
 
-/-- Exact conditional form of the separated-variable exclusion along the
-family.  A cubic threefold whose defining form is a sum of cubic forms in
-pairwise disjoint groups of at most three variables carries an Eckardt point,
-carrying one is invariant under projective equivalence, and the Eckardt locus of
-the family lies over a single moduli point; Lean concludes that a member
-projectively equivalent to such a cubic has that moduli point, and, with the
-supplied witness at that point, that the separated-variable locus of the family
-is exactly it.  Every geometric statement — the Eckardt criterion, its
-projective invariance, the Eckardt locus of the pencil, and the witness — is an
-explicit premise, and no cubic form, Eckardt point, pencil, or coarse moduli
-space is constructed. -/
-theorem separatedVariableLocus_of_eckardtLocus_inputs
+/-- Exact conditional form of both sentences of the separated-variable
+proposition.  The independently established fibrewise universal `CH₀`
+statement is composed with the Eckardt-locus exclusion, so the second sentence
+is no longer omitted from the public terminal. -/
+theorem separatedVariableLocus_and_universalCH0_outside
     {Base Variety Moduli : Type*}
     (fibre : Base → Variety) (moduliPoint : Base → Moduli)
-    (hasEckardtPoint separatedVariableType : Variety → Prop)
+    (hasEckardtPoint universallyCH0Trivial separatedVariableType : Variety → Prop)
     (projectivelyEquivalent : Variety → Variety → Prop)
     (distinguishedPoint : Moduli)
     (input : Applications.SeparatedVariableModuliInput fibre moduliPoint
       hasEckardtPoint separatedVariableType projectivelyEquivalent
-      distinguishedPoint) :
-    (∀ parameter,
-        Applications.RepresentedBySeparatedVariable separatedVariableType
-            projectivelyEquivalent (fibre parameter) →
-          moduliPoint parameter = distinguishedPoint) ∧
-      (∃ parameter, moduliPoint parameter = distinguishedPoint ∧
-        Applications.RepresentedBySeparatedVariable separatedVariableType
-          projectivelyEquivalent (fibre parameter)) ∧
-      ∀ parameter, moduliPoint parameter ≠ distinguishedPoint →
-        ¬ Applications.RepresentedBySeparatedVariable separatedVariableType
-          projectivelyEquivalent (fibre parameter) :=
-  ⟨(Applications.separatedVariableModuli_eq_distinguishedPoint fibre moduliPoint
-      hasEckardtPoint separatedVariableType projectivelyEquivalent
-      distinguishedPoint input).1,
-    (Applications.separatedVariableModuli_eq_distinguishedPoint fibre moduliPoint
-      hasEckardtPoint separatedVariableType projectivelyEquivalent
-      distinguishedPoint input).2,
-    fun parameter distinct ↦
-      Applications.not_representedBySeparatedVariable_of_ne_distinguishedPoint
-        fibre moduliPoint hasEckardtPoint separatedVariableType
-        projectivelyEquivalent distinguishedPoint input parameter distinct⟩
+      distinguishedPoint)
+    (allFibresUniversallyCH0Trivial : ∀ parameter,
+      universallyCH0Trivial (fibre parameter)) :
+    Applications.SeparatedVariableUniversalCH0Conclusion fibre moduliPoint
+      universallyCH0Trivial separatedVariableType projectivelyEquivalent
+      distinguishedPoint :=
+  Applications.separatedVariableLocus_and_universalCH0_outside fibre moduliPoint
+    hasEckardtPoint universallyCH0Trivial separatedVariableType
+    projectivelyEquivalent distinguishedPoint input allFibresUniversallyCH0Trivial
 
 /-- Interface for the relative six-axis source.  The supplied geometric input
 now carries an integral first-homology realization of every fibre — a
@@ -5552,6 +5537,22 @@ theorem effectiveBlockLedger_fold_unique
     homomorphism = presentation.fold weight :=
   presentation.fold_unique weight homomorphism onSingleton
 
+/-- Reviewer-facing low-dimensional nullity theorem for the direct residue
+marker.  A classified center induction, intrinsic projective-bundle and
+point-blowup formulas, and the comparison with every actual QDM occurrence
+supply the nullity premise used by categorical descent in dimension four. -/
+theorem rankTwoResidueMarker_lowDimensionalOccurrenceNullity
+    {K Variety Center Occurrence : Type*} [CommRing K]
+    (presentation : Quantum.RankTwoResiduePresentation K)
+    (data : Quantum.OccurrenceIndexedLedger Variety Center Occurrence
+      presentation.toBlockPresentation)
+    (geometry : Applications.RankTwoResidueCenterGeometry Center)
+    (input : Applications.RankTwoResidueLowDimensionalInput
+      presentation data geometry) :
+    Quantum.LowDimensionalOccurrenceNullity data presentation.fold 4 :=
+  Applications.rankTwoResidue_lowDimensionalOccurrenceNullity
+    presentation data geometry input
+
 /-- Reviewer-facing occurrence-indexed marker theorem in arbitrary ambient
 dimension and with arbitrary commutative additive target.  Weak factorization,
 the folded operation formulas, and low-dimensional center nullity are explicit
@@ -5564,9 +5565,15 @@ theorem occurrenceIndexedMarker_eq_of_birational
     (birational : Setoid Variety)
     (provider : Quantum.BirationalFactorizationProvider data fold dimension birational)
     (nullity : Quantum.LowDimensionalOccurrenceNullity data fold dimension)
-    {left right : Variety} (related : birational.r left right) :
+    {left right : Variety}
+    (leftSmooth : data.smoothProjective left)
+    (rightSmooth : data.smoothProjective right)
+    (leftDimension : data.dimension left = dimension)
+    (rightDimension : data.dimension right = dimension)
+    (related : birational.r left right) :
     data.varietyMarker fold left = data.varietyMarker fold right :=
-  provider.marker_eq_of_related data fold dimension birational nullity related
+  provider.marker_eq_of_related data fold dimension birational nullity
+    leftSmooth rightSmooth leftDimension rightDimension related
 
 /-- Reviewer-facing object-set descent square for the occurrence-indexed
 marker: the marker factors through the quotient by the supplied birational
@@ -5579,8 +5586,15 @@ theorem occurrenceIndexedMarker_descends_to_birationalClasses
     (birational : Setoid Variety)
     (provider : Quantum.BirationalFactorizationProvider data fold dimension birational)
     (nullity : Quantum.LowDimensionalOccurrenceNullity data fold dimension) :
-    ∃ descended : Quotient birational → A, ∀ variety,
-      descended (Quotient.mk birational variety) = data.varietyMarker fold variety :=
+    ∃ descended : Quotient
+        (Quantum.BirationalFactorizationProvider.smoothAmbientBirational
+          data dimension birational) → A,
+      ∀ variety : Quantum.BirationalFactorizationProvider.SmoothAmbientObject
+          data dimension,
+        descended (Quotient.mk
+          (Quantum.BirationalFactorizationProvider.smoothAmbientBirational
+            data dimension birational) variety) =
+          data.varietyMarker fold variety.1 :=
   ⟨provider.descendedMarker data fold dimension birational nullity,
     provider.descendedMarker_mk data fold dimension birational nullity⟩
 
@@ -5603,22 +5617,45 @@ theorem rankTwoResidueMarker_eq_of_birational
 primitive-sixth marker.  It invokes the same generic occurrence-indexed theorem
 as the direct residue marker. -/
 theorem framedSixthMarker_eq_of_birational
-    {Variety Center Occurrence : Type*}
-    (context : Quantum.FramedSixthMarkerContext Variety Center Occurrence)
+    {Variety Center Occurrence : Type*} {ambientDimension : ℕ}
+    (context : Quantum.FramedSixthMarkerContext ambientDimension
+      Variety Center Occurrence)
     {left right : Variety}
     (leftSmooth : context.data.smoothProjective left)
     (rightSmooth : context.data.smoothProjective right)
-    (leftDimension : context.data.dimension left = 4)
-    (rightDimension : context.data.dimension right = 4)
+    (leftDimension : context.data.dimension left = ambientDimension)
+    (rightDimension : context.data.dimension right = ambientDimension)
     (related : context.birational.r left right) :
     context.marker left = context.marker right :=
   context.marker_eq_of_birational leftSmooth rightSmooth leftDimension rightDimension related
 
-/-- Reviewer-facing direct-QDM residue-marker proof that a smooth cubic
-threefold remains irrational after multiplication by one projective line.  The
-rank-two residue context exposes the block presentation, actual center
-occurrences, operation formulas, weak factorization, and center nullity. -/
-theorem cubicThreefold_oneProjectiveLine_not_rational_of_residueMarker
+/-- Reviewer-facing one-projective-line consequence of framed marker
+invariance: if the stabilizations of two smooth projective threefolds are
+birational and both satisfy the rank-two projective-bundle formula, their
+primitive-sixth markers agree. -/
+theorem framedSixthMarker_eq_of_oneProjectiveLine_birational
+    {Variety Center Occurrence : Type*}
+    (context : Quantum.FramedSixthMarkerContext 4 Variety Center Occurrence)
+    (productWithProjectiveLine : Variety → Variety)
+    {left right : Variety}
+    (leftDimension : context.data.dimension left = 3)
+    (rightDimension : context.data.dimension right = 3)
+    (leftFormula : Quantum.ProjectiveBundleMarkerFormula
+      context.data context.presentation.fold left
+        (productWithProjectiveLine left) 2)
+    (rightFormula : Quantum.ProjectiveBundleMarkerFormula
+      context.data context.presentation.fold right
+        (productWithProjectiveLine right) 2)
+    (related : context.birational.r
+      (productWithProjectiveLine left) (productWithProjectiveLine right)) :
+    context.marker left = context.marker right :=
+  Applications.framedSixthMarker_eq_of_oneProjectiveLine_birational
+    context productWithProjectiveLine leftDimension rightDimension
+      leftFormula rightFormula related
+
+/-- Reviewer-facing direct-QDM one-step conclusion with the exact stabilized
+marker value and irrationality exposed together. -/
+theorem cubicThreefold_oneProjectiveLine_conclusion_of_residueMarker
     {K Variety Center Occurrence : Type*} [CommRing K]
     (context : Quantum.RankTwoResidueMarkerContext K Variety Center Occurrence)
     (productWithProjectiveLine : Variety → Variety)
@@ -5626,156 +5663,58 @@ theorem cubicThreefold_oneProjectiveLine_not_rational_of_residueMarker
     (cubic : Variety)
     (input : Applications.CubicResidueMarkerOneStepInput context
       productWithProjectiveLine projectiveFourSpace Rational cubic) :
-    ¬ Rational (productWithProjectiveLine cubic) :=
-  Applications.cubicThreefold_oneProjectiveLine_not_rational_of_residueMarker
+    Applications.CubicResidueMarkerOneStepConclusion context
+      productWithProjectiveLine Rational cubic :=
+  Applications.cubicThreefold_oneProjectiveLine_conclusion_of_residueMarker
     context productWithProjectiveLine projectiveFourSpace Rational cubic input
 
-/-- Reviewer-facing framed primitive-sixth proof that a smooth cubic
-threefold remains irrational after multiplication by one projective line.  Its
-conditional context has the same occurrence-indexed shape as the residue
-context and invokes the same descent theorem. -/
-theorem cubicThreefold_oneProjectiveLine_not_rational_of_framedMarker
+/-- Reviewer-facing exact three-clause conclusion of the conditional framed
+theorem: marker four on the cubic stabilization, marker zero on every rational
+smooth projective fourfold, and irrationality. -/
+theorem cubicThreefold_oneProjectiveLine_conclusion_of_framedMarker
     {Variety Center Occurrence : Type*}
-    (context : Quantum.FramedSixthMarkerContext Variety Center Occurrence)
+    (context : Quantum.FramedSixthMarkerContext 4 Variety Center Occurrence)
     (productWithProjectiveLine : Variety → Variety)
     (projectiveFourSpace : Variety) (Rational : Variety → Prop)
     (cubic : Variety)
     (input : Applications.CubicFramedMarkerOneStepInput context
       productWithProjectiveLine projectiveFourSpace Rational cubic) :
-    ¬ Rational (productWithProjectiveLine cubic) :=
-  Applications.cubicThreefold_oneProjectiveLine_not_rational_of_framedMarker
+    Applications.CubicFramedMarkerOneStepConclusion context
+      productWithProjectiveLine Rational cubic :=
+  Applications.cubicThreefold_oneProjectiveLine_conclusion_of_framedMarker
     context productWithProjectiveLine projectiveFourSpace Rational cubic input
 
-/-- Reviewer-facing transport across two birational rank-two projective
-bundles, the formal deduction used for the genus-eight Fano application. -/
-theorem rankTwoProjectiveBundle_packet_transport
-    {Variety : Type*} (packet : Quantum.PacketData Variety)
-    (input : Quantum.DimensionFourBirationalInput packet)
-    {leftBase rightBase leftBundle rightBundle : Variety}
-    (leftFormula : packet.multiplicity leftBundle =
-      2 * packet.multiplicity leftBase)
-    (rightFormula : packet.multiplicity rightBundle =
-      2 * packet.multiplicity rightBase)
-    (bundleDimension : packet.dimension leftBundle ≤ 4)
-    (bundlesBirational : input.birational leftBundle rightBundle) :
-    packet.multiplicity leftBase = packet.multiplicity rightBase :=
-  Quantum.rankTwoProjectiveBundle_transport packet input leftFormula rightFormula
-    bundleDimension bundlesBirational
+/-- Reviewer-facing unconditional genus-eight one-step irrationality through
+the direct residue-marker categorical context. -/
+theorem genusEight_oneProjectiveLine_not_rational_of_residueContext
+    {K Variety Center Occurrence : Type*} [CommRing K]
+    (context : Quantum.RankTwoResidueMarkerContext K Variety Center Occurrence)
+    (geometry : Applications.GenusEightCategoricalGeometry Variety)
+    (productWithProjectiveLine : Variety → Variety)
+    (projectiveFourSpace : Variety) (Rational : Variety → Prop)
+    (fano : Variety)
+    (transport : Applications.GenusEightResidueTransportInput context geometry
+      productWithProjectiveLine Rational fano)
+    (cubicInput : Applications.CubicResidueMarkerOneStepInput context
+      productWithProjectiveLine projectiveFourSpace Rational
+      (geometry.associatedPfaffianCubic fano)) :
+    ¬ Rational (productWithProjectiveLine fano) :=
+  Applications.genusEight_oneProjectiveLine_not_rational_of_residueContext
+    context geometry productWithProjectiveLine projectiveFourSpace Rational
+    fano transport cubicInput
 
-/-- Reviewer-facing packet transport from an associated cubic threefold to a
-genus-eight Fano threefold, conditional on the typed projective-bundle and flop
-premises. -/
-theorem genusEight_packet_eq_two_of_flop_inputs
-    {Variety : Type*} (packet : Quantum.PacketData Variety)
-    (birationalInput : Quantum.DimensionFourBirationalInput packet)
-    (geometry : Applications.GenusEightGeometry Variety)
-    {fano : Variety}
-    (input : Applications.GenusEightOneStepInput
-      packet birationalInput geometry fano) :
-    packet.multiplicity fano = 2 :=
-  Applications.genusEight_packet_eq_two_of_projectiveBundle_flop
-    packet birationalInput geometry input
-
-/-- Reviewer-facing one-step irrationality deduction for a genus-eight Fano
-threefold.  Its typed input keeps the cubic packet, projective-bundle flop, and
-rational comparison visible. -/
-theorem genusEight_oneStep_irrational_of_flop_inputs
-    {Variety : Type*} (packet : Quantum.PacketData Variety)
-    (birationalInput : Quantum.DimensionFourBirationalInput packet)
-    (geometry : Applications.GenusEightGeometry Variety)
-    {fano : Variety}
-    (input : Applications.GenusEightOneStepInput
-      packet birationalInput geometry fano) :
-    ¬ geometry.Rational (geometry.productWithProjectiveLine fano) :=
-  Applications.genusEight_oneStepStabilization_not_rational
-    packet birationalInput geometry input
-
-/-- Reviewer-facing exclusion of curve representatives of the cubic zero-packet
-atom.  The atom has even rank two, odd rank ten, and the residue discriminant of
-the displayed cubic residue matrix, which Lean evaluates as four ninths.  On a
-smooth projective variety of dimension at most one an occurring atom is either a
-point atom, of even rank one, or the single nef-canonical atom of a curve, whose
-parity ranks are two and twice the genus and whose residue discriminant
-vanishes.  The first clause is the manuscript's intermediate step: only genus
-five is compatible with the parity ranks.  The second clause excludes even that
-genus, since the residue discriminant of the cubic atom is nonzero, which makes
-the first clause vacuous.
-
-Lean constructs no variety, atom, or atomic composition, and proves none of the
-imported formulas; the projective-bundle formula for a projective line, the
-nef-canonical lemma, and the residue computation for a curve enter through the
-supplied dichotomy. -/
-theorem cubicAtom_not_represented_by_curve
-    {Variety Atom : Type*}
-    {ledger : Quantum.OrdinaryAtomLedger Variety Atom}
-    {curveInput : Quantum.CurveRepresentativeInput ledger} {atom : Atom}
-    (input : Applications.CubicAtomRepresentativeInput ledger curveInput atom) :
-    (∀ curve : Variety, ledger.dimension curve ≤ 1 →
-        ledger.multiplicity curve atom ≠ 0 → curveInput.genus curve = 5) ∧
-      ∀ curve : Variety, ledger.dimension curve ≤ 1 →
-        ledger.multiplicity curve atom = 0 :=
-  ⟨fun curve curveDimension occurs =>
-      Applications.cubicAtom_genus_eq_five_of_representative input curve curveDimension occurs,
-    fun curve curveDimension =>
-      Applications.cubicAtom_multiplicity_eq_zero_of_dimension_le_one input curve
-        curveDimension⟩
-
-/-- Reviewer-facing exclusion of surface representatives of the cubic zero-packet
-atom, and hence of every representative of dimension at most two.  An atom of
-even rank at least two survives the blow-down to a minimal model; on a minimal
-model with nef canonical class the single atom has even rank at least three,
-which the cubic atom does not; and the remaining minimal surfaces, the
-projective plane and the geometrically ruled surfaces, carry only point and
-curve atoms, which the curve analysis excludes.
-
-Lean constructs no variety, atom, atomic composition, blow-down, or minimal
-model, and proves neither the point-blowup formula, the nef-canonical lemma, the
-classification of minimal smooth complex projective surfaces, nor the
-projective-bundle formulas; each enters through the supplied premises. -/
-theorem cubicAtom_not_represented_by_surface
-    {Variety Atom : Type*}
-    {ledger : Quantum.OrdinaryAtomLedger Variety Atom}
-    {curveInput : Quantum.CurveRepresentativeInput ledger}
-    (surfaceInput : Quantum.SurfaceRepresentativeInput ledger curveInput) {atom : Atom}
-    (input : Applications.CubicAtomRepresentativeInput ledger curveInput atom) :
-    ∀ witness : Variety, ledger.dimension witness ≤ 2 →
-      ledger.multiplicity witness atom = 0 :=
-  fun witness witnessDimension =>
-    Applications.cubicAtom_multiplicity_eq_zero_of_surface_analysis surfaceInput input witness
-      witnessDimension
-
-/-- Reviewer-facing unconditional one-step irrationality for a genus-eight Fano
-threefold.  A rank-two projectivization is birational to the product of its base
-with a projective line, so Kuznetsov's flop between the projectivizations of the
-two rank-two bundles makes one projective-line stabilization of the Fano
-threefold birational to one projective-line stabilization of its associated
-Pfaffian cubic threefold; that is the first conclusion.  Irrationality of the
-stabilized cubic is supplied by the ordinary Hodge-atom argument, applied to the
-cubic zero-packet atom with the ledger and exclusion premises, and rationality
-is invariant under birational equivalence, which gives the second conclusion.
-
-This route uses no framed multiplicity, weak factorization, or quantum
-comparison, and no hypothesis beyond the ones displayed.  Lean constructs
-neither the Fano threefold, the Pfaffian cubic, the rank-two bundles, their
-projectivizations, nor the flop; the geometric statements are typed
-premises. -/
-theorem genusEight_oneStep_irrational_of_atom_inputs
-    {Variety Atom : Type*}
-    {ledger : Quantum.OrdinaryAtomLedger Variety Atom}
-    (stabilization : Quantum.ProjectiveLineStabilizationInput ledger)
-    {exclusion : Quantum.LowDimensionalExclusionInput ledger}
-    {geometry : Applications.GenusEightFlopGeometry Variety}
-    {rationality : Applications.BirationalRationalityInput Variety ledger.Rational}
-    {fano : Variety} {atom : Atom}
-    (input : Applications.GenusEightFlopInput ledger geometry rationality fano)
-    (cubicInput : Applications.CubicAtomOneStepInput ledger stabilization exclusion
-      (geometry.associatedPfaffianCubic fano) atom) :
-    rationality.birational (ledger.productWithProjectiveLine fano)
-        (ledger.productWithProjectiveLine (geometry.associatedPfaffianCubic fano)) ∧
-      ¬ ledger.Rational (ledger.productWithProjectiveLine fano) :=
-  ⟨Applications.genusEight_stabilization_birational_cubicStabilization input,
-    Applications.genusEight_oneStepStabilization_not_rational_of_atomInputs stabilization
-      input cubicInput⟩
+/-- Reviewer-facing conditional equality `ν₆(V) = 2`, obtained from the framed
+occurrence-indexed descent theorem applied to Kuznetsov's two rank-two
+projectivizations. -/
+theorem genusEight_framedSixthMarker_eq_two_of_categoricalFlop
+    {Variety Center Occurrence : Type*}
+    (context : Quantum.FramedSixthMarkerContext 4 Variety Center Occurrence)
+    (geometry : Applications.GenusEightCategoricalGeometry Variety)
+    (fano : Variety)
+    (input : Applications.GenusEightFramedTransportInput context geometry fano) :
+    context.marker fano = 2 :=
+  Applications.genusEight_framedSixthMarker_eq_two_of_categoricalFlop
+    context geometry fano input
 
 /-- Reviewer-facing small even block reduction of a smooth cubic threefold.
 Over a field of characteristic zero and for a nonzero square root `r` of three
@@ -8028,33 +7967,34 @@ theorem cubicSmallEven_normalizedGauge_coefficients {K : Type*} [Field K] [CharZ
 whose intermediate Jacobians carry an algebraic primitive minimal class.  Each
 member is universally `CH₀`-trivial through Voisin's criterion, its
 projective-line stabilization is universally `CH₀`-trivial through the supplied
-projective-bundle formula, and that stabilization is irrational because the
-cubic zero-packet atom occurs on it and on no smooth projective variety of
-dimension at most two.  Neither the family nor any cited geometric input is
+projective-bundle formula, and that stabilization is irrational by the
+direct-QDM residue marker and its occurrence-indexed categorical descent.
+Neither the family nor any cited geometric input is
 constructed: the countable union of subvarieties of codimension at most three
 in the moduli space of smooth cubic threefolds is the imported input,
 represented here by the parameter type alone. -/
 theorem primitiveMinimalClassFamily_universalCH0_and_irrational_stabilization
-    {Base Variety Jacobian Atom : Type*}
-    {ledger : Quantum.OrdinaryAtomLedger Variety Atom}
-    (stabilization : Quantum.ProjectiveLineStabilizationInput ledger)
-    {exclusion : Quantum.LowDimensionalExclusionInput ledger}
+    {K Base Variety Center Occurrence Jacobian : Type*} [CommRing K]
+    (context : Quantum.RankTwoResidueMarkerContext K Variety Center Occurrence)
+    (productWithProjectiveLine : Variety → Variety)
+    (projectiveFourSpace : Variety) (Rational : Variety → Prop)
     (geometry : Applications.CubicCycleTrivialityGeometry Variety Jacobian)
     (voisinCriterion : Applications.VoisinPrimitiveMinimalClassCriterion geometry)
     (projectiveBundleCH0 : ∀ variety, geometry.universallyCH0Trivial variety →
-      geometry.universallyCH0Trivial (ledger.productWithProjectiveLine variety))
+      geometry.universallyCH0Trivial (productWithProjectiveLine variety))
     (fibre : Base → Variety)
     (familyInput : Applications.SixAxisMinimalClassFamilyInput geometry fibre)
-    {atom : Atom}
-    (atomInput : ∀ parameter, Applications.CubicAtomOneStepInput ledger stabilization
-      exclusion (fibre parameter) atom) :
+    (markerInput : ∀ parameter,
+      Applications.CubicResidueMarkerOneStepInput context productWithProjectiveLine
+        projectiveFourSpace Rational (fibre parameter)) :
     ∀ parameter, geometry.universallyCH0Trivial (fibre parameter) ∧
-      geometry.universallyCH0Trivial (ledger.productWithProjectiveLine (fibre parameter)) ∧
-        ¬ ledger.Rational (ledger.productWithProjectiveLine (fibre parameter)) := by
+      geometry.universallyCH0Trivial (productWithProjectiveLine (fibre parameter)) ∧
+        ¬ Rational (productWithProjectiveLine (fibre parameter)) := by
   intro parameter
   obtain ⟨fibreCH0, separation⟩ :=
-    Applications.primitiveMinimalClassFamily_separation stabilization geometry
-      voisinCriterion projectiveBundleCH0 fibre familyInput atomInput parameter
+    Applications.primitiveMinimalClassFamily_separation context
+      productWithProjectiveLine projectiveFourSpace Rational geometry
+      voisinCriterion projectiveBundleCH0 fibre familyInput markerInput parameter
   exact ⟨fibreCH0, separation.stabilizationUniversallyCH0Trivial,
     separation.stabilizationNotRational⟩
 
@@ -8064,25 +8004,27 @@ universally `CH₀`-trivial and has a universally `CH₀`-trivial irrational
 projective-line stabilization.  Nonemptiness of that parameter space is the
 imported input and is a hypothesis here. -/
 theorem exists_universalCH0_cubic_with_irrational_stabilization
-    {Base Variety Jacobian Atom : Type*} [Nonempty Base]
-    {ledger : Quantum.OrdinaryAtomLedger Variety Atom}
-    (stabilization : Quantum.ProjectiveLineStabilizationInput ledger)
-    {exclusion : Quantum.LowDimensionalExclusionInput ledger}
+    {K Base Variety Center Occurrence Jacobian : Type*} [CommRing K]
+    [Nonempty Base]
+    (context : Quantum.RankTwoResidueMarkerContext K Variety Center Occurrence)
+    (productWithProjectiveLine : Variety → Variety)
+    (projectiveFourSpace : Variety) (Rational : Variety → Prop)
     (geometry : Applications.CubicCycleTrivialityGeometry Variety Jacobian)
     (voisinCriterion : Applications.VoisinPrimitiveMinimalClassCriterion geometry)
     (projectiveBundleCH0 : ∀ variety, geometry.universallyCH0Trivial variety →
-      geometry.universallyCH0Trivial (ledger.productWithProjectiveLine variety))
+      geometry.universallyCH0Trivial (productWithProjectiveLine variety))
     (fibre : Base → Variety)
     (familyInput : Applications.SixAxisMinimalClassFamilyInput geometry fibre)
-    {atom : Atom}
-    (atomInput : ∀ parameter, Applications.CubicAtomOneStepInput ledger stabilization
-      exclusion (fibre parameter) atom) :
+    (markerInput : ∀ parameter,
+      Applications.CubicResidueMarkerOneStepInput context productWithProjectiveLine
+        projectiveFourSpace Rational (fibre parameter)) :
     ∃ cubic, geometry.universallyCH0Trivial cubic ∧
-      geometry.universallyCH0Trivial (ledger.productWithProjectiveLine cubic) ∧
-        ¬ ledger.Rational (ledger.productWithProjectiveLine cubic) := by
+      geometry.universallyCH0Trivial (productWithProjectiveLine cubic) ∧
+        ¬ Rational (productWithProjectiveLine cubic) := by
   obtain ⟨cubic, cubicCH0, separation⟩ :=
-    Applications.exists_universalCH0_with_irrational_stabilization stabilization geometry
-      voisinCriterion projectiveBundleCH0 fibre familyInput atomInput
+    Applications.exists_universalCH0_with_irrational_stabilization context
+      productWithProjectiveLine projectiveFourSpace Rational geometry
+      voisinCriterion projectiveBundleCH0 fibre familyInput markerInput
   exact ⟨cubic, cubicCH0, separation.stabilizationUniversallyCH0Trivial,
     separation.stabilizationNotRational⟩
 
@@ -8091,25 +8033,28 @@ Fermat equation.  The hypothesis of the almost-diagonal universal zero-cycle
 triviality criterion is proved rather than assumed: the sum of the cubes of the
 five variables is a sum of forms in pairwise disjoint groups of at most three
 variables.  Universal `CH₀`-triviality then passes to the projective-line
-stabilization, which the cubic zero-packet atom shows to be irrational. -/
+stabilization, which the direct-QDM residue marker shows to be irrational. -/
 theorem fermatCubic_universalCH0_and_irrational_stabilization
-    {Variety Atom Coefficient : Type*} [CommRing Coefficient] [Nontrivial Coefficient]
-    {ledger : Quantum.OrdinaryAtomLedger Variety Atom}
-    (stabilization : Quantum.ProjectiveLineStabilizationInput ledger)
-    {exclusion : Quantum.LowDimensionalExclusionInput ledger}
-    {fermat : Variety} {atom : Atom}
+    {K Variety Center Occurrence Coefficient : Type*}
+    [CommRing K] [CommRing Coefficient] [Nontrivial Coefficient]
+    (context : Quantum.RankTwoResidueMarkerContext K Variety Center Occurrence)
+    (productWithProjectiveLine : Variety → Variety)
+    (projectiveFourSpace : Variety) (Rational : Variety → Prop)
+    {fermat : Variety}
     (universallyCH0Trivial : Variety → Prop)
     (definingForm : Variety → MvPolynomial (Fin 5) Coefficient)
     (separatedVariableCriterion : ∀ variety,
       Applications.HasSeparatedVariableDecomposition 3 (definingForm variety) →
         universallyCH0Trivial variety)
     (projectiveBundleCH0 : ∀ variety, universallyCH0Trivial variety →
-      universallyCH0Trivial (ledger.productWithProjectiveLine variety))
+      universallyCH0Trivial (productWithProjectiveLine variety))
     (fermatEquation : definingForm fermat = Applications.fermatCubicForm Coefficient 5)
-    (input : Applications.CubicAtomOneStepInput ledger stabilization exclusion fermat atom) :
-    universallyCH0Trivial (ledger.productWithProjectiveLine fermat) ∧
-      ¬ ledger.Rational (ledger.productWithProjectiveLine fermat) := by
-  have separation := Applications.fermatCubic_separation stabilization universallyCH0Trivial
+    (input : Applications.CubicResidueMarkerOneStepInput context
+      productWithProjectiveLine projectiveFourSpace Rational fermat) :
+    universallyCH0Trivial (productWithProjectiveLine fermat) ∧
+      ¬ Rational (productWithProjectiveLine fermat) := by
+  have separation := Applications.fermatCubic_separation context
+    productWithProjectiveLine projectiveFourSpace Rational universallyCH0Trivial
     definingForm separatedVariableCriterion projectiveBundleCH0 fermatEquation input
   exact ⟨separation.stabilizationUniversallyCH0Trivial, separation.stabilizationNotRational⟩
 
@@ -8117,15 +8062,15 @@ theorem fermatCubic_universalCH0_and_irrational_stabilization
 parametrizations of degrees two and three.  Both degrees persist on the
 projective-line stabilization, and two and three are coprime, so the
 stabilization is universally `CH₀`-trivial by the supplied coprime-degree
-criterion; the cubic zero-packet atom makes it irrational.  Coprimality is
+criterion; the direct-QDM residue marker makes it irrational.  Coprimality is
 proved here; the parametrizations, their persistence, and the passage from
 coprime degrees to a decomposition of the diagonal are premises. -/
 theorem coprimeUnirationalDegrees_universalCH0_and_irrational_stabilization
-    {Variety Atom : Type*}
-    {ledger : Quantum.OrdinaryAtomLedger Variety Atom}
-    (stabilization : Quantum.ProjectiveLineStabilizationInput ledger)
-    {exclusion : Quantum.LowDimensionalExclusionInput ledger}
-    {cubic : Variety} {atom : Atom}
+    {K Variety Center Occurrence : Type*} [CommRing K]
+    (context : Quantum.RankTwoResidueMarkerContext K Variety Center Occurrence)
+    (productWithProjectiveLine : Variety → Variety)
+    (projectiveFourSpace : Variety) (Rational : Variety → Prop)
+    {cubic : Variety}
     (universallyCH0Trivial : Variety → Prop)
     (admitsUnirationalParametrization : Variety → ℕ → Prop)
     (coprimeDegreeCriterion : ∀ variety degree otherDegree,
@@ -8134,16 +8079,18 @@ theorem coprimeUnirationalDegrees_universalCH0_and_irrational_stabilization
           Nat.Coprime degree otherDegree → universallyCH0Trivial variety)
     (degreesPersist : ∀ variety degree,
       admitsUnirationalParametrization variety degree →
-        admitsUnirationalParametrization (ledger.productWithProjectiveLine variety) degree)
+        admitsUnirationalParametrization (productWithProjectiveLine variety) degree)
     (quadraticParametrization : admitsUnirationalParametrization cubic 2)
     (cubicParametrization : admitsUnirationalParametrization cubic 3)
-    (input : Applications.CubicAtomOneStepInput ledger stabilization exclusion cubic atom) :
-    admitsUnirationalParametrization (ledger.productWithProjectiveLine cubic) 2 ∧
-      admitsUnirationalParametrization (ledger.productWithProjectiveLine cubic) 3 ∧
-        universallyCH0Trivial (ledger.productWithProjectiveLine cubic) ∧
-          ¬ ledger.Rational (ledger.productWithProjectiveLine cubic) := by
+    (input : Applications.CubicResidueMarkerOneStepInput context
+      productWithProjectiveLine projectiveFourSpace Rational cubic) :
+    admitsUnirationalParametrization (productWithProjectiveLine cubic) 2 ∧
+      admitsUnirationalParametrization (productWithProjectiveLine cubic) 3 ∧
+        universallyCH0Trivial (productWithProjectiveLine cubic) ∧
+          ¬ Rational (productWithProjectiveLine cubic) := by
   obtain ⟨stabilizedQuadratic, stabilizedCubic, separation⟩ :=
-    Applications.coprimeUnirationalDegrees_separation stabilization universallyCH0Trivial
+    Applications.coprimeUnirationalDegrees_separation context
+      productWithProjectiveLine projectiveFourSpace Rational universallyCH0Trivial
       admitsUnirationalParametrization coprimeDegreeCriterion degreesPersist
       quadraticParametrization cubicParametrization input
   exact ⟨stabilizedQuadratic, stabilizedCubic, separation.stabilizationUniversallyCH0Trivial,
