@@ -5,12 +5,13 @@
   "exporter_blob": "bc16a3f02957af1342e19dfe7fad78e003d8c5dc",
   "files": [
     {
-      "bytes": 108,
+      "bytes": 96,
       "mode": "100644",
       "path": ".gitignore",
-      "role": "export-support",
-      "sha256": "8aec252fe1e8e2a04924eeac30581deea8368b151c9e82d6601a1d6393be8b27",
-      "source_blob": null
+      "rewrites": [],
+      "role": "support",
+      "sha256": "e47306ff2b849f5b27a5a4bb460165f330f29373c82bb6fb0b1e72243ad0c4bd",
+      "source_blob": "ccb4e714b50e9cfdeacf94cec9b3464c9bba0b9f"
     },
     {
       "bytes": 1859,
@@ -75,17 +76,98 @@
       "mode": "100644",
       "path": "PROVENANCE.md",
       "role": "provenance",
-      "sha256": "59a4b847d2e9ee183a8f604e3a2516ccca5b6cdb735da6c79fd99e07709f6f16",
+      "sha256": "fabca0e43323fd6d67c851c2b8022917deda8030e7c2b69bae7ebbebe8611ef3",
       "source_blob": null
     },
     {
-      "bytes": 3726,
+      "bytes": 3836,
       "mode": "100644",
       "path": "README.md",
       "rewrites": [],
       "role": "support",
-      "sha256": "b9c99a1c040a08fe987ba4a05493175a160834ae55979518075de1bd2651004e",
-      "source_blob": "79c7103ae24179d4e80fa3ca87364c78efe39658"
+      "sha256": "9f106c34b43fc31290ae3037749a033a2d803a2efb9778ee57e136a101a3aac3",
+      "source_blob": "86282eafedb136f4133f7687b7c406c5f7b570db"
+    },
+    {
+      "bytes": 5385,
+      "mode": "100644",
+      "path": "REVIEWER_GUIDE.md",
+      "rewrites": [],
+      "role": "support",
+      "sha256": "e3b970d31c1af272ccdfaec9816af369bb4fd2cc14ae368fd726e3bf4f1d0678",
+      "source_blob": "772c4e177d57c9c62690ecd6a225ab0ba2856515"
+    },
+    {
+      "bytes": 926,
+      "mode": "100644",
+      "path": "blueprint/extract_bibliography.py",
+      "rewrites": [],
+      "role": "verification",
+      "sha256": "17befb745584237c6cf6a2653ffdf9999b14ee2d81d5e0a5a68c690edea13ab9",
+      "source_blob": "5aa57f25a9a1f95fb784c0e7497038cce3068972"
+    },
+    {
+      "bytes": 64,
+      "mode": "100644",
+      "path": "blueprint/src/blueprint.sty",
+      "rewrites": [],
+      "role": "manuscript-source",
+      "sha256": "16d204e89cd06dd230d55d9c28837c88921289072c4d68f412d98b815ce4068a",
+      "source_blob": "007c110a9cac503d16534725a42279794bd851c8"
+    },
+    {
+      "bytes": 160,
+      "mode": "100644",
+      "path": "blueprint/src/content.tex",
+      "rewrites": [],
+      "role": "manuscript-source",
+      "sha256": "0317660b0daaef87295b701e47e097de21d867ff090c81bdf1e77dc596a0f335",
+      "source_blob": "fac7ba7b5a4031f22f0a45db7a4db79420951a06"
+    },
+    {
+      "bytes": 233,
+      "mode": "100644",
+      "path": "blueprint/src/extra_styles.css",
+      "rewrites": [],
+      "role": "support",
+      "sha256": "3a931c0a8f2f8b1b6f2b1f8cb39ed71298cd9893b97d9e21e9b220d6c9687115",
+      "source_blob": "dfc05d5f82e106c171ed15e1a9a05a55093d4217"
+    },
+    {
+      "bytes": 756,
+      "mode": "100644",
+      "path": "blueprint/src/macros/common.tex",
+      "rewrites": [],
+      "role": "manuscript-source",
+      "sha256": "6ff7c25677c506b9fd5281f1dd44b69fe86158ab1b3f139adbca5cf55eddf343",
+      "source_blob": "9706bf085a1f92db2cad61524ef48b40dc99c593"
+    },
+    {
+      "bytes": 31,
+      "mode": "100644",
+      "path": "blueprint/src/macros/web.tex",
+      "rewrites": [],
+      "role": "manuscript-source",
+      "sha256": "1d1182e26422664c6335de6cab9eb52b5e7a199e8fb9a42a25f82479f41e6467",
+      "source_blob": "4c1c03f65e440c84928e5581a83f3a46368930b7"
+    },
+    {
+      "bytes": 260,
+      "mode": "100644",
+      "path": "blueprint/src/plastex.cfg",
+      "rewrites": [],
+      "role": "support",
+      "sha256": "088e4b2f7648a2aac4d4dbdc7fd9be28e587e2f5e15b85d2ed2448ff015c0463",
+      "source_blob": "0eae0a957c1b5a636ba4e0f4d18aff97a654982a"
+    },
+    {
+      "bytes": 439,
+      "mode": "100644",
+      "path": "blueprint/src/web.tex",
+      "rewrites": [],
+      "role": "manuscript-source",
+      "sha256": "1dd42d9bc8fa78d1433607de50c0283415de7aeeb713d96e0a4e59f62df7c1d5",
+      "source_blob": "b8014e541a6e8b825814f9d621cb30d0e47ef7f7"
     },
     {
       "bytes": 470,
@@ -241,22 +323,22 @@
       "source_blob": "944b1ee58b8cb99c2a94d6ffc9baa910714a391b"
     },
     {
-      "bytes": 567,
+      "bytes": 1090,
       "mode": "100644",
       "path": "flake.lock",
       "rewrites": [],
       "role": "support",
-      "sha256": "9ae203c10f2e27ff1a11363a02ac43747d9766f8f17c975b5d825ed480d120cc",
-      "source_blob": "c06115a1e8e270fb2772ce0ef216d75ab95e492f"
+      "sha256": "61ac8d1e78aec5965ca36149359ac9fc44481dbebe86b44376df8f2e4385a60c",
+      "source_blob": "cbb8fc446c8ac86b9ca5b0250bff2c441dececef"
     },
     {
-      "bytes": 655,
+      "bytes": 2759,
       "mode": "100644",
       "path": "flake.nix",
       "rewrites": [],
       "role": "support",
-      "sha256": "2326f826d990640e40fe029394300d4460084347ed4004dee54038ed4c943fa0",
-      "source_blob": "045677549aeb1e8870d99a26c2f990346416dd44"
+      "sha256": "36c6f41700c2acd0c2f8e6c9a335e9c61800ecd8c4c31819e6435efd3c716f05",
+      "source_blob": "285c76910eea3553c0058fba2da48620e21e6aaa"
     },
     {
       "bytes": 2666,
@@ -2077,13 +2159,13 @@
       "source_blob": "2947559fbff13a732fe91993189080e0f24efe41"
     },
     {
-      "bytes": 27343,
+      "bytes": 27432,
       "mode": "100644",
       "path": "verification/README.md",
       "rewrites": [],
       "role": "verification",
-      "sha256": "1277586f1db1a2097436edb6f3b52fb115fcf7858ea6f31af5791b1ae173b5ba",
-      "source_blob": "13a2363041b955921a9273bd26ef4ac916971dfb"
+      "sha256": "05186afaea36abe6aa3ebe1ff4840882bf1b6a0557827f1a9a7aba49c72140db",
+      "source_blob": "7b15aef65fed3e17fe160917e8db39e2e532cb3f"
     },
     {
       "bytes": 3378,
@@ -2288,5 +2370,5 @@
   "repository": "cubic-stabilization-m1",
   "repository_map_sha256": "3e4d1fdaa2b00ebcf7153632b1c0eda21bbccd42027625a3475f23868ab87e86",
   "schema_version": 1,
-  "source_commit": "fe5eb5b2881e4922456b942eaaf82468df0007de"
+  "source_commit": "b37337a90f3fb306567ef79103a15a97a9d807f5"
 }

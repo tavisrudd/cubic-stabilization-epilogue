@@ -6,6 +6,8 @@
 
 [**Open the paper (PDF) →**](irrationality_after_one_stabilization.pdf)
 
+[**Reviewer guide →**](REVIEWER_GUIDE.md)
+
 **Title:** *Irrationality of cubic threefolds after one stabilization.*
 
 For every smooth complex cubic threefold `X`, the paper proves that
@@ -46,8 +48,9 @@ make -C companions/cubic-framed-monodromy check
 
 The root check validates the shared manuscript-to-Lean claim inventory,
 builds the primary PDF in the pinned environment, and rejects manuscript
-warnings.  The Lean kernel and axiom audit are replayed separately using the
-guarded commands in [`lean/README.md`](lean/README.md).
+warnings.  It does not build Lean or replay a captured axiom audit;
+[`lean/README.md`](lean/README.md) documents the separate artifact and checker
+semantics.
 
 ## Trust boundary
 
@@ -57,8 +60,9 @@ hypotheses.  The framed companion labels every result that depends on its two
 residual hypotheses.  Computational evidence and exact replay commands are
 registered in [`verification/evidence.json`](verification/evidence.json).
 
-The Mathlib-only companion in [`lean/`](lean/) is a partial reviewer artifact
-covering all three manuscripts in this repository.  Its rejecting inventory
+The Lean 4 companion in [`lean/`](lean/), built against Mathlib, is a partial
+reviewer artifact covering all three manuscripts in this repository.  Its
+rejecting inventory
 distinguishes proved fragments and conditional deductions from absent claims.
 The claim-level trust boundary is recorded in
 [`lean/verification/claims.json`](lean/verification/claims.json), with
@@ -70,7 +74,8 @@ kernel-reported dependencies checked against
 - [`cubic_stabilization_m1.tex`](cubic_stabilization_m1.tex): primary paper.
 - [`sections/`](sections/): primary-paper sections.
 - [`companions/`](companions/): the two separate companion manuscripts.
-- [`lean/`](lean/): pinned shared Mathlib companion and reviewer interface.
+- [`lean/`](lean/): Lean 4 companion built against pinned Mathlib, with its
+  reviewer interface.
 - [`verification/`](verification/): claim coverage and computational evidence.
 - [`.zenodo.json`](.zenodo.json): archival deposit metadata.
 
