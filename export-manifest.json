@@ -75,7 +75,7 @@
       "mode": "100644",
       "path": "PROVENANCE.md",
       "role": "provenance",
-      "sha256": "fca28dbf6a8989f39142fc578f07f407feb1bd53087ee85b924a6550c6195a0e",
+      "sha256": "703ba5c074e282a998cb34dc594dc7e06e0cfa6ed9f3f07d1189c9a32df35aa1",
       "source_blob": null
     },
     {
@@ -268,13 +268,13 @@
       "source_blob": "9c425c26718995102f09f1f08b3c00621140748c"
     },
     {
-      "bytes": 132044,
+      "bytes": 132019,
       "mode": "100644",
       "path": "irrationality_after_one_stabilization.pdf",
       "rewrites": [],
       "role": "release-output",
-      "sha256": "190a58cb67da5d9bc70a3a8a20458521c97b74ce9b00c145bc7c74cbf4b8cdaa",
-      "source_blob": "b4df69bd99f76613a9b6e688d85706992daba5f5"
+      "sha256": "246d254f7275111ba33b5b73ad344d31a89b749b28e37d76b306b919349b708a",
+      "source_blob": "6554ed264f9511d6ec27b483a5f7e4f3a7a5f2cb"
     },
     {
       "bytes": 8,
@@ -2023,13 +2023,13 @@
       "source_blob": "ca74e5420ac1336a78618c8ef2273f78ff5e83c5"
     },
     {
-      "bytes": 6094,
+      "bytes": 6095,
       "mode": "100644",
       "path": "sections/01-introduction.tex",
       "rewrites": [],
       "role": "manuscript-source",
-      "sha256": "12e4dfcf6d1bb90e888b106112102445ccb7b9fe77912d10577010e6d91a81a9",
-      "source_blob": "0b2bff83697b9fb6de86cae0a72bc7123eee731c"
+      "sha256": "11b8adc6241f5393c6cd3513337ab9e121144e5857afd30b43aba332518d9aae",
+      "source_blob": "aa81bb296fd3370311dd026e6d33a0fd02bd1924"
     },
     {
       "bytes": 29870,
@@ -2261,5 +2261,5 @@
   "repository": "cubic-stabilization-m1",
   "repository_map_sha256": "3e4d1fdaa2b00ebcf7153632b1c0eda21bbccd42027625a3475f23868ab87e86",
   "schema_version": 1,
-  "source_commit": "92f9edc523bfebb8f965e6bf478739a70b0c58c7"
+  "source_commit": "6ccd577723655931da3d8f1ab8030ee6f20d0e40"
 }
