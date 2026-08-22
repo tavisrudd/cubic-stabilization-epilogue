@@ -1,6 +1,6 @@
 import Mathlib.FieldTheory.Finite.Trace
 import Mathlib.LinearAlgebra.BilinearForm.Orthogonal
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.PrincipalGluingPacket
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.GraphLattices.PrincipalGluingPacket
 
 /-!
 # The trace-determinant polarization on the four-element coefficient heart
@@ -10,7 +10,7 @@ proof.  It does not identify the abstract coefficient heart of an `A5`
 representation with this model.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace GraphLattices
 
@@ -241,4 +241,4 @@ end
 
 end GraphLattices
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

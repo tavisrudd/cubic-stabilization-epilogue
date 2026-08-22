@@ -1,4 +1,4 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.AtomicResidueDiscriminant
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.AtomicResidueDiscriminant
 
 /-!
 # The ordinary Hodge-atom ledger and its non-rationality criterion
@@ -33,7 +33,7 @@ not construct varieties, `A`-model `F`-bundles, atoms, atomic compositions, or
 any of the imported formulas, and it declares none of them as an axiom.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace Quantum
 
@@ -132,4 +132,4 @@ theorem multiplicity_eq_zero_of_residueDiscriminant_ne_zero
 
 end Quantum
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

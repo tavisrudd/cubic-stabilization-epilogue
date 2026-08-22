@@ -11,7 +11,7 @@ denominator witnesses.  It deliberately does not construct those witnesses
 from geometry or identify them with a particular localization API.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace GraphLattices
 
@@ -67,4 +67,4 @@ theorem mem_of_primeDenominatorMember_all
 
 end GraphLattices
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

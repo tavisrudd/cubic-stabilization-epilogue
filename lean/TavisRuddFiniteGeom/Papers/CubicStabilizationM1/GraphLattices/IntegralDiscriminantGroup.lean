@@ -39,7 +39,7 @@ commutator pairing is constructed here: every definition and theorem below is
 about integral matrices and finitely generated abelian groups.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace GraphLattices
 
@@ -674,4 +674,4 @@ end Comparison
 
 end GraphLattices
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

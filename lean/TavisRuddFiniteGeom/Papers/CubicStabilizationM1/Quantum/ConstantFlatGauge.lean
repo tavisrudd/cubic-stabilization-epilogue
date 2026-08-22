@@ -24,7 +24,7 @@ The proof is symbolic and kernel checked, with no external computation or
 oracle.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace Quantum
 
@@ -251,4 +251,4 @@ theorem constantFlatGaugeSeries_neg_mul_eq_one
 
 end Quantum
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

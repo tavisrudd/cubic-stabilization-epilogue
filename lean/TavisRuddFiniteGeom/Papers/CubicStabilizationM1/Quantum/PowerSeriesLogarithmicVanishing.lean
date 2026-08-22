@@ -1,7 +1,7 @@
 import Mathlib.Tactic
 import Mathlib.RingTheory.MvPowerSeries.Basic
 import Mathlib.Data.Finsupp.Weight
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.QuarticDiscriminantDerivations
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.QuarticDiscriminantDerivations
 
 /-!
 # Vanishing of a formal power series with a logarithmic differential
@@ -37,7 +37,7 @@ a power-series ring, or the injectivity of a Noetherian local ring in its
 completion; the results below therefore concern the formal model only.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace Quantum
 
@@ -158,4 +158,4 @@ end EulerCoefficientFrame
 
 end Quantum
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

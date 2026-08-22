@@ -1,5 +1,5 @@
 import Mathlib.GroupTheory.Perm.Sign
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.SixPointStableHalfFrobenius
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.GraphLattices.SixPointStableHalfFrobenius
 
 /-!
 # The odd label permutation whose heart action is the packet Frobenius
@@ -39,7 +39,7 @@ subgroups; it identifies the transported involution of the packet with the heart
 action of an explicit permutation of the labels, nothing more.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace GraphLattices
 
@@ -852,4 +852,4 @@ end
 
 end GraphLattices
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

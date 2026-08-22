@@ -12,7 +12,7 @@ does not construct that matrix from a quantum connection or a
 Levelt--Turrittin solution algebra.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace Quantum
 
@@ -96,4 +96,4 @@ theorem sixthMultiplicityPolynomial_list_prod
 
 end Quantum
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

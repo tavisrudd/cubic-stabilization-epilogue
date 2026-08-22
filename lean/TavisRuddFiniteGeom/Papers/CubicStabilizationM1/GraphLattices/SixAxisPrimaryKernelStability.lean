@@ -1,6 +1,6 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.SixAxisSourcePermutationAction
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.SixAxisTwoPrimaryStandardCoordinates
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.SixAxisThreePrimaryHeartCoordinates
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.GraphLattices.SixAxisSourcePermutationAction
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.GraphLattices.SixAxisTwoPrimaryStandardCoordinates
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.GraphLattices.SixAxisThreePrimaryHeartCoordinates
 
 /-!
 # Diagonal stability of both primary kernels
@@ -44,7 +44,7 @@ geometric source — an action of the manuscript's alternating group compatible
 with the isogeny — is supplied elsewhere.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace GraphLattices
 
@@ -443,4 +443,4 @@ end Stability
 
 end GraphLattices
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

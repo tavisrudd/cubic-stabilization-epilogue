@@ -1,4 +1,4 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.FramedMultiplicity
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.FramedMultiplicity
 import Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic
 import Mathlib.Algebra.Polynomial.Eval.Defs
 import Mathlib.Tactic
@@ -12,7 +12,7 @@ eigenvalues.  It does not formalize Cai's integral-`z` block diagonalization
 of the cubic quantum connection or the other two rank-one blocks.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace Quantum
 
@@ -66,4 +66,4 @@ theorem cubicExponent_neg_five_sixths :
 
 end Quantum
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

@@ -1,4 +1,4 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.SixAxisPrimaryDiscriminantSplitting
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.GraphLattices.SixAxisPrimaryDiscriminantSplitting
 
 /-!
 # The three-primary part of the source discriminant as the kernel of the reduced polarization
@@ -39,7 +39,7 @@ and the identification of these lattice-level objects with geometric ones is
 supplied elsewhere.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace GraphLattices
 
@@ -315,4 +315,4 @@ theorem natCard_sixAxisSourceDiscriminantPrimaryPart_three :
 
 end GraphLattices
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

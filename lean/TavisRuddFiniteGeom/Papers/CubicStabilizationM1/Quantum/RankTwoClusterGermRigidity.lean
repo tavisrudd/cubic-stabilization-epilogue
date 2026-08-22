@@ -1,5 +1,5 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.ResidueDiscriminantInvariance
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.LowDimensionalVanishingCore
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.ResidueDiscriminantInvariance
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.LowDimensionalVanishingCore
 
 /-!
 # Rigidity of an isolated rank-two cluster over a formal germ
@@ -57,7 +57,7 @@ formalized: the final statement takes the exponent multiset of a block as given
 data.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace Quantum
 
@@ -449,4 +449,4 @@ end ExponentTransport
 
 end Quantum
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

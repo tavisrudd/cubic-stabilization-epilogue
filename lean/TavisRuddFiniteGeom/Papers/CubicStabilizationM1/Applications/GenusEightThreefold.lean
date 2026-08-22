@@ -1,5 +1,5 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Applications.CubicThreefold
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Applications.CubicAtomOneStep
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Applications.CubicThreefold
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Applications.CubicAtomOneStep
 
 /-!
 # Transport from a cubic threefold to a genus-eight Fano threefold
@@ -30,7 +30,7 @@ a Lean axiom, and Lean constructs neither the Fano threefold, the Pfaffian
 cubic, the rank-two bundles, their projectivizations, nor the flop.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace Applications
 
@@ -223,4 +223,4 @@ theorem genusEight_oneStepStabilization_not_rational_of_atomInputs
 
 end Applications
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

@@ -1,4 +1,4 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.SixAxisThreePrimaryPairing
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.GraphLattices.SixAxisThreePrimaryPairing
 
 /-!
 # The normalized three-primary form in the two-heart coordinates, and the packet
@@ -35,7 +35,7 @@ matrices.  No elliptic three-torsion group scheme, Weil pairing, geometric
 discriminant, or group action is constructed.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace GraphLattices
 
@@ -419,4 +419,4 @@ end Comparison
 
 end GraphLattices
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

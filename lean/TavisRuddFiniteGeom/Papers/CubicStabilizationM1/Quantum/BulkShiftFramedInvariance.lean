@@ -1,5 +1,5 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.FormalBaseShift
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.FramedMultiplicity
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.FormalBaseShift
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.FramedMultiplicity
 import Mathlib.Algebra.Polynomial.Roots
 
 /-!
@@ -26,7 +26,7 @@ the connection by the coefficient substitution sending the Novikov monomial of
 a curve class to its multiple by the character value at that class.  The
 resulting characteristic polynomial is the image of the original one under the
 substitution, which is the content of
-`TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.FormalBaseShiftMatrixInput.characteristicPolynomial_eq`.
+`TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.FormalBaseShiftMatrixInput.characteristicPolynomial_eq`.
 What is added here is the last step: an injective coefficient substitution
 preserves the algebraic multiplicity of any root it fixes, so a substitution
 fixing the complex numbers preserves the multiplicity of every root of unity,
@@ -36,7 +36,7 @@ All proofs are symbolic and kernel checked, with no external computation or
 oracle.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace Quantum
 
@@ -139,4 +139,4 @@ end DivisorShift
 
 end Quantum
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

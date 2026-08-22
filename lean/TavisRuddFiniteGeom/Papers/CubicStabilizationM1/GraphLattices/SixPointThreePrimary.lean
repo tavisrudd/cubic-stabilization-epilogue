@@ -1,4 +1,4 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.SixPointStableHalves
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.GraphLattices.SixPointStableHalves
 import Mathlib.LinearAlgebra.Matrix.NonsingularInverse
 import Mathlib.LinearAlgebra.Quotient.Bilinear
 
@@ -26,7 +26,7 @@ derive the normalized form by reducing the manuscript's integral
 `(1/3)(6I-J)` formula.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace GraphLattices
 
@@ -1413,4 +1413,4 @@ theorem sixPointThreeHeartStableHalfPacket_iff
 
 end GraphLattices
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

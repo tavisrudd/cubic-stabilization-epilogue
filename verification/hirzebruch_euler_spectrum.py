@@ -79,7 +79,7 @@ CHECKS
                     at the double root; simplicity of the spectrum off the locus
                     follows from the recorded discriminant, not from this check
 
-Replay, from the paper directory `papers/cubic-stabilization-epilogue`:
+Replay, from the paper directory `papers/cubic-stabilization-m1`:
 
     uv run --with sympy python3 verification/hirzebruch_euler_spectrum.py
 

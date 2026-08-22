@@ -32,7 +32,7 @@ algebra, the module, the element, and the generating vector are arbitrary data
 satisfying the hypotheses above.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace Quantum
 
@@ -101,4 +101,4 @@ theorem eigenvalues_module_eq_eigenvalues_algebra [FiniteDimensional k A] (E : A
 
 end Quantum
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

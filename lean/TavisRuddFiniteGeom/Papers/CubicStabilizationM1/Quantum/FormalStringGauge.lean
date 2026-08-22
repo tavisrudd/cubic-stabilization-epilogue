@@ -18,7 +18,7 @@ analytic single-valuedness statement.  All proofs are symbolic and kernel
 checked, with no external computation or oracle.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace Quantum
 
@@ -92,4 +92,4 @@ theorem formalStringGauge_conjugation_charpoly
 
 end Quantum
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

@@ -1,4 +1,4 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.RankTwoResidueMarker
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.RankTwoResidueMarker
 
 /-!
 # One-projective-line obstruction from the residue marker
@@ -11,7 +11,7 @@ deduced from the shared occurrence-indexed marker theorem through the supplied
 rank-two residue context.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace Applications
 
@@ -106,4 +106,4 @@ theorem cubicThreefold_oneProjectiveLine_conclusion_of_residueMarker
 
 end Applications
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

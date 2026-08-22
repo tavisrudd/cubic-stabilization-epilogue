@@ -1,4 +1,4 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.SixAxisLocalChart
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.GraphLattices.SixAxisLocalChart
 import Mathlib.Tactic
 
 /-!
@@ -32,7 +32,7 @@ It constructs no abelian scheme, polarization, or isogeny kernel, and it does no
 identify the discriminant group of the form with a geometric kernel.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace GraphLattices
 
@@ -255,4 +255,4 @@ end Chart
 
 end GraphLattices
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

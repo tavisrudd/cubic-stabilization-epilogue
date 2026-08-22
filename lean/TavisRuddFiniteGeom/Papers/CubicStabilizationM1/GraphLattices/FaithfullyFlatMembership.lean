@@ -8,7 +8,7 @@ This module isolates the exact quotient argument used to descend membership
 in an integral product lattice from a faithfully flat splitting ring.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace GraphLattices
 
@@ -31,4 +31,4 @@ theorem mem_submodule_of_faithfullyFlat_tensor_quotient_zero
 
 end GraphLattices
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

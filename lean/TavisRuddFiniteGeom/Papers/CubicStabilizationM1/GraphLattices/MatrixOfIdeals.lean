@@ -1,4 +1,4 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.RankOneGeneration
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.GraphLattices.RankOneGeneration
 import Mathlib.LinearAlgebra.Matrix.StdBasis
 import Mathlib.Tactic
 
@@ -12,7 +12,7 @@ The constructive theorem proves the sufficiency of all pairwise midpoint
 inequalities without division by two.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace GraphLattices
 
@@ -454,4 +454,4 @@ end FiniteAssembly
 
 end GraphLattices
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

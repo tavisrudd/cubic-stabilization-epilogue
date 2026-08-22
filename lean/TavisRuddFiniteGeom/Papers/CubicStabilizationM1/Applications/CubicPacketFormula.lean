@@ -1,5 +1,5 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.CubicPacket
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.LowDimensionalVanishingCore
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.CubicPacket
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.LowDimensionalVanishingCore
 
 /-!
 # Primitive-sixth multiplicity of the cubic packet
@@ -22,7 +22,7 @@ lattice has rank one or that passage to the manuscript's numerical-Novikov
 convention preserves Cai's calculation.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace Applications
 
@@ -142,4 +142,4 @@ theorem cubicThreefold_sixthMultiplicity_eq_two_of_charpoly
 
 end Applications
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

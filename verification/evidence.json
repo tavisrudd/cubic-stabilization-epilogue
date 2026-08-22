@@ -1,5 +1,5 @@
 {
-  "schema": "cubic-stabilization-epilogue-evidence-v1",
+  "schema": "cubic-stabilization-m1-evidence-v1",
   "note": "The proof spine of this manuscript is structural apart from three computations, all registered below: the characteristic polynomial and discriminant of Euler multiplication on the rank-four even cohomology of a minimal rational ruled surface, computed from the presented small quantum cohomology; the emptiness of the Eckardt scheme of explicit members of the nonstandard A_5-cubic pencil; and the elimination determining the Eckardt locus and the singular locus of that pencil as a whole, which is what separates it from the explicit coprime-degree family of Yang, Yu and Zhu.  Every other statement invokes no enumeration, certificate, or symbolic program as a premise.",
   "evidence": {
     "hirzebruch-euler-spectrum": {

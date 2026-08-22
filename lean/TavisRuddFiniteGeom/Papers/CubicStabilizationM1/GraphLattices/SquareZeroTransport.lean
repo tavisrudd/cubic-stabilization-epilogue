@@ -1,5 +1,5 @@
 import Mathlib.LinearAlgebra.ExteriorAlgebra.Basic
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.MatrixOfIdeals
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.GraphLattices.MatrixOfIdeals
 
 /-!
 # Decomposable two-forms and injective square-zero transport
@@ -9,7 +9,7 @@ square-zero step: a decomposable alternating two-form squares to zero, and an
 injective ring pullback reflects square-zero identities.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace GraphLattices
 
@@ -73,4 +73,4 @@ theorem rankOneSquareZero_of_injectivePullback
 
 end GraphLattices
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

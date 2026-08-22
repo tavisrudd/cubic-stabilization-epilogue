@@ -1,6 +1,6 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Applications.CubicPacketFormula
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.RankTwoClusterGermRigidity
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.SimpleEulerBlock
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Applications.CubicPacketFormula
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.RankTwoClusterGermRigidity
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.SimpleEulerBlock
 
 /-!
 # Persistence of the cubic packet over the formal even bulk germ
@@ -29,13 +29,13 @@ The germ itself is not constructed: its points are an arbitrary type with a
 distinguished element, and the assignment of a framed monodromy matrix and a
 multiset of exponents to a point is data.  Rigidity of that multiset is the
 matrix statement proved for a formal power-series germ in
-`TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.RankTwoClusterGermRigidity`,
+`TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.RankTwoClusterGermRigidity`,
 whose identification with this exponent assignment is not formalized; the unit
 contribution of a rank-one cluster is the spectral statement proved in
-`TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.SimpleEulerBlock`.
+`TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.SimpleEulerBlock`.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace Applications
 
@@ -107,4 +107,4 @@ theorem cubicFormalGerm_sixthMultiplicity_eq_two
 
 end Applications
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

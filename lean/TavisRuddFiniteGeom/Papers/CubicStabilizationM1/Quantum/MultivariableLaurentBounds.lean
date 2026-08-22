@@ -1,4 +1,4 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.MultivariableFlatGaugeUniqueness
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.MultivariableFlatGaugeUniqueness
 import Mathlib.RingTheory.LaurentSeries
 
 /-!
@@ -18,7 +18,7 @@ constructed.  The proof is symbolic and kernel checked, with no external
 computation or oracle.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace Quantum
 
@@ -82,4 +82,4 @@ theorem hasUniformLaurentLowerBound_of_finiteBulkSupport
 
 end Quantum
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

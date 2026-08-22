@@ -1,4 +1,4 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.LowDimensionalVanishingCore
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.LowDimensionalVanishingCore
 
 /-!
 # Low-dimensional primitive-sixth vanishing from classified geometric inputs
@@ -35,7 +35,7 @@ projective bundles, blowups, Novikov rings, divisor tags, or the supplied
 classification and operation formulas.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace Applications
 
@@ -168,4 +168,4 @@ theorem lowDimensionalMultiplicity_eq_zero_of_classification_and_tagging
 
 end Applications
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

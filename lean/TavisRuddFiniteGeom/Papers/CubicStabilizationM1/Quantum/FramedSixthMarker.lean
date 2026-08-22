@@ -1,5 +1,5 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.FramedMultiplicity
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.OccurrenceIndexedMarker
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.FramedMultiplicity
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.OccurrenceIndexedMarker
 
 /-!
 # The framed primitive-sixth marker as an effective-ledger fold
@@ -17,7 +17,7 @@ specializes the generic occurrence-indexed descent theorem; no framed QDM
 construction or comparison theorem is asserted here.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace Quantum
 
@@ -109,4 +109,4 @@ end FramedSixthMarkerContext
 
 end Quantum
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

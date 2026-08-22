@@ -1,4 +1,4 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.BlockSylvesterSolvability
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.BlockSylvesterSolvability
 
 /-!
 # The normalized gauge of a block-separated system
@@ -41,7 +41,7 @@ the system is a family of matrices indexed by the order, and the gauge identity
 is the family of coefficient identities displayed above.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace Quantum
 
@@ -415,4 +415,4 @@ theorem exists_normalizedGauge {label : coordinate → factorIndex} {scalar : fa
 
 end Quantum
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

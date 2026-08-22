@@ -1,4 +1,4 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.PacketInvariant
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.PacketInvariant
 import Mathlib.Algebra.BigOperators.Group.Finset.Basic
 import Mathlib.Tactic
 
@@ -15,7 +15,7 @@ data.  Lean proves that low-dimensional vanishing makes each link preserve the
 packet and that preservation telescopes along the chain.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace Quantum
 
@@ -151,4 +151,4 @@ theorem WeakFactorizationChain.multiplicity_eq_of_center_vanishing
 
 end Quantum
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

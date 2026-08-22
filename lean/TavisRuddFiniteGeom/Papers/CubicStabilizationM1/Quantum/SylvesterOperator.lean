@@ -34,7 +34,7 @@ right-hand side is zero, is proved separately for the pairing of two spectral
 factors; here both the existence and the uniqueness of a solution are needed.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace Quantum
 
@@ -321,4 +321,4 @@ theorem existsUnique_sylvester_solution [Fintype rowIndex] [DecidableEq rowIndex
 
 end Quantum
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

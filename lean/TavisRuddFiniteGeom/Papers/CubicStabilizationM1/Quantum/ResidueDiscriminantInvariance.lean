@@ -1,6 +1,6 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.RankTwoResidueRigidity
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.PowerSeriesLogarithmicVanishing
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.BlockDiagonalHorizontalPairing
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.RankTwoResidueRigidity
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.PowerSeriesLogarithmicVanishing
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.BlockDiagonalHorizontalPairing
 
 /-!
 # Invariance of the residue discriminant under frame change and along the base
@@ -43,7 +43,7 @@ the meromorphic extension across the locus where the leading operator
 degenerates, are not represented.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace Quantum
 
@@ -323,4 +323,4 @@ end Constancy
 
 end Quantum
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

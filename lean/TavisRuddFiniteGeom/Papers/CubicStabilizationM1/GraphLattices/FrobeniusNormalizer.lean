@@ -1,6 +1,6 @@
 import Mathlib.GroupTheory.Perm.Sign
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.AlternatingFiveIdentification
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.FrobeniusPacket
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.GraphLattices.AlternatingFiveIdentification
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.GraphLattices.FrobeniusPacket
 
 /-!
 # The abstract Frobenius normalizer of the exceptional `A5`
@@ -12,7 +12,7 @@ the alternating group.  It does not identify this permutation with a geometric
 normalizer element in the six-axis family.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace GraphLattices
 
@@ -160,4 +160,4 @@ end
 
 end GraphLattices
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

@@ -1,5 +1,5 @@
 import Mathlib.LinearAlgebra.Isomorphisms
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.SixPointAxisTransport
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.GraphLattices.SixPointAxisTransport
 
 /-!
 # Descent of the six rational axis vectors
@@ -16,7 +16,7 @@ elliptic scheme, inclusion into a Jacobian, homomorphism of abelian schemes,
 polarization, or geometric generic-fibre comparison is constructed here.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace GraphLattices
 
@@ -276,4 +276,4 @@ theorem sixPointRationalAxisSynthesis_equivariant
 
 end GraphLattices
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

@@ -1,4 +1,4 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.QuarticDiscriminantDerivations
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.QuarticDiscriminantDerivations
 import Mathlib.Analysis.Complex.Polynomial.Basic
 import Mathlib.LinearAlgebra.Eigenspace.Zero
 import Mathlib.LinearAlgebra.Matrix.Charpoly.Coeff
@@ -39,7 +39,7 @@ facts the manuscript's quantum-connection arguments consume; none of them
 mentions a connection.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace Quantum
 
@@ -275,4 +275,4 @@ theorem rootMultiplicity_eq_one_of_squared_linear_mul_quadratic
 
 end Quantum
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

@@ -1,4 +1,4 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.FramedSixthMarker
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.FramedSixthMarker
 
 /-!
 # One-projective-line obstruction from the framed sixth-root marker
@@ -11,7 +11,7 @@ Birational invariance is deduced from the same occurrence-indexed theorem used
 by the unframed residue-marker proof.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace Applications
 
@@ -151,4 +151,4 @@ theorem cubicThreefold_oneProjectiveLine_conclusion_of_framedMarker
 
 end Applications
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

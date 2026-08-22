@@ -1,5 +1,5 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.CubicSmallEvenBlockReduction
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.NormalizedSylvesterGauge
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.CubicSmallEvenBlockReduction
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.NormalizedSylvesterGauge
 
 /-!
 # The normalized gauge of the separated small even cubic system
@@ -32,7 +32,7 @@ identification with the small even connection of a cubic threefold is an
 imported datum.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace Quantum
 
@@ -219,4 +219,4 @@ theorem normalizedGauge_cubicSeparatedSystem_coefficients [CharZero K] {r : K} (
 
 end Quantum
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

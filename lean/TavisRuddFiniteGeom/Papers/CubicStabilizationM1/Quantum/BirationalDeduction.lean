@@ -1,4 +1,4 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.PacketInvariant
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.PacketInvariant
 import Mathlib.Tactic
 
 /-!
@@ -16,7 +16,7 @@ low-dimensional vanishing premises.  This module proves only the implication
 from a preserving chain and imports none of those results as axioms.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace Quantum
 
@@ -134,4 +134,4 @@ theorem rankTwoStabilization_not_rational
 
 end Quantum
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

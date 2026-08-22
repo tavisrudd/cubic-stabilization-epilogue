@@ -1,5 +1,5 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Applications.CubicPacketFormula
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.CubicSmallEvenBlockReduction
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Applications.CubicPacketFormula
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.CubicSmallEvenBlockReduction
 
 /-!
 # The cubic packet from the small even block reduction
@@ -15,14 +15,14 @@ Which exponents those are is no longer assumed.  They are the roots of the
 characteristic polynomial of the residue of the canonical elementary
 modification, and that residue, its trace `-1`, and its determinant `5 / 36`
 are computed in
-`TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.CubicSmallEvenBlockReduction`
+`TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.CubicSmallEvenBlockReduction`
 from the displayed small even connection matrices by exact matrix arithmetic.
 
 What remains external is the passage from a regular-singular residue to framed
 formal monodromy, which is the content of the supplied premise.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace Applications
 
@@ -58,4 +58,4 @@ theorem cubicPacket_sixthMultiplicity_eq_two_of_block_exponents
 
 end Applications
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

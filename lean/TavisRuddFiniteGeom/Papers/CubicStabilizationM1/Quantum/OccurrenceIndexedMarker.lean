@@ -1,4 +1,4 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.EffectiveBlockLedger
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.EffectiveBlockLedger
 import Mathlib.Algebra.BigOperators.Group.Finset.Basic
 import Mathlib.Tactic
 
@@ -18,7 +18,7 @@ to the quotient by the supplied birational equivalence relation.  Only the
 additive monoid laws are used; no cancellation is required.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace Quantum
 
@@ -399,4 +399,4 @@ end BirationalFactorizationProvider
 
 end Quantum
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

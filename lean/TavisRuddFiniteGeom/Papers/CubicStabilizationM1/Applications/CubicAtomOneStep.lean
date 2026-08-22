@@ -1,5 +1,5 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.OrdinaryAtomLedger
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.LowDimensionalAtomRepresentatives
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.OrdinaryAtomLedger
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.LowDimensionalAtomRepresentatives
 
 /-!
 # The atomic route to one-step irrationality for a cubic threefold
@@ -9,7 +9,7 @@ single smooth cubic threefold.  The atom in question is the zero packet of the
 small even Euler multiplication at the small hyperplane point: its generalized
 eigenbundle has even rank two and odd rank ten, and the residue of its
 canonical elementary modification is the explicit rational matrix evaluated in
-`TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.residueDiscriminant_cubicZeroPacketResidue`,
+`TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.residueDiscriminant_cubicZeroPacketResidue`,
 whose residue discriminant is `4 / 9`.
 
 Given those data, together with the ledger premises recording the
@@ -32,7 +32,7 @@ cover, the atom, or any imported formula; every such statement is a premise
 visible in the theorem type.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace Applications
 
@@ -146,4 +146,4 @@ theorem cubicAtom_multiplicity_eq_zero_of_surface_analysis
 
 end Applications
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

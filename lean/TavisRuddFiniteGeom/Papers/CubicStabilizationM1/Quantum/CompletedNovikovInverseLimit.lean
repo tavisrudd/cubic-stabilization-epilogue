@@ -1,4 +1,4 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.CompletedNovikovConvolution
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.CompletedNovikovConvolution
 
 /-!
 # Degree-truncation inverse limit for completed Novikov coefficients
@@ -16,7 +16,7 @@ completion in a category of topological rings.  All proofs are symbolic and
 kernel checked, with no external computation or oracle.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace Quantum
 
@@ -122,4 +122,4 @@ end FiniteDegreeAddCommMonoid
 
 end Quantum
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

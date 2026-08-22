@@ -1,4 +1,4 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.MatrixOfIdeals
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.GraphLattices.MatrixOfIdeals
 import Mathlib.Data.ENat.Lattice
 import Mathlib.RingTheory.DiscreteValuationRing.Basic
 import Mathlib.Tactic
@@ -15,7 +15,7 @@ by uniformizer powers.  Completeness and unramifiedness play no role in this
 algebraic lemma.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace GraphLattices
 
@@ -217,4 +217,4 @@ theorem weightedMatrixRankOneGenerated_iff_pairwise_midpoint_of_dvr
 
 end GraphLattices
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

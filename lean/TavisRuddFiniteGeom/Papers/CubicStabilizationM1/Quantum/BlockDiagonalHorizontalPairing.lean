@@ -1,5 +1,5 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.PairingHorizontality
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.OrthogonalRestrictionNondegeneracy
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.PairingHorizontality
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.OrthogonalRestrictionNondegeneracy
 
 /-!
 # Block diagonality of a horizontal pairing for a labelled spectral splitting
@@ -39,7 +39,7 @@ between matrix families, and the parity of a coordinate is an arbitrary function
 to `ZMod 2` with `0` naming the even coordinates.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace Quantum
 
@@ -292,4 +292,4 @@ theorem equalEigenvalues_admit_nonzero_horizontalPairing (eigenvalue : K) :
 
 end Quantum
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

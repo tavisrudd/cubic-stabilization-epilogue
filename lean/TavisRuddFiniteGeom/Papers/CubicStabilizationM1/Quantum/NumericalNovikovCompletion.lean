@@ -1,6 +1,6 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.NumericalNovikov
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.CompletedNovikovSupport
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.CompletedNovikovConvolution
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.NumericalNovikov
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.CompletedNovikovSupport
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.CompletedNovikovConvolution
 
 /-!
 # Numerical pushforward on completed Novikov coefficient families
@@ -21,7 +21,7 @@ Novikov derivations, or the Iritani comparison maps and their inverses.  All
 proofs are symbolic and kernel checked, with no external computation or oracle.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace Quantum
 
@@ -388,4 +388,4 @@ end CompletedNumericalQuotient
 
 end Quantum
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

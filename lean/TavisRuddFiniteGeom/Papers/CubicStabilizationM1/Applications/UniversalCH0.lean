@@ -13,7 +13,7 @@ No Chow group, intermediate Jacobian, minimal cycle, or cited geometric
 criterion is constructed by Lean in this module.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace Applications
 
@@ -80,4 +80,4 @@ theorem universalCH0Triviality_of_primitiveMinimalClassFamily
 
 end Applications
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

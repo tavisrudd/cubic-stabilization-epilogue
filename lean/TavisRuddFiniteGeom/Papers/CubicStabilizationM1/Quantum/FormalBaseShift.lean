@@ -1,4 +1,4 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.MonodromyBaseChange
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.MonodromyBaseChange
 
 /-!
 # Algebraic tail of the formal base-shift argument
@@ -9,7 +9,7 @@ available, characteristic-polynomial invariance is a finite-matrix
 consequence proved here.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace Quantum
 
@@ -41,4 +41,4 @@ theorem FormalBaseShiftMatrixInput.characteristicPolynomial_eq
 
 end Quantum
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

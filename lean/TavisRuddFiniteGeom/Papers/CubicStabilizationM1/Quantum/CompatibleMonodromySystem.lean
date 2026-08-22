@@ -1,5 +1,5 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.ProLaurent
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.MonodromyBaseChange
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.ProLaurent
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.MonodromyBaseChange
 
 /-!
 # Compatible finite-level monodromy matrices
@@ -17,7 +17,7 @@ of the characteristic-polynomial system.  All proofs are symbolic and kernel
 checked, with no external computation or oracle.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace Quantum
 
@@ -83,4 +83,4 @@ end CompatibleMonodromyMatrixSystem
 
 end Quantum
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

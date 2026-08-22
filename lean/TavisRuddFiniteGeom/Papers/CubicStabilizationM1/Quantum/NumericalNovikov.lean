@@ -11,7 +11,7 @@ It does not construct the completed monoid-ring multiplication or the quantum
 connection over it.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace Quantum
 
@@ -95,4 +95,4 @@ end NumericallyFiniteEffectiveQuotient
 
 end Quantum
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

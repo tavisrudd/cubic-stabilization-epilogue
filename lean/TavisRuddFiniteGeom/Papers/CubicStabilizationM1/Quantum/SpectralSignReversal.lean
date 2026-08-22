@@ -1,7 +1,7 @@
 import Mathlib.Tactic
 import Mathlib.LinearAlgebra.Eigenspace.Basic
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.QuarticDiscriminantDerivations
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.AtomicResidueDiscriminant
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.QuarticDiscriminantDerivations
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.AtomicResidueDiscriminant
 
 /-!
 # Spectral data under sign reversal of an endomorphism
@@ -36,7 +36,7 @@ the negative of Euler multiplication is the manuscript's reading of the
 connection, and is not proved here.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace Quantum
 
@@ -166,4 +166,4 @@ end Discriminant
 
 end Quantum
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

@@ -1,6 +1,6 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.AtomicElementaryModification
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.RankTwoResidueRigidity
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.ResidueDiscriminantInvariance
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.AtomicElementaryModification
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.RankTwoResidueRigidity
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.ResidueDiscriminantInvariance
 
 /-!
 # Flatness freezes the residue discriminant of a rank-two atomic factor
@@ -49,7 +49,7 @@ frame, and the geometric statements that an atomic factor supplies such data are
 assumed wherever they are used.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace Quantum
 
@@ -461,4 +461,4 @@ end FormalGerm
 
 end Quantum
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

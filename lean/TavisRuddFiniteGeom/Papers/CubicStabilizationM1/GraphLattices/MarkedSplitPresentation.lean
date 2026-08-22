@@ -1,4 +1,4 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.GraphCoefficientBlocks
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.GraphLattices.GraphCoefficientBlocks
 
 /-!
 # Marked split graph presentations
@@ -9,7 +9,7 @@ that the block descent equations are exactly membership in that weighted
 matrix lattice, including entries within a nontrivial diagonal block.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace GraphLattices
 
@@ -180,4 +180,4 @@ theorem splitGraph_weightedMatrix_rankOneGenerated_of_dvr
 
 end GraphLattices
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

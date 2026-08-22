@@ -1,4 +1,4 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.BirationalDeduction
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.BirationalDeduction
 
 /-!
 # The one-step cubic-threefold deduction
@@ -15,7 +15,7 @@ documented in the modules that define them.  No cited theorem is declared as a
 Lean axiom.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace Applications
 
@@ -68,4 +68,4 @@ theorem cubicThreefold_oneStepStabilization_not_rational
 
 end Applications
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

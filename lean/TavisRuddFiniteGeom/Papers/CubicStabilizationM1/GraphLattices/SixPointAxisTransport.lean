@@ -1,4 +1,4 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.SixPointAxisNorm
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.GraphLattices.SixPointAxisNorm
 
 /-!
 # Self-normalizing six-point axis stabilizers and coherent transport
@@ -14,7 +14,7 @@ that object to the same target.  This is a group-action theorem; it does not
 construct elliptic schemes, geometric axis inclusions, or their transport.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace GraphLattices
 
@@ -63,4 +63,4 @@ theorem sixPointAxis_transport_independent
 
 end GraphLattices
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

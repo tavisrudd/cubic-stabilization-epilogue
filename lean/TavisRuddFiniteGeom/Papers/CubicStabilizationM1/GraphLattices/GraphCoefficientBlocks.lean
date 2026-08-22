@@ -1,4 +1,4 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.GraphCoefficientDepth
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.GraphLattices.GraphCoefficientDepth
 
 /-!
 # Rectangular block form of the graph coefficient calculation
@@ -9,7 +9,7 @@ commutator expansion for arbitrary finite block ranks, and proves that the
 error terms impose no condition beyond the two diagonal coefficient depths.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace GraphLattices
 
@@ -348,4 +348,4 @@ theorem symmetricGraphBlockDepthCondition_iff_descentCondition
 
 end GraphLattices
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

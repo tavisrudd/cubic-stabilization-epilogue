@@ -9,7 +9,7 @@ polarization discussion.  It does not identify geometric elliptic quotient
 axes, a Rosati form, or the family-level kernel.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace GraphLattices
 
@@ -149,4 +149,4 @@ theorem sixAxisSmithDiagonal_entries :
 
 end GraphLattices
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

@@ -1,5 +1,5 @@
 import Mathlib.RepresentationTheory.Invariants
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.SixPointAxisFixedLine
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.GraphLattices.SixPointAxisFixedLine
 
 /-!
 # Norm projectors for the rational six-point axis representation
@@ -15,7 +15,7 @@ no abelian scheme, geometric endomorphism, elliptic subvariety, or isogeny is
 constructed here.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace GraphLattices
 
@@ -160,4 +160,4 @@ theorem sixPointAxisNormalizedNorm_idempotent
 
 end GraphLattices
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

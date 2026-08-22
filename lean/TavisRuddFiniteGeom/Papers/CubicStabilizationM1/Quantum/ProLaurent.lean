@@ -11,7 +11,7 @@ with the level, while excluding fractional powers of the loop coordinate by
 construction.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace Quantum
 
@@ -108,4 +108,4 @@ structure CompatibleCharacteristicPolynomialSystem where
 
 end Quantum
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

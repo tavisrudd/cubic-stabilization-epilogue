@@ -38,11 +38,11 @@ or the pairing, and does not derive the displayed order-by-order equations from
 horizontality; those supply the hypotheses.  The refinement to the even part of
 a factor, which uses that the Poincare pairing pairs only equal parities, is
 proved in
-`TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.OrthogonalRestrictionNondegeneracy`
+`TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.OrthogonalRestrictionNondegeneracy`
 from block diagonality and the parity behaviour of the form.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace Quantum
 
@@ -188,4 +188,4 @@ theorem blockDiagonal_det_ne_zero_iff
 
 end Quantum
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

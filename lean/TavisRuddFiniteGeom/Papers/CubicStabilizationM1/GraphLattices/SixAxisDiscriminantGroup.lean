@@ -1,5 +1,5 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.IntegralDiscriminantGroup
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.SixAxisSourcePolarization
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.GraphLattices.IntegralDiscriminantGroup
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.GraphLattices.SixAxisSourcePolarization
 
 /-!
 # The discriminant group of the six-axis source polarization
@@ -29,7 +29,7 @@ identification of those matrices with maps induced by geometry is supplied
 elsewhere.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace GraphLattices
 
@@ -119,4 +119,4 @@ end Comparison
 
 end GraphLattices
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

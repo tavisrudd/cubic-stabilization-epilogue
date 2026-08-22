@@ -1,5 +1,5 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.SixAxisLocalChart
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.FrobeniusPacket
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.GraphLattices.SixAxisLocalChart
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.GraphLattices.FrobeniusPacket
 import Mathlib.Algebra.Polynomial.SpecificDegree
 import Mathlib.Algebra.Polynomial.Degree.IsMonicOfDegree
 import Mathlib.LinearAlgebra.Matrix.Charpoly.Minpoly
@@ -23,7 +23,7 @@ splitting field, scalar-extension identity, inverse and splitting identities,
 and characteristic-three scalar claims are symbolic kernel-checked proofs.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace GraphLattices
 
@@ -569,4 +569,4 @@ end
 
 end GraphLattices
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

@@ -1,5 +1,5 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.PrimaryDiscriminantSplitting
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.SixAxisDiscriminantGroup
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.GraphLattices.PrimaryDiscriminantSplitting
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.GraphLattices.SixAxisDiscriminantGroup
 
 /-!
 # The two- and three-primary parts of the six-axis source discriminant
@@ -40,7 +40,7 @@ commutator pairing is constructed here, and the identification of these
 lattice-level objects with geometric ones is supplied elsewhere.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace GraphLattices
 
@@ -401,4 +401,4 @@ end Comparison
 
 end GraphLattices
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

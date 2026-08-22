@@ -1,5 +1,5 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.CompletedNovikovInverseLimit
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.NumericalNovikovCompletion
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.CompletedNovikovInverseLimit
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.NumericalNovikovCompletion
 
 /-!
 # Numerical pushforward on compatible truncation systems
@@ -16,7 +16,7 @@ construction of the quantum comparison map.  All proofs are symbolic and
 kernel checked, with no external computation or oracle.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace Quantum
 
@@ -72,4 +72,4 @@ end CompletedNumericalQuotient
 
 end Quantum
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

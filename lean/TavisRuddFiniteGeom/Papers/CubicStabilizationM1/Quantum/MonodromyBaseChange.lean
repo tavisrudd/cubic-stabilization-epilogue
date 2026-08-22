@@ -8,7 +8,7 @@ operator has been constructed.  It does not construct horizontal solutions or
 identify differential constants after adic base change.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace Quantum
 
@@ -37,4 +37,4 @@ theorem framedCharacteristicPolynomial_map_and_conjugate
 
 end Quantum
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

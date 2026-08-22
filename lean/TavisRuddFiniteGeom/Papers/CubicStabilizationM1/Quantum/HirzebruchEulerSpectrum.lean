@@ -1,5 +1,5 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.QuarticSpectralSeparation
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.RankTwoResidueRigidity
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.QuarticSpectralSeparation
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.RankTwoResidueRigidity
 
 /-!
 # Euler spectrum of a specialized Hirzebruch surface
@@ -46,7 +46,7 @@ the complex numbers has square-zero nilpotent part, by Cayley--Hamilton in rank
 two.  Whether such a block is in fact semisimple is not proved here.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace Quantum
 
@@ -430,4 +430,4 @@ end RankTwoBlock
 
 end Quantum
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

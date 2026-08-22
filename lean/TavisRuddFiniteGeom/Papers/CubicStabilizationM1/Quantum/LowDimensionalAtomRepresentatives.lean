@@ -1,4 +1,4 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.OrdinaryAtomLedger
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.OrdinaryAtomLedger
 
 /-!
 # Curve and surface representatives of an ordinary Hodge atom
@@ -34,7 +34,7 @@ the imported formulas, and declares none of them as an axiom; each is a field of
 the input structures and therefore visible in every theorem type below.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace Quantum
 
@@ -133,4 +133,4 @@ theorem multiplicity_eq_zero_of_dimension_le_two
 
 end Quantum
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

@@ -9,7 +9,7 @@ faithfully flat descent: it proves only the division-free square-zero
 expansion used by that argument.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace GraphLattices
 
@@ -74,4 +74,4 @@ theorem sum_pow_eq_factorial_mul_squarefreeProductSum
 
 end GraphLattices
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

@@ -1,4 +1,4 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.SixAxisGram
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.GraphLattices.SixAxisGram
 import Mathlib.Tactic
 
 /-!
@@ -9,7 +9,7 @@ two and three.  It treats the inverse of five as explicit input, so it makes
 no unstated localization claim.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace GraphLattices
 
@@ -256,4 +256,4 @@ theorem sixAxisGram_parameters_unique
 
 end GraphLattices
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

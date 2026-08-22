@@ -15,7 +15,7 @@ decomposition of a quantum connection, or the Iritani and Iritani--Koto
 comparison maps.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace Quantum
 
@@ -86,4 +86,4 @@ end ParityPreservingLinearEquiv
 
 end Quantum
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

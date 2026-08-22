@@ -1,4 +1,4 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.NumericalNovikovCompletion
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.NumericalNovikovCompletion
 
 /-!
 # Numerical descent of coefficient operations
@@ -27,7 +27,7 @@ All proofs are symbolic and kernel checked, with no external computation or
 oracle.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace Quantum
 
@@ -234,4 +234,4 @@ end CompletedNumericalQuotient
 
 end Quantum
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

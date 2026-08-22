@@ -1,4 +1,4 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.SquareZeroTransport
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.GraphLattices.SquareZeroTransport
 
 /-!
 # Exterior realization of elliptic-power coefficient forms
@@ -10,7 +10,7 @@ matrix becomes a decomposable two-form, giving the source square-zero fact
 used in the manuscript.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace GraphLattices
 
@@ -144,4 +144,4 @@ theorem ellipticSourceCoefficientRealization_internalRankOne_sq_zero
 
 end GraphLattices
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

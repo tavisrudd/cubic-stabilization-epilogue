@@ -1,5 +1,5 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.RankTwoResidueRigidity
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.SeparatedSpectralPairing
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.RankTwoResidueRigidity
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.SeparatedSpectralPairing
 
 /-!
 # Order-by-order equations for a horizontal sesquilinear pairing
@@ -59,7 +59,7 @@ arbitrary; no convergence, no analytic structure, and no relation to
 cohomological degrees is represented.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace Quantum
 
@@ -403,4 +403,4 @@ end ConstantPairing
 
 end Quantum
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

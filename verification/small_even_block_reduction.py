@@ -20,7 +20,7 @@ Its role is to exhibit how the gauge coefficients are obtained.  It is not the
 evidence for the reduction: the identities it produces are stated and proved by
 exact matrix arithmetic in the Lean module
 
-    TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.CubicSmallEvenBlockReduction
+    TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.CubicSmallEvenBlockReduction
 
 whose theorems cubicBlockBasis_det, cubicEulerMatrix_mul_blockBasis,
 cubicGradingMatrix_mul_blockBasis, cubicReduction_first_order, and

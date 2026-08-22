@@ -1,4 +1,4 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.FramedMultiplicity
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.FramedMultiplicity
 import Mathlib.LinearAlgebra.Eigenspace.Charpoly
 
 /-!
@@ -18,7 +18,7 @@ involutivity of geometric monodromy, classify low-dimensional varieties, or
 compare intrinsic and specialized Novikov coefficients.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace Quantum
 
@@ -128,4 +128,4 @@ theorem FramedMonodromyMatrix.sixthMultiplicity_eq_zero_of_sq_eq_one
 
 end Quantum
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

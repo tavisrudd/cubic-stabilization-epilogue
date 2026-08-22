@@ -1,4 +1,4 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.PrincipalGluingPacket
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.GraphLattices.PrincipalGluingPacket
 
 /-!
 # A six-point characteristic-two coefficient heart
@@ -23,7 +23,7 @@ not by itself identify this representation and commutant with the geometric
 coefficient heart.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace GraphLattices
 
@@ -508,4 +508,4 @@ theorem sixPointHeart_fullActionCommutant_classification
 
 end GraphLattices
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

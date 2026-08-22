@@ -1,5 +1,5 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.SixPointThreePrimary
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.SixPointSylowFiveAction
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.GraphLattices.SixPointThreePrimary
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.GraphLattices.SixPointSylowFiveAction
 
 /-!
 # Simplicity and endomorphism algebras of the two six-point hearts
@@ -26,14 +26,14 @@ alone, which is the prime field with three elements.
 The generated action is the whole alternating group on five letters, and the six
 labels carry `Omega`.  Both facts are proved elsewhere in this package and are
 used here only as context:
-`TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.sixPointGeneratedAction_realizes_alternatingGroup`
+`TavisRuddFiniteGeom.Papers.CubicStabilizationM1.GraphLattices.sixPointGeneratedAction_realizes_alternatingGroup`
 shows the generator words realize the alternating group faithfully and onto,
 while
-`TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.sixPointFiveSubgroup_injective`,
-`TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.sixPointFiveSubgroup_card`,
-`TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.sixPointFiveSubgroup_translation_conjugation`,
+`TavisRuddFiniteGeom.Papers.CubicStabilizationM1.GraphLattices.sixPointFiveSubgroup_injective`,
+`TavisRuddFiniteGeom.Papers.CubicStabilizationM1.GraphLattices.sixPointFiveSubgroup_card`,
+`TavisRuddFiniteGeom.Papers.CubicStabilizationM1.GraphLattices.sixPointFiveSubgroup_translation_conjugation`,
 and
-`TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.sixPointFiveSubgroup_inversion_conjugation`
+`TavisRuddFiniteGeom.Papers.CubicStabilizationM1.GraphLattices.sixPointFiveSubgroup_inversion_conjugation`
 show the six labels index six distinct order-five subgroups permuted by
 conjugation exactly as the labels are permuted by the two generators.
 
@@ -52,7 +52,7 @@ labels with dihedral subgroups arising from a geometric object, and neither does
 this module.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace GraphLattices
 
@@ -223,4 +223,4 @@ theorem sixPointHearts_simple_with_endomorphism_algebras :
 
 end GraphLattices
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

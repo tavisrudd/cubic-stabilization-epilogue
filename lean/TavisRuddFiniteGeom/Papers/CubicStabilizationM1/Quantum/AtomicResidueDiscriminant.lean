@@ -34,7 +34,7 @@ arXiv:2608.01577 (2026), Section 3; the curve residue matrix comes from the
 even connection displayed in Section 4 of the same source.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace Quantum
 
@@ -116,4 +116,4 @@ theorem residueDiscriminant_cubicZeroPacketResidue_ne_curveResidue (a : ℚ) :
 
 end Quantum
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

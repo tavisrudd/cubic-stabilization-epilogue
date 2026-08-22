@@ -1,4 +1,4 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.SixPointStableHalves
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.GraphLattices.SixPointStableHalves
 
 /-!
 # Frobenius marking of the stable halves of the six-point coefficient heart
@@ -32,7 +32,7 @@ Frobenius of an actual family is constructed, and nothing identifies this
 involution with a geometric normalizer element.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace GraphLattices
 
@@ -373,4 +373,4 @@ end
 
 end GraphLattices
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

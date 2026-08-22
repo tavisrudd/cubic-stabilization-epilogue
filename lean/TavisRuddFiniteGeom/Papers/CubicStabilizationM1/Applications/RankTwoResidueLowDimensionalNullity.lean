@@ -1,4 +1,4 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.RankTwoResidueMarker
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.RankTwoResidueMarker
 
 /-!
 # Low-dimensional nullity for the rank-two residue marker
@@ -15,7 +15,7 @@ the common categorical descent context.  It does not construct varieties,
 QDM blocks, minimal models, projective bundles, blowups, or comparison maps.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace Applications
 
@@ -137,4 +137,4 @@ noncomputable def rankTwoResidueMarkerContextOfLowDimensionalInput
 
 end Applications
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

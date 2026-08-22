@@ -35,7 +35,7 @@ Everything here is a statement about matrices over a commutative ring.  No
 lattice, polarization, isogeny kernel, or geometric slope is constructed.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace GraphLattices
 
@@ -317,4 +317,4 @@ end Blocks
 
 end GraphLattices
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

@@ -1,5 +1,5 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.AtomicResidueDiscriminant
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.OccurrenceIndexedMarker
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.AtomicResidueDiscriminant
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.OccurrenceIndexedMarker
 
 /-!
 # The rank-two residue marker as an effective-ledger fold
@@ -18,7 +18,7 @@ occurrence-indexed descent theorem.  The module does not construct QDM blocks
 or any comparison isomorphism.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace Quantum
 
@@ -165,4 +165,4 @@ end RankTwoResidueMarkerContext
 
 end Quantum
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

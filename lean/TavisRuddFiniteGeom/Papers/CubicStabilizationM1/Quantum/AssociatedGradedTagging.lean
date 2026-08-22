@@ -1,4 +1,4 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.CompletedNovikovSupport
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.CompletedNovikovSupport
 
 /-!
 # Associated-graded interface for divisor tagging
@@ -23,7 +23,7 @@ associated graded produce these data remains unformalized.  All proofs are
 symbolic and kernel checked, with no external computation or oracle.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace Quantum
 
@@ -125,4 +125,4 @@ end AssociatedGradedTaggingInput
 
 end Quantum
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

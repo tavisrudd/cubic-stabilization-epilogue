@@ -1,4 +1,4 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.MonomialSpecializationSeparation
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.MonomialSpecializationSeparation
 import Mathlib.Algebra.MonoidAlgebra.Basic
 import Mathlib.LinearAlgebra.Finsupp.VectorSpace
 
@@ -18,7 +18,7 @@ geometric assertion that a given center specialization induces the supplied
 exponent map is not a conclusion of this module.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace Quantum
 
@@ -77,4 +77,4 @@ noncomputable def centerMonomialMap_monomialSpecializationData
 
 end Quantum
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

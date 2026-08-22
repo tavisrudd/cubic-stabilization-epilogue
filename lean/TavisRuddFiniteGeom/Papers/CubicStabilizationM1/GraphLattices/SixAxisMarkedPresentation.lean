@@ -1,6 +1,6 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.SixAxisLocalChart
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.DepthOneSelfAdjointLift
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.AllDegreeAssembly
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.GraphLattices.SixAxisLocalChart
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.GraphLattices.DepthOneSelfAdjointLift
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.GraphLattices.AllDegreeAssembly
 
 /-!
 # The six-axis local chart as a split graph presentation
@@ -26,7 +26,7 @@ of an actual geometric principal kernel is not constructed here, and neither is
 any elliptic scheme, isogeny, or cohomological realization.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace GraphLattices
 
@@ -861,4 +861,4 @@ end OrderedCoefficients
 
 end GraphLattices
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

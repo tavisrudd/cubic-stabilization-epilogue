@@ -1,4 +1,4 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.LowDimensionalVanishingCore
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.LowDimensionalVanishingCore
 import Mathlib.RingTheory.PowerSeries.Derivative
 
 /-!
@@ -42,7 +42,7 @@ monodromy matrix is not formalized: the final statement takes the characteristic
 polynomial of the block's framed monodromy as given.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace Quantum
 
@@ -251,4 +251,4 @@ end FramedContribution
 
 end Quantum
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

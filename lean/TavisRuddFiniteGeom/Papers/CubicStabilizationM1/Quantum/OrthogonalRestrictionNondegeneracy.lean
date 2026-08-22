@@ -32,7 +32,7 @@ type with decidable equality, the parity an arbitrary function to `ZMod 2` with
 determinant.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace Quantum
 
@@ -178,4 +178,4 @@ theorem det_frameSubmatrix_ne_zero {part : coordinate → Prop} [DecidablePred p
 
 end Quantum
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

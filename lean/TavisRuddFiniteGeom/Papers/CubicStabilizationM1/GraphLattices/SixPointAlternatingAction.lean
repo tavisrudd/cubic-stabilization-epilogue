@@ -1,5 +1,5 @@
 import Mathlib.GroupTheory.SpecificGroups.Alternating
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.SixPointCoefficientHeart
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.GraphLattices.SixPointCoefficientHeart
 
 /-!
 # The five-factor action of the six-point generators
@@ -19,7 +19,7 @@ with the manuscript's six conjugate dihedral subgroups, so it does not yet
 identify this concrete `A5` action with the manuscript's geometric one.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace GraphLattices
 
@@ -342,4 +342,4 @@ theorem sixPointGeneratedAction_realizes_alternatingGroup :
 
 end GraphLattices
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

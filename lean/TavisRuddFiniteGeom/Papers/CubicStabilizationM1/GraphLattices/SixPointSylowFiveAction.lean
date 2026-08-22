@@ -1,6 +1,6 @@
 import Mathlib.GroupTheory.Sylow
 import Mathlib.GroupTheory.SpecificGroups.Dihedral
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.SixPointAlternatingAction
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.GraphLattices.SixPointAlternatingAction
 
 /-!
 # The six order-five subgroups in the concrete alternating group
@@ -20,7 +20,7 @@ model; identifying it with the six geometrically constructed elliptic
 quotients and axes remains a separate geometric step.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace GraphLattices
 
@@ -599,4 +599,4 @@ noncomputable def sixPointFiveNormalizerMulEquivDihedral (label : Fin 6) :
 
 end GraphLattices
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

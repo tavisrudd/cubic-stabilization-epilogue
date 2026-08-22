@@ -1,6 +1,6 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.PositiveFiltrationBulkTruncation
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.FilteredMultivariableLaurentFlatGauge
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.ProLaurent
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.PositiveFiltrationBulkTruncation
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.FilteredMultivariableLaurentFlatGauge
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.ProLaurent
 import Mathlib.RingTheory.MvPowerSeries.Substitution
 
 /-!
@@ -27,7 +27,7 @@ filtration, and analytic specialization are not proved.  The proofs are
 symbolic and kernel checked, with no external computation or oracle.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace Quantum
 
@@ -954,4 +954,4 @@ theorem CompleteSeparatedMultiplicativeIdealFiltration.positiveEvaluatedFlatGaug
 
 end Quantum
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

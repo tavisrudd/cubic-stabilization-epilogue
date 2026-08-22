@@ -1,4 +1,4 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.SixPointProjectiveSpecialLinearAction
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.GraphLattices.SixPointProjectiveSpecialLinearAction
 
 /-!
 # Rational fixed lines of the six-point axis stabilizers
@@ -16,7 +16,7 @@ abelian scheme, norm endomorphism, elliptic image, or geometric generic-fibre
 identification is constructed here.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace GraphLattices
 
@@ -180,4 +180,4 @@ theorem alternatingFiveSixPointStabilizer_card (label : Fin 6) :
 
 end GraphLattices
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

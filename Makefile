@@ -5,7 +5,7 @@ TEXSHELL ?= nix develop .\#manuscript --command
 LATEXMK ?= $(TEXSHELL) latexmk
 LATEXMK_FLAGS ?= -xelatex -interaction=nonstopmode -halt-on-error
 PYTHON ?= nix shell nixpkgs\#python3 -c python3
-SOURCE := cubic_stabilization_epilogue.tex
+SOURCE := cubic_stabilization_m1.tex
 JOBNAME := irrationality_after_one_stabilization
 
 .PHONY: all check formal-static formal-audit manuscript warnings clean distclean

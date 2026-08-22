@@ -36,7 +36,7 @@ canonical frame enters as four abstract derivations of `A` and its action on the
 characteristic coefficients enters as the sixteen displayed equations.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace Quantum
 
@@ -326,4 +326,4 @@ noncomputable def rootEulerFrame : EulerCoefficientFrame (MvPolynomial (Fin 4) â
 
 end Quantum
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

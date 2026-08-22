@@ -1,6 +1,6 @@
 import Mathlib.Algebra.Module.Torsion.Basic
 import Mathlib.RingTheory.Coprime.Lemmas
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.IntegralDiscriminantGroup
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.GraphLattices.IntegralDiscriminantGroup
 
 /-!
 # Primary splitting of an integral discriminant group
@@ -42,7 +42,7 @@ local system, or commutator pairing is constructed, and the identification of
 these lattice-level objects with geometric ones is supplied elsewhere.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace GraphLattices
 
@@ -344,4 +344,4 @@ end PrimarySplitting
 
 end GraphLattices
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

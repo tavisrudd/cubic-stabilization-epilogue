@@ -1,5 +1,5 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Applications.LowDimensionalVanishing
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.FramedSixthMarker
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Applications.LowDimensionalVanishing
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.FramedSixthMarker
 
 /-!
 # Actual-occurrence nullity for the framed sixth-root marker
@@ -16,7 +16,7 @@ categorical descent theorem in any fixed ambient dimension at most four.  It
 does not construct the comparison specialization or its QDM identification.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace Applications
 
@@ -92,4 +92,4 @@ noncomputable def framedSixthMarkerContextOfLowDimensionalInput
 
 end Applications
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

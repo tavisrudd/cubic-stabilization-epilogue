@@ -27,7 +27,7 @@ is constructed here: this module is about polynomials only.  All proofs are
 symbolic and kernel checked, with no external computation or oracle.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace Applications
 
@@ -109,4 +109,4 @@ theorem fermatCubicForm_separatedVariable_five (R : Type*) [CommSemiring R] [Non
 
 end Applications
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

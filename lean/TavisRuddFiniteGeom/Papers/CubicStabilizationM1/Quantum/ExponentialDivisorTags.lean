@@ -24,7 +24,7 @@ terms.  The proofs are symbolic and kernel checked; they use no external
 computation or oracle.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace Quantum
 
@@ -198,4 +198,4 @@ theorem exists_integralDirection_separating_formalExponentialCharacters
 
 end Quantum
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

@@ -1,6 +1,6 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.PrincipalGluingPacket
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.AlternatingFiveIdentification
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.SixPointSylowFiveAction
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.GraphLattices.PrincipalGluingPacket
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.GraphLattices.AlternatingFiveIdentification
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.GraphLattices.SixPointSylowFiveAction
 
 /-!
 # The six labels as the projective line over F5
@@ -17,7 +17,7 @@ projective points or normalizers with the manuscript's geometrically
 constructed elliptic quotients and axes.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace GraphLattices
 
@@ -183,4 +183,4 @@ noncomputable def f5ProjectiveLineEquivFiveSylow :
 
 end GraphLattices
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

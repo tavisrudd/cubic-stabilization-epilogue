@@ -1,4 +1,4 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.SylvesterOperator
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.SylvesterOperator
 
 /-!
 # Unique solvability of the block Sylvester equation
@@ -38,7 +38,7 @@ commute, because `D` commutes with every block-diagonal matrix and both adjoint
 operators preserve the two parts.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace Quantum
 
@@ -604,4 +604,4 @@ end Solvability
 
 end Quantum
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

@@ -1,5 +1,5 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.PositiveFiltrationLaurentEvaluation
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.FormalBaseShiftSystem
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.PositiveFiltrationLaurentEvaluation
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.FormalBaseShiftSystem
 
 /-!
 # Formal base shift from a filtration-positive evaluated flat gauge
@@ -27,7 +27,7 @@ constructed.  The proofs are symbolic and kernel checked, with no external
 computation or oracle.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace Quantum
 
@@ -393,4 +393,4 @@ end PositiveEvaluatedBaseFormalBaseShiftInput
 
 end Quantum
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

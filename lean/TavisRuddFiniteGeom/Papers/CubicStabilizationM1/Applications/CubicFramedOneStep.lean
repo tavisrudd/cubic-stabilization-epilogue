@@ -1,5 +1,5 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Applications.ProjectiveProductMultiplicity
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.BirationalDeduction
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Applications.ProjectiveProductMultiplicity
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.BirationalDeduction
 
 /-!
 # The framed-monodromy route to one-step irrationality
@@ -26,7 +26,7 @@ Lean constructs no variety, product, projective space, quantum connection, or
 framed monodromy, and proves none of the cited comparison theorems.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace Applications
 
@@ -97,4 +97,4 @@ theorem cubicThreefold_oneStep_not_rational_of_framed_product_inputs
 
 end Applications
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

@@ -1,4 +1,4 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.CompatibleMonodromySystem
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.CompatibleMonodromySystem
 
 /-!
 # Compatible conjugacy by pro-Laurent gauges
@@ -15,7 +15,7 @@ is constructed.  All proofs are symbolic and kernel checked, with no external
 computation or oracle.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace Quantum
 
@@ -145,4 +145,4 @@ end ProLaurentMonodromyGaugeSystem
 
 end Quantum
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

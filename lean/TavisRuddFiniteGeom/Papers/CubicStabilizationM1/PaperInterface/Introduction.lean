@@ -1,18 +1,18 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Applications.CubicFramedMarkerOneStep
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Applications.CubicResidueMarkerOneStep
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Applications.CubicThreefold
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Applications.ProjectiveProductMultiplicity
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Applications.RelativeSixAxis
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Applications.SeparatedVariableCubicForms
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Applications.SeparationFamily
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Applications.UniversalCH0
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Applications.UniversalCH0Separation
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.SixAxisPrimaryDiscriminantSplitting
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.AssociatedGradedTagging
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.FilteredCoefficientQuotients
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.FramedSixthMarker
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.HirzebruchEulerSpectrum
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.RankTwoResidueMarker
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Applications.CubicFramedMarkerOneStep
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Applications.CubicResidueMarkerOneStep
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Applications.CubicThreefold
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Applications.ProjectiveProductMultiplicity
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Applications.RelativeSixAxis
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Applications.SeparatedVariableCubicForms
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Applications.SeparationFamily
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Applications.UniversalCH0
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Applications.UniversalCH0Separation
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.GraphLattices.SixAxisPrimaryDiscriminantSplitting
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.AssociatedGradedTagging
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.FilteredCoefficientQuotients
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.FramedSixthMarker
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.HirzebruchEulerSpectrum
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.RankTwoResidueMarker
 
 /-!
 # Introduction-facing reviewer terminals
@@ -21,7 +21,7 @@ Headline and family-level consequences.  Geometric and literature inputs
 remain explicit in the declaration types.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 open TensorProduct
 
@@ -73,6 +73,32 @@ theorem rankTwoResidueMarker_eq_of_birational
     (related : context.birational.r left right) :
     context.marker left = context.marker right :=
   context.marker_eq_of_birational leftSmooth rightSmooth leftDimension rightDimension related
+/-- Reviewer-facing dimension-three endpoint contradiction for an
+occurrence-indexed marker.  All QDM, weak-factorization, center-nullity, and
+rationality inputs remain explicit. -/
+theorem threefold_not_rational_of_occurrenceIndexedMarker
+    {Variety Center Occurrence A : Type*} [AddCommMonoid A]
+    {presentation : Quantum.BlockPresentation}
+    (data : Quantum.OccurrenceIndexedLedger Variety Center Occurrence presentation)
+    (fold : presentation.EffectiveLedger →+ A)
+    (birational : Setoid Variety)
+    (provider : Quantum.BirationalFactorizationProvider data fold 3 birational)
+    (nullity : Quantum.LowDimensionalOccurrenceNullity data fold 3)
+    (Rational : Variety → Prop) (projectiveThreeSpace threefold : Variety)
+    (projectiveSmooth : data.smoothProjective projectiveThreeSpace)
+    (threefoldSmooth : data.smoothProjective threefold)
+    (projectiveDimension : data.dimension projectiveThreeSpace = 3)
+    (threefoldDimension : data.dimension threefold = 3)
+    (projectiveMarker : data.varietyMarker fold projectiveThreeSpace = 0)
+    (threefoldMarker : data.varietyMarker fold threefold ≠ 0)
+    (rationalComparison : Rational threefold →
+      birational.r threefold projectiveThreeSpace) :
+    ¬ Rational threefold := by
+  intro rational
+  have markerEquality := provider.marker_eq_of_related data fold 3 birational nullity
+    threefoldSmooth projectiveSmooth threefoldDimension projectiveDimension
+    (rationalComparison rational)
+  exact threefoldMarker (markerEquality.trans projectiveMarker)
 /-- Reviewer-facing direct-QDM one-step conclusion with the exact stabilized
 marker value and irrationality exposed together. -/
 theorem cubicThreefold_oneProjectiveLine_conclusion_of_residueMarker
@@ -232,4 +258,4 @@ theorem coprimeUnirationalDegrees_universalCH0_and_irrational_stabilization
   exact ⟨stabilizedQuadratic, stabilizedCubic, separation.stabilizationUniversallyCH0Trivial,
     separation.stabilizationNotRational⟩
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

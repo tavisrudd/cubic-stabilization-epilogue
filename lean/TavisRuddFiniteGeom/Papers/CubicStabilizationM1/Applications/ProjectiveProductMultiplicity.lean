@@ -1,4 +1,4 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Applications.CubicPacketFromBlockReduction
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Applications.CubicPacketFromBlockReduction
 
 /-!
 # Primitive-sixth multiplicity of products with projective space
@@ -21,7 +21,7 @@ product with a projective line has multiplicity four.
 
 The multiplicity two for a cubic threefold is not assumed in the second
 deduction below: it is taken from the block-reduction theorem of
-`TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Applications.cubicPacket_sixthMultiplicity_eq_two_of_block_exponents`,
+`TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Applications.cubicPacket_sixthMultiplicity_eq_two_of_block_exponents`,
 whose only premise is the passage from the exponents of the reduced small even
 system to framed formal monodromy.
 
@@ -29,7 +29,7 @@ Lean does not construct varieties, products, projective spaces, quantum
 connections, or framed monodromy, and does not prove the product formula.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace Applications
 
@@ -153,4 +153,4 @@ theorem projectiveProduct_sixthMultiplicity_of_charpoly_power
 
 end Applications
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

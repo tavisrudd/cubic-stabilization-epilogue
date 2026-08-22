@@ -14,7 +14,7 @@ arXiv:2307.03696v4, Proposition 5.6 and Section 5.8.  No result from that source
 is introduced as an axiom; it appears only through theorem hypotheses.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace Quantum
 
@@ -58,4 +58,4 @@ end PacketData
 
 end Quantum
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

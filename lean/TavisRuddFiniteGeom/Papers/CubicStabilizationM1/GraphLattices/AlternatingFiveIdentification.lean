@@ -1,7 +1,7 @@
 import Mathlib.GroupTheory.SpecificGroups.Alternating
 import Mathlib.LinearAlgebra.Projectivization.Cardinality
 import Mathlib.LinearAlgebra.Projectivization.PSL.PSL2
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.ExoticStabilizerCore
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.GraphLattices.ExoticStabilizerCore
 
 /-!
 # The exceptional isomorphism `SL₂(F4) ≃ A5`
@@ -13,7 +13,7 @@ forces the image permutations to be even, and the two groups have the same
 order.  No geometric permutation stabilizer is identified here.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace GraphLattices
 
@@ -219,4 +219,4 @@ end
 
 end GraphLattices
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

@@ -1,5 +1,5 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.SixAxisGram
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.SixPointCoefficientHeart
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.GraphLattices.SixAxisGram
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.GraphLattices.SixPointCoefficientHeart
 import Mathlib.LinearAlgebra.BilinearForm.Properties
 import Mathlib.LinearAlgebra.BilinearForm.Orthogonal
 
@@ -26,7 +26,7 @@ construct an elliptic scheme, its two-torsion local system, the Weil pairing,
 or the relative isogeny kernel.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace GraphLattices
 
@@ -735,4 +735,4 @@ theorem sixPointHeartCoefficientForm_properties :
 
 end GraphLattices
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

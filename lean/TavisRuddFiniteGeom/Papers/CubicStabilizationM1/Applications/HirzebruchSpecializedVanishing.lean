@@ -1,6 +1,6 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.HirzebruchEulerSpectrum
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.ProjectiveSpaceEulerSpectrum
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.SimpleEulerBlock
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.HirzebruchEulerSpectrum
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.ProjectiveSpaceEulerSpectrum
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.SimpleEulerBlock
 
 /-!
 # Direct vanishing of the specialized primitive-sixth count for a Hirzebruch surface
@@ -27,7 +27,7 @@ applies to every Hirzebruch surface at a specialization with both values nonzero
 that avoids the degeneracy locus of the discriminant.  The characteristic
 polynomial of Euler
 multiplication is one of the two quartics of
-`TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.HirzebruchEulerSpectrum`,
+`TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.HirzebruchEulerSpectrum`,
 and off the degeneracy locus of its discriminant every spectral block has rank
 one, so the multiplicity-one Euler block lemma makes the framed regular monodromy
 unipotent and the count vanishes.
@@ -40,7 +40,7 @@ proves is that the Euler spectra are simple and that the resulting framed
 characteristic polynomial contributes nothing to the count.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace Applications
 
@@ -131,4 +131,4 @@ theorem hirzebruchOdd_specialized_sixthMultiplicity_eq_zero
 
 end Applications
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

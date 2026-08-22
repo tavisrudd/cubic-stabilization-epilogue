@@ -1,5 +1,5 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.CubicPacket
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.AtomicResidueDiscriminant
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.CubicPacket
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.AtomicResidueDiscriminant
 
 /-!
 # The small even block reduction of a cubic threefold
@@ -48,7 +48,7 @@ are the exponents of the framed formal monodromy; the passage from a
 regular-singular residue to formal monodromy remains external.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace Quantum
 
@@ -292,4 +292,4 @@ theorem cubicZeroPacketResidue_eq_modifiedBlockResidue (r : ℚ) :
 
 end Quantum
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

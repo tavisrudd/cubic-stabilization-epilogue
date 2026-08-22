@@ -1,4 +1,4 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.CompatibleMonodromySystem
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.CompatibleMonodromySystem
 
 /-!
 # Compatible finite-level formal base shifts
@@ -20,7 +20,7 @@ All proofs are symbolic and kernel checked, with no external computation or
 oracle.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace Quantum
 
@@ -193,4 +193,4 @@ end FormalBaseShiftSystem
 
 end Quantum
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

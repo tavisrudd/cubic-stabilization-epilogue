@@ -9,7 +9,7 @@ symmetric coefficient from rank-one symmetric tensors.  It is valid over an
 arbitrary commutative ring and therefore introduces no division by two.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace GraphLattices
 
@@ -239,4 +239,4 @@ end SymmetricPair
 
 end GraphLattices
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

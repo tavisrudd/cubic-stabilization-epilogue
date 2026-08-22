@@ -1,4 +1,4 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.SixPointOddLabelHeartAction
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.GraphLattices.SixPointOddLabelHeartAction
 
 /-!
 # The heart matrix of an arbitrary permutation of the six labels
@@ -28,7 +28,7 @@ elements, checked by kernel reduction.  No native execution, external
 certificate, or oracle is used.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace GraphLattices
 
@@ -250,4 +250,4 @@ theorem sixPointHeartPermutationMatrix_adjacentTransposition (index : Fin 5) :
 
 end GraphLattices
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

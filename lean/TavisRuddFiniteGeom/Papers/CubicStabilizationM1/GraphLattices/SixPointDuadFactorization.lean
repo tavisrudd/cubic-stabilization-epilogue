@@ -1,5 +1,5 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.SixPointAlternatingAction
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.SixPointPacketLabelGroup
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.GraphLattices.SixPointAlternatingAction
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.GraphLattices.SixPointPacketLabelGroup
 
 /-!
 # The fifteen pairs of labels inside the coefficient heart
@@ -46,7 +46,7 @@ module constructs no geometric Galois action and does not identify them with
 the six conjugate dihedral subgroups of a geometric argument.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace GraphLattices
 
@@ -576,4 +576,4 @@ theorem mem_sixPointLabelCommutantGroup_iff_even_factorizationPreserving
 
 end GraphLattices
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

@@ -1,6 +1,6 @@
 import Mathlib.Data.Fintype.EquivFin
 import Mathlib.Order.Lattice.Nat
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.ExponentialDivisorTags
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.ExponentialDivisorTags
 
 /-!
 # Lowest support of a completed Novikov series
@@ -25,7 +25,7 @@ separate filtered-ring statement.  All proofs here are symbolic and kernel
 checked, with no external computation or oracle.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace Quantum
 
@@ -316,4 +316,4 @@ end CompletedNovikovSeries
 
 end Quantum
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

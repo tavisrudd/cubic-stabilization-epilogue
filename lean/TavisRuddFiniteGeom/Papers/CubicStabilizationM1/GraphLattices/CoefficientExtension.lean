@@ -1,4 +1,4 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.MatrixOfIdeals
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.GraphLattices.MatrixOfIdeals
 
 /-!
 # Coefficient extension for weighted graph lattices
@@ -9,7 +9,7 @@ and rank-one coefficient matrices are preserved under the ring map.  It does
 not claim that rank-one generation descends or ascends.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace GraphLattices
 
@@ -92,4 +92,4 @@ theorem matrixCoefficientExtension_mem_weightedRankOneSet
 
 end GraphLattices
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

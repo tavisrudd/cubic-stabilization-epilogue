@@ -1,5 +1,5 @@
 import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Card
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.TraceDeterminantPairing
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.GraphLattices.TraceDeterminantPairing
 
 /-!
 # Algebraic core of the exotic stabilizer calculation
@@ -9,7 +9,7 @@ the principal-gluing stabilizer paragraph.  It does not identify the
 permutation stabilizer with the special linear group or with `A5`.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace GraphLattices
 
@@ -97,4 +97,4 @@ end
 
 end GraphLattices
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

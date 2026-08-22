@@ -1,6 +1,6 @@
 import Mathlib.LinearAlgebra.Projectivization.PSL.PSL2
 import Mathlib.GroupTheory.SpecificGroups.Alternating.Simple
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.SixPointProjectiveLine
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.GraphLattices.SixPointProjectiveLine
 
 /-!
 # The natural `PSL₂(F5)` action on the six-point packet
@@ -20,7 +20,7 @@ list by kernel reduction with `decide`; no external computation or oracle is
 used.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace GraphLattices
 
@@ -588,4 +588,4 @@ end
 
 end GraphLattices
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

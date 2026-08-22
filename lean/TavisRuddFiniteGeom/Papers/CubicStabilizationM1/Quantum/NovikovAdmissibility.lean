@@ -11,7 +11,7 @@ graded ring.  The global multiplicativity field is the no-cancellation input
 used from the associated-graded domain condition.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace Quantum
 
@@ -54,4 +54,4 @@ theorem StrictNovikovAdmissible.injective_taggedMonomial
 
 end Quantum
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

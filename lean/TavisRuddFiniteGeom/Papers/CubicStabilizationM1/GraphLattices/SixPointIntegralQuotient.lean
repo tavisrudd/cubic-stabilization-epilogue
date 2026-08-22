@@ -1,6 +1,6 @@
 import Mathlib.LinearAlgebra.Quotient.Bilinear
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.SixAxisGram
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.SixPointAxisDescent
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.GraphLattices.SixAxisGram
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.GraphLattices.SixPointAxisDescent
 
 /-!
 # The integral six-coordinate quotient lattice
@@ -19,7 +19,7 @@ Rosati pairing, polarization, relative isogeny, or identification with the
 geometric six-axis source is constructed here.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace GraphLattices
 
@@ -411,4 +411,4 @@ theorem sixPointIntegralDescendedPairing_classFromFive
 
 end GraphLattices
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

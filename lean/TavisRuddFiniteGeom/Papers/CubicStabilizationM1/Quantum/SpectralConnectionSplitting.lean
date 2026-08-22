@@ -1,4 +1,4 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.NormalizedSylvesterGauge
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.NormalizedSylvesterGauge
 
 /-!
 # Connection splitting from separated leading spectra
@@ -24,7 +24,7 @@ the identification of a geometric quantum connection with its hypotheses
 remains an external input.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace Quantum
 
@@ -141,4 +141,4 @@ theorem existsUnique_normalizedGauge_with_flat_base
 
 end Quantum
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

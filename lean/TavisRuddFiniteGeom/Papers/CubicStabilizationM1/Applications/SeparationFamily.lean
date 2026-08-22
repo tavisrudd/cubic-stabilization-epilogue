@@ -1,7 +1,7 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Applications.UniversalCH0
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Applications.CubicThreefold
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Applications.CubicResidueMarkerOneStep
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Applications.SeparatedVariableModuliExclusion
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Applications.UniversalCH0
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Applications.CubicThreefold
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Applications.CubicResidueMarkerOneStep
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Applications.SeparatedVariableModuliExclusion
 
 /-!
 # Separation after one stabilization
@@ -21,7 +21,7 @@ No invariant pencil, Chow group, period map, or quantum connection is
 constructed here.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace Applications
 
@@ -153,4 +153,4 @@ theorem separationFamily_of_cycle_residue_and_period_inputs
 
 end Applications
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

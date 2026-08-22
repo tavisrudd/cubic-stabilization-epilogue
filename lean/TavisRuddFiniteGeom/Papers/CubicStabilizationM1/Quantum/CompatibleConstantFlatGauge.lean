@@ -1,4 +1,4 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.ConstantFlatGauge
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.ConstantFlatGauge
 
 /-!
 # Compatible constant-coefficient formal flat gauges
@@ -19,7 +19,7 @@ or analytic gauge is represented.  The proofs are symbolic and kernel checked,
 with no external computation or oracle.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace Quantum
 
@@ -176,4 +176,4 @@ end CompatibleConstantConnectionSystem
 
 end Quantum
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

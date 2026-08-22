@@ -2,7 +2,7 @@ import Mathlib.Data.ENat.Lattice
 import Mathlib.Data.Matrix.Auto
 import Mathlib.RingTheory.DiscreteValuationRing.Basic
 import Mathlib.Tactic
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.DVRRankOne
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.GraphLattices.DVRRankOne
 
 /-!
 # Graph-coordinate block calculation and coefficient depths
@@ -13,7 +13,7 @@ existence of a marked graph presentation and the reduction of its descent
 condition to these displayed blocks remain separate inputs.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace GraphLattices
 
@@ -502,4 +502,4 @@ theorem graphCrossDepth_unit_positive
 
 end GraphLattices
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

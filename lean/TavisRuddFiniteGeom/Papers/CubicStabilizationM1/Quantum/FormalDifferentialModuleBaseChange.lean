@@ -1,6 +1,6 @@
 import Mathlib.LinearAlgebra.Charpoly.ToMatrix
 import Mathlib.RingTheory.Derivation.Basic
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.HorizontalMonodromyBaseChange
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.HorizontalMonodromyBaseChange
 
 /-!
 # Formal differential modules under coefficientwise adic base change
@@ -32,7 +32,7 @@ limit is constructed.  All proofs are symbolic and kernel checked, with no
 external computation or oracle.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace Quantum
 
@@ -201,4 +201,4 @@ end FormalDifferentialSolutionPresentation
 
 end Quantum
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

@@ -1,4 +1,4 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.VaryingFlatGauge
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.VaryingFlatGauge
 
 /-!
 # Compatible one-variable varying formal flat gauges
@@ -19,7 +19,7 @@ parameter, convergence, or an analytic gauge.  The proofs are symbolic and
 kernel checked, with no external computation or oracle.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace Quantum
 
@@ -200,4 +200,4 @@ end CompatibleVaryingConnectionSystem
 
 end Quantum
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

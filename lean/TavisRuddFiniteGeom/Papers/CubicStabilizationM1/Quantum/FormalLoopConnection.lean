@@ -73,7 +73,7 @@ model, and the geometric statements that a factor supplies such data are
 hypotheses wherever they are used.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace Quantum
 
@@ -362,4 +362,4 @@ theorem regularCoefficient_identity_of_isHorizontalPairing
 
 end Quantum
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

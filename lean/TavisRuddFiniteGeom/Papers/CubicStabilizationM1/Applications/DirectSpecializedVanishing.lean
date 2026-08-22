@@ -1,6 +1,6 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.ParityCorrectedUnipotentMonodromy
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.ProjectiveSpaceEulerSpectrum
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.SimpleEulerBlock
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.ParityCorrectedUnipotentMonodromy
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.ProjectiveSpaceEulerSpectrum
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.SimpleEulerBlock
 
 /-!
 # Direct vanishing of the specialized primitive-sixth count in low dimensions
@@ -45,7 +45,7 @@ comparison identifying the specialized module of a ruled surface with the
 intrinsic one likewise appear as hypotheses.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace Applications
 
@@ -118,4 +118,4 @@ theorem ruledSurface_specialized_sixthMultiplicity_eq_zero_of_nefCanonical_base
 
 end Applications
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

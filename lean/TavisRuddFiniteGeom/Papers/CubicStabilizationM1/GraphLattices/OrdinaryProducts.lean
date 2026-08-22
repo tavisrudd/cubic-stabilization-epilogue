@@ -1,4 +1,4 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.DividedPowers
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.GraphLattices.DividedPowers
 
 /-!
 # Ordinary products of a divisor submodule
@@ -9,7 +9,7 @@ that the labelled squarefree product sum used in the divided-power expansion
 belongs to that image whenever every labelled factor is a divisor class.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace GraphLattices
 
@@ -71,4 +71,4 @@ theorem squarefreeProductSum_mem_ordinaryProductSubmodule
 
 end GraphLattices
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

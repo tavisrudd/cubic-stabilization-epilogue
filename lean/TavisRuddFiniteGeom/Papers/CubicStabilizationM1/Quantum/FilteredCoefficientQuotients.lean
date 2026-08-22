@@ -44,7 +44,7 @@ monodromy matrices and gauges.  All proofs are symbolic and kernel checked,
 with no external computation or oracle.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace Quantum
 
@@ -450,4 +450,4 @@ end CompleteSeparatedMultiplicativeIdealFiltration
 
 end Quantum
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

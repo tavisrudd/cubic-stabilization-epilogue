@@ -1,4 +1,4 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.NovikovAdmissibility
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.NovikovAdmissibility
 import Mathlib.LinearAlgebra.LinearIndependent.Lemmas
 import Mathlib.Data.Complex.Basic
 import Mathlib.Tactic.LinearCombination
@@ -43,7 +43,7 @@ core of strict Novikov admissibility; the leading-term argument takes the
 leading-term map and the independent family as data.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace Quantum
 
@@ -314,4 +314,4 @@ end LeadingTerms
 
 end Quantum
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

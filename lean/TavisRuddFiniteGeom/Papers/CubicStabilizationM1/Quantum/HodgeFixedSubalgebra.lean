@@ -35,7 +35,7 @@ hypotheses that the action is by algebra automorphisms and that the four powers
 of the distinguished element are linearly independent.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace Quantum
 
@@ -143,4 +143,4 @@ end TruncatedAlgebra
 
 end Quantum
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

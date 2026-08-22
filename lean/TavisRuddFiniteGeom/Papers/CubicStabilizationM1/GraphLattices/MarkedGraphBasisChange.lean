@@ -1,5 +1,5 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.MarkedSplitPresentation
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.SplitCoordinateTransport
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.GraphLattices.MarkedSplitPresentation
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.GraphLattices.SplitCoordinateTransport
 
 /-!
 # Marked graph descent after a splitting-ring basis change
@@ -15,7 +15,7 @@ The splitting extension, spectral basis, and geometric assertion that divisor
 descent is expressed by these block conditions remain supplied data.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace GraphLattices
 
@@ -103,4 +103,4 @@ theorem splitCoordinateCoefficientExtension_blockSymmetric
 
 end GraphLattices
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

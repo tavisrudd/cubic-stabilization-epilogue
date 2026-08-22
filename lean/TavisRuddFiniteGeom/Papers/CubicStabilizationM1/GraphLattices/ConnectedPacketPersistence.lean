@@ -1,5 +1,5 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.SixAxisSlopeModels
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.SixPointStableHalfFrobenius
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.GraphLattices.SixAxisSlopeModels
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.GraphLattices.SixPointStableHalfFrobenius
 import Mathlib.Topology.Connected.TotallyDisconnected
 
 /-!
@@ -18,7 +18,7 @@ geometric local system, its finite packet of principal kernels, or the
 continuous classifying map from a family of abelian varieties.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace GraphLattices
 
@@ -149,4 +149,4 @@ theorem connectedBase_stableHalfPacket_marked_persists_as_exotic
 
 end GraphLattices
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

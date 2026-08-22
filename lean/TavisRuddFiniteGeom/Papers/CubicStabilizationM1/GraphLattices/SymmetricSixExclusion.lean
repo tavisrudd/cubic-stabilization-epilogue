@@ -25,7 +25,7 @@ constructs cubic threefolds and their automorphism groups nor proves the
 classification.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace GraphLattices
 
@@ -73,4 +73,4 @@ theorem no_faithful_symmetricSix_of_classified_list {G : Type*} [Group G] [Finit
 
 end GraphLattices
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

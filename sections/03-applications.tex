@@ -1,19 +1,37 @@
-\section{The separation theorem}
-\label{sec:synthesis}
+\section{Consequences}
+\label{sec:applications}
 
-The irrationality input in this section is now unconditional:
-Theorem~\ref{thm:every-cubic} applies to every smooth cubic threefold.  The
-universal \(CH_0\)-triviality inputs are independent classical or
-cycle-theoretic statements, and pass to the product by the projective-bundle
-formula for Chow groups.
+\begin{proof}[Proof of Corollary~\ref{cor:threefold-marker}]
+In dimension three, every center in projective weak factorization has
+dimension at most one.  The curve part of
+Proposition~\ref{prop:atomic-lowdim} therefore makes
+\(I_{\mathrm{at}}\) birationally invariant.  The generic quantum product of
+\(\PP^3\) is semisimple, so \(I_{\mathrm{at}}(\PP^3)=0\).  A marked block
+gives \(I_{\mathrm{at}}(Y)>0\), ruling out rationality.
+\proves{cor:threefold-marker}%
+\uses{prop:atomic-lowdim, thm:marker-ledger}%
+\end{proof}
+
+\begin{proof}[Proof of Corollary~\ref{cor:v14-one-step}]
+Kuznetsov's flop gives a birational map between rank-two projective bundles
+\(\PP_V(U)\) and \(\PP_X(E^*)\) over \(V\) and its associated Pfaffian cubic
+threefold \(X\) \cite[Theorems~2.17--2.18]{KuznetsovV14}.  Each projective
+bundle is birational to the product of its base with \(\PP^1\).  Hence
+\(V\times\PP^1\) is birational to \(X\times\PP^1\), which is irrational by
+Theorem~\ref{thm:every-cubic}.
+\proves{cor:v14-one-step}%
+\uses{thm:every-cubic}%
+\imports{KuznetsovV14:flop}%
+\end{proof}
 
 \begin{proof}[Proof of Corollary~\ref{cor:voisin-separation}]
 Voisin produces a nonempty countable union of subvarieties of codimension at
 most three in the moduli space of smooth cubic threefolds along which the
 primitive minimal class \(\Theta^4/4!\) is algebraic, hence along which
-\(CH_0\) is universally trivial \cite[Theorem~4.5 and Lemma~4.6]{Voisin}.
-The projective-bundle formula supplies universal \(CH_0\)-triviality of the
-product, and Theorem~\ref{thm:every-cubic} supplies its irrationality.
+\(CH_0\) is universally trivial \cite[Theorem~4.5 and
+Lemma~4.6]{Voisin}.  The projective-bundle formula passes universal
+\(CH_0\)-triviality to the product, and
+Theorem~\ref{thm:every-cubic} supplies its irrationality.
 \proves{cor:voisin-separation}%
 \uses{thm:every-cubic}%
 \imports{Voisin:minimal-class-locus}%
@@ -34,75 +52,24 @@ The cubics of \cite[Theorem~3.3]{YYZ} carry unirational parametrizations of
 degrees two and three, and \cite[Corollary~3.5]{YYZ} keeps both degrees on
 \(X\times\PP^1\).  Parametrizations of coprime degrees give a decomposition
 of the diagonal and hence universal \(CH_0\)-triviality
-\cite[Section~1]{YYZ}.  Theorem~\ref{thm:every-cubic} gives irrationality of
-\(X\times\PP^1\).
+\cite[Section~1]{YYZ}.  Theorem~\ref{thm:every-cubic} gives irrationality.
 \proves{cor:coprime-separation}%
 \uses{thm:every-cubic}%
 \imports{YYZ:coprime-degree-family, YYZ:coprime-degrees-persist}%
 \end{proof}
 
-\begin{proof}[Proof of Theorem~\ref{thm:separation-family}]
-Corollary~\ref{cor:universal-ch0} gives universal \(CH_0\)-triviality of
-\(X_b\), and the projective-bundle formula gives the same property for
-\(X_b\times\PP^1\).  Theorem~\ref{thm:every-cubic} proves that this
-fourfold is irrational.  Non-isotriviality follows from the nonconstant
-intermediate-Jacobian period map on the \(A_5\)-component: Hartlieb proves
-that the closure of its image is a one-dimensional special subvariety
-\cite[Proposition~5.7]{Hartlieb}.  Finally,
-Proposition~\ref{prop:A5-nonseparated} shows that every point of this moduli
-curve except the Fermat point lies outside the separated-variable locus.
-\proves{thm:separation-family}%
-\uses{cor:universal-ch0, thm:every-cubic, prop:A5-nonseparated}%
-\imports{Hartlieb:period-image-dimension}%
-\end{proof}
-
-The two mechanisms are independent without any standing hypothesis.  On the
-cycle side, algebraicity of \(\Theta^4/4!\) removes the
-universal-\(CH_0\) obstruction.  On the quantum side, the rank-two formal-exponent
-marker has value \(1\) on a cubic threefold and vanishes on every possible
-center in a factorization of fourfolds; the categorical ledger therefore
-obstructs rationality after one product stabilization.  The special
-\(A_5\)-geometry enters only in the cycle argument, whereas the QDM marker
-applies to every smooth cubic threefold.  The cycle construction also shows,
-by Proposition~\ref{prop:A5-nonseparated}, that away from the Fermat point its
-universal \(CH_0\)-triviality is not explained by the separated-variable
-criterion.
-
-The framed invariant \(\nu_6\) is a finer, partially conditional instance of
-the same categorical ledger theorem, using a block type that also retains the
-small section and original loop framing.  Its values \(\nu_6(X)=2\) and
-\(\nu_6(X\times\PP^1)=4\) are unconditional for every smooth cubic
-threefold by Proposition~\ref{prop:cubic-packet} and
-Corollary~\ref{cor:cubic-product-nu}.  Hypothesis~5.7R is used only for the
-residual reconstruction-tail step in the operation formulas.  The direct
-specialization arguments of Propositions~\ref{prop:direct-specialized-lowdim}
-and~\ref{prop:hirzebruch-specialized-vanishing}
-remove Hypothesis~5.7T for nef-canonical targets, \(\PP^1\), \(\PP^2\),
-every rational geometrically ruled surface (for \(F_1\), on the
-specializations that arise as blowup centers), and, assuming 5.7R, ruled
-surfaces over positive-genus curves; 5.7T remains only for surface centers that
-are neither minimal nor geometrically ruled.
-Conditional on 5.7R and on 5.7T for those centers, the common marker theorem
-makes \(\nu_6\) birationally invariant through dimension four.  Neither
-hypothesis is a condition on any separation statement in this section.
-
-For comparison, the two threefold-level quantities are logically
-independent.  If \(U(Y)\) denotes the indicator of universal
-\(CH_0\)-triviality, Corollary~\ref{cor:p3-nu6} gives
-\(\nu_6(\PP^3)=0\) unconditionally, while
-Proposition~\ref{prop:cubic-packet} gives \(\nu_6=2\) for every cubic.
-Consequently
+The marker operation formula has the same additive shape as Bittner's blowup
+relation \cite[Theorem~3.1]{Bittner}.  More precisely, if an additive
+extension of a marker is defined on the Bittner group, then
 \[
- \bigl(U(Y),\nu_6(Y)\bigr)=
- \begin{cases}
-  (1,0),&Y=\PP^3,\\
-  (1,2),&Y\text{ is a smooth member of the }A_5\text{-family},\\
-  (0,2),&Y\text{ is a very general cubic threefold}.
- \end{cases}
+ I(\Bl_ZY)-I(\PP_Z(N_{Z/Y}))=I(Y)-I(Z)
 \]
-Voisin's criterion \cite[Corollary~4.4]{Voisin} and the evenness theorem
-\cite[Theorem~1.3 and Corollary~1.4]{EdGFS} give the last line.  Thus neither
-universal \(CH_0\)-triviality nor \(\nu_6\) determines the other.
+follows from \(I(\Bl_ZY)=I(Y)+(c-1)I(Z)\) and
+\(I(\PP_Z(N_{Z/Y}))=cI(Z)\).  The effective
+\(\mathbf N\)-valued fold used here is not itself such a group-valued motivic
+measure: no subtraction or multiplicativity has been constructed.  The
+parallel explains why the center bound is decisive without claiming a
+Grothendieck-ring factorization that the proof does not supply.
 
-All stabilization statements in this paper concern \(X\times\PP^1\).  No
-claim about further stabilization is implicit in the theorem above.
+All results above concern one product stabilization.  No statement about a
+second or arbitrary stabilization is implicit.

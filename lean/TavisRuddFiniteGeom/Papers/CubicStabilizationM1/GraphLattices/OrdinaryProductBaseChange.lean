@@ -1,5 +1,5 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.OrdinaryProducts
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.FaithfullyFlatMembership
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.GraphLattices.OrdinaryProducts
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.GraphLattices.FaithfullyFlatMembership
 import Mathlib.LinearAlgebra.TensorProduct.Tower
 
 /-!
@@ -11,7 +11,7 @@ This is the algebraic comparison required before faithfully-flat descent; it
 does not by itself reflect membership to the base.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace GraphLattices
 
@@ -163,4 +163,4 @@ theorem tensorProduct_includeRight_injective_of_faithfullyFlat
 
 end GraphLattices
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

@@ -19,7 +19,7 @@ Eckardt point, projective equivalence, family, or coarse moduli space is
 constructed here.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace Applications
 
@@ -171,4 +171,4 @@ theorem separatedVariableLocus_and_universalCH0_outside
 
 end Applications
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

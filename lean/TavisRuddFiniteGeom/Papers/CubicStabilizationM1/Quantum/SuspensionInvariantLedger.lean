@@ -1,4 +1,4 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Quantum.EffectiveBlockLedger
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Quantum.EffectiveBlockLedger
 
 /-!
 # Effective block ledgers insensitive to grading suspension
@@ -21,7 +21,7 @@ The construction is purely categorical.  It does not assert that a geometric
 comparison exists or identify the degree of any external comparison map.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace Quantum
 
@@ -129,4 +129,4 @@ end BlockPresentation
 
 end Quantum
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

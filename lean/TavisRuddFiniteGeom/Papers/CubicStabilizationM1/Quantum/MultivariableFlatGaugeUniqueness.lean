@@ -39,7 +39,7 @@ monomials and levels, convergence, or analytic gauge data.  The proofs are
 symbolic and kernel checked, with no external computation or oracle.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace Quantum
 
@@ -1590,4 +1590,4 @@ theorem laurentMultivariableFlatGaugeSeries_unique
 
 end Quantum
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

@@ -1,6 +1,6 @@
 import Mathlib.GroupTheory.Index
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.SixPointLabelHeartMatrix
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.SixPointProjectiveSpecialLinearAction
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.GraphLattices.SixPointLabelHeartMatrix
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.GraphLattices.SixPointProjectiveSpecialLinearAction
 
 /-!
 # The label permutations that preserve the packet of stable halves
@@ -38,7 +38,7 @@ action and does not identify the six labels with the six conjugate dihedral
 subgroups of a geometric argument.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace GraphLattices
 
@@ -995,4 +995,4 @@ theorem sixPointHeartPacketPreserving_iff (permutation : Equiv.Perm (Fin 6)) :
 
 end GraphLattices
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

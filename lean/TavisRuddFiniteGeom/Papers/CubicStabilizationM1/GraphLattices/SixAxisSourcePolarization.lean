@@ -1,7 +1,7 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.SixAxisTwoPrimaryDiscriminant
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.SixAxisDiscriminantSupport
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.SixPointIntegralQuotient
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.SixPointThreePrimary
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.GraphLattices.SixAxisTwoPrimaryDiscriminant
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.GraphLattices.SixAxisDiscriminantSupport
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.GraphLattices.SixPointIntegralQuotient
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.GraphLattices.SixPointThreePrimary
 import Mathlib.LinearAlgebra.Matrix.Kronecker
 import Mathlib.LinearAlgebra.Matrix.NonsingularInverse
 
@@ -50,7 +50,7 @@ finite-field matrices and modules; the identification of those matrices with
 geometric homology is supplied elsewhere and is not proved by this module.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace GraphLattices
 
@@ -518,4 +518,4 @@ theorem sixPointIntegralQuotientPairing_dvd_six_of_sum_zero
 
 end GraphLattices
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

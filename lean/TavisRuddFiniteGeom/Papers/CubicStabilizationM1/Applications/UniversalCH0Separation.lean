@@ -1,6 +1,6 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Applications.CubicResidueMarkerOneStep
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Applications.UniversalCH0
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Applications.SeparatedVariableCubicForms
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Applications.CubicResidueMarkerOneStep
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Applications.UniversalCH0
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Applications.SeparatedVariableCubicForms
 
 /-!
 # Separating universal zero-cycle triviality from rationality
@@ -32,7 +32,7 @@ sources of universal `CH₀`-triviality used in the manuscript.
   diagonales*, Algebraic Geometry 4 (2017), 597--602, arXiv:1607.05673v3,
   Théorème 2.8.  For the Fermat equation the hypothesis of that criterion is
   not assumed here: it is proved, in
-  `TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.Applications.fermatCubicForm_separatedVariable_five`.
+  `TavisRuddFiniteGeom.Papers.CubicStabilizationM1.Applications.fermatCubicForm_separatedVariable_five`.
 * Unirational parametrizations of coprime degrees, which give a decomposition
   of the diagonal.  Song Yang, Xun Yu and Zigang Zhu, *Nonrational varieties
   with unirational parametrizations of coprime degrees*, arXiv:2508.03623v2
@@ -49,7 +49,7 @@ and each cited theorem enters as an explicit hypothesis.  All proofs are
 symbolic and kernel checked, with no external computation or oracle.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace Applications
 
@@ -222,4 +222,4 @@ theorem coprimeUnirationalDegrees_separation
 
 end Applications
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

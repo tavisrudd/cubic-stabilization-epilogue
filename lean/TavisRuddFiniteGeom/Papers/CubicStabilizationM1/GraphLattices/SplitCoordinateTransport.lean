@@ -1,4 +1,4 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.CoefficientExtension
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.GraphLattices.CoefficientExtension
 import Mathlib.Tactic
 
 /-!
@@ -14,7 +14,7 @@ No splitting extension, eigenbasis, graph presentation, or geometric
 realization is constructed here.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace GraphLattices
 
@@ -197,4 +197,4 @@ theorem matrixCongruence_injective
 
 end GraphLattices
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1

@@ -1,4 +1,4 @@
-import TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue.GraphLattices.TraceDeterminantPairing
+import TavisRuddFiniteGeom.Papers.CubicStabilizationM1.GraphLattices.TraceDeterminantPairing
 
 /-!
 # Orthogonal lines and small stable subgroups of the two-primary heart
@@ -28,7 +28,7 @@ the concrete two-dimensional model of the heart and its pairing.  All proofs are
 symbolic and kernel checked, with no external computation or oracle.
 -/
 
-namespace TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+namespace TavisRuddFiniteGeom.Papers.CubicStabilizationM1
 
 namespace GraphLattices
 
@@ -142,4 +142,4 @@ end
 
 end GraphLattices
 
-end TavisRuddFiniteGeom.Papers.CubicStabilizationEpilogue
+end TavisRuddFiniteGeom.Papers.CubicStabilizationM1
